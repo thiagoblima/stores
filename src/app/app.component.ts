@@ -23,8 +23,8 @@ const HEADER: Header = {
 export class AppComponent {
   header = { 
     logo: HEADER.logo,
-    name: HEADER.title,
-    hp: HEADER.subtitle,
+    title: HEADER.title,
+    subtitle: HEADER.subtitle,
     date: HEADER.date 
   }
     
