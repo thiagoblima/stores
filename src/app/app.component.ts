@@ -37,14 +37,6 @@ header.setLogo = 'Logo';
 header.setTitle = 'Stores';
 header.setTitle = 'The Ultimate Management For Your Business';
 
-/*const HEADER: Header = { 
-  title: 'Stores', 
-  subtitle: 'The Ultimate Management For Your Business', 
-  date: new Date(),
-  getLogo: this.getLogo(),
-  setLogo: this.setLogo('Logo')  
-};*/
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
