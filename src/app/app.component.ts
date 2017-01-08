@@ -21,6 +21,10 @@ export class Header {
   set setTitle(title){
     this.title = title;
   }
+
+  get getSubtitle(): string {
+    return this.subtitle;
+  }
 }
 
 const header = new Header();
