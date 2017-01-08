@@ -40,7 +40,7 @@ const header = new Header();
 
 header.setLogo = 'Logo';
 header.setTitle = 'Stores';
-header.setTitle = 'The Ultimate Management For Your Business';
+header.setSubtitle = 'The Ultimate Management For Your Business';
 
 @Component({
   selector: 'app-root',
@@ -52,7 +52,8 @@ export class AppComponent {
   header = { 
     logo: header.getLogo,
     title: header.getTitle,
-    subtitle: header.getSubtitle 
+    subtitle: header.getSubtitle,
+
   }
     
 }
