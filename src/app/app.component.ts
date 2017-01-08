@@ -9,6 +9,13 @@ export class Header {
   private subtitle: string;
   private date: Date;
 
+  constructor(logo, title, subtitle, date) {
+    this.logo = logo;
+    this.title = title;
+    this.subtitle = subtitle;
+    this.date = date;
+  }
+
   public get getLogo(): string {
     return this.logo;
   }
@@ -45,7 +52,7 @@ export class Header {
 
 /** @name: header @params: logo, title, subtitle, date @description: Creating a new element from Header Class */
 
-const header = new Header();
+const header = new Header('logo', 'title', 'subtitle', new Date());
 
 header.setLogo = 'Logo';
 header.setTitle = 'Stores';
