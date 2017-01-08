@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavComponent } from './commons/nav/nav.component';
+import { HeaderComponent } from './commons/header/header.component';
 
 export class Header {
 
