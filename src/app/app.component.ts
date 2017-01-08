@@ -58,6 +58,7 @@ export class AppComponent {
     logo: header.getLogo,
     title: header.getTitle,
     subtitle: header.getSubtitle,
+    date: header.getDate
 
   }
     
