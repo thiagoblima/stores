@@ -4,7 +4,7 @@ import { NavComponent } from './nav/nav.component';
 export class Header {
 
   /** 
-   * @name: Header @description: 
+   * @name: Header
    * @description: Object instances written here 
    **/
 
