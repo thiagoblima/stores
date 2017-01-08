@@ -1,14 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 
 export class NavStructure {
-  private home: string;
-  private whoWeAre: string;
-  private showCase: string;
-  private stores: string;
-  private contact: string;
+
+  public home: string;
+  public whoWeAre: string;
+  public showCase: string;
+  public stores: string;
+  public contact: string;
 
 }
 
+const NAV: NavStructure = {
+  home: 'Home',
+  whoWeAre: 'Who We Are',
+  showCase: 'Show Case',
+  stores: 'Stores',
+  contact: 'Contact'
+};
 
 
 @Component({
@@ -18,9 +26,16 @@ export class NavStructure {
 })
 export class NavComponent implements OnInit {
 
-  constructor() { }
+  nav = {
+    home: NAV.home,
+    whoWeAre: NAV.whoWeAre,
+    showCase: NAV.showCase,
+    stores: NAV.stores,
+    contact: NAV.contact
+  }
 
   ngOnInit() {
+    
   }
 
 }
