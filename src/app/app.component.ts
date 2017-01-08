@@ -54,7 +54,8 @@ header.setTitle = 'The Ultimate Management For Your Business';
 export class AppComponent {
   header = { 
     logo: header.getLogo,
-    title: header.getTitle 
+    title: header.getTitle,
+    subtitle: header.getSubtitle 
   }
     
 }
