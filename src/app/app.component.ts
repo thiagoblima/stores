@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 
 export class Header {
+
+  /** @name: Header @description: Object instances written here */
+
   private logo: string;
   private title: string;
   private subtitle: string;
@@ -39,6 +42,8 @@ export class Header {
   }
 
 }
+
+/** @name: header @params: logo, title, subtitle, date @description: Creating a new element from Header Class */
 
 const header = new Header();
 
