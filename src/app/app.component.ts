@@ -6,31 +6,31 @@ export class Header {
   private subtitle: string;
   private date: Date;
 
-  get getLogo(): string {
+  public get getLogo(): string {
     return this.logo;
   }
   
-  set setLogo(logo){
+  public set setLogo(logo){
     this.logo = logo;
   }
 
-  get getTitle(): string {
+  public get getTitle(): string {
     return this.title;
   }
 
-  set setTitle(title){
+  public set setTitle(title){
     this.title = title;
   }
 
-  get getSubtitle(): string {
+  public get getSubtitle(): string {
     return this.subtitle;
   }
 
-  set setSubtitle(subtitle){
+  public set setSubtitle(subtitle){
     this.subtitle = subtitle;
   }
 
-  get getDate(): Date {
+  public get getDate(): Date {
     return new Date();
   }
 
