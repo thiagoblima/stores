@@ -8,6 +8,14 @@ export class NavStructure {
   public stores: string;
   public contact: string;
 
+  constructor(home, whoWeAre, showCase, stores, contact){
+     this.home = home;
+     this.whoWeAre = whoWeAre;
+     this.showCase = showCase;
+     this.stores = stores;
+     this.contact = contact;
+  }
+
 }
 
 const NAV: NavStructure = {
@@ -18,12 +26,12 @@ const NAV: NavStructure = {
   contact: 'Contact'
 };
 
-
 @Component({
   selector: 'app-nav',
   templateUrl: './nav.component.html',
   styleUrls: ['./nav.component.scss']
 })
+
 export class NavComponent implements OnInit {
 
   nav = {
