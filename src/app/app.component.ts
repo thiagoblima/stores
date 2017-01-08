@@ -34,6 +34,10 @@ export class Header {
     return new Date();
   }
 
+  public set setDate(date) {
+    this.date = date;
+  }
+
 }
 
 const header = new Header();
@@ -41,6 +45,7 @@ const header = new Header();
 header.setLogo = 'Logo';
 header.setTitle = 'Stores';
 header.setSubtitle = 'The Ultimate Management For Your Business';
+header.setDate = new Date();
 
 @Component({
   selector: 'app-root',
