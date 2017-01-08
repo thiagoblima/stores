@@ -29,6 +29,11 @@ export class Header {
   set setSubtitle(subtitle){
     this.subtitle = subtitle;
   }
+
+  get getDate(): Date {
+    return new Date();
+  }
+
 }
 
 const header = new Header();
