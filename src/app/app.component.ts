@@ -51,7 +51,7 @@ export class Header {
 
 }
 
-/** @name: header @params: logo, title, subtitle, date @description: Creating a new element from Header Class */
+/** @name: header @param: logo, title, subtitle, date @description: Creating a new element from Header Class */
 
 const header = new Header('logo', 'title', 'subtitle', new Date());
 
