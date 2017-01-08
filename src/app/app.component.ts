@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NavComponent } from './nav/nav.component';
 
 export class Header {
 
@@ -71,7 +72,6 @@ export class AppComponent {
     title: header.getTitle,
     subtitle: header.getSubtitle,
     date: header.getDate
-
   }
     
 }
