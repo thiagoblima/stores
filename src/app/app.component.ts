@@ -5,14 +5,27 @@ export class Header {
   public title: string;
   public subtitle: string;
   public date: Date;
+
+  get getLogo(): string {
+    return this.logo;
+  }
+  
+  set setLogo(logo){
+    this.logo = logo;
+  }
 }
 
-const HEADER: Header = { 
-  logo: 'Logo', 
+const header = new Header();
+
+header.setLogo = 'Logo';
+
+/*const HEADER: Header = { 
   title: 'Stores', 
   subtitle: 'The Ultimate Management For Your Business', 
-  date: new Date()  
-};
+  date: new Date(),
+  getLogo: this.getLogo(),
+  setLogo: this.setLogo('Logo')  
+};*/
 
 @Component({
   selector: 'app-root',
@@ -22,10 +35,7 @@ const HEADER: Header = {
 
 export class AppComponent {
   header = { 
-    logo: HEADER.logo,
-    title: HEADER.title,
-    subtitle: HEADER.subtitle,
-    date: HEADER.date 
+    logo: header.getLogo 
   }
     
 }
