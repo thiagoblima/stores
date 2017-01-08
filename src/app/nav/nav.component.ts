@@ -2,6 +2,11 @@ import { Component, OnInit } from '@angular/core';
 
 export class NavStructure {
 
+  /** 
+   * @name: NavStrucutre 
+   * @description: Object instances written here 
+   **/
+
   public home: string;
   public whoWeAre: string;
   public showCase: string;
