@@ -1,9 +1,7 @@
 <nav>
   <ul>
-    <li>{{nav.home}}</li>
-    <li>{{nav.whoWeAre}}</li>
-    <li>{{nav.showCase}}</li>
-    <li>{{nav.stores}}</li>
-    <li>{{nav.contact}}</li>
+    <li *ngFor="let link of links">
+      {{link.menu}}
+    </li>
   </ul>
 </nav>
