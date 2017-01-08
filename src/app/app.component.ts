@@ -35,6 +35,7 @@ const header = new Header();
 
 header.setLogo = 'Logo';
 header.setTitle = 'Stores';
+header.setTitle = 'The Ultimate Management For Your Business';
 
 /*const HEADER: Header = { 
   title: 'Stores', 
