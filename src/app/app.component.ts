@@ -3,7 +3,10 @@ import { NavComponent } from './nav/nav.component';
 
 export class Header {
 
-  /** @name: Header @description: Object instances written here */
+  /** 
+   * @name: Header @description: 
+   * @description: Object instances written here 
+   **/
 
   private logo: string;
   private title: string;
@@ -51,7 +54,11 @@ export class Header {
 
 }
 
-/** @name: header @param: logo, title, subtitle, date @description: Creating a new element from Header Class */
+/**
+  * @name: header 
+  * @param: logo, title, subtitle, date 
+  * @description: Creating a new element from Header Class 
+  **/
 
 const header = new Header('logo', 'title', 'subtitle', new Date());
 
