@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 
 export class Header {
-  logo: string;
-  title: string;
-  subtitle: string;
-  date: Date;
+  public logo: string;
+  public title: string;
+  public subtitle: string;
+  public date: Date;
 }
 
 const HEADER: Header = { 
