@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-export class NavStructure {
+export class Nav {
 
   /** 
    * @name: NavStrucutre 
@@ -23,7 +23,7 @@ export class NavStructure {
 
 }
 
-const nav: NavStructure = {
+const nav: Nav = {
   home: 'Home',
   whoWeAre: 'Who We Are',
   showCase: 'Show Case',
