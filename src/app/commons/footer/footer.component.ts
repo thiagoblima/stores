@@ -58,10 +58,11 @@ export class Footer implements FooterConfig {
   }
 
   contact() {
-    return this.message + ' ' + this.telephone;
+    return `${this.message}` + ' ' + `${this.telephone}` ;
   }
 
 }
+
 
 
 const footer: FooterConfig = new Footer('logo', 'rights', 'message', 1);
@@ -70,7 +71,7 @@ footer.setLogo = 'logo';
 footer.setRights = 'All rights reserved';
 footer.setMessage = 'Contact us through the number: ';
 footer.setTelephone = 551143065555;
-
+console.log('Rendering: ', {obj: footer.contact()});
 
 
 
@@ -84,7 +85,7 @@ export class FooterComponent implements OnInit {
   footer = {
     logo: footer.getLogo,
     rights: footer.getRights,
-    message: footer.contact
+    message: footer.contact()
   }
 
   ngOnInit() {
