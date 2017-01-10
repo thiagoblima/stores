@@ -19,10 +19,12 @@ export class Footer implements FooterConfig {
 
 
   constructor(public logo: string, public rights: string, public message : string, public telephone: number) {
+
     this.logo = logo;
     this.rights = rights;
     this.message = message;
     this.telephone = telephone;
+
   }
 
   public get getLogo(): string {
@@ -82,10 +84,12 @@ console.log('Rendering: ', {obj: footer.contact()});
 })
 export class FooterComponent implements OnInit {
 
+  telephone = footer.contact();
+
   footer = {
     logo: footer.getLogo,
     rights: footer.getRights,
-    message: footer.contact()
+    contact: this.telephone
   }
 
   ngOnInit() {
