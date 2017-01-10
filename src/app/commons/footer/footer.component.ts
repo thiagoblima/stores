@@ -11,12 +11,14 @@ export class Footer {
   private logo: string;
   private rights: string;
   private message: string;
+  private telephone: number;
 
-  constructor(logo, rights, message) {
+  constructor(logo, rights, message, telephone) {
     this.logo = logo;
     this.rights = rights;
     this.message = message;
- }
+    this.telephone = telephone;
+  }
 
   public get getLogo(): string {
     return this.logo;
@@ -42,13 +44,27 @@ export class Footer {
     this.message = message;
   }
 
+  public get getTelephone(): number {
+    return this.telephone;
+  }
+
+  public set setTelephone(telephone) {
+    this.telephone = telephone;
+  }
+
+  public contact() {
+    return this.message + ' ' + this.telephone;
+  }
+
 }
 
-const footer = new Footer('logo','rights','message');
+const footer = new Footer('logo', 'rights', 'message', 1);
 
 footer.setLogo = 'logo';
 footer.setRights = 'All rights reserved';
 footer.setMessage = 'Contact us through the number: ';
+footer.setTelephone = 551143065555;
+
 
 @Component({
   selector: 'app-footer',
@@ -57,7 +73,11 @@ footer.setMessage = 'Contact us through the number: ';
 })
 export class FooterComponent implements OnInit {
 
-  constructor() { }
+  footer = {
+    logo: footer.getLogo,
+    rights: footer.getRights,
+    message: footer.contact
+  }
 
   ngOnInit() {
   }
