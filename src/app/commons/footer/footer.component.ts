@@ -1,19 +1,24 @@
 import { Component, OnInit } from '@angular/core';
 import { NavComponent } from '../nav/nav.component';
 
-export class Footer {
+interface FooterConfig extends Footer  {
+
+   logo: string;
+   rights: string;
+   message: string;
+   telephone: number;
+
+}
+
+export class Footer implements FooterConfig {
 
   /** 
     * @name: Footer
     * @description: Object instances written here 
     **/
 
-  private logo: string;
-  private rights: string;
-  private message: string;
-  private telephone: number;
 
-  constructor(logo, rights, message, telephone) {
+  constructor(public logo: string, public rights: string, public message : string, public telephone: number) {
     this.logo = logo;
     this.rights = rights;
     this.message = message;
@@ -52,18 +57,21 @@ export class Footer {
     this.telephone = telephone;
   }
 
-  public contact() {
+  contact() {
     return this.message + ' ' + this.telephone;
   }
 
 }
 
-const footer = new Footer('logo', 'rights', 'message', 1);
+
+const footer: FooterConfig = new Footer('logo', 'rights', 'message', 1);
 
 footer.setLogo = 'logo';
 footer.setRights = 'All rights reserved';
 footer.setMessage = 'Contact us through the number: ';
 footer.setTelephone = 551143065555;
+
+
 
 
 @Component({
