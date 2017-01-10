@@ -44,6 +44,12 @@ export class Footer {
 
 }
 
+const footer = new Footer('logo','rights','message');
+
+footer.setLogo = 'logo';
+footer.setRights = 'All rights reserved';
+footer.setMessage = 'Contact us through the number: ';
+
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
