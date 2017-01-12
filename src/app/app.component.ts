@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavComponent } from './commons/nav/nav.component';
 import { HeaderComponent } from './commons/header/header.component';
 import { FooterComponent } from './commons/footer/footer.component';
+import { ContainerComponent } from './commons/container/container.component';
 
 
 
