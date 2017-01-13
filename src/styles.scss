@@ -1,4 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import 'app/themes/sass/modules/functions';
+@import 'app/themes/sass/partials/breakpoints';
+@import 'app/themes/sass/partials/colors';
+@import 'app/themes/sass/partials/fonts';
+
 header {
     h1{
         color:red;
