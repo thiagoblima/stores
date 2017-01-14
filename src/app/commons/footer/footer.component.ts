@@ -1,12 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 import { NavComponent } from '../nav/nav.component';
 
-interface FooterConfig extends Footer  {
+interface FooterConfig  {
 
    logo: string;
    rights: string;
    message: string;
    telephone: number;
+
+   setLogo: string;
+   setRights: string;
+   setMessage: string;
+   setTelephone: number;
+
+   getLogo: string;
+   getRights: string;
+   contact(): void;
 
 }
 
@@ -18,7 +27,7 @@ export class Footer implements FooterConfig {
     **/
 
 
-  constructor(public logo: string, public rights: string, public message : string, public telephone: number) {
+  constructor(public logo, public rights, public message, public telephone) {
 
     this.logo = logo;
     this.rights = rights;
