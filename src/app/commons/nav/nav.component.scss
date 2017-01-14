@@ -3,12 +3,12 @@
  *@description: Nav's styling goes here.
  */
 
-/** @description: testing app component */
+@import '../../themes/sass/partials/colors';
 
 nav {
     ul{
       li{
-        color: #333333;
+        color: $standard-blue;
       }
    }
 }
