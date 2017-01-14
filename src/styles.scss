@@ -5,8 +5,4 @@
 @import 'app/themes/sass/partials/colors';
 @import 'app/themes/sass/partials/fonts';
 
-header {
-    h1{
-        color:red;
-    }
-}
+@import 'app/app.component';
