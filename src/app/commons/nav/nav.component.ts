@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
+  /** 
+    * @name: NavConfig
+    * @description: Interface class is written here 
+    **/
+
 interface NavConfig  {
 
    home: string;
