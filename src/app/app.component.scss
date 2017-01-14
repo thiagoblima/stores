@@ -5,8 +5,10 @@
 
 /** @description: testing app component */
 
+@import './themes/sass/partials/colors';
+
 header {
     h1{
-        color:#E05151;
+        color:$dark-blue !important;
     }
 }
