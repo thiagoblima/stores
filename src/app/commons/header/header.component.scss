@@ -3,4 +3,11 @@
  *@description: Header's styling goes here.
  */
 
-/** @description: testing app component */
+@import '../../themes/sass/partials/colors';
+
+header{
+    h2{
+        color: $light-blue;
+    }
+}
+
