@@ -4,3 +4,9 @@
  */
 
 /** @description: testing app component */
+
+@import '../../themes/sass/partials/colors';
+
+p{
+    color: $standard-red;
+}
