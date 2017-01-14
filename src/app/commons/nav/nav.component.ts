@@ -1,29 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 
-export class Nav {
+interface NavConfig  {
 
-  /** 
-   * @name: NavStrucutre 
-   * @description: Object instances written here 
-   **/
-
-  public home: string;
-  public whoWeAre: string;
-  public showCase: string;
-  public stores: string;
-  public contact: string;
-
-  constructor(home, whoWeAre, showCase, stores, contact) {
-    this.home = home;
-    this.whoWeAre = whoWeAre;
-    this.showCase = showCase;
-    this.stores = stores;
-    this.contact = contact;
-  }
+   home: string;
+   whoWeAre: string;
+   showCase: string;
+   stores: string;
+   contact: string;
 
 }
 
-const nav: Nav = {
+const nav: NavConfig = {
   home: 'Home',
   whoWeAre: 'Who We Are',
   showCase: 'Show Case',
