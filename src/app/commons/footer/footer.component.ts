@@ -104,7 +104,7 @@ console.log('Rendering: ', {obj: footer.contact()});
 })
 export class FooterComponent implements OnInit {
 
-  telephone = footer.contact();
+  private telephone = this.footer.contact();
 
   footer = {
     logo: footer.getLogo,
