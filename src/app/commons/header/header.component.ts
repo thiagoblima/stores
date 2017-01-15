@@ -8,12 +8,14 @@ import { Component, OnInit } from '@angular/core';
    **/
 
   private logo: string;
+  private alt: string;
   private title: string;
   private subtitle: string;
   private date: Date;
 
-  constructor(logo, title, subtitle, date) {
+  constructor(logo, alt, title, subtitle, date) {
     this.logo = logo;
+    this.alt = alt;
     this.title = title;
     this.subtitle = subtitle;
     this.date = date;
@@ -25,6 +27,14 @@ import { Component, OnInit } from '@angular/core';
   
   public set setLogo(logo){
     this.logo = logo;
+  }
+
+  public get getAlt(): string {
+    return this.alt;
+  }
+  
+  public set setAlt(alt){
+    this.alt = alt;
   }
 
   public get getTitle(): string {
@@ -59,9 +69,10 @@ import { Component, OnInit } from '@angular/core';
   * @description: Creating a new element from Header Class 
   **/
 
-const header = new Header('logo', 'title', 'subtitle', new Date());
+const header = new Header('logo', 'alt', 'title', 'subtitle', new Date());
 
-header.setLogo = 'Logo';
+header.setLogo = '../../assets/Logomakr_2m2L33.png';
+header.setAlt = 'The best place to admin your stores!';
 header.setTitle = 'Stores';
 header.setSubtitle = 'The Ultimate Management For Your Business';
 header.setDate = new Date();
@@ -76,6 +87,7 @@ export class HeaderComponent implements OnInit {
 
    header = { 
     logo: header.getLogo,
+    alt: header.getAlt,
     title: header.getTitle,
     subtitle: header.getSubtitle,
     date: header.getDate
