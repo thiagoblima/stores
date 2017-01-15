@@ -15,6 +15,12 @@ interface NavConfig  {
 
 }
 
+/**
+  * @name: nav
+  * @param: home, whoWeAre, showCase, stores, contact 
+  * @description: Creating a new element from Header Class 
+  **/
+
 const nav: NavConfig = {
   home: 'Home',
   whoWeAre: 'Who We Are',
