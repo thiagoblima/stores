@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { NavComponent } from '../nav/nav.component';
 
+/** 
+    * @name: FooterConfig
+    * @description: Footer config to be implemented in Footer 
+    **/
+
 interface FooterConfig  {
 
    logo: string;
