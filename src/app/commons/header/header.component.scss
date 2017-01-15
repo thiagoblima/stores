@@ -4,12 +4,10 @@
  */
 
 @import '../../themes/sass/partials/colors';
+@import '../../themes/sass/modules/functions';
 
 header{
-    position: fixed;
-    top:0;
-    width: 100%;
-    background-color: $dark-blue;
+    @include header(fixed, 0, 100%, $dark-blue);
     figure{
         img{
             float: left;
