@@ -74,7 +74,7 @@ export class Footer implements FooterConfig {
   }
 
   contact() {
-    return `${this.message}` + ' ' + `${this.telephone}` ;
+    return `${this.message}` + ' ' + `${this.telephone}`;
   }
 
 }
@@ -104,12 +104,12 @@ console.log('Rendering: ', {obj: footer.contact()});
 })
 export class FooterComponent implements OnInit {
 
-  private telephone = this.footer.contact();
+  private telephone = footer.contact();
 
   footer = {
     logo: footer.getLogo,
     rights: footer.getRights,
-    contact: this.telephone
+    contact: footer.telephone
   }
 
   ngOnInit() {
