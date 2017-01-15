@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavComponent } from '../nav/nav.component';
 
-/** 
+  /** 
     * @name: FooterConfig
     * @description: Footer config to be implemented in Footer 
     **/
@@ -79,6 +79,12 @@ export class Footer implements FooterConfig {
 
 }
 
+
+  /**
+  * @name: footer
+  * @param: logo, rights, message, telefone
+  * @description: Creating a new element from Footer Class 
+  **/
 
 
 const footer: FooterConfig = new Footer('logo', 'rights', 'message', 1);
