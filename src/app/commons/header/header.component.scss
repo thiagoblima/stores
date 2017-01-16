@@ -14,12 +14,15 @@ header{
             padding: 0.75em;
         }
     }
-    h2{
-        padding: 20px;
+    h3{ 
+        padding-top: 0.75em;
+        color: $standard-white;
+    }& 
+    h4{
+        padding-top: 1em;
         color: $standard-white;
         
-    }& h1{
+    }& h5{
         color: $standard-white;
-        text-align:center;
     }
 }
