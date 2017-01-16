@@ -6,9 +6,13 @@
 /** @description: testing app component */
 
 @mixin header($position, $top, $width, $bgcolor){
-  position: $position;
-  top: $top;
-  width: $width;
-  background-color:$bgcolor;
+    position: $position;
+    top: $top;
+    width: $width;
+    background-color:$bgcolor;
 }
 
+@mixin header-image($float, $padding){
+    float: $float;
+    padding: $padding;
+}
