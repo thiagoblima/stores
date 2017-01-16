@@ -10,18 +10,16 @@ header{
     @include header(fixed, 0, 100%, $dark-blue);
     figure{
         img{
-            @include header-image(left, 0.75em);
+            @include header-image(left, 0.45em);
         }
     }
     h3{ 
-        padding-top: 0.75em;
-        color: $standard-white;
+        @include header-h3(0.25em, $standard-white);
     }& 
     h4{
-        padding-top: 1em;
-        color: $standard-white;
-        
-    }& h5{
-        color: $standard-white;
+        @include header-h4(1.25em, $standard-white);
+    }& 
+    h5{
+        @include set-color($standard-white);
     }
 }
