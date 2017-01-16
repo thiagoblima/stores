@@ -5,6 +5,15 @@
 
 /** @description: testing app component */
 
+// Global functions 
+
+@mixin set-color($color){
+    color: $color;
+}
+
+
+// Head functions
+
 @mixin header($position, $top, $width, $bgcolor){
     position: $position;
     top: $top;
@@ -16,3 +25,14 @@
     float: $float;
     padding: $padding;
 }
+
+@mixin header-h3($padding, $color){
+    padding-top: $padding;
+    color: $color;
+}
+
+@mixin header-h4($padding, $color){
+    padding-top: $padding;
+    color: $color;
+}
+
