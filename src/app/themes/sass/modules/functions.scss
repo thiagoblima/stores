@@ -22,6 +22,18 @@
     margin-left: $left;
 }
 
+@mixin set-height($value){
+    height: $value;
+}
+
+@mixin set-height-line-height($value1, $value2){
+    height: $value1;
+    line-height: $value2;
+}
+
+@mixin set-display($option){
+    display: $option;
+}
 
 // Head functions
 
