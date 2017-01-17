@@ -12,6 +12,7 @@ nav {
   @include set-height-line-height(9vh, 9vh);
     ul{
       li{
+        @include set-cursor(pointer);
         @include set-display(inline);
         @include set-color($standard-white);
       }
