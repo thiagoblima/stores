@@ -7,7 +7,7 @@
 @import '../../themes/sass/modules/functions';
 
 nav {
-  @include nav-margin(14em);
+  @include set-margin(14em, 0em, 0em, 0em);
     ul{
       li{
         @include set-color($standard-white);
