@@ -35,6 +35,10 @@
     display: $option;
 }
 
+@mixin set-cursor($option){
+    cursor: $option;
+}
+
 // Head functions
 
 @mixin header($position, $top, $width, $bgcolor){
