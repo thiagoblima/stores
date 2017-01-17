@@ -9,11 +9,10 @@
 nav {
   @include set-background-color($light-blue);
   @include set-margin(12.7em, 0em, 0em, 0em);
-  height:9vh;
-  line-height:9vh;
+  @include set-height-line-height(9vh, 9vh);
     ul{
       li{
-        display:inline;
+        @include set-display(inline);
         @include set-color($standard-white);
       }
    }
