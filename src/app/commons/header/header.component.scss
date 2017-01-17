@@ -10,14 +10,14 @@ header{
     @include header(fixed, 0, 100%, $dark-blue);
     figure{
         img{
-            @include header-image(left, 0.45em);
+            @include header-image(left, 1.45em);
         }
     }
-    h3{ 
-        @include header-h3(0.25em, $standard-white);
+    h2{ 
+        @include header-h3(0.45em, $standard-white);
     }& 
     h4{
-        @include header-h4(1.25em, $standard-white);
+        @include header-h4(0.45em, $standard-white);
     }& 
     h5{
         @include set-color($standard-white);
