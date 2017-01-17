@@ -7,9 +7,13 @@
 @import '../../themes/sass/modules/functions';
 
 nav {
-  @include set-margin(14em, 0em, 0em, 0em);
+  background-color:$light-blue;
+  @include set-margin(12.7em, 0em, 0em, 0em);
+  height:9vh;
+  line-height:9vh;
     ul{
       li{
+        display:inline;
         @include set-color($standard-white);
       }
    }
