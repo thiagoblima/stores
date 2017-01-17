@@ -7,7 +7,7 @@
 @import '../../themes/sass/modules/functions';
 
 nav {
-  background-color:$light-blue;
+  @include set-background-color($light-blue);
   @include set-margin(12.7em, 0em, 0em, 0em);
   height:9vh;
   line-height:9vh;
