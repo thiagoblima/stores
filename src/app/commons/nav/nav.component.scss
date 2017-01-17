@@ -9,7 +9,7 @@ nav {
   margin-top: 14em;
     ul{
       li{
-        color: $standard-blue;
+        @include set-color($standard-white);
       }
    }
 }
