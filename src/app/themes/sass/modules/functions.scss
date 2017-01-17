@@ -36,3 +36,9 @@
     color: $color;
 }
 
+// Nav functions
+
+@mixin nav-margin($margin){
+    margin-top: $margin;
+}
+
