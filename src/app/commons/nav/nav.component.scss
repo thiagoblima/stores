@@ -4,9 +4,10 @@
  */
 
 @import '../../themes/sass/partials/colors';
+@import '../../themes/sass/modules/functions';
 
 nav {
-  margin-top: 14em;
+  @include nav-margin(14em);
     ul{
       li{
         @include set-color($standard-white);
