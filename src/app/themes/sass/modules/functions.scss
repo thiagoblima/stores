@@ -11,6 +11,13 @@
     color: $color;
 }
 
+@mixin set-margin($top, $right, $bottom, $left){
+    margin-top: $top;
+    margin-right: $right;
+    margin-bottom: $bottom;
+    margin-left: $left;
+}
+
 
 // Head functions
 
@@ -35,10 +42,3 @@
     padding-top: $padding;
     color: $color;
 }
-
-// Nav functions
-
-@mixin nav-margin($margin){
-    margin-top: $margin;
-}
-
