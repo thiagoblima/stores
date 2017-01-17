@@ -7,8 +7,12 @@
 
 // Global functions 
 
-@mixin set-color($color){
-    color: $color;
+@mixin set-color($option){
+    color: $option;
+}
+
+@mixin set-background-color($option){
+    background-color: $option;
 }
 
 @mixin set-margin($top, $right, $bottom, $left){
