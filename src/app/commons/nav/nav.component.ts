@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 interface NavConfig  {
 
    home: string;
-   whoWeAre: string;
+   aboutUs: string;
    showCase: string;
    stores: string;
    contact: string;
@@ -23,7 +23,7 @@ interface NavConfig  {
 
 const nav: NavConfig = {
   home: 'Home',
-  whoWeAre: 'Who We Are',
+  aboutUs: 'About us',
   showCase: 'Show Case',
   stores: 'Stores',
   contact: 'Contact'
@@ -39,7 +39,7 @@ export class NavComponent implements OnInit {
 
   links = [
     { menu: nav.home, alt: 'Home', id: 'link-1' },
-    { menu: nav.whoWeAre, alt: 'Who We Are', id: 'link-2' },
+    { menu: nav.aboutUs, alt: 'Who We Are', id: 'link-2' },
     { menu: nav.showCase, alt: 'Show Case', id: 'link-3' },
     { menu: nav.stores, alt: 'Stores', id: 'link-4' },
     { menu: nav.contact, alt: 'Contact', id: 'link-5' }
