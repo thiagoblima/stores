@@ -11,6 +11,8 @@ nav {
     @include set-margin(12.7em, 0em, 0em, 0em);
     @include set-height-line-height(9vh, 9vh);
     ul{
+      padding:0em;
+      text-align: center;
       li{
         @include set-cursor(pointer);
         @include set-display(inline);
