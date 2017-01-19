@@ -17,7 +17,7 @@ nav {
         @include set-cursor(pointer);
         @include set-display(inline);
         @include set-color($standard-white);
-        @include set-margin(0em, 0em, 0em, 1em);
+        @include set-margin(0em, 0em, 0em, 5em);
       }
    }
 }
