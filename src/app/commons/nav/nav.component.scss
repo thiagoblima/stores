@@ -7,17 +7,24 @@
 @import '../../themes/sass/modules/functions';
 
 nav {
+  
     @include set-background-color($light-orange);
     @include set-margin(12.7em, 0em, 0em, 0em);
     @include set-height-line-height(9vh, 9vh);
+
     ul{
+
       padding:0em;
       text-align: center;
-      li{
-        @include set-cursor(pointer);
-        @include set-display(inline);
-        @include set-color($standard-white);
-        @include set-margin(0em, 0em, 0em, 5em);
+
+      li:nth-child(1){
+
+        margin-left:0em;
+
+      }li{
+
+       @include li(pointer, inline, $standard-white, (0em 0em 0em 5em));
+
       }
    }
 }
