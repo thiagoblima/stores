@@ -71,7 +71,7 @@ import { Component, OnInit } from '@angular/core';
 
 const header = new Header('logo', 'alt', 'title', 'subtitle', new Date());
 
-header.setLogo = '../../assets/Logomakr_4Zz556.png';
+header.setLogo = '../../assets/header/Logomakr_4Zz556.png';
 header.setAlt = 'The best place to admin your stores!';
 header.setTitle = 'Stores';
 header.setSubtitle = 'The Ultimate Management For Your Business';
