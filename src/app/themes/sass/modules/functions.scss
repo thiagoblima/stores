@@ -64,9 +64,10 @@
 
 // Nav functions
 
-@mixin li($cursor, $set-display, $set-color, $set-margin){
-    cursor: $cursor;
+@mixin li($set-cursor, $set-display, $set-color, $set-margin, $set-font: 1.1em){
+    cursor: $set-cursor;
     display: $set-display;
     color: $set-color;
     margin:$set-margin;
+    font-size: $set-font;
 }
