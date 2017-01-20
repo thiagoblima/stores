@@ -61,3 +61,12 @@
     padding-top: $padding;
     color: $color;
 }
+
+// Nav functions
+
+@mixin li($cursor, $set-display, $set-color, $set-margin){
+    cursor: $cursor;
+    display: $set-display;
+    color: $set-color;
+    margin:$set-margin;
+}
