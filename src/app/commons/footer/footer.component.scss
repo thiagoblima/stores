@@ -10,14 +10,11 @@
 
 footer{
 
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    text-align: center;
-    background-color: #53435A;
+    @include footer(fixed, 0, 100%, center);
 
   p{
       color: $standard-white;
+      margin: 14px 0 14px 0;
   }
 
 }
