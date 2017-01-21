@@ -71,3 +71,14 @@
     margin:$set-margin;
     font-size: $set-font;
 }
+
+// Footer functions
+
+@mixin footer($position, $bottom, $width, $text-align, $bgcolor: $dark-purle){
+    position: $position;
+    bottom: $bottom;
+    width: $width;
+    text-align: $text-align;
+    background-color: $bgcolor;
+
+}
