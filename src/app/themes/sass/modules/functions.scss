@@ -40,11 +40,11 @@
 
 // Head functions
 
-@mixin header($position, $top, $width, $bgcolor){
+@mixin header($position, $top, $width, $bg-color){
     position: $position;
     top: $top;
     width: $width;
-    background-color:$bgcolor;
+    background-color:$bg-color;
 }
 
 @mixin header-image($float, $padding){
@@ -74,11 +74,16 @@
 
 // Footer functions
 
-@mixin footer($position, $bottom, $width, $text-align, $bgcolor: $dark-purle){
+@mixin footer($position, $bottom, $width, $text-align, $bg-color: $dark-purle){
     position: $position;
     bottom: $bottom;
     width: $width;
     text-align: $text-align;
-    background-color: $bgcolor;
-
+    background-color: $bg-color;
 }
+
+@mixin footer-p($padding, $color: $standard-white){
+    color: $color;
+    padding: $padding;
+}
+
