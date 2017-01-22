@@ -69,6 +69,12 @@ export class Container implements ContainerConfig {
 
 }
 
+/**
+  * @name: container
+  * @param: storeImg, hero, caption 
+  * @description: Creating a new element from Container Class 
+  **/
+
 const store1: ContainerConfig = new Container('path1', 'hero1', 'caption1');
 const store2: ContainerConfig = new Container('path2', 'hero2', 'caption2');
 const store3: ContainerConfig = new Container('path3', 'hero3', 'caption3');
