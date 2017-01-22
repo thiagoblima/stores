@@ -69,7 +69,9 @@ export class Container implements ContainerConfig {
 
 }
 
-const store1: ContainerConfig = new Container('path', 'hero', 'caption');
+const store1: ContainerConfig = new Container('path1', 'hero1', 'caption1');
+const store2: ContainerConfig = new Container('path2', 'hero2', 'caption2');
+const store3: ContainerConfig = new Container('path3', 'hero3', 'caption3');
 
 store1.setStoreImg = 'Image';
 store1.setHero = 'Store 1';
