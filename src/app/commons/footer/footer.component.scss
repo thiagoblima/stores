@@ -13,8 +13,8 @@ footer{
     @include footer(fixed, 0, 100%, center);
 
   p{
-      color: $standard-white;
-      margin: 14px 0 14px 0;
+
+      @include footer-p(14px 0 14px 0);
   }
 
 }
