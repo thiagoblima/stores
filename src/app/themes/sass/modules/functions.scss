@@ -82,8 +82,8 @@
     background-color: $bg-color;
 }
 
-@mixin footer-p($padding, $color: $standard-white){
+@mixin footer-p($value, $color: $standard-white){
     color: $color;
-    padding: $padding;
+    margin: $value;
 }
 
