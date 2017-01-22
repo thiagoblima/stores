@@ -10,6 +10,14 @@ interface ContainerConfig {
   hero: string;
   caption: string;
 
+  /**
+   * @description: Setters of instances of objects
+   */
+
+  setStoreImg: string;
+  setHero: string;
+  setCaption: string;
+
 }
 
 export class Container implements ContainerConfig {
