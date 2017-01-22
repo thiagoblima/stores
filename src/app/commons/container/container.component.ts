@@ -14,9 +14,13 @@ export class Container implements ContainerConfig {
     * @name: Container
     * @description: Object instances written here 
     **/
+    
+    constructor(public storeImg, public hero, public caption){
 
-    constructor(){
-
+       this.storeImg = storeImg;
+       this.hero = hero;
+       this.caption = caption;
+       
     }
 
 
