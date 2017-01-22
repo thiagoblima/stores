@@ -23,9 +23,9 @@ interface ContainerConfig {
 export class Container implements ContainerConfig {
 
   /** 
-  * @name: Container
-  * @description: Object instances written here 
-  **/
+    * @name: Container
+    * @description: Object instances written here 
+    **/
 
   constructor(public storeImg, public hero, public caption) {
 
