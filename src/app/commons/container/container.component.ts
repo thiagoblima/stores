@@ -6,6 +6,10 @@ interface ContainerConfig {
    * @description: Instances of objects
    */
 
+  storeImg: string;
+  hero: string;
+  caption: string;
+
 }
 
 export class Container implements ContainerConfig {
@@ -20,7 +24,7 @@ export class Container implements ContainerConfig {
        this.storeImg = storeImg;
        this.hero = hero;
        this.caption = caption;
-       
+
     }
 
 
