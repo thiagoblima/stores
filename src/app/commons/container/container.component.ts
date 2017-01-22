@@ -13,20 +13,43 @@ interface ContainerConfig {
 }
 
 export class Container implements ContainerConfig {
-    
-    /** 
-    * @name: Container
-    * @description: Object instances written here 
-    **/
-    
-    constructor(public storeImg, public hero, public caption){
 
-       this.storeImg = storeImg;
-       this.hero = hero;
-       this.caption = caption;
+  /** 
+  * @name: Container
+  * @description: Object instances written here 
+  **/
 
-    }
+  constructor(public storeImg, public hero, public caption) {
 
+    this.storeImg = storeImg;
+    this.hero = hero;
+    this.caption = caption;
+
+  }
+
+  public get getStoreImg(): string {
+    return this.storeImg;
+  }
+
+  public set setStoreImg(path) {
+    this.storeImg = path;
+  }
+
+  public get getHero(): string {
+    return this.hero;
+  }
+
+  public set setHero(hero) {
+    this.hero = hero;
+  }
+
+  public get getCaption(): string {
+    return this.caption;
+  }
+
+  public set setCaption(caption) {
+    this.caption = caption;
+  }
 
 }
 
