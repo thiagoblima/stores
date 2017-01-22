@@ -30,10 +30,10 @@ interface ContainerConfig {
 
 export class Container implements ContainerConfig {
 
-   /** 
-    * @name: Container
-    * @description: Object instances written here 
-    **/
+  /** 
+   * @name: Container
+   * @description: Object instances written here 
+   **/
 
   constructor(public storeImg, public hero, public caption) {
 
@@ -68,6 +68,14 @@ export class Container implements ContainerConfig {
   }
 
 }
+
+const container: ContainerConfig = new Container('path', 'hero', 'caption');
+
+let store1: ContainerConfig;
+
+store1.setStoreImg = 'Image';
+store1.setHero = 'Store 1';
+store1.setCaption = 'Auto store always, find the best cars here';
 
 
 @Component({
