@@ -18,11 +18,19 @@ interface ContainerConfig {
   setHero: string;
   setCaption: string;
 
+  /**
+   * @description: Getters of instances of objects
+   */
+
+  getStoreImg: string;
+  getHero: string;
+  getCaption: string;
+
 }
 
 export class Container implements ContainerConfig {
 
-  /** 
+   /** 
     * @name: Container
     * @description: Object instances written here 
     **/
