@@ -69,9 +69,7 @@ export class Container implements ContainerConfig {
 
 }
 
-const container: ContainerConfig = new Container('path', 'hero', 'caption');
-
-let store1: ContainerConfig;
+const store1: ContainerConfig = new Container('path', 'hero', 'caption');
 
 store1.setStoreImg = 'Image';
 store1.setHero = 'Store 1';
@@ -87,6 +85,12 @@ store1.setCaption = 'Auto store always, find the best cars here';
 export class ContainerComponent implements OnInit {
 
   constructor() { }
+
+  stores = {
+    image: store1.getStoreImg,
+    hero: store1.getHero,
+    caption: store1.getCaption
+  };
 
   ngOnInit() {
   }
