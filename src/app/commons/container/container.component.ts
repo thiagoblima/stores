@@ -108,13 +108,11 @@ store3.setCaption = 'Skate shop, the best shapes, wheels and bearings';
 
 export class ContainerComponent implements OnInit {
 
-  constructor() { }
-
-  stores = {
-    image: store1.getStoreImg,
-    hero: store1.getHero,
-    caption: store1.getCaption
-  };
+  stores = [
+    { image: store1.getStoreImg, hero: store1.getHero,caption: store1.getCaption },
+    { image: store2.getStoreImg, hero: store2.getHero,caption: store2.getCaption },
+    { image: store3.getStoreImg, hero: store3.getHero,caption: store3.getCaption }
+  ];
 
   ngOnInit() {
   }
