@@ -75,13 +75,29 @@ export class Container implements ContainerConfig {
   * @description: Creating a new element from Container Class 
   **/
 
+// initializing stores
+
 const store1: ContainerConfig = new Container('path1', 'hero1', 'caption1');
 const store2: ContainerConfig = new Container('path2', 'hero2', 'caption2');
 const store3: ContainerConfig = new Container('path3', 'hero3', 'caption3');
 
-store1.setStoreImg = 'Image';
+// store 1 settings
+
+store1.setStoreImg = 'Image1';
 store1.setHero = 'Store 1';
 store1.setCaption = 'Auto store always, find the best cars here';
+
+// store 2 settings
+
+store2.setStoreImg = 'Image2';
+store2.setHero = 'Store 2';
+store2.setCaption = 'Shopping free clothes, the best wear is here';
+
+// store 3 settings
+
+store3.setStoreImg = 'Image3';
+store3.setHero = 'Store 3';
+store3.setCaption = 'Skate shop, the best shapes, wheels and bearings';
 
 
 @Component({
