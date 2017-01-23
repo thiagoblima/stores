@@ -1,11 +1,13 @@
-<section>
-  <figure>
-    {{stores.image}}
-  </figure>
-  <header>
-    {{stores.hero}}
-  </header>
-  <footer>
-    {{stores.caption}}
-  </footer>
+<section id="container">
+  <section *ngFor="let store of stores">
+    <figure>
+      {{store.image}}
+    </figure>
+    <header>
+      {{store.hero}}
+    </header>
+    <footer>
+      {{store.caption}}
+    </footer>
+  </section>
 </section>
