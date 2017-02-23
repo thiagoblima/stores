@@ -72,6 +72,14 @@
     font-size: $set-font;
 }
 
+// Container functions
+
+@mixin container-settings($margin: 1em, $padding: 2em){
+    margin: $margin;
+    padding: $padding;
+
+}
+
 // Footer functions
 
 @mixin footer($position, $bottom, $width, $text-align, $bg-color: $dark-purle){
