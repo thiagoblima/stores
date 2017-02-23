@@ -12,6 +12,5 @@
 // styles goes here
 
 section#container{
-    margin: 1em;
-    padding: 2em;
+    @include container-settings();
 }
