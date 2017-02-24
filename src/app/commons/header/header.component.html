@@ -1,5 +1,5 @@
-<section (mouseover)="test()">
-  <header [@myAnimation]="show">
+<section (mouseover)="callShow(state)">
+  <header [@myAnimation]="!show">
   <figure>
     <img src='{{header.logo}}' alt='{{header.alt}}'>
   </figure>
