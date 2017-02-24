@@ -1,8 +1,10 @@
-<header>
-  <figure (mouseover)="show = !show">
+<section>
+  <header [@myAnimation]="show">
+  <figure>
     <img src='{{header.logo}}' alt='{{header.alt}}'>
   </figure>
   <h2>{{header.title}}</h2>
   <h4>{{header.subtitle}}</h4>
   <h5>{{header.date}}</h5>
 </header>
+</section>
