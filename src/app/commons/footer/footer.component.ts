@@ -116,15 +116,21 @@ console.log('Rendering: ', { obj: footer.contact() });
 })
 export class FooterComponent implements OnInit {
 
-  private telephone = footer.contact();
+  private telephone: any = footer.contact();
+  private message: string = 'Get footer Object';
 
-  footer = {
+  private footer: {} = {
     logo: footer.getLogo,
     rights: footer.getRights,
     contact: footer.telephone
   }
 
+  public getFooterObject(): any {
+    return `${this.footer}`, console.log(`${this.message}`, this.footer);
+  }
+
   ngOnInit() {
+    this.getFooterObject();
   }
 
 }
