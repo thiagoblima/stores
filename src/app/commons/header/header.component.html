@@ -1,5 +1,8 @@
 <header (mouseover)="show = !show" [@myAnimation]="show">
-  <div class="username" *ngIf="show" [@myAnimation]="show">Thiago Lima</div>
+  <section class="username" *ngIf="show" [@myAnimation]="show">
+    <h5 *ngIf="show" [@myAnimation]="show">Thiago</h5>
+    <h6 *ngIf="show" [@myAnimation]="show">Admin</h6>
+  </section>
   <figure>
     <img src='{{header.logo}}' alt='{{header.alt}}'>
   </figure>
