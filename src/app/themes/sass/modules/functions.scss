@@ -72,9 +72,14 @@
     font-size: $set-font;
 }
 
+@mixin nav-position($width: 100%, $position: fixed){
+    width: $width;
+    position: $position;
+}
+
 // Container functions
 
-@mixin container-settings($margin: 1em, $padding: 5em){
+@mixin container-settings($margin: 14.7em, $padding: 5em){
     margin: $margin;
     padding: $padding;
 
