@@ -15,5 +15,16 @@ section#container{
     @include container-settings();
     section{
         @include container-store();
+        figure{
+           margin: 0;
+           float: left;
+        }
+        header{
+            float: right;
+        }
+        footer{
+            clear: both;
+        }
+
     }
 }
