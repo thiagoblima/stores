@@ -1,4 +1,4 @@
-import { Component, OnInit, trigger, transition, style, animate, state } from '@angular/core';
+import { Component, NgModule, OnInit, trigger, transition, style, animate, state } from '@angular/core';
 
 type headerAlias = { logo: string, alt: string, title: string, subtitle: string, date: Date };
 
@@ -65,7 +65,6 @@ export class Header {
 
 }
 
-
 /**
   * @name: header 
   * @param: logo, title, subtitle, date 
@@ -88,11 +87,17 @@ header.setDate = new Date();
       [
         transition(
           ':enter', [
-            style({ backgroundColor: '#FD9D40', opacity: 0 }),
+            style({ backgroundColor: '#FD9D40', opacity: 1 }),
             animate('800ms', style({}))
           ]
-        ) 
-      ]
+        ),
+        transition(
+          ':leave', [
+            style({ backgroundColor: '#FD9D40', opacity: 0 }),
+            animate('800ms', style({}),
+
+            )]
+        )]
     )
   ],
   templateUrl: './header.component.html',
@@ -101,11 +106,13 @@ header.setDate = new Date();
 
 export class HeaderComponent implements OnInit {
 
-  private show: any;
-
-  private callShow = (state) => state = this.show = alert('testing');
-
   private message: string = 'Get Header Object';
+
+  private show: boolean = false;
+
+  private animate(state): any {
+    return this.show = false, alert(this.show);
+  }
 
   private header: headerAlias = {
     logo: header.getLogo,
