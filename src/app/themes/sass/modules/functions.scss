@@ -80,6 +80,11 @@
 
 }
 
+@mixin container-store($display: inline-block, $padding: 0em 3em 3em 3em){
+    display: $display;
+    padding: $padding;
+}
+
 // Footer functions
 
 @mixin footer($position, $bottom, $width, $text-align, $bg-color: $dark-purle){
