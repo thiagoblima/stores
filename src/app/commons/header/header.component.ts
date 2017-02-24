@@ -65,6 +65,7 @@ export class Header {
 
 }
 
+
 /**
   * @name: header 
   * @param: logo, title, subtitle, date 
@@ -106,7 +107,7 @@ header.setDate = new Date();
 
 export class HeaderComponent implements OnInit {
 
-  show: boolean = false;
+  test = () => alert();
 
   private message: string = 'Get Header Object';
 
