@@ -37,7 +37,9 @@ const nav: NavConfig = {
 
 export class NavComponent implements OnInit {
 
-  links = [
+  private message: string = 'Get Nav Object';
+
+  private links: {} = [
     { menu: nav.home, alt: 'Home', id: 'link-1' },
     { menu: nav.aboutUs, alt: 'Who We Are', id: 'link-2' },
     { menu: nav.showCase, alt: 'Show Case', id: 'link-3' },
@@ -45,8 +47,12 @@ export class NavComponent implements OnInit {
     { menu: nav.contact, alt: 'Contact', id: 'link-5' }
   ];
 
-  ngOnInit() {
+  public getNavObject(): void {
+    return `${this.links}`, console.log(`${this.message}`, this.links);
+  }
 
+  ngOnInit() {
+    this.getNavObject();
   }
 
 }
