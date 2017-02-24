@@ -1,13 +1,13 @@
 import { Component, OnInit, trigger, transition, style, animate, state } from '@angular/core';
 
-type headerAlias = { logo: string, alt: string, title: string, subtitle: string, date: Date } ;
+type headerAlias = { logo: string, alt: string, title: string, subtitle: string, date: Date };
 
-  export class Header {
+export class Header {
 
- /** 
-   * @name: Header
-   * @description: Object instances written here 
-   **/
+  /** 
+    * @name: Header
+    * @description: Object instances written here 
+    **/
 
   private logo: string;
   private alt: string;
@@ -26,16 +26,16 @@ type headerAlias = { logo: string, alt: string, title: string, subtitle: string,
   public get getLogo(): string {
     return this.logo;
   }
-  
-  public set setLogo(logo){
+
+  public set setLogo(logo) {
     this.logo = logo;
   }
 
   public get getAlt(): string {
     return this.alt;
   }
-  
-  public set setAlt(alt){
+
+  public set setAlt(alt) {
     this.alt = alt;
   }
 
@@ -43,7 +43,7 @@ type headerAlias = { logo: string, alt: string, title: string, subtitle: string,
     return this.title;
   }
 
-  public set setTitle(title){
+  public set setTitle(title) {
     this.title = title;
   }
 
@@ -51,7 +51,7 @@ type headerAlias = { logo: string, alt: string, title: string, subtitle: string,
     return this.subtitle;
   }
 
-  public set setSubtitle(subtitle){
+  public set setSubtitle(subtitle) {
     this.subtitle = subtitle;
   }
 
@@ -81,23 +81,23 @@ header.setDate = new Date();
 
 @Component({
   selector: 'app-header',
-  animations:  [
+  animations: [
     trigger(
       'myAnimation',
       [
         transition(
-        ':enter', [
-          style({transform: 'translateX(100%)', opacity: 0}),
-          animate('500ms', style({transform: 'translateX(0)',opacity: 1}))
-        ]
-      ),
-      transition(
-        ':leave', [
-          style({transform: 'translateX(0)', 'opacity': 1}),
-          animate('500ms', style({transform: 'translateX(100%)',opacity: 0}),
-          
-          )]
-      )]
+          ':enter', [
+            style({ backgroundColor: '#FD9D40'}),
+            animate('500ms', style({backgroundColor: '#FD9D40'}))
+          ]
+        ),
+        transition(
+          ':leave', [
+            style({ backgroundColor: '#FD9D40' }),
+            animate('500ms', style({backgroundColor: '#FD9D40'}))
+
+          ]
+        )]
     )
   ],
   templateUrl: './header.component.html',
@@ -108,9 +108,9 @@ export class HeaderComponent implements OnInit {
 
   show: boolean = false;
 
-   private message: string = 'Get Header Object';
+  private message: string = 'Get Header Object';
 
-   private header: headerAlias = { 
+  private header: headerAlias = {
     logo: header.getLogo,
     alt: header.getAlt,
     title: header.getTitle,
@@ -121,7 +121,7 @@ export class HeaderComponent implements OnInit {
   public getHeaderObject(): void {
     return `${this.header}`, console.log(`${this.message}`, this.header);
   }
-  
+
   ngOnInit() {
     this.getHeaderObject();
   }
