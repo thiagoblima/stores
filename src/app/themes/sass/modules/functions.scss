@@ -79,15 +79,15 @@
 
 // Container functions
 
-@mixin container-settings($margin: 14.7em, $padding: 5em){
-    margin: $margin;
+@mixin container-settings($margin-top: 14.7em, $padding: 5em){
+    margin-top: $margin-top;
     padding: $padding;
 
 }
 
-@mixin container-store($display: inline-block, $padding: 0em 3em 3em 3em, $width: 100%){
+@mixin container-store($display: inline-block, $margin-top: 10em, $width: 100%){
     display: $display;
-    padding: $padding;
+    margin-top: $margin-top;
     width: $width;
 }
 
