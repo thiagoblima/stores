@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+type headerAlias = { logo: string, alt: string, title: string, subtitle: string, date: Date } ;
+
   export class Header {
 
  /** 
@@ -87,7 +89,7 @@ export class HeaderComponent implements OnInit {
 
    private message: string = 'Get Header Object';
 
-   private header: {} = { 
+   private header: headerAlias = { 
     logo: header.getLogo,
     alt: header.getAlt,
     title: header.getTitle,
