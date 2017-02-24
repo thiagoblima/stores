@@ -85,16 +85,22 @@ header.setDate = new Date();
 
 export class HeaderComponent implements OnInit {
 
-   header = { 
+   private message: string = 'Get Header Object';
+
+   private header: {} = { 
     logo: header.getLogo,
     alt: header.getAlt,
     title: header.getTitle,
     subtitle: header.getSubtitle,
     date: header.getDate
   }
+
+  public getHeaderObject(): void {
+    return `${this.header}`, console.log(`${this.message}`, this.header);
+  }
   
   ngOnInit() {
-    
+    this.getHeaderObject();
   }
 
 }
