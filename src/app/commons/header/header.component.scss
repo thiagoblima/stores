@@ -30,8 +30,13 @@ header{
 // username class
 
 .username {
-    position: fixed;
-    right: 2em;
-    top: 3em;
-    color: $standard-fusion;
+    h5 { top: 3em; }
+    h6 { top: 5em; }
+    h5, h6{
+      position: fixed;
+      right: 2em;
+      color: $standard-fusion;
+      width: 3em;
+    }
 }
+
