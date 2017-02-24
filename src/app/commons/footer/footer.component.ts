@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NavComponent } from '../nav/nav.component';
 
+type footerAlias = { logo: string | {}, rights: string | {}, contact: string | {} } ;
+
 /** 
   * @name: FooterConfig
   * @description: Footer config to be implemented in Footer 
@@ -119,7 +121,7 @@ export class FooterComponent implements OnInit {
   private telephone: any = footer.contact();
   private message: string = 'Get Footer Object';
 
-  private footer: {} = {
+  private footer: footerAlias = {
     logo: footer.getLogo,
     rights: footer.getRights,
     contact: footer.telephone
