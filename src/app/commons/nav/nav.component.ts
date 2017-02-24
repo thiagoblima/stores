@@ -1,17 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 
-  /** 
-    * @name: NavConfig
-    * @description: Interface class is written here 
-    **/
+type navAlias = [ { menu: string, alt: string, id: string } ];
 
-interface NavConfig  {
+/** 
+  * @name: NavConfig
+  * @description: Interface class is written here 
+  **/
 
-   home: string;
-   aboutUs: string;
-   showCase: string;
-   stores: string;
-   contact: string;
+interface NavConfig {
+
+  home: string;
+  aboutUs: string;
+  showCase: string;
+  stores: string;
+  contact: string;
 
 }
 
@@ -39,7 +41,7 @@ export class NavComponent implements OnInit {
 
   private message: string = 'Get Nav Object';
 
-  private links: {} = [
+  private links: navAlias = [
     { menu: nav.home, alt: 'Home', id: 'link-1' },
     { menu: nav.aboutUs, alt: 'Who We Are', id: 'link-2' },
     { menu: nav.showCase, alt: 'Show Case', id: 'link-3' },
