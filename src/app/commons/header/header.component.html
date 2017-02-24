@@ -1,5 +1,5 @@
-<section (mouseover)="callShow(state)">
-  <header [@myAnimation]="!show">
+<header (mouseover)="show = !show" [@myAnimation]="show">
+  <div class="username" *ngIf="show" [@myAnimation]="show">Thiago Lima</div>
   <figure>
     <img src='{{header.logo}}' alt='{{header.alt}}'>
   </figure>
@@ -7,4 +7,3 @@
   <h4>{{header.subtitle}}</h4>
   <h5>{{header.date}}</h5>
 </header>
-</section>
