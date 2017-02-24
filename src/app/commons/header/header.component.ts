@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, trigger, transition, style, animate, state } from '@angular/core';
 
 type headerAlias = { logo: string, alt: string, title: string, subtitle: string, date: Date } ;
 
@@ -81,11 +81,32 @@ header.setDate = new Date();
 
 @Component({
   selector: 'app-header',
+  animations:  [
+    trigger(
+      'myAnimation',
+      [
+        transition(
+        ':enter', [
+          style({transform: 'translateX(100%)', opacity: 0}),
+          animate('500ms', style({transform: 'translateX(0)',opacity: 1}))
+        ]
+      ),
+      transition(
+        ':leave', [
+          style({transform: 'translateX(0)', 'opacity': 1}),
+          animate('500ms', style({transform: 'translateX(100%)',opacity: 0}),
+          
+          )]
+      )]
+    )
+  ],
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
 
 export class HeaderComponent implements OnInit {
+
+  show: boolean = false;
 
    private message: string = 'Get Header Object';
 
