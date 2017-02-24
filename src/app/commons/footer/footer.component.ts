@@ -117,7 +117,7 @@ console.log('Rendering: ', { obj: footer.contact() });
 export class FooterComponent implements OnInit {
 
   private telephone: any = footer.contact();
-  private message: string = 'Get footer Object';
+  private message: string = 'Get Footer Object';
 
   private footer: {} = {
     logo: footer.getLogo,
@@ -125,7 +125,7 @@ export class FooterComponent implements OnInit {
     contact: footer.telephone
   }
 
-  public getFooterObject(): any {
+  public getFooterObject(): void {
     return `${this.footer}`, console.log(`${this.message}`, this.footer);
   }
 
