@@ -47,7 +47,7 @@ export class NavComponent implements OnInit {
     { menu: nav.showCase, alt: 'Show Case', id: 'link-3' },
     { menu: nav.stores, alt: 'Stores', id: 'link-4' },
     { menu: nav.contact, alt: 'Contact', id: 'link-5' }
-  ];
+  ]
 
   public getNavObject(): void {
     return `${this.links}`, console.log(`${this.message}`, this.links);
