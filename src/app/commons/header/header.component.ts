@@ -91,14 +91,8 @@ header.setDate = new Date();
             style({ backgroundColor: '#FD9D40', opacity: 0 }),
             animate('800ms', style({}))
           ]
-        ),
-        transition(
-          ':leave', [
-            style({ backgroundColor: 'black', opacity: 0 }),
-            animate('800ms', style({}))
-
-          ]
-        )]
+        ) 
+      ]
     )
   ],
   templateUrl: './header.component.html',
@@ -107,7 +101,9 @@ header.setDate = new Date();
 
 export class HeaderComponent implements OnInit {
 
-  test = () => alert();
+  private show: any;
+
+  private callShow = (state) => state = this.show = alert('testing');
 
   private message: string = 'Get Header Object';
 
