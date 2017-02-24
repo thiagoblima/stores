@@ -13,4 +13,8 @@
 
 section#container{
     @include container-settings();
+    section{
+        display: inline-block;
+        padding: 0em 3em 3em 3em;
+    }
 }
