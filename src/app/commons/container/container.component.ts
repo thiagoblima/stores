@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+type storesAlias = [ { image: string | {}, hero: string | {}, caption: string | {} } ];
+
 interface ContainerConfig {
 
   /**
@@ -127,11 +129,12 @@ store6.setCaption = 'Vegan restaurant, come and know the best one';
   styleUrls: ['./container.component.scss']
 })
 
+
 export class ContainerComponent implements OnInit {
 
   private message: string = 'Get Container object';
 
-  private stores = [
+  private stores: storesAlias = [
     { image: store1.getStoreImg, hero: store1.getHero, caption: store1.getCaption },
     { image: store2.getStoreImg, hero: store2.getHero, caption: store2.getCaption },
     { image: store3.getStoreImg, hero: store3.getHero, caption: store3.getCaption },
