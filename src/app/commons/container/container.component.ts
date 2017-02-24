@@ -129,6 +129,8 @@ store6.setCaption = 'Vegan restaurant, come and know the best one';
 
 export class ContainerComponent implements OnInit {
 
+  private message: string = 'Get Container object';
+
   private stores = [
     { image: store1.getStoreImg, hero: store1.getHero, caption: store1.getCaption },
     { image: store2.getStoreImg, hero: store2.getHero, caption: store2.getCaption },
@@ -139,7 +141,7 @@ export class ContainerComponent implements OnInit {
   ];
 
   public loadStores(): any {
-    return `${ this.stores }`, console.log(this.stores);
+    return `${ this.stores }`, console.log( `${this.message}`, this.stores);
   }
 
   ngOnInit() {
