@@ -138,9 +138,13 @@ export class ContainerComponent implements OnInit {
     { image: store6.getStoreImg, hero: store6.getHero,caption: store6.getCaption }
   ];
 
+  public loadStores(){
+    return console.log(this.stores);
+  }
 
   ngOnInit() {
     this.stores;
+    this.loadStores();
 
   }
 
