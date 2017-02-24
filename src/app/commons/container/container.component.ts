@@ -139,7 +139,7 @@ export class ContainerComponent implements OnInit {
   ];
 
   public loadStores(): any {
-    return  `${ this.stores }`, console.log(this.stores);
+    return `${ this.stores }`, console.log(this.stores);
   }
 
   ngOnInit() {
