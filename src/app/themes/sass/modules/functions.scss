@@ -85,7 +85,7 @@
 
 }
 
-@mixin container-store($display: inline-block, $margin-top: 10em, $width: 100%){
+@mixin container-store($display: inline-block, $margin-top: 3em, $width: 100%){
     display: $display;
     margin-top: $margin-top;
     width: $width;
