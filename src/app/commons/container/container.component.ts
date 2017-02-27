@@ -144,7 +144,7 @@ export class ContainerComponent implements OnInit {
   ];
 
   public loadStores(): any {
-    return `${ this.stores }`, console.log( `${this.message}`, this.stores);
+    return this.stores, console.log( `${this.message}`, this.stores);
   }
 
   ngOnInit() {
