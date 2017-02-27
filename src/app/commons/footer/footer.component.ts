@@ -127,8 +127,8 @@ export class FooterComponent implements OnInit {
     contact: footer.telephone
   }
 
-  public getFooterObject(): void {
-    return `${this.footer}`, console.log(`${this.message}`, this.footer);
+  public getFooterObject(): any {
+    return this.footer, console.log(`${this.message}`, this.footer);
   }
 
   ngOnInit() {
