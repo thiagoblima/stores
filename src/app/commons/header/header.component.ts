@@ -93,7 +93,7 @@ header.setDate = new Date();
         ),
         transition(
           ':leave', [
-            style({ color: '#F4F2F4', opacity: 1 }),
+            style({ color: '#FD9D40', opacity: 1 }),
             animate('800ms', style({}),
 
             )]
@@ -122,8 +122,8 @@ export class HeaderComponent implements OnInit {
     date: header.getDate
   }
 
-  public getHeaderObject(): void {
-    return `${this.header}`, console.log(`${this.message}`, this.header);
+  public getHeaderObject(): any {
+    return this.header, console.log(`${this.message}`, this.header);
   }
 
   ngOnInit() {
