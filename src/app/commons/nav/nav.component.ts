@@ -49,8 +49,8 @@ export class NavComponent implements OnInit {
     { menu: nav.contact, alt: 'Contact', id: 'link-5' }
   ]
 
-  public getNavObject(): void {
-    return `${this.links}`, console.log(`${this.message}`, this.links);
+  public getNavObject(): any {
+    return this.links, console.log(`${this.message}`, this.links);
   }
 
   ngOnInit() {
