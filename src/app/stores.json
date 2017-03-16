@@ -1,27 +1,33 @@
 [
     {
         "id": "1",
-        "name": "Mumbai",
-        "state": "Maharashtra"
+        "name": "Cars Store",
+        "state": "California",
+        "description": "Auto store always, find the best cars here"
     },
     {
         "id": "2",
-        "name": "Delhi",
-        "state": "Delhi"
+        "name": "Shopping Clothes",
+        "state": "Shopping free clothes, the best wear is here"
     },
     {
         "id": "3",
-        "name": "Bengaluru",
-        "state": "Karnataka"
+        "name": "Skate Shop",
+        "state": "Skate shop, the best shapes, wheels and bearings"
     },
     {
         "id": "4",
-        "name": "Ahmedabad",
-        "state": "Gujarat"
+        "name": "India Clothes",
+        "state": "Clothes store, the best dresses around you"
     },
     {
         "id": "5",
-        "name": "Hyderabad",
-        "state": "Telangana"
+        "name": "Italy Vines",
+        "state": "Vine store, the best french and italian vines"
+    },
+    {
+        "id": "6",
+        "name": "British Vegan Store",
+        "state": "Vegan restaurant, come and know the best one"
     }
 ]
