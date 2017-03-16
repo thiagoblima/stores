@@ -5,15 +5,17 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class StoresDataService {
 
-  constructor(private http: Http) { }
+  private stores: Array <any>;
 
-  data : Array<any> = [];
+  constructor(private http: Http) { 
+     this.stores;
+  }
 
   public getStores(){
 
     this.http.get('./src/app/stores.json')
       .map(res => res.json())
-      .subscribe(res => this.data = res);
+      .subscribe(res => this.stores = res);
 
   }
 
