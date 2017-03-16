@@ -7,7 +7,6 @@ import { StoresDataService } from './stores-data.service';
 
 
 
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
