@@ -1,3 +1,10 @@
 <section id="container">
   <h1>Posts</h1>
+  <section>
+    <ul>
+      <li *ngFor="let store of stores">
+        <h3>{{ store.name }}</h3>
+      </li>
+    </ul>
+  </section>
 </section>
