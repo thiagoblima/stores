@@ -6,7 +6,7 @@ import 'rxjs/add/operator/toPromise';
 export class StoresDataService {
 
   private stores: Array <string>;
-  private api: string = './src/app/stores.json';
+  private api: string = './src/app/services/stores.json';
 
   constructor(private http: Http) {
     this.stores;
