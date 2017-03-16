@@ -1,4 +1,4 @@
-import { Component, Directive } from '@angular/core';
+import { Component } from '@angular/core';
 import { StoresDataService } from '../../stores-data.service';
 import { Http } from '@angular/http';
 
@@ -10,7 +10,7 @@ import { Http } from '@angular/http';
   providers: [ StoresDataService ]
 })
 
-@Directive({ selector: '[StoresDataService]' })
+
 export class ContainerComponent {
   private stores;
   constructor(private _storesDataService: StoresDataService){
