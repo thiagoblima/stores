@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Http } from '@angular/http';
 
 type storesAlias = [ { image: string | {}, hero: string | {}, caption: string | {} } ];
 
