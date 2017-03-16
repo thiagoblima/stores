@@ -5,7 +5,7 @@ import 'rxjs/add/operator/toPromise';
 @Injectable()
 export class StoresDataService {
 
-  private stores: Array <any>;
+  private stores: Array <string>;
   private api: string = './src/app/stores.json';
 
   constructor(private http: Http) {
@@ -16,7 +16,7 @@ export class StoresDataService {
 
     return this.http.get(this.api)
       .toPromise()
-      .then(response => response.json())
+      .then(response => response.json() as Array <string>)
 
   }
 
