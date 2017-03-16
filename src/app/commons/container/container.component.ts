@@ -10,7 +10,7 @@ import { Http } from '@angular/http';
   providers: [ StoresDataService ]
 })
 
-
+@Directive({ selector: '[StoresDataService]' })
 export class ContainerComponent {
   private stores;
   constructor(private _storesDataService: StoresDataService){
