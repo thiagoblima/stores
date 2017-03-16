@@ -11,10 +11,10 @@ export class StoresDataService {
 
   private getStores(){
 
-    return this.http.get('app/cities.json')    
+    return this.http.get('../stores.json')    
       .map(res => res.json())
       .subscribe(res => console.log(res, "Subscribe Response"))
-      
+
   }
 
 }
