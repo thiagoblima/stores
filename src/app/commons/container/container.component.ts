@@ -13,8 +13,8 @@ import { Http } from '@angular/http';
 
 export class ContainerComponent {
   private stores;
-  constructor(private _storesDataService: StoresDataService){
-    this.stores = _storesDataService.getStores();
+  constructor(private storesDataService: StoresDataService){
+    this.stores = storesDataService.getStores();
   }
 
 }
