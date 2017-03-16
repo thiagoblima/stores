@@ -1,21 +1,22 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
-import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/toPromise';
 
 @Injectable()
 export class StoresDataService {
 
-  private stores: Array <any>;
+  private stores: Array<any>;
+  private api: string = './src/app/stores.json';
 
-  constructor(private http: Http) { 
-     this.stores;
+  constructor(private http: Http) {
+    this.stores;
   }
 
-  public getStores(){
+  public getStores() {
 
-    this.http.get('./src/app/stores.json')
-      .map(res => res.json())
-      .subscribe(res => this.stores = res);
+    return this.http.get(this.api)
+      .toPromise()
+      .then(response => response.json())
 
   }
 
