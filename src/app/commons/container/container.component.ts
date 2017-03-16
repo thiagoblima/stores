@@ -1,11 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, Directive } from '@angular/core';
 import { StoresDataService } from '../../stores-data.service';
+import { Http } from '@angular/http';
 
 
 @Component({
   selector: 'app-container',
   templateUrl: './container.component.html',
   styleUrls: ['./container.component.scss'],
+  providers: [ StoresDataService ]
 })
 
 
