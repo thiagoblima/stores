@@ -5,7 +5,6 @@ import { FooterComponent } from './commons/footer/footer.component';
 import { ContainerComponent } from './commons/container/container.component';
 
 
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
