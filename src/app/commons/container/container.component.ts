@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { StoresDataService } from '../../stores-data.service';
+import { StoresDataService } from '../../services/stores-data.service';
 import { Http } from '@angular/http';
 
 
