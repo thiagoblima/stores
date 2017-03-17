@@ -12,19 +12,34 @@
 // styles goes here
 
 section#container{
+    background-color:#FD775E;
+    width:20em;
     @include container-settings();
-    section{
-        @include container-store();
-        figure{
-           margin: 0;
-           float: left;
-        }
-        header{
-            float: right;
-        }
-        footer{
-            clear: both;
-        }
+    h1{
+
+        position: fixed;
+        color: $standard-fusion;
+        width: 5em;
+        background: #FD775E;
+        z-index: 9;
+        top: 31.5vh;
+        height: 100px;
+        line-height: 100px;
+
+    
 
     }
-}
+    section{
+        @include container-store();
+        ul{
+
+            margin-top: 3em;
+            li{
+                    h3{
+                        color: #FFFFFF !important;
+
+                    }
+                }
+          }       
+      }
+ }
