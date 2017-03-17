@@ -79,8 +79,10 @@
 
 // Container functions
 
-@mixin container-settings($margin-top: 0, $padding: 5em){
+@mixin container-settings($position: absolute, $margin-top: 13em, $z-index: -1, $padding: 5em){
+    position: $position;
     margin-top: $margin-top;
+    z-index: $z-index;
     padding: $padding;
 
 }
