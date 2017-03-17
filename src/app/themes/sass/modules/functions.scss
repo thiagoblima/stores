@@ -79,7 +79,7 @@
 
 // Container functions
 
-@mixin container-settings($margin-top: 14.7em, $padding: 5em){
+@mixin container-settings($margin-top: 0, $padding: 5em){
     margin-top: $margin-top;
     padding: $padding;
 
