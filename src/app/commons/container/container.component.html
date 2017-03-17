@@ -4,6 +4,7 @@
     <ul>
       <li *ngFor="let store of stores | async">
         <h3>{{ store.name }}</h3>
+        <h4>{{ store.state }}</h4>
       </li>
     </ul>
   </section>
