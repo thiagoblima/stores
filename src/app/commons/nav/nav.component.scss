@@ -9,7 +9,7 @@
 nav {
   
     @include set-background-color($light-orange);
-    @include set-margin(-2em, 0em, 0em, 0em);
+    @include set-margin(11.3em, 0em, 0em, 0em);
     @include nav-position();
     @include set-height-line-height(9vh, 9vh);
 
