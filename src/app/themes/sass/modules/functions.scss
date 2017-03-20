@@ -93,6 +93,20 @@
     width: $width;
 }
 
+@mixin container-side-bar($position: fixed, $color: $standard-fusion, $width: 5em, 
+                          $background-color: $standard-conga, $z-index: 9, $top: 210px,
+                          $height: 100px, $line-height: 100px) {
+
+    position: $position;
+    color: $standard-fusion;
+    width: $width;
+    background-color: $background-color;
+    z-index: $z-index;
+    top: $top;
+    height: $height;
+    line-height: $line-height; 
+}
+
 
 // Footer functions
 
