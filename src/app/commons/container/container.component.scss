@@ -17,14 +17,7 @@ section#container{
     @include container-settings();
     h1{
 
-        position: fixed;
-        color: $standard-fusion;
-        width: 5em;
-        background: #FD775E;
-        z-index: 9;
-        top: 210px;
-        height: 100px;
-        line-height: 100px; 
+        @include container-side-bar();
 
     }
     section{
