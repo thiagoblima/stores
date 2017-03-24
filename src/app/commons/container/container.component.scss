@@ -11,24 +11,20 @@
 
 // styles goes here
 
-section#container{
+section#container {
     background-color:#FD775E;
     width:20em;
     @include container-settings();
-    h1{
-
-        @include container-side-bar();
-
+    h1 {     
+         @include container-side-bar();
     }
-    section{
+    section {
         @include container-store();
-        ul{
-
+        ul {
             margin-top: 3em;
-            li{
-                    h3{
+            li {
+                    h3 {
                         color: #FFFFFF !important;
-
                     }
                 }
           }       
