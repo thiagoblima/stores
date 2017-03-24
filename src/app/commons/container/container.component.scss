@@ -12,7 +12,7 @@
 // styles goes here
 
 section#container {
-    background-color:#FD775E;
+    background-color: $standard-conga;
     width:20em;
     @include container-settings();
     h1 {     
