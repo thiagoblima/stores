@@ -1,13 +1,13 @@
 {
-  "name": "node-todo",
+  "name": "stores-case",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Thiago Lima",
+  "license": "MIT",
   "dependencies": {
     "body-parser": "^1.15.0",
     "ejs": "^2.4.1",
