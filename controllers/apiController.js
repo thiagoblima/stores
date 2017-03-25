@@ -53,14 +53,14 @@ module.exports = (app) => {
 
         else {
 
-            let newTodo = Todos({
+            let newUser = Todos({
                 username: req.body.username,
                 lastname: req.body.lastname,
                 photo: req.body.photo,
                 isAdmin: req.body.isAdmin,
                 hasAttachment: req.body.hasAttachment
             });
-            newTodo.save((err) => {
+            newUser.save((err) => {
                 if (err) throw err;
                 res.send('Success');
             });
