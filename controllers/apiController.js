@@ -15,7 +15,7 @@ module.exports = (app) => {
 
     app.get('/api/users/:username', (req, res) => {
 
-        Todos.find({ username: req.params.username }, (err, users) => {
+        Users.find({ username: req.params.username }, (err, users) => {
             if (err) throw err;
 
             res.send(users);
@@ -53,7 +53,7 @@ module.exports = (app) => {
 
         else {
 
-            let newUser = Todos({
+            let newUser = Users({
                 username: req.body.username,
                 lastname: req.body.lastname,
                 photo: req.body.photo,
