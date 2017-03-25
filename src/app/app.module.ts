@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { NavComponent } from './commons/nav/nav.component';
 import { HeaderComponent } from './commons/header/header.component';
 import { FooterComponent } from './commons/footer/footer.component';
-import { ContainerComponent } from './commons/container/container.component';
+import { SideBarComponent } from './commons/sidebar/sidebar.component';
 
 
 @NgModule({
@@ -16,7 +16,7 @@ import { ContainerComponent } from './commons/container/container.component';
     NavComponent,
     HeaderComponent,
     FooterComponent,
-    ContainerComponent
+    SideBarComponent
   ],
   imports: [
     BrowserModule,
