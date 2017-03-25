@@ -1,6 +1,6 @@
 /**
  * @author: Thiago Lima
- * @description: REST API controller, responsible for CRUD Todo services.
+ * @description: Stores Case User REST API
  * @module: App - Adding Seed Data
  */
 
