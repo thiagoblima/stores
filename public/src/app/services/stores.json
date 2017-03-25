@@ -1,0 +1,38 @@
+[
+    {
+        "id": "1",
+        "name": "Cars Store",
+        "state": "California",
+        "description": "Auto store always, find the best cars here"
+    },
+    {
+        "id": "2",
+        "name": "Shopping Clothes",
+        "state": "New York",
+        "description": "Shopping free clothes, the best wear is here"
+    },
+    {
+        "id": "3",
+        "name": "Skate Shop",
+        "state": "Massachussets",
+        "description": "Skate shop, the best shapes, wheels and bearings"
+    },
+    {
+        "id": "4",
+        "name": "India Clothes",
+        "state": "Mumbai",
+        "description": "Clothes store, the best dresses around you"
+    },
+    {
+        "id": "5",
+        "name": "Italy Vines",
+        "state": "Veneza",
+        "description": "Vine store, the best french and italian vines"
+    },
+    {
+        "id": "6",
+        "name": "British Vegan",
+        "state": "New Castle",
+        "description": "Vegan restaurant, come and know the best one"
+    }
+]

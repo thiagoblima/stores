@@ -1,0 +1,127 @@
+/**
+ *@name: functions
+ *@description: Here's the right place to write the @mixins.
+ */
+
+
+// Global functions 
+
+@mixin set-color($option){
+    color: $option;
+}
+
+@mixin set-background-color($option){
+    background-color: $option;
+}
+
+@mixin set-margin($top, $right, $bottom, $left){
+    margin-top: $top;
+    margin-right: $right;
+    margin-bottom: $bottom;
+    margin-left: $left;
+}
+
+@mixin set-height($value){
+    height: $value;
+}
+
+@mixin set-height-line-height($value1, $value2){
+    height: $value1;
+    line-height: $value2;
+}
+
+@mixin set-display($option){
+    display: $option;
+}
+
+@mixin set-cursor($option){
+    cursor: $option;
+}
+
+// Head functions
+
+@mixin header($position, $top, $width, $bg-color){
+    position: $position;
+    top: $top;
+    width: $width;
+    background-color:$bg-color;
+}
+
+@mixin header-image($float, $padding){
+    float: $float;
+    padding: $padding;
+}
+
+@mixin header-h3($padding, $color){
+    padding-top: $padding;
+    color: $color;
+}
+
+@mixin header-h4($padding, $color){
+    padding-top: $padding;
+    color: $color;
+}
+
+// Nav functions
+
+@mixin li($set-cursor, $set-display, $set-color, $set-margin, $set-font: 1.1em){
+    cursor: $set-cursor;
+    display: $set-display;
+    color: $set-color;
+    margin:$set-margin;
+    font-size: $set-font;
+}
+
+@mixin nav-position($width: 100%, $position: fixed){
+    width: $width;
+    position: $position;
+}
+
+// Container functions
+
+@mixin container-settings($position: absolute, $height: 190vh, $z-index: -1, $padding: 3em){
+    position: $position;
+    height: $height;
+    z-index: $z-index;
+    padding: $padding;
+
+}
+
+@mixin container-store($display: inline-block, $margin-top: 3em, $width: 100%){
+    display: $display;
+    margin-top: $margin-top;
+    width: $width;
+}
+
+@mixin container-side-bar($position: fixed, $color: $standard-fusion, $width: 7.7em, 
+       $background-color: $standard-conga, $z-index: 9, $top: 200px, $left: 0, 
+       $text-align: center,  $height: 15vh, $line-height: 15vh) {
+
+    position: $position;
+    color: $standard-fusion;
+    width: $width;
+    background-color: $background-color;
+    z-index: $z-index;
+    top: $top;
+    left: $left;
+    text-align: $text-align;
+    height: $height;
+    line-height: $line-height; 
+}
+
+
+// Footer functions
+
+@mixin footer($position, $bottom, $width, $text-align, $bg-color: $dark-purle){
+    position: $position;
+    bottom: $bottom;
+    width: $width;
+    text-align: $text-align;
+    background-color: $bg-color;
+}
+
+@mixin footer-p($value, $color: $standard-white){
+    color: $color;
+    margin: $value;
+}
+
