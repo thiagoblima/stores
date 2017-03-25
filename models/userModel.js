@@ -1,7 +1,7 @@
 /**
  * @author: Thiago Lima
- * @description: This the Mongoose Todo model.
- * @module: App - Adding Seed Data
+ * @description: Stores Case User Model
+ * @module: User Model { User }
  */
 
 
