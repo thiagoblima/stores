@@ -1,0 +1,32 @@
+/**
+ *@name: container component
+ *@description: Footer's styling goes here.
+ */
+
+
+// imports
+
+@import '../../themes/sass/partials/colors';
+@import '../../themes/sass/modules/functions';
+
+// styles goes here
+
+section#container {
+    background-color: $standard-conga;
+    width:20em;
+    @include container-settings();
+    h1 {     
+         @include container-side-bar();
+    }
+    section {
+        @include container-store();
+        ul {
+            margin-top: 18em;
+            li {
+                    h3 {
+                        color: #FFFFFF !important;
+                    }
+                }
+          }       
+      }
+ }
