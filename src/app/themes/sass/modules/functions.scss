@@ -95,7 +95,7 @@
 
 @mixin container-side-bar($position: fixed, $color: $standard-fusion, $width: 7.7em, 
        $background-color: $standard-conga, $z-index: 9, $top: 210px, $left: 0, 
-       $text-align: center,  $height: 100px, $line-height: 100px) {
+       $text-align: center,  $height: 15vh, $line-height: 15vh) {
 
     position: $position;
     color: $standard-fusion;
