@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
 import { NavComponent } from './commons/nav/nav.component';
@@ -19,6 +21,8 @@ import { SideBarComponent } from './commons/sidebar/sidebar.component';
     SideBarComponent
   ],
   imports: [
+    NgbModule.forRoot(),
+    BrowserAnimationsModule,
     BrowserModule,
     FormsModule,
     HttpModule
