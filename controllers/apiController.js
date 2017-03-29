@@ -25,7 +25,7 @@ module.exports = (app) => {
 
     app.get('/api/user/:id', (req, res) => {
 
-        Todos.findById({ _id: req.params.id }, (err, user) => {
+        Users.findById({ _id: req.params.id }, (err, user) => {
             if (err) throw err;
 
             res.send(user);
