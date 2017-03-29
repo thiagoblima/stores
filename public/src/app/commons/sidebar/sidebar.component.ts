@@ -4,7 +4,7 @@ import { Http } from '@angular/http';
 
 
 @Component({
-  selector: 'app-container',
+  selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.scss'],
   providers: [ StoresDataService ]
