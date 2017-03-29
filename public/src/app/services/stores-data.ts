@@ -7,11 +7,24 @@
  * 
  */
 
-export class StoresData <String> {
-    private _id: string;
-    private username: String;
-    private lastname: String;
-    private photo: String;
-    private isAdmin: Boolean;
-    private hasAttachment: Boolean;
+interface StoresDataSettings <String> {
+    
+        _id: string;
+        username: string;
+        lastname: string;
+        photo: string;
+        isAdmin: Boolean;
+        hasAttachment: Boolean;
+    
+}
+
+export class StoresData implements StoresDataSettings <String> {
+
+    public _id;
+    public username;
+    public lastname;
+    public photo;
+    public isAdmin;
+    public hasAttachment;
+    
 }
