@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
+import { StoresData } from './stores-data';
 import 'rxjs/add/operator/toPromise';
 
 @Injectable()
@@ -13,11 +14,11 @@ export class StoresDataService {
     this.stores;
   }
 
-  public getStores() {
+  public getStores(): Promise <StoresData[]> {
 
     return this.http.get(this.api)
       .toPromise()
-      .then(response => response.json() as Array <string>)
+      .then(response => response.json() as StoresData[])
 
   }
 
