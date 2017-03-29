@@ -87,12 +87,14 @@ header.setDate = new Date();
       [
         transition(
           ':enter', [
-            animate('800ms', style({ color: '#FD9D40', opacity: 1}))
+            style({ backgroundColor:'transparent', color: '#FD9D40', opacity: 1 }),
+            animate('800ms')
           ]
         ),
         transition(
           ':leave', [
-            animate('800ms', style({ color: '#ffffff', opacity: 1 }))
+            style({opacity: 0 }),
+            animate('800ms')
           ]
         )
       ]
