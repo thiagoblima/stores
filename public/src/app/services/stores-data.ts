@@ -1,3 +1,12 @@
+/**
+ * @author: Thiago Lima
+ * 
+ * @description: Generic class which's used to 
+ * define its typings. It's being imported in 
+ * { StoresDataService }
+ * 
+ */
+
 export class StoresData <String> {
     private _id: string;
     private username: String;
