@@ -7,7 +7,7 @@
  * 
  */
 
-interface StoresDataSettings<String> {
+interface StoresDataSettings <String> {
 
     _id: string;
     username: String;
@@ -18,13 +18,13 @@ interface StoresDataSettings<String> {
 
 }
 
-export class StoresData implements StoresDataSettings<String> {
+export class StoresData implements StoresDataSettings <String> {
 
-    _id: string;
-    username: String;
-    lastname: String;
-    photo: String;
-    isAdmin: Boolean;
-    hasAttachment: Boolean;
-    
+    public _id;
+    public username;
+    public lastname;
+    public photo;
+    public isAdmin;
+    public hasAttachment;
+
 }
