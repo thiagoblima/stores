@@ -1,4 +1,4 @@
-export class StoresData {
+export class StoresData <String> {
     _id: string;
     username: String;
     lastname: String;
