@@ -7,24 +7,19 @@
  * 
  */
 
-interface StoresDataSettings <T> {
+interface StoresDataSettings<T> {
 
-    _id: string;
-    username: String;
-    lastname: String;
-    photo: String;
-    isAdmin: Boolean;
-    hasAttachment: Boolean;
-
+    _id: String;
+    name: String;
+    state: String
+    description: String
 }
 
-export class StoresData implements StoresDataSettings <String> {
+export class StoresData implements StoresDataSettings<String> {
 
     public _id;
-    public username;
-    public lastname;
-    public photo;
-    public isAdmin;
-    public hasAttachment;
+    public name;
+    public state;
+    public description;
 
 }
