@@ -7,7 +7,7 @@
  * 
  */
 
-interface StoresDataSettings <String> {
+interface StoresDataSettings <T> {
 
     _id: string;
     username: String;
