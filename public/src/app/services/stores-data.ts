@@ -1,8 +1,8 @@
 export class StoresData <String> {
-    _id: string;
-    username: String;
-    lastname: String;
-    photo: String;
-    isAdmin: Boolean;
-    hasAttachment: Boolean;
+    private _id: string;
+    private username: String;
+    private lastname: String;
+    private photo: String;
+    private isAdmin: Boolean;
+    private hasAttachment: Boolean;
 }
