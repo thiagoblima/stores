@@ -11,8 +11,8 @@ interface StoresDataSettings<T> {
 
     id: String;
     name: String;
-    state: String
-    description: String
+    state: String;
+    description: String;
 }
 
 export class StoresData implements StoresDataSettings<String> {
