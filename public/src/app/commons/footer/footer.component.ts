@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, NgModule, OnInit, trigger, transition, style, animate, state } from '@angular/core';
 import { NavComponent } from '../nav/nav.component';
 
 type footerAlias = { logo: string | {}, rights: string | {}, contact: string | {} } ;
@@ -113,6 +113,25 @@ console.log('Rendering: ', { obj: footer.contact() });
 
 @Component({
   selector: 'app-footer',
+  animations: [
+    trigger(
+      'myAnimation',
+      [
+        transition(
+          ':enter', [
+            style({ backgroundColor:'transparent', color: '#FD9D40', opacity: 1 }),
+            animate('800ms')
+          ]
+        ),
+        transition(
+          ':leave', [
+            style({opacity: 0 }),
+            animate('800ms')
+          ]
+        )
+      ]
+    )
+  ],
   templateUrl: './footer.component.html',
   styleUrls: ['./footer.component.scss']
 })
