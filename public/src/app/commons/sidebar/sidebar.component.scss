@@ -12,8 +12,8 @@
 // styles goes here
 
 section#container {
-    background-color:  $standard-fusion;
-    width:20em;
+    background-color: $standard-fusion;
+    width: 20em;
     @include container-settings();
     h1 {     
          @include container-side-bar();
@@ -24,6 +24,7 @@ section#container {
             margin-top: 18em;
             list-style-type: none;
             li {
+
                     h3 {
                         color: $dark-purle;
                         font-size: 1.4em;
@@ -32,9 +33,11 @@ section#container {
                     h4 {
                         font-size: 1em;
                     }
+
                 }:hover{
                     transition: 500ms ease-in;
                     color: $standard-conga !important;
+                    cursor: pointer;
                 }
           }       
       }
