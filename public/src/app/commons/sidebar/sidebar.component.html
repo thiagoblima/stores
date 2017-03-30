@@ -1,8 +1,8 @@
 <section id="sidebar" [@myAnimation]="show">
-  <h1>Stores</h1>
+  <h1 [@myAnimation]="show">Stores</h1>
   <section [@myAnimation]="show">
     <ul>
-      <li *ngFor="let store of stores | async">
+      <li [@myAnimation]="show" *ngFor="let store of stores | async">
         <h3>{{ store.name }}</h3>
         <h4>{{ store.state }}</h4>
       </li>
