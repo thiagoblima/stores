@@ -22,6 +22,7 @@ section#container {
         @include container-store();
         ul {
             margin-top: 18em;
+            list-style-type: none;
             li {
                     h3 {
                         color: $dark-purle !important;
