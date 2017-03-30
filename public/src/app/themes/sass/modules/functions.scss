@@ -79,11 +79,11 @@
 
 // Container functions
 
-@mixin container-settings($position: absolute, $height: 190vh, $z-index: -1, $padding: 3em){
+@mixin container-settings($position: absolute, $height: 190vh, $z-index: -1, $padding-top: 3em){
     position: $position;
     height: $height;
     z-index: $z-index;
-    padding: $padding;
+    padding-top: $padding-top;
 
 }
 
