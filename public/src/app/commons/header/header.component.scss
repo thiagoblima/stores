@@ -24,6 +24,7 @@ header{
     h5{
         @include set-color($standard-fusion);
         width: 32.7em;
+        font-weight: 200;
     }
 }
 
