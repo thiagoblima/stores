@@ -93,12 +93,12 @@
     width: $width;
 }
 
-@mixin container-side-bar($position: fixed, $color: $standard-fusion, $width: 7.7em, 
-       $background-color: $standard-conga, $z-index: 9, $top: 200px, $left: 0, 
+@mixin container-side-bar($position: fixed, $color:  $dark-purle, $width: 7.7em, 
+       $background-color:  $standard-fusion, $z-index: 9, $top: 200px, $left: 0, 
        $text-align: center,  $height: 15vh, $line-height: 15vh) {
 
     position: $position;
-    color: $standard-fusion;
+    color: $color;
     width: $width;
     background-color: $background-color;
     z-index: $z-index;
