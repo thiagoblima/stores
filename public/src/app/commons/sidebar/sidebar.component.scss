@@ -11,7 +11,7 @@
 
 // styles goes here
 
-section#container {
+section#sidebar {
     background-color: $standard-fusion;
     width: 20em;
     @include container-settings();
@@ -35,6 +35,7 @@ section#container {
 
                     h4 {
                         font-size: 1em;
+                        font-weight: 200;
                         transform: translateX(0px) skewY(0deg);
                     }
 
