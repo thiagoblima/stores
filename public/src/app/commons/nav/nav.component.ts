@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, NgModule, OnInit, trigger, transition, style, animate, state } from '@angular/core';
 
 type navAlias = [ { menu: string, alt: string, id: string } ];
 
@@ -33,6 +33,25 @@ const nav: NavConfig = {
 
 @Component({
   selector: 'app-nav',
+  animations: [
+    trigger(
+      'myAnimation',
+      [
+        transition(
+          ':enter', [
+            style({ backgroundColor:'transparent', opacity: 1 }),
+            animate('800ms')
+          ]
+        ),
+        transition(
+          ':leave', [
+            style({opacity: 0 }),
+            animate('800ms')
+          ]
+        )
+      ]
+    )
+  ],
   templateUrl: './nav.component.html',
   styleUrls: ['./nav.component.scss']
 })
