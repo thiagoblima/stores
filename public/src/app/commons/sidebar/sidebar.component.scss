@@ -32,6 +32,9 @@ section#container {
                     h4 {
                         font-size: 1em;
                     }
+                }:hover{
+                    transition: 500ms ease-in;
+                    color: $standard-conga !important;
                 }
           }       
       }
