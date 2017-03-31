@@ -25,9 +25,11 @@ module.exports = (app) => {
     app.get('/api/users/:username', (req, res) => {
 
         Users.find({ username: req.params.username }, (err, users) => {
+
             if (err) throw err;
 
             res.send(users);
+
         });
 
     });
@@ -47,6 +49,7 @@ module.exports = (app) => {
     app.get('/api/users', (req, res) => {
 
         Users.find({}, (err, users) => {
+
             if (err) throw err;
 
             res.send(users);
@@ -67,9 +70,11 @@ module.exports = (app) => {
     app.get('/api/user/:id', (req, res) => {
 
         Users.findById({ _id: req.params.id }, (err, user) => {
+
             if (err) throw err;
 
             res.send(user);
+
         });
 
     });
@@ -87,8 +92,11 @@ module.exports = (app) => {
     app.post('/api/user', (req, res) => {
 
         if (req.body.id) {
+
             Users.findByIdAndUpdate(req.body.id,
+
                 {
+
                     username: req.body.username,
                     lastname: req.body.lastname,
                     photo: req.body.photo,
@@ -96,13 +104,14 @@ module.exports = (app) => {
                     hasAttachment: req.body.hasAttachment
 
                 }, (err, user) => {
+
                     if (err) throw err;
 
                     res.send('Success');
-                });
-        }
 
-        else {
+                });
+
+        } else {
 
             let newUser = Users({
                 username: req.body.username,
@@ -111,9 +120,13 @@ module.exports = (app) => {
                 isAdmin: req.body.isAdmin,
                 hasAttachment: req.body.hasAttachment
             });
+
             newUser.save((err) => {
+
                 if (err) throw err;
+
                 res.send('Success');
+
             });
 
         }
@@ -133,9 +146,12 @@ module.exports = (app) => {
     app.delete('/api/user', (req, res) => {
 
         Users.findByIdAndRemove(req.body.id, (err) => {
+
             if (err) throw err;
+
             res.send('Success');
-        })
+
+        });
 
     });
 
