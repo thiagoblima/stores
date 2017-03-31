@@ -18,7 +18,7 @@ module.exports = (app) => {
      * @description: Get user by name
      * endpoint /api/users/:username 
      * 
-     * @param: ( req, res ) ( err, users )
+     * @param: ( err, users )
      *
      */
 
@@ -31,6 +31,18 @@ module.exports = (app) => {
         });
 
     });
+
+
+     /**
+     * 
+     * @description: Get All users
+     * endpoint /api/users
+     * 
+     * @param: ( err, users )
+     *
+     */
+
+
 
     app.get('/api/users', (req, res) => {
 
