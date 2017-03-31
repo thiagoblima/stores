@@ -13,6 +13,15 @@ module.exports = (app) => {
     app.use(bodyParser.json());
     app.use(bodyParser.urlencoded({ extended: true }));
 
+    /**
+     * 
+     * @description: Get user by name
+     * endpoint /api/users/:username 
+     * 
+     * @param: ( req, res ) ( err, users )
+     *
+     */
+
     app.get('/api/users/:username', (req, res) => {
 
         Users.find({ username: req.params.username }, (err, users) => {
