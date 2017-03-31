@@ -78,7 +78,7 @@ module.exports = (app) => {
      * 
      * @description: Get user by id
      * and update.
-     * endpoint /api/user/:id
+     * endpoint /api/user
      * 
      * @param: ( err, user )
      *
@@ -119,6 +119,16 @@ module.exports = (app) => {
         }
 
     });
+
+    /**
+     * 
+     * @description: Delete user by id
+     *
+     * endpoint /api/user
+     * 
+     * @param: ( err, user )
+     *
+     */
 
     app.delete('/api/user', (req, res) => {
 
