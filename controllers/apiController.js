@@ -55,6 +55,15 @@ module.exports = (app) => {
 
     });
 
+     /**
+     * 
+     * @description: Get user by id
+     * endpoint /api/user/:id
+     * 
+     * @param: ( err, user )
+     *
+     */
+
     app.get('/api/user/:id', (req, res) => {
 
         Users.findById({ _id: req.params.id }, (err, user) => {
