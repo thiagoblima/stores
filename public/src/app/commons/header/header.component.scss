@@ -16,6 +16,7 @@ header{
     h2{ 
         @include header-h3(0.45em, $light-orange);
         width: 9.2em;
+        font-size: 3em;
     }& 
     h4{
         @include header-h4(0.45em, $standard-fusion);
