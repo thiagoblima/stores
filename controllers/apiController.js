@@ -33,7 +33,7 @@ module.exports = (app) => {
     });
 
 
-     /**
+    /**
      * 
      * @description: Get All users
      * endpoint /api/users
@@ -46,7 +46,7 @@ module.exports = (app) => {
 
     app.get('/api/users', (req, res) => {
 
-        Users.findAll({}, (err, users) => {
+        Users.find({}, (err, users) => {
             if (err) throw err;
 
             res.send(users);
@@ -55,7 +55,7 @@ module.exports = (app) => {
 
     });
 
-     /**
+    /**
      * 
      * @description: Get user by id
      * endpoint /api/user/:id
@@ -74,6 +74,16 @@ module.exports = (app) => {
 
     });
 
+    /**
+     * 
+     * @description: Get user by id
+     * and update.
+     * endpoint /api/user/:id
+     * 
+     * @param: ( err, user )
+     *
+     */
+
     app.post('/api/user', (req, res) => {
 
         if (req.body.id) {
@@ -85,7 +95,7 @@ module.exports = (app) => {
                     isAdmin: req.body.isAdmin,
                     hasAttachment: req.body.hasAttachment
 
-                }, (err, todo) => {
+                }, (err, user) => {
                     if (err) throw err;
 
                     res.send('Success');
