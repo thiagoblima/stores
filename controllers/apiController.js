@@ -132,7 +132,7 @@ module.exports = (app) => {
 
     app.delete('/api/user', (req, res) => {
 
-        Todos.findByIdAndRemove(req.body.id, (err) => {
+        Users.findByIdAndRemove(req.body.id, (err) => {
             if (err) throw err;
             res.send('Success');
         })
