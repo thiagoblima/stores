@@ -32,6 +32,17 @@ module.exports = (app) => {
 
     });
 
+    app.get('/api/users', (req, res) => {
+
+        Users.findAll({}, (err, users) => {
+            if (err) throw err;
+
+            res.send(users);
+
+        });
+
+    });
+
     app.get('/api/user/:id', (req, res) => {
 
         Users.findById({ _id: req.params.id }, (err, user) => {
