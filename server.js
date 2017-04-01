@@ -5,6 +5,7 @@
  */
 
 const express = require('express');
+const morgan = require('morgan'); 
 const app = express();
 const mongoose = require('mongoose');
 const config = require('./config');
@@ -15,10 +16,14 @@ const port = process.env.PORT || 3000;
 
 app.use('/', express.static(__dirname + '/public/dist'));
 
+app.use(morgan('dev'));  
+
 app.set('view engine', 'ejs');
 
 mongoose.connect(config.getDbConnectionString());
+
 setupController(app);
+
 apiController(app);
 
 app.listen(port);
