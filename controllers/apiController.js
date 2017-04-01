@@ -12,15 +12,11 @@ module.exports = (app) => {
 
     app.use(bodyParser.json());
     app.use(bodyParser.urlencoded({ extended: true }));
-
     /**
-     * 
-     * @description: Get user by name
-     * endpoint /api/users/:username 
-     * 
-     * @param: ( err, users )
-     *
-     */
+    * Find and retrieves an username
+    * @param {Object} req HTTP request object.
+    * @param {Object} res HTTP response object.
+    */
 
     app.get('/api/users/:username', (req, res) => {
 
@@ -36,12 +32,9 @@ module.exports = (app) => {
 
 
     /**
-     * 
-     * @description: Get All users
-     * endpoint /api/users
-     * 
-     * @param: ( err, users )
-     *
+     * Find and retrieves all users
+     * @param {Object} req HTTP request object.
+     * @param {Object} res HTTP response object.
      */
 
 
@@ -59,12 +52,9 @@ module.exports = (app) => {
     });
 
     /**
-     * 
-     * @description: Get user by id
-     * endpoint /api/user/:id
-     * 
-     * @param: ( err, user )
-     *
+     * Find and retrieves the given id
+     * @param {Object} req HTTP request object.
+     * @param {Object} res HTTP response object.
      */
 
     app.get('/api/user/:id', (req, res) => {
@@ -80,13 +70,9 @@ module.exports = (app) => {
     });
 
     /**
-     * 
-     * @description: Get user by id
-     * and update.
-     * endpoint /api/user
-     * 
-     * @param: ( err, user )
-     *
+     * Find and deletes the given id
+     * @param {Object} req HTTP request object.
+     * @param {Object} res HTTP response object.
      */
 
     app.post('/api/user', (req, res) => {
