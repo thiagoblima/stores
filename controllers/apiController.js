@@ -134,7 +134,7 @@ module.exports = (app) => {
      * @param {Object} res HTTP response object.
      */
 
-     findAndDeleteById = (req, res) => {
+    findAndDeleteById = (req, res) => {
 
         console.log("DELETE - /api/user/:id");
 
