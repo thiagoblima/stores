@@ -19,7 +19,9 @@ module.exports = (app) => {
      * @param {Object} res HTTP response object.
      */
 
-    findUserName = (req, res) => {
+    let findUserName = (req, res) => {
+
+        console.log("GET - /api/users/:username");
 
         Users.find({ username: req.params.username }, (err, users) => {
 
@@ -27,10 +29,10 @@ module.exports = (app) => {
 
             res.send(users);
 
+
         });
 
     };
-
 
     /**
      * Find and retrieves all users
@@ -38,9 +40,9 @@ module.exports = (app) => {
      * @param {Object} res HTTP response object.
      */
 
+    let findAllUsers = (req, res) => {
 
-
-    app.get('/api/users', (req, res) => {
+        console.log("GET - /api/users");
 
         Users.find({}, (err, users) => {
 
@@ -50,7 +52,7 @@ module.exports = (app) => {
 
         });
 
-    });
+    };
 
     /**
      * Find and retrieves the given id
@@ -58,7 +60,9 @@ module.exports = (app) => {
      * @param {Object} res HTTP response object.
      */
 
-    app.get('/api/user/:id', (req, res) => {
+    let findUserById = (req, res) => {
+
+        console.log("GET - /api/user/:id");
 
         Users.findById({ _id: req.params.id }, (err, user) => {
 
@@ -68,7 +72,7 @@ module.exports = (app) => {
 
         });
 
-    });
+    };
 
     /**
      * Find and deletes the given id
@@ -139,5 +143,7 @@ module.exports = (app) => {
     });
 
     app.get('/api/users/:username', findUserName);
+    app.get('/api/users', findAllUsers);
+    app.get('/api/user/:id', findUserById);
 
 }
