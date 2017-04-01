@@ -75,7 +75,7 @@ module.exports = (app) => {
     };
 
     /**
-     * Find and deletes the given id
+     * Find and updates the given id
      * @param {Object} req HTTP request object.
      * @param {Object} res HTTP response object.
      */
@@ -129,12 +129,14 @@ module.exports = (app) => {
     };
 
     /**
-     * Find and retrieves an username
+     * Find and deletes the given id.
      * @param {Object} req HTTP request object.
      * @param {Object} res HTTP response object.
      */
 
-    app.delete('/api/user', (req, res) => {
+     findAndDeleteById = (req, res) => {
+
+        console.log("DELETE - /api/user/:id");
 
         Users.findByIdAndRemove(req.body.id, (err) => {
 
@@ -144,11 +146,12 @@ module.exports = (app) => {
 
         });
 
-    });
+    };
 
     app.get('/api/users/:username', findUserName);
     app.get('/api/users', findAllUsers);
     app.get('/api/user/:id', findUserById);
     app.post('/api/user', findByIdAndUpdate);
+    app.delete('/api/user', findAndDeleteById);
 
 }
