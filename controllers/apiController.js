@@ -12,11 +12,12 @@ module.exports = (app) => {
 
     app.use(bodyParser.json());
     app.use(bodyParser.urlencoded({ extended: true }));
+
     /**
-    * Find and retrieves an username
-    * @param {Object} req HTTP request object.
-    * @param {Object} res HTTP response object.
-    */
+     * Find and retrieves an username
+     * @param {Object} req HTTP request object.
+     * @param {Object} res HTTP response object.
+     */
 
     app.get('/api/users/:username', (req, res) => {
 
@@ -120,13 +121,9 @@ module.exports = (app) => {
     });
 
     /**
-     * 
-     * @description: Delete user by id
-     *
-     * endpoint /api/user
-     * 
-     * @param: ( err, user )
-     *
+     * Find and deletes the given id
+     * @param {Object} req HTTP request object.
+     * @param {Object} res HTTP response object.
      */
 
     app.delete('/api/user', (req, res) => {
