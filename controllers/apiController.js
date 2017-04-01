@@ -80,7 +80,9 @@ module.exports = (app) => {
      * @param {Object} res HTTP response object.
      */
 
-    app.post('/api/user', (req, res) => {
+    let findByIdAndUpdate = (req, res) => {
+
+        console.log("UPDATE - /api/user/:id");
 
         if (req.body.id) {
 
@@ -104,6 +106,8 @@ module.exports = (app) => {
 
         } else {
 
+            console.log("POST - /api/user/:id");
+
             let newUser = Users({
                 username: req.body.username,
                 lastname: req.body.lastname,
@@ -122,7 +126,7 @@ module.exports = (app) => {
 
         }
 
-    });
+    };
 
     /**
      * Find and retrieves an username
@@ -145,5 +149,6 @@ module.exports = (app) => {
     app.get('/api/users/:username', findUserName);
     app.get('/api/users', findAllUsers);
     app.get('/api/user/:id', findUserById);
+    app.post('/api/user', findByIdAndUpdate);
 
 }
