@@ -19,7 +19,7 @@ module.exports = (app) => {
      * @param {Object} res HTTP response object.
      */
 
-    app.get('/api/users/:username', (req, res) => {
+    findUserName = (req, res) => {
 
         Users.find({ username: req.params.username }, (err, users) => {
 
@@ -29,7 +29,7 @@ module.exports = (app) => {
 
         });
 
-    });
+    };
 
 
     /**
@@ -121,7 +121,7 @@ module.exports = (app) => {
     });
 
     /**
-     * Find and deletes the given id
+     * Find and retrieves an username
      * @param {Object} req HTTP request object.
      * @param {Object} res HTTP response object.
      */
@@ -137,5 +137,7 @@ module.exports = (app) => {
         });
 
     });
+
+    app.get('/api/users/:username', findUserName);
 
 }
