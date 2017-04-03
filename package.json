@@ -1,19 +1,16 @@
 {
-  "name": "stores-case",
+  "name": "node-rest-auth",
+  "main": "server.js",
   "version": "1.0.0",
-  "description": "",
-  "main": "app.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "Thiago Lima",
-  "license": "MIT",
   "dependencies": {
-    "body-parser": "^1.15.0",
-    "ejs": "^2.4.1",
-    "express": "^4.13.4",
-    "mongoose": "^4.4.7",
-    "morgan" : "*"
+    "bcrypt": "*",
+    "body-parser": "*",
+    "express": "*",
+    "jwt-simple": "*",
+    "mongoose": "*",
+    "morgan": "*",
+    "passport": "*",
+    "passport-jwt": "*",
+    "urlencode": "*"
   }
 }
-
