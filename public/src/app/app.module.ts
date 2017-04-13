@@ -14,6 +14,9 @@ import { SideBarComponent } from './commons/sidebar/sidebar.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 
+import { AuthenticationService } from './services/auth-service/authentication.service';
+import { UserService } from './services/user-service/user.service';
+
 
 @NgModule({
   declarations: [
@@ -33,7 +36,12 @@ import { LoginComponent } from './login/login.component';
     HttpModule,
     Routing
   ],
-  providers: [HttpModule],
+  providers: [
+    HttpModule,
+    AuthenticationService,
+    UserService
+
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
