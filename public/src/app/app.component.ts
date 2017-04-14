@@ -3,6 +3,7 @@ import { HomeComponent } from './Home/home.component';
 
 
 @Component({
+  moduleId: module.id,
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
