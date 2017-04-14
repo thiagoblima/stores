@@ -16,6 +16,7 @@ import { LoginComponent } from './login/login.component';
 
 import { AuthenticationService } from './services/auth/authentication.service';
 import { UserService } from './services/user/user.service';
+import { AuthGuard } from './services/guards/auth.guard';
 
 
 @NgModule({
@@ -38,6 +39,7 @@ import { UserService } from './services/user/user.service';
   ],
   providers: [
     HttpModule,
+    AuthGuard,
     AuthenticationService,
     UserService
 
