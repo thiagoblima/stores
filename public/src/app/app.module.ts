@@ -11,12 +11,12 @@ import { NavComponent } from './commons/nav/nav.component';
 import { HeaderComponent } from './commons/header/header.component';
 import { FooterComponent } from './commons/footer/footer.component';
 import { SideBarComponent } from './commons/sidebar/sidebar.component';
-import { HomeComponent } from './home/home.component';
-import { LoginComponent } from './login/login.component';
+import { HomeComponent } from './home/index';
+import { LoginComponent } from './login/index';
 
-import { AuthenticationService } from './services/auth/authentication.service';
-import { UserService } from './services/user/user.service';
-import { AuthGuard } from './services/guards/auth.guard';
+import { AuthGuard } from './services/guards/index';
+import { AuthenticationService, UserService } from './services/auth/index';
+
 
 
 @NgModule({
