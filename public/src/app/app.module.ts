@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { Routing } from './app.routing';
+import { routing } from './app.routing';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
@@ -34,7 +34,7 @@ import { UserService } from './services/user/user.service';
     BrowserModule,
     FormsModule,
     HttpModule,
-    Routing
+    routing
   ],
   providers: [
     HttpModule,
