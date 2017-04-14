@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthenticationService } from '../services/auth/authentication.service';
+import { AuthenticationService } from '../services/auth/index';
 
 @Component({
     moduleId: module.id,
@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
 
     login() {
         this.loading = true;
-        this.authenticationService.login(this.model.username, this.model.password)
+        this.authenticationService.login(this.model.name, this.model.password)
             .subscribe(result => {
                 if (result === true) {
                     this.router.navigate(['/']);
