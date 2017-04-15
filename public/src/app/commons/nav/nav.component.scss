@@ -10,7 +10,7 @@ nav {
   
     @include set-background-color($light-orange);
     @include set-margin(0em, 0em, 0em, 0em);
-    @include set-height-line-height(9vh, 9vh);
+    @include set-height-line-height(auto, 9vh);
 
     ul{
 
