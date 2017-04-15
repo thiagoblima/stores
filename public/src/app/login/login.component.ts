@@ -8,7 +8,7 @@ import { AuthenticationService } from '../services/auth/index';
 })
 
 export class LoginComponent implements OnInit {
-    model: any;
+    model: any = {};
     loading = false;
     error = '';
 
