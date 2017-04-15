@@ -1,5 +1,5 @@
 import { Component, Directive } from '@angular/core';
-import { HomeComponent } from './Home/home.component';
+import { HomeComponent } from './Home/index';
 
 
 @Component({
