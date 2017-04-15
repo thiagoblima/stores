@@ -15,16 +15,16 @@ header{
     }
     h2{ 
         @include header-h3(0.45em, $light-orange);
-        width: 9.2em;
+        width: auto;
         font-size: 3em;
     }& 
     h4{
         @include header-h4(0.45em, $standard-fusion);
-        width: 31.2em;
+        width: 100%;
     }& 
     h5{
         @include set-color($standard-fusion);
-        width: 32.7em;
+        width: 100%;
         font-weight: 200;
     }
 }
