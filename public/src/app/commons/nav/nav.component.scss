@@ -18,6 +18,18 @@ nav {
       color: $standard-fusion !important;
       
     }
+
+    .navbar-toggle {
+      border: none !important;
+
+    }
+
+    .navbar-toggle:hover {
+      background-color: $dark-purle !important;
+      border: none !important;
+      
+    }
+
    
     ul{
 
@@ -28,4 +40,3 @@ nav {
 
       }
    }
-
