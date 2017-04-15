@@ -7,7 +7,7 @@
 @import '../../themes/sass/modules/functions';
 
 header{
-    @include header(fixed, 0, 100%, $dark-purle);
+    @include header(100%, $dark-purle);
     figure{
         img{
             @include header-image(left, 1.45em);
