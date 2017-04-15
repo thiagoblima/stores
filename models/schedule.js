@@ -17,8 +17,6 @@ let ScheduleSchema = new Schema({
 
 });
 
-
-
 // on every save, add the date
 ScheduleSchema.pre('save', (next) => {
   // get the current date
