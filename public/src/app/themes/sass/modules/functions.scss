@@ -40,9 +40,7 @@
 
 // Head functions
 
-@mixin header($position, $top, $width, $bg-color){
-    position: $position;
-    top: $top;
+@mixin header($width, $bg-color){
     width: $width;
     background-color:$bg-color;
 }
