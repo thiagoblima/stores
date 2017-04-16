@@ -65,7 +65,6 @@
 @mixin nav-borders($border-radius: 0px !important, $border: 0px !important){
     border-radius: $border-radius;
     border: $border;
-
 }
 
 @mixin li($set-cursor, $set-display, $set-color, $set-margin, $set-font: 1.1em){
@@ -74,6 +73,13 @@
     color: $set-color;
     margin:$set-margin;
     font-size: $set-font;
+}
+
+// Container functions
+
+@mixin animate-stores($transform, $transition){
+    transform: $transform;
+    transition: $transition;
 }
 
 // Footer functions
