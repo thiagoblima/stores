@@ -10,7 +10,7 @@ import { AppComponent } from './app.component';
 import { NavComponent } from './commons/nav/nav.component';
 import { HeaderComponent } from './commons/header/header.component';
 import { FooterComponent } from './commons/footer/footer.component';
-import { SideBarComponent } from './commons/sidebar/sidebar.component';
+import { ContainerComponent } from './commons/container/container.component';
 import { HomeComponent } from './home/index';
 import { LoginComponent } from './login/index';
 
@@ -25,7 +25,7 @@ import { AuthenticationService, UserService } from './services/auth/index';
     NavComponent,
     HeaderComponent,
     FooterComponent,
-    SideBarComponent,
+    ContainerComponent,
     HomeComponent,
     LoginComponent
   ],
