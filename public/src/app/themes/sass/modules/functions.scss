@@ -79,6 +79,7 @@
 
 // Container functions
 
+/*
 @mixin container-settings($position: absolute, $height: 190vh, $z-index: -1, $padding-top: 3em){
     position: $position;
     height: $height;
@@ -86,14 +87,17 @@
     padding-top: $padding-top;
 
 }
+*/
 
+/*
 @mixin container-store($display: inline-block, $margin-top: 3em, $width: 100%){
     display: $display;
     margin-top: $margin-top;
     width: $width;
 }
+*/
 
-@mixin container-side-bar($position: fixed, $color:  $dark-purle, $width: 7.7em, 
+/*@mixin container-side-bar($position: fixed, $color:  $dark-purle, $width: 7.7em, 
        $background-color:  $standard-fusion, $z-index: 9, $top: 200px, $left: 0, 
        $text-align: center,  $height: 15vh, $line-height: 15vh) {
 
@@ -108,6 +112,7 @@
     height: $height;
     line-height: $line-height; 
 }
+*/
 
 
 // Footer functions
