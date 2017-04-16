@@ -36,19 +36,20 @@ nav {
     ul{
 
       li{
+        @include set-cursor(pointer);
         transition:250ms ease-in;
-        cursor: pointer;
 
         a{
-           color: $standard-fusion !important;
+          @include set-color($standard-fusion !important);
+
         }   
 
       }:hover{
-        background-color: $dark-purle !important;
+        @include set-background-color($dark-purle !important);
         transition:250ms ease-in;
 
       }:visited{
-        background-color: $dark-purle !important;
+        @include set-background-color($dark-purle !important);
         transition:250ms ease-in;
       }
 
