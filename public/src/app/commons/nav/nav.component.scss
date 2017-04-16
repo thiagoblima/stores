@@ -38,6 +38,7 @@ nav {
       li{
         background-color: $light-orange;
         transition:250ms ease-in;
+        cursor: pointer;
 
         a{
            color: $standard-fusion !important;
