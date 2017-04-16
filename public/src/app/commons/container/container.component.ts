@@ -4,7 +4,7 @@ import { Http } from '@angular/http';
 
 
 @Component({
-  selector: 'app-sidebar',
+  selector: 'app-container',
   animations: [
     trigger(
       'myAnimation',
@@ -24,8 +24,8 @@ import { Http } from '@angular/http';
       ]
     )
   ],
-  templateUrl: './sidebar.component.html',
-  styleUrls: ['./sidebar.component.scss'],
+  templateUrl: './container.component.html',
+  styleUrls: ['./container.component.scss'],
   providers: [ StoresDataService ]
 })
 
