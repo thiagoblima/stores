@@ -35,13 +35,26 @@ nav {
    
     ul{
 
-      }li{
+      li{
+        background-color:  $light-orange !important;
+        transition:250ms ease-in;
+
         a{
            color: $standard-fusion !important;
-        }
+        }   
 
+      }:hover{
+        background-color: $dark-purle !important;
+        transition:250ms ease-in;
+
+      }:visited{
+        background-color: $dark-purle !important;
+        transition:250ms ease-in;
       }
-   }
+
+    }
+
+  }
 
 .navbar-inverse .navbar-collapse {
       border-color: $standard-fusion !important;
