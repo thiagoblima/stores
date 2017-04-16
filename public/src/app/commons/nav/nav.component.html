@@ -8,7 +8,7 @@
       </button>
       <a class="navbar-brand" href="#">Stores</a>
     </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
+    <div class="collapse navbar-collapse" id="myNavbar" [@myAnimation]="show">
       <ul class="nav navbar-nav">
         <li *ngFor="let link of links" [@myAnimation]="show">
           <a [@myAnimation]="show">
