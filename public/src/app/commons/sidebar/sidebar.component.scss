@@ -13,14 +13,14 @@
 
 section#sidebar {
     background-color: $standard-fusion;
-    //@include container-settings();
+    min-height:700px;
+    
     h2 {     
-        //@include container-side-bar();
+     
     }
     section {
-        //@include container-store();
+        
         ul {
-            margin-top: 18em;
             list-style-type: none;
             li {
                 transition: 400ms ease-out;
