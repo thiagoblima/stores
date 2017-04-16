@@ -12,12 +12,11 @@
 // styles goes here
 
 section#container {
-    background-color: $standard-fusion;
+    @include set-background-color($standard-fusion);
     min-height:700px;
     
     h2 {     
-
-        color: $dark-purle;
+        @include set-color($dark-purle);
         text-align: left;
         padding: 1em;
      
@@ -32,7 +31,7 @@ section#container {
                 transform: translateX(0px) skewY(0deg);
 
                     h3 {
-                        color: $dark-purle;
+                        @include set-color($dark-purle);
                         font-size: 1.4em;
                         transform: translateX(0px) skewY(0deg);
                     }
@@ -44,10 +43,10 @@ section#container {
                     }
 
                 }:hover{
+                    @include set-background-color($standard-white);
+                    @include set-color($standard-conga !important);
                     transition: 200ms ease-in;
                     transform: translateX(15px) skewY(-3deg);
-                    background-color: $standard-white;
-                    color: $standard-conga !important;
                     cursor: pointer;
                     padding-left: 1em;
                     
