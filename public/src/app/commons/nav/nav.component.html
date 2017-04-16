@@ -10,15 +10,15 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li *ngFor="let link of links">
-          <a>
+        <li *ngFor="let link of links" [@myAnimation]="show">
+          <a [@myAnimation]="show">
              {{link.menu}}
           </a>
         </li>
       </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Settings</a></li>
-        <li><a [routerLink]="['/login']" href="#"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+      <ul class="nav navbar-nav navbar-right" [@myAnimation]="show">
+        <li [@myAnimation]="show"><a href="#"><span class="glyphicon glyphicon-user"></span> Settings</a></li>
+        <li [@myAnimation]="show"><a [routerLink]="['/login']" href="#"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
       </ul>
     </div>
   </div>
