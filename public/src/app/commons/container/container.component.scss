@@ -27,7 +27,7 @@ section#container {
         ul {
             list-style-type: none;
             li {
-                @include animate-stores(translateX(0px) skewY(0deg), 400ms ease-out );
+                @include animate-stores(translateX(0px) skewY(0deg), 400ms ease-out);
 
                     h3 {
                         @include set-color($dark-purle);
@@ -45,7 +45,7 @@ section#container {
                     @include set-background-color($standard-white);
                     @include set-color($standard-conga !important);
                     @include set-cursor(pointer);
-                    @include animate-stores(translateX(15px) skewY(-3deg), 200ms ease-out );
+                    @include animate-stores(translateX(15px) skewY(-3deg), 200ms ease-out);
                     padding-left: 1em;
                     
                 }
