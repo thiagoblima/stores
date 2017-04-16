@@ -16,8 +16,13 @@ section#sidebar {
     min-height:700px;
     
     h2 {     
+
+        color: $dark-purle;
+        text-align: left;
+        padding: 1em;
      
     }
+
     section {
         
         ul {
