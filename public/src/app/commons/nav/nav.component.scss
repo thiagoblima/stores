@@ -13,7 +13,6 @@ nav {
     border-radius: 0px !important;
     border: none !important;
 
-
     .navbar-brand{
       color: $standard-fusion !important;
       
@@ -43,3 +42,7 @@ nav {
 
       }
    }
+
+.navbar-inverse .navbar-collapse {
+      border-color: $standard-fusion !important;
+    }
