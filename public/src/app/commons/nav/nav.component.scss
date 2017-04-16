@@ -9,34 +9,33 @@
 nav {
   
     @include set-background-color($light-orange);
-    
-    border-radius: 0px !important;
-    border: none !important;
+    @include nav-borders();
 
     .navbar-brand{
-      color: $standard-fusion !important;
+      @include set-color($standard-fusion !important);
       
     }
 
     .navbar-toggle {
-      border: none !important;
+      @include nav-borders();
 
     }
 
     .navbar-toggle:hover {
-      background-color: $dark-purle !important;
-      border: none !important;
+      @include set-background-color($dark-purle !important);
+      @include nav-borders();
       
     }:visited { 
-      background-color: $dark-purle !important; 
+      @include set-background-color($dark-purle !important);
+
     }:focus {
-      background-color: $dark-purle !important; 
+     @include set-background-color($dark-purle !important);
+
     }
    
     ul{
 
       li{
-        background-color: $light-orange;
         transition:250ms ease-in;
         cursor: pointer;
 
