@@ -16,10 +16,6 @@ nav {
       
     }
 
-    .navbar-inverse .navbar-collapse {
-      border-color: $standard-fusion !important;
-    }
-
     .navbar-toggle {
       @include nav-borders();
 
@@ -60,3 +56,8 @@ nav {
     }
 
   }
+
+.navbar-inverse .navbar-collapse {
+      border-color: $standard-fusion !important;
+    }
+    
