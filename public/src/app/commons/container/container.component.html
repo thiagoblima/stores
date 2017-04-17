@@ -1,11 +1,21 @@
 <section class="container" id="container" [@myAnimation]="show">
-  <h2 [@myAnimation]="show">Loaded Assets</h2>
-  <section [@myAnimation]="show">
-    <ul>
-      <li [@myAnimation]="show" *ngFor="let store of stores | async">
-        <h3>{{ store.name }}</h3>
-        <h4>{{ store.state }}</h4>
-      </li>
-    </ul>
+  <section class="row">
+    <h2 [@myAnimation]="show">Loaded Assets</h2>
+    <section class="col-sm-4" [@myAnimation]="show">
+      <ul>
+        <li [@myAnimation]="show" *ngFor="let store of stores | async">
+          <h3>{{ store.name }}</h3>
+          <h4>{{ store.state }}</h4>
+        </li>
+      </ul>
+    </section>
+    <section class="col-sm-4" [@myAnimation]="show">
+      <ul>
+        <li [@myAnimation]="show" *ngFor="let store of stores | async">
+          <h3>{{ store.name }}</h3>
+          <h4>{{ store.state }}</h4>
+        </li>
+      </ul>
+    </section>
   </section>
 </section>
