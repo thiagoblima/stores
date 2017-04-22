@@ -25,12 +25,16 @@ module.exports = (app) => {
 
     // create a new user account (POST http://localhost:8080/api/signup)
     apiRoutes.post('/signup', (req, res) => {
-        if (!req.body.name || !req.body.password) {
+        if (!req.body.username || !req.body.password) {
             res.json({ success: false, msg: 'Please fill out the complete form.' });
         } else {
             let newUser = new User({
-                name: req.body.name,
+                username: req.body.username,
                 password: req.body.password,
+                email: req.body.email,
+                firstname: req.body.firstname,
+                lastname: req.body.lastname,
+                age: req.body.age
             });
 
             // save the user
@@ -51,7 +55,7 @@ module.exports = (app) => {
     // route to authenticate a user (POST http://localhost:8080/api/authenticate)
     apiRoutes.post('/authenticate', (req, res) => {
         User.findOne({
-            name: req.body.name
+            username: req.body.username
         }, (err, user) => {
             if (err) throw err;
 
@@ -80,14 +84,14 @@ module.exports = (app) => {
         if (token) {
             let decoded = jwt.decode(token, config.secret);
             User.findOne({
-                name: decoded.name
+                username: decoded.username
             }, (err, user) => {
                 if (err) throw err;
 
                 if (!user) {
                     return res.status(403).send({ success: false, msg: 'Authentication failed. User not found.' });
                 } else {
-                    res.json({ success: true, msg: 'Welcome in the member area ' + user.name + '!' });
+                    res.json({ success: true, msg: 'Welcome in the member area ' + user.username + '!' });
                 }
             });
         } else {
@@ -116,7 +120,7 @@ module.exports = (app) => {
         if (token) {
             let decoded = jwt.decode(token, config.secret);
             User.findOne({
-                name: decoded.name
+                username: decoded.username
             }, (err, user) => {
                 if (err) throw err;
 
@@ -152,7 +156,7 @@ module.exports = (app) => {
         if (token) {
             let decoded = jwt.decode(token, config.secret);
             User.findOne({
-                name: decoded.name
+                username: decoded.username
             }, (err, user) => {
                 if (err) throw err;
 
@@ -199,7 +203,7 @@ module.exports = (app) => {
         if (token) {
             let decoded = jwt.decode(token, config.secret);
             User.findOne({
-                name: decoded.name
+                username: decoded.username
             }, (err, user) => {
                 if (err) throw err;
 
@@ -350,7 +354,7 @@ module.exports = (app) => {
                         let newSchedule = new Schedule({
 
                             schedule_time: req.body.schedule_time,
-                            user: req.body.user,
+                            username: req.body.username,
                             recycler: req.body.recycler,
                             status: req.body.status,
                             pickup_id: req.body.pickup_id,
