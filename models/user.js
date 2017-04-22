@@ -1,20 +1,41 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const bcrypt = require('bcrypt');
- 
-// set up a mongoose model
+
+// user model settings
 let UserSchema = new Schema({
-  name: {
+    username: {
         type: String,
         unique: true,
         required: true
     },
-  password: {
+    password: {
         type: String,
+        required: true
+    },
+    email: {
+        type: String,
+        trim: true,
+        lowercase: true,
+        unique: true,
+        required: 'Email address is required',
+        match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Please fill a valid email address']
+    },
+    firstname: {
+        type: String,
+        required: true,
+
+    },
+    lastname: {
+        type: String,
+        required: true
+    },
+    age: {
+        type: Number,
         required: true
     }
 });
- 
+
 UserSchema.pre('save', function (next) {
     let user = this;
     if (this.isModified('password') || this.isNew) {
@@ -34,7 +55,7 @@ UserSchema.pre('save', function (next) {
         return next();
     }
 });
- 
+
 UserSchema.methods.comparePassword = function (passw, cb) {
     bcrypt.compare(passw, this.password, function (err, isMatch) {
         if (err) {
@@ -43,5 +64,5 @@ UserSchema.methods.comparePassword = function (passw, cb) {
         cb(null, isMatch);
     });
 };
- 
+
 module.exports = mongoose.model('User', UserSchema);
