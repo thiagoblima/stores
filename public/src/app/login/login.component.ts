@@ -3,17 +3,18 @@ import { Router } from '@angular/router';
 import { AuthenticationService } from '../services/auth/index';
 import { Header } from '../commons/header/header.component';
 
+type loginAlias = { logo: string, alt: string, title: string, subtitle: string, date: Date };
 export class Login extends Header {
 
     constructor(logo: string, alt: string, title: string, subtitle: string, date: Date) {
         super(logo, alt, title, subtitle, date);
     }
- 
+
 }
 
-const loginSetUp = new Login('','','','',new Date());
+const loginSetUp = new Login('', '', '', '', new Date());
 
-
+loginSetUp.setLogo = 'assets/images/header/Logomakr_4Zz556.png';
 
 
 @Component({
@@ -46,6 +47,14 @@ export class LoginComponent implements OnInit {
                     this.loading = false;
                 }
             });
+    }
+
+    private loginSetUp: loginAlias = {
+        logo: loginSetUp.getLogo,
+        alt: loginSetUp.getAlt,
+        title: loginSetUp.getTitle,
+        subtitle: loginSetUp.getSubtitle,
+        date: loginSetUp.getDate
     }
 }
 
