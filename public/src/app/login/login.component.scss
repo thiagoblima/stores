@@ -20,11 +20,16 @@ html{
           background-color: $dark-purle !important;
             figure{
                 padding-top:3em;
+                float: left;
             }
             h2{
                 color: $light-orange;
+                float: left;
+                font-size: 3em;
+                padding-top: 2em;
             }
             form{
+                clear:both;
                 section{
                     label{
                         color: $standard-fusion;
