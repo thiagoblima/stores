@@ -19,14 +19,21 @@ html{
         section.col-md-6.col-md-offset-3 {
           background-color: $dark-purle !important;
             figure{
-                padding-top:3em;
-                float: left;
+                img{
+                    padding-top:3em;
+                    float: left;
+                }
             }
             h2{
                 color: $light-orange;
                 float: left;
                 font-size: 3em;
-                padding-top: 0.85em 0.45em;
+                padding: 0.85em 0.45em;
+            }
+            h4{
+                padding-top: 0.45em;
+                color: #F4F2F4;
+                width: 100%;
             }
             form{
                 clear:both;
@@ -38,15 +45,14 @@ html{
                     }
                     section.form-group{
                         button{
-                           background-color:$light-orange;
+                           background-color: $light-orange;
                            border-color: $light-orange;
                         }
                         a{
                             span{
                                margin-left: 1em;
                             }
-                        }
-                       
+                        }                    
                     }
                 }
             }
