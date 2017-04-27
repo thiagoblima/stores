@@ -31,8 +31,17 @@ html{
                         font-weight: 300;
                        }
                     }
-                    section.form-group > a > span {
-                       margin-left: 1em;
+                    section.form-group{
+                        button{
+                           background-color:$light-orange;
+                           border-color: $light-orange;
+                        }
+                        a{
+                            span{
+                               margin-left: 1em;
+                            }
+                        }
+                       
                     }
                 }
             }
