@@ -1,6 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../services/auth/index';
+import { Header } from '../commons/header/header.component';
+
+export class Login extends Header {
+
+    constructor(logo: string, alt: string, title: string, subtitle: string, date: Date) {
+        super(logo, alt, title, subtitle, date);
+    }
+ 
+}
+
+const loginSetUp = new Login('','','','',new Date());
+
+
+
 
 @Component({
     moduleId: module.id,
