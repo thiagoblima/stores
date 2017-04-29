@@ -105,3 +105,10 @@
 
 }
 
+@mixin h2-header-settings($float: left, $font-size: 3em, $padding: 2em 0.1em 0){
+    float: $float;
+    font-size: $font-size;
+    padding: $padding;
+
+}
+
