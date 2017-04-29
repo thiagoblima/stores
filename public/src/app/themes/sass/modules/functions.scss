@@ -124,3 +124,10 @@
     transition: $transition;
 
 }
+
+@mixin span-text-state($margin-left, $cursor, $transition, $text-decoration){
+    margin-left: $margin-left;
+    cursor: $cursor;
+    transition: $transition;
+    text-decoration: $text-decoration;
+}
