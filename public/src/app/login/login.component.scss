@@ -51,8 +51,8 @@ html{
                         }
                         a{
                             span{
+                               @include set-color($standard-fusion);
                                margin-left: 1em;
-                               color:$standard-fusion;
                             }
                         }                    
                     }
