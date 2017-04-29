@@ -50,14 +50,12 @@ html{
                         a{
                             span{
                                @include set-color($standard-fusion);
-                               margin-left: 1em;
-                               cursor: pointer;
-                               transition: 300ms ease-out;
+                               @include span-text-state(1em, pointer, 300ms ease-out, none);
                             }span:hover{
                                @include set-background-color(transparent !important);
                                @include set-color($light-orange);
-                               text-decoration: underline;
-                               transition: 300ms ease-in;
+                               @include span-text-state(1em, pointer, 300ms ease-out, underline);
+                              
                            }            
                         }                  
                     }
