@@ -40,7 +40,7 @@ html{
                 clear:both;
                 section{
                     label{
-                        color: $standard-fusion;
+                        @include set-color($standard-fusion);
                         font-weight: 300;
                        }
                     }
