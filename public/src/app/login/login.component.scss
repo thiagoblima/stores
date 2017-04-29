@@ -46,7 +46,7 @@ html{
                     }
                     section.form-group{
                         button{
-                           background-color: $light-orange;
+                           @include set-background-color($light-orange); 
                            border-color: $light-orange;
                         }
                         a{
