@@ -118,3 +118,9 @@
     width: $width;
 
 }
+
+@mixin button-settings-normal-state($border-color: $light-orange, $transition: 300ms ease-out){
+    border-color: $border-color;
+    transition: $transition;
+
+}
