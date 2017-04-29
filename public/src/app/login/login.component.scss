@@ -42,8 +42,7 @@ html{
                     section.form-group{
                         button{
                            @include set-background-color($light-orange); 
-                           border-color: $light-orange;
-                           transition: 300ms ease-out;
+                           @include button-settings-normal-state();
                         }button:hover{
                            @include set-background-color($standard-conga !important);
                            border-color: $standard-conga !important;
