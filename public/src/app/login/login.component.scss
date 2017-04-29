@@ -48,6 +48,9 @@ html{
                         button{
                            @include set-background-color($light-orange); 
                            border-color: $light-orange;
+                        }:hover{
+                           @include set-background-color($standard-conga !important);
+                           border-color: $standard-conga !important;
                         }
                         a{
                             span{
