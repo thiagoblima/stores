@@ -25,9 +25,7 @@ html{
             }
             h2{
                 @include set-color($light-orange);
-                float: left;
-                font-size: 3em;
-                padding: 2em 0.1em 0;
+                @include h2-header-settings();
             }
             h4{
                 @include set-color($standard-fusion);
