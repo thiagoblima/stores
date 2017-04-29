@@ -119,7 +119,7 @@
 
 }
 
-@mixin button-settings-normal-state($border-color: $light-orange, $transition: 300ms ease-out){
+@mixin button-settings-state($border-color, $transition){
     border-color: $border-color;
     transition: $transition;
 
