@@ -29,9 +29,7 @@ html{
             }
             h4{
                 @include set-color($standard-fusion);
-                float: left;
-                padding-top: 0.45em;
-                width: 100%;
+                @include h4-header-settings();
             }
             form{
                 clear:both;
