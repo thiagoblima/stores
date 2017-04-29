@@ -42,11 +42,10 @@ html{
                     section.form-group{
                         button{
                            @include set-background-color($light-orange); 
-                           @include button-settings-normal-state();
+                           @include button-settings-state($light-orange, 300ms ease-out);
                         }button:hover{
                            @include set-background-color($standard-conga !important);
-                           border-color: $standard-conga !important;
-                           transition: 300ms ease-in;
+                           @include button-settings-state($standard-conga !important, 300ms ease-out);
                         }
                         a{
                             span{
