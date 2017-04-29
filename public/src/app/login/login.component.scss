@@ -31,10 +31,10 @@ html{
                 padding: 2em 0.1em 0;
             }
             h4{
-                padding-top: 0.45em;
-                color: #F4F2F4;
-                width: 100%;
+                @include set-color($standard-fusion);
                 float: left;
+                padding-top: 0.45em;
+                width: 100%;
             }
             form{
                 clear:both;
