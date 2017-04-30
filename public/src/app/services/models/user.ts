@@ -18,8 +18,6 @@ interface UserData <T, Z> {
     
 }
 
-
-
 export class User implements UserData <String, Number> {
     public id;
     public username;
