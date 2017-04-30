@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpModule, BaseRequestOptions } from '@angular/http';
+import { HttpModule } from '@angular/http';
 import { routing } from './app.routing';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -45,8 +45,7 @@ import { AuthenticationService, UserService } from './services/auth/index';
     AuthGuard,
     AlertService,
     AuthenticationService,
-    UserService,
-    BaseRequestOptions
+    UserService
   ],
   bootstrap: [AppComponent]
 })
