@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { AuthenticationService, AlertService } from '../services/auth/index';
+import { AlertService, AuthenticationService } from '../services/auth/index';
 import { Header } from '../commons/header/header.component';
 
 type loginAlias = { logo: string, alt: string, title: string, subtitle: string, date: Date };
@@ -53,7 +53,7 @@ export class LoginComponent implements OnInit {
                     this.router.navigate([this.returnUrl]);
                 },
                 error => {
-                    this.alertService.error(error);
+                    this.error = 'Authentication failed. User not found.';
                     this.loading = false;
                 });
     }
