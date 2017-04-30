@@ -19,7 +19,10 @@ loginSetUp.setLogo = 'assets/images/header/Logomakr_4Zz556.png';
 
 @Component({
     moduleId: module.id,
-    templateUrl: 'login.component.html'
+    templateUrl: './login.component.html',
+    styleUrls: ['./login.component.scss'],
+    providers:[ AlertService ]
+
 })
 
 export class LoginComponent implements OnInit {
