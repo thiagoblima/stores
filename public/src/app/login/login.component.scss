@@ -14,49 +14,72 @@
 // styles goes here
 
 html{
+
     @include set-background-color($dark-purle);
+
     body{
+        
         section.col-md-6.col-md-offset-3 {
+
           @include set-background-color($dark-purle);
+
             figure{
                 img{
+
                     @include image-settings();
+
                 }
             }
             h2{
+
                 @include set-color($light-orange);
                 @include h2-header-settings();
+
             }
             h4{
+
                 @include set-color($standard-fusion);
                 @include h4-header-settings();
+
             }
             form{
+
                 clear:both;
+
                 section{
+
                     label{
                         @include set-color($standard-fusion);
                         font-weight: 300;
                        }
+
                     }
                     section.form-group{
+
                         button{
+
                            @include set-background-color($light-orange); 
                            @include button-settings-state($light-orange, 300ms ease-out);
+
                         }button:hover{
+
                            @include set-background-color($standard-conga !important);
                            @include button-settings-state($standard-conga !important, 300ms ease-out);
+
                         }
                         a{
                             span{
+
                                @include set-color($standard-fusion);
                                @include span-text-state(1em, pointer, 300ms ease-out, none);
+
                             }span:hover{
+
                                @include set-background-color(transparent !important);
                                @include set-color($light-orange);
                                @include span-text-state(1em, pointer, 300ms ease-out, underline);
                               
-                           }            
+                            }             
                         }                  
                     }
                 }
