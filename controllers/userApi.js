@@ -60,7 +60,7 @@ module.exports = (app) => {
             if (err) throw err;
 
             if (!user) {
-                res.send({ success: false, msg: 'Authentication failed. User not found.' });
+                res.status(401).json({success: false, msg:'Authentication failed. User not found.'});
             } else {
                 // check if password matches
                 user.comparePassword(req.body.password, (err, isMatch) => {
@@ -68,7 +68,7 @@ module.exports = (app) => {
                         // if user is found and password is right create a token
                         var token = jwt.encode(user, config.secret);
                         // return the information including token as JSON
-                        res.json({ success: true, token: 'JWT ' + token });
+                        res.status(200).json({ success: true, token: 'JWT ' + token });
                     } else {
                         res.send({ success: false, msg: 'Authentication failed. Wrong password.' });
                     }
