@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import { HttpModule, BaseRequestOptions } from '@angular/http';
 import { routing } from './app.routing';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -14,7 +14,9 @@ import { ContainerComponent } from './commons/container/container.component';
 import { HomeComponent } from './home/index';
 import { LoginComponent } from './login/index';
 
+import { AlertComponent } from './directives/index';
 import { AuthGuard } from './services/guards/index';
+import { AlertService } from './services/auth/index';
 import { AuthenticationService, UserService } from './services/auth/index';
 
 
@@ -27,7 +29,8 @@ import { AuthenticationService, UserService } from './services/auth/index';
     FooterComponent,
     ContainerComponent,
     HomeComponent,
-    LoginComponent
+    LoginComponent,
+    AlertComponent
   ],
   imports: [
     NgbModule.forRoot(),
@@ -40,9 +43,10 @@ import { AuthenticationService, UserService } from './services/auth/index';
   providers: [
     HttpModule,
     AuthGuard,
+    AlertService,
     AuthenticationService,
-    UserService
-
+    UserService,
+    BaseRequestOptions
   ],
   bootstrap: [AppComponent]
 })
