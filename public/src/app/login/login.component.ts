@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { AuthenticationService } from '../services/auth/index';
+import { Router, ActivatedRoute } from '@angular/router';
+import { AuthenticationService, AlertService } from '../services/auth/index';
 import { Header } from '../commons/header/header.component';
 
 type loginAlias = { logo: string, alt: string, title: string, subtitle: string, date: Date };
@@ -25,28 +25,34 @@ loginSetUp.setLogo = 'assets/images/header/Logomakr_4Zz556.png';
 export class LoginComponent implements OnInit {
     model: any = {};
     loading = false;
+    returnUrl: string;
     error = '';
 
     constructor(
+        private route: ActivatedRoute,
         private router: Router,
-        private authenticationService: AuthenticationService) { }
+        private authenticationService: AuthenticationService,
+        private alertService: AlertService) { }
 
     ngOnInit() {
         // reset login status
         this.authenticationService.logout();
+
+        // get return url from route parameters or default to '/'
+        this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
     }
 
     login() {
         this.loading = true;
         this.authenticationService.login(this.model.username, this.model.password)
-            .subscribe(result => {
-                if (result === true) {
-                    this.router.navigate(['/']);
-                } else {
-                    this.error = 'Username or password is incorrect';
+            .subscribe(
+                data => {
+                    this.router.navigate([this.returnUrl]);
+                },
+                error => {
+                    this.alertService.error(error);
                     this.loading = false;
-                }
-            });
+                });
     }
 
     private loginSetUp: loginAlias = {
