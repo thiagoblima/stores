@@ -15,6 +15,9 @@ export class Login extends Header {
 const loginSetUp = new Login('', '', '', '', new Date());
 
 loginSetUp.setLogo = 'assets/images/header/Logomakr_4Zz556.png';
+loginSetUp.setAlt = 'The best place to admin your stores!';
+loginSetUp.setTitle = 'Stores';
+loginSetUp.setSubtitle = 'The Ultimate Management For Your Business';
 
 
 @Component({
@@ -53,7 +56,7 @@ export class LoginComponent implements OnInit {
                     this.router.navigate([this.returnUrl]);
                 },
                 error => {
-                    this.error = 'Authentication failed. User not found.';
+                    this.error = 'Authentication failed: User not found or wrong password.';
                     this.loading = false;
                 });
     }
