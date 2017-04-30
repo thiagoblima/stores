@@ -70,7 +70,7 @@ module.exports = (app) => {
                         // return the information including token as JSON
                         res.status(200).json({ success: true, token: 'JWT ' + token });
                     } else {
-                        res.send({ success: false, msg: 'Authentication failed. Wrong password.' });
+                        res.status(401).send({ success: false, msg: 'Authentication failed. Wrong password.' });
                     }
                 });
             }
