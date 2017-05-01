@@ -134,7 +134,7 @@
 
 // register functions
 
-@mixin set-user-glyphicon($padding: 0em, $float: none){
+@mixin set-user-glyphicon($padding: 0em, $float: left){
     padding: $padding;
     float: $float;
 }
