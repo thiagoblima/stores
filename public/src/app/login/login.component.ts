@@ -29,11 +29,11 @@ loginSetUp.setSubtitle = 'The Ultimate Management For Your Business';
 })
 
 export class LoginComponent implements OnInit {
-    model: any = {};
-    loading = false;
-    returnUrl: string;
-    error = '';
-    message: any;
+    public model: any = {};
+    public loading: boolean = false;
+    public returnUrl: string;
+    public error: string = '';
+    public message: any;
 
     constructor(
         private route: ActivatedRoute,
@@ -42,8 +42,7 @@ export class LoginComponent implements OnInit {
         private alertService: AlertService) { }
 
     ngOnInit() {
-
-        this.alertService.getMessage().subscribe(message => { this.message = message; });
+        
         // reset login status
         this.authenticationService.logout();
 
