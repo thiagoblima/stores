@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
-import { StoresData } from '../../models/stores-data';
+import { StoresData } from '../../models/stores';
 import 'rxjs/add/operator/toPromise';
 
 @Injectable()
