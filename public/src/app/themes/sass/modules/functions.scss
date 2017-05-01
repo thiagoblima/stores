@@ -131,3 +131,10 @@
     transition: $transition;
     text-decoration: $text-decoration;
 }
+
+// register functions
+
+@mixin set-user-glyphicon($padding: 0em, $float: none){
+    padding: $padding;
+    float: $float;
+}
