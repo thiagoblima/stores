@@ -56,7 +56,7 @@ export class LoginComponent implements OnInit {
                     this.router.navigate([this.returnUrl]);
                 },
                 error => {
-                    this.error = 'Authentication failed: User not found or wrong password.';
+                    this.error = 'Authentication failed: wrong user or password.';
                     this.loading = false;
                 });
     }
