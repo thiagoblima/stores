@@ -18,8 +18,6 @@ import { AuthGuard } from './services/guards/index';
 import { AlertService } from './services/auth/index';
 import { AuthenticationService, UserService } from './services/auth/index';
 
-
-
 @NgModule({
   declarations: [
     AppComponent,
