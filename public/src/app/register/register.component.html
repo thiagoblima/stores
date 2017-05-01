@@ -41,6 +41,7 @@
         />
         <a [routerLink]="['/login']" class="btn btn-link">Cancel</a>
       </section>
+      <span *ngIf="error" class="alert alert-danger">{{error}}</span>
     </form>
   </section>
 </section>
