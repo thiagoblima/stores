@@ -17,6 +17,7 @@ import { LoginComponent } from './login/index';
 import { AuthGuard } from './services/guards/index';
 import { AlertService } from './services/auth/index';
 import { AuthenticationService, UserService } from './services/auth/index';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { AuthenticationService, UserService } from './services/auth/index';
     FooterComponent,
     ContainerComponent,
     HomeComponent,
-    LoginComponent
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     NgbModule.forRoot(),
