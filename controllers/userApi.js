@@ -26,7 +26,7 @@ module.exports = (app) => {
     // create a new user account (POST http://localhost:8080/api/signup)
     apiRoutes.post('/signup', (req, res) => {
         if (!req.body.username || !req.body.password) {
-            res.json({ success: false, msg: 'Please fill out the complete form.' });
+            res.status(401).json({ success: false, msg: 'Please fill out the complete form.' });
         } else {
             let newUser = new User({
                 username: req.body.username,
@@ -40,9 +40,9 @@ module.exports = (app) => {
             // save the user
             newUser.save((err) => {
                 if (err) {
-                    return res.json({ success: false, msg: 'Username already exists.' });
+                    return res.status(401).json({ success: false, msg: 'Username already exists.' });
                 }
-                res.json({ success: true, msg: 'Successful created new user.' });
+                res.status(200).json({ success: true, msg: 'Successful created new user.' });
             });
         }
     });
