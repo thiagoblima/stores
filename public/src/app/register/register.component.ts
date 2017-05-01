@@ -10,9 +10,9 @@ import { AlertService, UserService } from '../services/auth/index';
 })
 export class RegisterComponent implements OnInit {
 
-  model: any = {};
-  loading = false;
-  error = '';
+  public model: any = {};
+  public loading: boolean = false;
+  public error: string = '';
 
   constructor(
     private router: Router,
@@ -28,7 +28,7 @@ export class RegisterComponent implements OnInit {
         this.router.navigate(['/login']);
       },
       error => {
-        this.error = 'Authentication failed: wrong user or password.';
+        this.error = 'Username already exists.';
         this.loading = false;
       });
   }
