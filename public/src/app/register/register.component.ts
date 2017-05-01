@@ -12,6 +12,7 @@ export class RegisterComponent implements OnInit {
 
   model: any = {};
   loading = false;
+  error = '';
 
   constructor(
     private router: Router,
@@ -27,7 +28,7 @@ export class RegisterComponent implements OnInit {
         this.router.navigate(['/login']);
       },
       error => {
-        this.alertService.error(error);
+        this.error = 'Authentication failed: wrong user or password.';
         this.loading = false;
       });
   }
