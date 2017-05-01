@@ -19,7 +19,7 @@ interface UserData <T, Z> {
 }
 
 export class User implements UserData <String, Number> {
-    public id;
+    public _id;
     public username;
     public password;
     public email;
