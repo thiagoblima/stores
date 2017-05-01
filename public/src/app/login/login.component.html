@@ -3,7 +3,7 @@
         <header>
             <figure><img src="{{loginSetUp.logo}}"></figure>
             <h2>{{ loginSetUp.title }}</h2>
-            <h4>{{ loginSetUp.subtitle }}}</h4>
+            <h4>{{ loginSetUp.subtitle }}</h4>
         </header>
         <form name="form" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
             <section class="form-group" [ngClass]="{ 'has-error': f.submitted && !username.valid }">
