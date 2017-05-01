@@ -11,6 +11,7 @@ interface UserData <T, Z> {
 
     _id: string;
     username: string;
+    password: string;
     email: string;
     firstname: string;
     lastname: string;
