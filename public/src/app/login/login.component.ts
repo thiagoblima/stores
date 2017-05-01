@@ -33,6 +33,7 @@ export class LoginComponent implements OnInit {
     loading = false;
     returnUrl: string;
     error = '';
+    message: any;
 
     constructor(
         private route: ActivatedRoute,
@@ -41,6 +42,8 @@ export class LoginComponent implements OnInit {
         private alertService: AlertService) { }
 
     ngOnInit() {
+
+        this.alertService.getMessage().subscribe(message => { this.message = message; });
         // reset login status
         this.authenticationService.logout();
 
