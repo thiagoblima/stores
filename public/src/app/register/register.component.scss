@@ -27,14 +27,13 @@ html{
                    span{
                         
                         @include set-color($standard-fusion);
-                        padding: 0em;
-                        float:left;
+                        @include set-user-glyphicon();
     
                       }
                   }
 
                   h2 {
-                      
+
                       float:none;
                       padding: 0em 1.4em 0.75em;
                       line-height: 0.90em;
