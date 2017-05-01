@@ -9,7 +9,7 @@
 
 interface UserData <T, Z> {
 
-    id: string;
+    _id: string;
     username: string;
     email: string;
     firstname: string;
