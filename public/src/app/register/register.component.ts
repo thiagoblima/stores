@@ -1,6 +1,19 @@
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { AlertService, UserService } from '../services/auth/index';
+import { Header } from '../commons/header/header.component';
+
+type registerAlias = { logo: string, alt: string, title: string, subtitle: string, date: Date };
+export class Register extends Header {
+
+    constructor(logo: string, alt: string, title: string, subtitle: string, date: Date) {
+        super(logo, alt, title, subtitle, date);
+    }
+
+}
+
+let registerSetUp = new Header('glyphicon glyphicon-user','Register','Register','Fill up the form to get access', new Date());
+
 
 @Component({
   moduleId: module.id,
@@ -33,8 +46,16 @@ export class RegisterComponent implements OnInit {
       });
   }
 
+  private registerSetUp: registerAlias = {
+        logo: registerSetUp.getLogo,
+        alt: registerSetUp.getAlt,
+        title: registerSetUp.getTitle,
+        subtitle: registerSetUp.getSubtitle,
+        date: registerSetUp.getDate
+    }
 
-  ngOnInit() {
+
+  ngOnInit() { 
   }
 
 }
