@@ -13,11 +13,12 @@ import { FooterComponent } from './commons/footer/footer.component';
 import { ContainerComponent } from './commons/container/container.component';
 import { HomeComponent } from './home/index';
 import { LoginComponent } from './login/index';
+import { RegisterComponent } from './register/register.component';
 
 import { AuthGuard } from './services/guards/index';
 import { AlertService } from './services/auth/index';
 import { AuthenticationService, UserService } from './services/auth/index';
-import { RegisterComponent } from './register/register.component';
+
 
 @NgModule({
   declarations: [
