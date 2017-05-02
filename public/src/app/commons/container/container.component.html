@@ -1,7 +1,7 @@
 <section class="container" id="container" [@myAnimation]="show">
   <section class="row">
-    {{message.msg}}
     <h2 [@myAnimation]="show">Loaded Assets</h2>
+    <h5>{{message.msg}}</h5>
     <section class="col-sm-4" [@myAnimation]="show">
       <ul>
         <li [@myAnimation]="show" *ngFor="let store of stores | async">
