@@ -4,8 +4,6 @@ import { Http } from '@angular/http';
 import { UserService } from '../../services/auth/index';
 import { User } from '../../models/index';
 
-
-
 @Component({
   selector: 'app-container',
   animations: [
