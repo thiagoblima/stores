@@ -1,4 +1,6 @@
 import { Component, NgModule, OnInit, trigger, transition, style, animate, state } from '@angular/core';
+import { UserService } from '../../services/auth/index';
+import { User } from '../../models/index';
 
 type headerAlias = { logo: string, alt: string, title: string, subtitle: string, date: Date };
 
@@ -105,10 +107,21 @@ header.setDate = new Date();
 })
 
 export class HeaderComponent implements OnInit {
+  
+  public currentUser: User;
+  public message: string = '';
+  private headerMessage: string = 'Get Header Object';
+  private show: boolean = false; 
+  
 
-  private message: string = 'Get Header Object';
+    constructor(private userService: UserService) {
+        this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    }
 
-  private show: boolean = false;
+  private getUserInfo(){
+        this.userService.getUserInfo().subscribe(message => { this.message = message; })
+    }
+
 
   private animate(state): any {
     return this.show = false, alert(this.show);
@@ -123,11 +136,13 @@ export class HeaderComponent implements OnInit {
   }
 
   public getHeaderObject(): any {
-    return this.header, console.log(`${this.message}`, this.header);
+    return this.header, console.log(`${this.headerMessage}`, this.header);
   }
+
 
   ngOnInit() {
     this.getHeaderObject();
+    this.getUserInfo();
   }
 
 }
