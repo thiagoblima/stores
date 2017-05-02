@@ -23,6 +23,7 @@ section#container {
     }
 
     h5{
+        @include set-color($dark-purle);
         padding-left: 2em;
         font-weight: 200;
     }
