@@ -16,7 +16,9 @@
 html{
 
     body{
-     
+
+        @include set-background-color($dark-purle);
+
         section{
         
            section.col-md-6.col-md-offset-3 {
@@ -24,6 +26,7 @@ html{
               header.register{
 
                  h1{
+
                    span{
                         
                         @include set-color($standard-fusion);
