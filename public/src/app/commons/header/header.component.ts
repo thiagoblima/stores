@@ -108,20 +108,10 @@ header.setDate = new Date();
 
 export class HeaderComponent implements OnInit {
   
-  public currentUser: User;
-  public message: string = '';
+  
   private headerMessage: string = 'Get Header Object';
   private show: boolean = false; 
   
-
-    constructor(private userService: UserService) {
-        this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
-    }
-
-  private getUserInfo(){
-        this.userService.getUserInfo().subscribe(message => { this.message = message; })
-    }
-
 
   private animate(state): any {
     return this.show = false, alert(this.show);
@@ -142,7 +132,6 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
     this.getHeaderObject();
-    this.getUserInfo();
   }
 
 }
