@@ -18,10 +18,15 @@ section#container {
     h2 {     
         @include set-color($dark-purle);
         text-align: left;
-        padding: 1em;
+        padding: 1em 0 0 1em;
      
     }
 
+    h5{
+        padding-left: 2em;
+        font-weight: 200;
+    }
+    
     section {
         
         ul {
@@ -49,6 +54,6 @@ section#container {
                     padding-left: 1em;
                     
                 }
-          }       
+           }       
       }
  }
