@@ -1,6 +1,9 @@
 import { Component, NgModule, OnInit, trigger, transition, style, animate, state } from '@angular/core';
 import { StoresDataService } from '../../services/stores/stores-data.service';
 import { Http } from '@angular/http';
+import { UserService } from '../../services/auth/index';
+import { User } from '../../models/index';
+
 
 
 @Component({
@@ -31,9 +34,22 @@ import { Http } from '@angular/http';
 
 
 export class ContainerComponent {
+  public currentUser: User;
+  public message: string = '';
   private stores;
-  constructor(private _storesDataService: StoresDataService){
-    this.stores = _storesDataService.getStores();
+
+
+  constructor(private _storesDataService: StoresDataService, private userService: UserService){
+     this.stores = _storesDataService.getStores();
+     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
   }
+
+  private getUserInfo(){
+        this.userService.getUserInfo().subscribe(message => { this.message = message; })
+    }
+
+    ngOnIinit(){
+      this.getUserInfo();
+    }
 
 }
