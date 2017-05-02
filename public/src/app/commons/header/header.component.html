@@ -1,6 +1,6 @@
 <header class="container" (mouseover)="show = !show" [@myAnimation]="show">
   <section class="username" *ngIf="show" [@myAnimation]="show">
-    <h5 *ngIf="show" [@myAnimation]="show">{{message}}</h5>
+    <h5 *ngIf="show" [@myAnimation]="show">{{message.msg}}</h5>
     <h6 *ngIf="show" [@myAnimation]="show"></h6>
   </section>
   <figure>
