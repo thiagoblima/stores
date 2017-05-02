@@ -11,6 +11,10 @@ export class UserService {
         return this.http.get('/api/users', this.jwt()).map((response: Response) => response.json());
     }
 
+    getUserInfo() {
+        return this.http.get('/api/memberinfo', this.jwt()).map((response: Response) => response.json());
+    }
+
     getById(id: number) {
         return this.http.get('/api/users/' + id, this.jwt()).map((response: Response) => response.json());
     }
