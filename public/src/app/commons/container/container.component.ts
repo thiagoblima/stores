@@ -46,7 +46,7 @@ export class ContainerComponent {
         this.userService.getUserInfo().subscribe(message => { this.message = message; })
     }
 
-    ngOnIinit(){
+    ngOnInit(){
       this.getUserInfo();
     }
 
