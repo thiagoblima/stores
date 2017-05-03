@@ -18,6 +18,7 @@ import { RegisterComponent } from './register/register.component';
 import { AuthGuard } from './services/guards/index';
 import { AlertService } from './services/auth/index';
 import { AuthenticationService, UserService } from './services/auth/index';
+import { SettingsComponent } from './settings/settings.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { AuthenticationService, UserService } from './services/auth/index';
     StoresComponent,
     HomeComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    SettingsComponent
   ],
   imports: [
     NgbModule.forRoot(),
