@@ -1,11 +1,11 @@
 import { Component, NgModule, OnInit, trigger, transition, style, animate, state } from '@angular/core';
-import { StoresDataService } from '../../services/stores/stores-data.service';
+import { StoresDataService } from '../services/stores/stores-data.service';
 import { Http } from '@angular/http';
-import { UserService } from '../../services/auth/index';
-import { User } from '../../models/index';
+import { UserService } from '../services/auth/index';
+import { User } from '../models/index';
 
 @Component({
-  selector: 'app-container',
+  selector: 'app-stores',
   animations: [
     trigger(
       'myAnimation',
@@ -25,13 +25,13 @@ import { User } from '../../models/index';
       ]
     )
   ],
-  templateUrl: './container.component.html',
-  styleUrls: ['./container.component.scss'],
+  templateUrl: './stores.component.html',
+  styleUrls: ['./stores.component.scss'],
   providers: [ StoresDataService ]
 })
 
 
-export class ContainerComponent {
+export class StoresComponent {
   public currentUser: User;
   public message: string = '';
   private stores;
