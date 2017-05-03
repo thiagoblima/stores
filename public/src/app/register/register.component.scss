@@ -17,7 +17,7 @@ html{
 
     body{
 
-        section{
+        section.register{
         
            section.col-md-6.col-md-offset-3 {
 
@@ -43,5 +43,15 @@ html{
               }
           }
        }
+    }
+}
+
+
+@media screen and (max-width: 1000px) {
+    section.col-md-6.col-md-offset-3{
+
+        float:left;
+        width: 100%;
+
     }
 }
