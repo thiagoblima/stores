@@ -6,12 +6,12 @@
 
 // imports
 
-@import '../../themes/sass/partials/colors';
-@import '../../themes/sass/modules/functions';
+@import '../themes/sass/partials/colors';
+@import '../themes/sass/modules/functions';
 
 // styles goes here
 
-section#container {
+section#stores {
     @include set-background-color($standard-fusion);
     min-height:700px;
     
