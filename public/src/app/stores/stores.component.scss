@@ -36,7 +36,6 @@ section.stores {
                 @include animate-stores(translateX(0px) skewY(0deg), 400ms ease-out);
 
                     h3 {
-                        @include set-color($dark-purle);
                         font-size: 1.4em;
                         transform: translateX(0px) skewY(0deg);
                     }
@@ -47,7 +46,7 @@ section.stores {
                         transform: translateX(0px) skewY(0deg);
                     }
 
-                }:hover{
+                }& li:hover{
                     @include set-background-color($standard-white);
                     @include set-color($standard-conga !important);
                     @include set-cursor(pointer);
