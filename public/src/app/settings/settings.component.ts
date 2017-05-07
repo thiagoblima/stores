@@ -46,8 +46,8 @@ export class SettingsComponent implements OnInit {
     this.getUserInfo();
   }
 
-  deleteUser(id: number) {
-    this.userService.delete(id).subscribe(() => { this.loadAllUsers() });
+  deleteUser(_id: number) {
+    this.userService.delete(_id).subscribe(() => { this.loadAllUsers() });
   }
 
   private loadAllUsers() {
