@@ -60,7 +60,7 @@ module.exports = (app) => {
             if (err) throw err;
 
             if (!user) {
-                res.status(401).json({success: false, msg:'Authentication failed. User not found.'});
+                res.status(401).json({ success: false, msg: 'Authentication failed. User not found.' });
             } else {
                 // check if password matches
                 user.comparePassword(req.body.password, (err, isMatch) => {
@@ -145,6 +145,26 @@ module.exports = (app) => {
             });
         } else {
             return res.status(403).send({ success: false, msg: 'No token provided.' });
+        }
+    });
+
+    apiRoutes.delete('/user/:id', passport.authenticate('jwt', { session: false }), (req, res) => {
+        const token = getToken(req.headers);
+        if (token) {
+            let decoded = jwt.decode(token, config.secret);
+            User.findByIdAndRemove(req.params.id,
+                { _id: req.params.id }, (err, user) => {
+                    if (!user) {
+                        return res.status(403).send({ success: false, msg: 'Authentication failed. User not found.' });
+                    } else {
+                        res.status(200).send({ success: true, msg: 'User was successfully deleted' });
+                    }
+                });
+
+        } else {
+
+            return res.status(403).send({ success: false, msg: 'No token provided.' });
+
         }
     });
 
