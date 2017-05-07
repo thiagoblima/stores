@@ -17,7 +17,7 @@
         </li>
       </ul>
       <ul class="nav navbar-nav navbar-right" [@myAnimation]="show">
-        <li [@myAnimation]="show"><a href="#"><span class="glyphicon glyphicon-user"></span> Settings</a></li>
+        <li [@myAnimation]="show"><a [routerLink]="['/settings']"  href="#"><span class="glyphicon glyphicon-user"></span> Settings</a></li>
         <li [@myAnimation]="show"><a [routerLink]="['/login']" href="#"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
       </ul>
     </div>
