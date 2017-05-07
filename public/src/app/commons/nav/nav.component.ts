@@ -1,6 +1,6 @@
 import { Component, NgModule, OnInit, trigger, transition, style, animate, state } from '@angular/core';
 
-type navAlias = [ { menu: string, alt: string, id: string } ];
+type navAlias = [ { menu: string, alt: string, url: string } ];
 
 /** 
   * @name: NavConfig
@@ -61,11 +61,11 @@ export class NavComponent implements OnInit {
   private message: string = 'Get Nav Object';
 
   private links: navAlias = [
-    { menu: nav.home, alt: 'Home', id: 'link-1' },
-    { menu: nav.aboutUs, alt: 'Who We Are', id: 'link-2' },
-    { menu: nav.showCase, alt: 'Show Case', id: 'link-3' },
-    { menu: nav.stores, alt: 'Stores', id: 'link-4' },
-    { menu: nav.contact, alt: 'Contact', id: 'link-5' }
+    { menu: nav.home, alt: 'Home', url: '/' },
+    { menu: nav.aboutUs, alt: 'Who We Are', url: 'link-2' },
+    { menu: nav.showCase, alt: 'Show Case', url: 'link-3' },
+    { menu: nav.stores, alt: 'Stores', url: 'link-4' },
+    { menu: nav.contact, alt: 'Contact', url: 'link-5' }
   ]
 
   public getNavObject(): any {
