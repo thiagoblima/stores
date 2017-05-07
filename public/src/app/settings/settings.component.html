@@ -6,7 +6,7 @@
     <section class="col-sm-4" [@myAnimation]="show">
       <ul>
         <li *ngFor="let user of users.msg">    
-          <h3>{{user.firstname}}</h3>
+          <h3>{{user.firstname}} {{user.lastname}}</h3>
           <h4>{{user._id}}</h4>
         </li>
       </ul>
