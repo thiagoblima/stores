@@ -1,3 +1,14 @@
 <app-nav></app-nav>
-Hi there
+<section class="container" id="stores" [@myAnimation]="show">
+  <section class="row">
+    <h2 [@myAnimation]="show">Loaded Assets</h2>
+    <section class="col-sm-4" [@myAnimation]="show">
+      <ul>
+        <li *ngFor="let user of users.msg">      
+          {{user.username}}
+        </li>
+      </ul>
+    </section>
+  </section>
+</section>
 <app-footer></app-footer>
