@@ -36,14 +36,20 @@ section.stores {
                 @include animate-stores(translateX(0px) skewY(0deg), 400ms ease-out);
 
                     h3 {
+                        @include set-color($dark-purle);
                         font-size: 1.4em;
                         transform: translateX(0px) skewY(0deg);
+                    }h3:hover{
+                        @include set-color($standard-conga !important);
                     }
 
                     h4 {
+                        @include set-color($dark-purle);
                         font-size: 1em;
                         font-weight: 200;
                         transform: translateX(0px) skewY(0deg);
+                    }h4:hover{
+                        @include set-color($standard-conga !important);
                     }
 
                 }& li:hover{
