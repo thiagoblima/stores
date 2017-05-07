@@ -35,6 +35,7 @@ export class SettingsComponent implements OnInit {
 
   currentUser: User;
   users: User[] = [];
+  message: string = '';
 
   constructor(private userService: UserService) {
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
@@ -42,6 +43,7 @@ export class SettingsComponent implements OnInit {
 
   ngOnInit() {
     this.loadAllUsers();
+    this.getUserInfo();
   }
 
   deleteUser(id: number) {
@@ -51,5 +53,9 @@ export class SettingsComponent implements OnInit {
   private loadAllUsers() {
     this.userService.getAll().subscribe(users => { this.users = users; });
   }
+
+  private getUserInfo(){
+        this.userService.getUserInfo().subscribe(message => { this.message = message; })
+    }
 
 }
