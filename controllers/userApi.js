@@ -168,6 +168,38 @@ module.exports = (app) => {
         }
     });
 
+    // update user by id (only for authenticated users)
+    apiRoutes.put('/user/', passport.authenticate('jwt', { session: false }), (req, res) => {
+        const token = getToken(req.headers);
+        if (token) {
+            let decoded = jwt.decode(token, config.secret);
+
+            if (req.body.id) {
+                User.findByIdAndUpdate(req.body.id,
+                    {
+                        _id: req.body.id,
+                        username: req.body.username,
+                        password: req.body.password,
+                        email: req.body.email,
+                        firstname: req.body.firstname,
+                        lastname: req.body.lastname,
+                        age: req.body.age
+
+                    }, (err, user) => {
+                        if (!user) {
+                            return res.status(401).send({ success: false, msg: 'Authentication failed. User not found.' });
+                        } else {
+                            res.status(200).send({ success: true, msg: 'User was successfully updated' });
+                        }
+                    });
+            } else {
+
+                return res.status(401).send({ success: false, msg: 'No token provided.' });
+
+            }
+        }
+    });
+
 
     // create a new user account (POST /api/signup)
     apiRoutes.post('/recycler', passport.authenticate('jwt', { session: false }), (req, res) => {
