@@ -114,7 +114,6 @@ module.exports = (app) => {
 
 
     // Get the list of all the users. (only for authenticated users.)
-
     apiRoutes.get('/users', passport.authenticate('jwt', { session: false }), (req, res) => {
         const token = getToken(req.headers);
         if (token) {
@@ -149,7 +148,6 @@ module.exports = (app) => {
     });
 
     // Delete user by id (only for authenticated users)
-
     apiRoutes.delete('/user/:id', passport.authenticate('jwt', { session: false }), (req, res) => {
         const token = getToken(req.headers);
         if (token) {
