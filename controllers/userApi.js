@@ -52,7 +52,7 @@ module.exports = (app) => {
     app.use('/api', apiRoutes);
 
 
-    // route to authenticate a user (POST http://localhost:8080/api/authenticate)
+    // route to authenticate a user (POST /api/authenticate)
     apiRoutes.post('/authenticate', (req, res) => {
         User.findOne({
             username: req.body.username
@@ -148,10 +148,14 @@ module.exports = (app) => {
         }
     });
 
+    // Delete user by id (only for authenticated users)
+
     apiRoutes.delete('/user/:id', passport.authenticate('jwt', { session: false }), (req, res) => {
         const token = getToken(req.headers);
         if (token) {
             let decoded = jwt.decode(token, config.secret);
+
+            // find user by id and remove it
             User.findByIdAndRemove(req.params.id,
                 { _id: req.params.id }, (err, user) => {
                     if (!user) {
