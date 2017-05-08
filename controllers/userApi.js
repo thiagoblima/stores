@@ -90,8 +90,6 @@ module.exports = (app) => {
         }
     };
 
-
-
     // route to a restricted info (GET /api/memberinfo)
     apiRoutes.get('/memberinfo', passport.authenticate('jwt', { session: false }), (req, res) => {
         let token = getToken(req.headers);
