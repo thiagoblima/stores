@@ -156,7 +156,7 @@ module.exports = (app) => {
             User.findByIdAndRemove(req.params.id,
                 { _id: req.params.id }, (err, user) => {
                     if (!user) {
-                        return res.status(403).send({ success: false, msg: 'Authentication failed. User not found.' });
+                        return res.status(401).send({ success: false, msg: 'Authentication failed. User not found.' });
                     } else {
                         res.status(200).send({ success: true, msg: 'User was successfully deleted' });
                     }
@@ -164,7 +164,7 @@ module.exports = (app) => {
 
         } else {
 
-            return res.status(403).send({ success: false, msg: 'No token provided.' });
+            return res.status(401).send({ success: false, msg: 'No token provided.' });
 
         }
     });
