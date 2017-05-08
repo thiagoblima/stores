@@ -78,7 +78,7 @@ module.exports = (app) => {
     });
 
 
-    // route to a restricted info (GET http://localhost:8080/api/memberinfo)
+    // route to a restricted info (GET /api/memberinfo)
     apiRoutes.get('/memberinfo', passport.authenticate('jwt', { session: false }), (req, res) => {
         let token = getToken(req.headers);
         if (token) {
@@ -129,7 +129,6 @@ module.exports = (app) => {
 
 
                     // User authenticated, get the list of all the users.
-
                     User.find((err, user) => {
                         if (err) throw err;
 
@@ -219,7 +218,6 @@ module.exports = (app) => {
 
 
     // Get the list of all the users. (only for authenticated users.)
-
     apiRoutes.get('/recycler', passport.authenticate('jwt', { session: false }), (req, res) => {
         const token = getToken(req.headers);
         if (token) {
@@ -233,9 +231,7 @@ module.exports = (app) => {
                     return res.status(403).send({ success: false, msg: 'Authentication failed. Wrong user.' });
                 } else {
 
-
                     // User authenticated, get the list of all the recyclers.
-
                     Recycler.find((err, recycler) => {
                         if (err) throw err;
 
