@@ -76,6 +76,21 @@ module.exports = (app) => {
         });
     });
 
+    // getToken for autorization into the platform
+    getToken = (headers) => {
+        if (headers && headers.authorization) {
+            let parted = headers.authorization.split(' ');
+            if (parted.length === 2) {
+                return parted[1];
+            } else {
+                return null;
+            }
+        } else {
+            return null;
+        }
+    };
+
+
 
     // route to a restricted info (GET /api/memberinfo)
     apiRoutes.get('/memberinfo', passport.authenticate('jwt', { session: false }), (req, res) => {
@@ -97,20 +112,6 @@ module.exports = (app) => {
             return res.status(403).send({ success: false, msg: 'No token provided.' });
         }
     });
-
-    getToken = (headers) => {
-        if (headers && headers.authorization) {
-            let parted = headers.authorization.split(' ');
-            if (parted.length === 2) {
-                return parted[1];
-            } else {
-                return null;
-            }
-        } else {
-            return null;
-        }
-    };
-
 
     // Get the list of all the users. (only for authenticated users.)
     apiRoutes.get('/users', passport.authenticate('jwt', { session: false }), (req, res) => {
