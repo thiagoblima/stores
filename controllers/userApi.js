@@ -12,7 +12,7 @@ const Pickup = require('../models/pickup'); // get the mongoose model
 const Donation_list = require('../models/donation_list'); // get the mongoose model
 const jwt = require('jwt-simple');
 
-// Use the passport package in our application
+// Use the passport package
 app.use(passport.initialize());
 
 require('../config/passport')(passport);
@@ -22,6 +22,9 @@ require('../config/passport')(passport);
 module.exports = (app) => {
 
     const apiRoutes = express.Router();
+
+    // connect the api routes under /api/*
+    app.use('/api', apiRoutes);
 
     // create a new user account (POST http://localhost:8080/api/signup)
     apiRoutes.post('/signup', (req, res) => {
@@ -46,10 +49,6 @@ module.exports = (app) => {
             });
         }
     });
-
-
-    // connect the api routes under /api/*
-    app.use('/api', apiRoutes);
 
 
     // route to authenticate a user (POST /api/authenticate)
@@ -146,6 +145,7 @@ module.exports = (app) => {
         }
     });
 
+
     // Delete user by id (only for authenticated users)
     apiRoutes.delete('/user/:id', passport.authenticate('jwt', { session: false }), (req, res) => {
         const token = getToken(req.headers);
@@ -170,7 +170,7 @@ module.exports = (app) => {
     });
 
 
-    // create a new user account (POST http://localhost:8080/api/signup)
+    // create a new user account (POST /api/signup)
     apiRoutes.post('/recycler', passport.authenticate('jwt', { session: false }), (req, res) => {
 
         const token = getToken(req.headers);
