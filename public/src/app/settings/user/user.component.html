@@ -1,12 +1,18 @@
 <app-nav></app-nav>
-<div *ngIf="user">
-  <h2>{{user.data.username}} details!</h2>
-  <div>
-    <label>id: </label>{{user.data._id}}</div>
-  <div>
-    <label>name: </label>
-    <input [(ngModel)]="user.data.username" placeholder="{{user.data.username}}" />
-  </div>
-  <button (click)="goBack()">Back</button>
-</div>
+<section class="container stores" [@myAnimation]="show">
+  <section class="row" *ngIf="user">
+    <h2>{{user.data.username}} details!</h2>
+    <section class="col-sm-4" [@myAnimation]="show">
+      <ul>
+        <li *ngFor="let user of users.msg">
+          <h3>{{user.firstname}} {{user.lastname}}</h3>
+          <h4>{{user._id}}</h4>   
+        </li>
+      </ul>
+      <label>name: </label>
+      <input [(ngModel)]="user.data.username" placeholder="{{user.data.username}}" />
+      <button (click)="goBack()">Back</button>
+    </section>
+  </section>
+</section>
 <app-footer></app-footer>
