@@ -33,6 +33,7 @@ import { UserService } from '../../services/auth/index';
 export class UserComponent implements OnInit {
   currentUser: User;
   users: User[] = [];
+  user: User[] = [];
   message: string = '';
 
   constructor(private userService: UserService) {
@@ -52,8 +53,9 @@ export class UserComponent implements OnInit {
     this.userService.getUserInfo().subscribe(message => { this.message = message; })
   }
 
-  private getUserById() {
-    
+  private getUserById(_id: number) {
+    this.userService.getById(_id).subscribe(() => { this.loadAllUsers() });
+
   }
 
 
