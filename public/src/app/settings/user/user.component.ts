@@ -8,6 +8,25 @@ import { UserService } from '../../services/auth/index';
 
 @Component({
   selector: 'app-user',
+  animations: [
+    trigger(
+      'myAnimation',
+      [
+        transition(
+          ':enter', [
+            style({ backgroundColor: 'transparent', color: '#F4F2F4', opacity: 1 }),
+            animate('800ms')
+          ]
+        ),
+        transition(
+          ':leave', [
+            style({ opacity: 0 }),
+            animate('800ms')
+          ]
+        )
+      ]
+    )
+  ],
   templateUrl: './user.component.html',
   styleUrls: ['./user.component.scss']
 })
