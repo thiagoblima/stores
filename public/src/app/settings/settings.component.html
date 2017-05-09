@@ -5,10 +5,11 @@
     <h5>{{message.msg}}</h5>
     <section class="col-sm-4" [@myAnimation]="show">
       <ul>
-        <li *ngFor="let user of users.msg">    
+        <li *ngFor="let user of users.msg">
           <h3>{{user.firstname}} {{user.lastname}}</h3>
           <h4>{{user._id}}</h4>
           <a (click)="deleteUser(user._id)">Delete</a>
+          <a [routerLink]="['/user', user._id]">Edit</a>     
         </li>
       </ul>
     </section>
