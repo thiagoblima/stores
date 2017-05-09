@@ -2,6 +2,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/index';
 import { SettingsComponent } from './settings/index';
 import { LoginComponent } from './login/index';
+import { UserComponent } from './settings/user/user.component';
 import { RegisterComponent } from './register/index';
 import { AuthGuard } from './services/guards/index';
 
@@ -9,6 +10,7 @@ import { AuthGuard } from './services/guards/index';
 const appRoutes: Routes = [
     { path: '', component: HomeComponent, canActivate: [AuthGuard] },
     { path: 'settings', component: SettingsComponent, canActivate: [AuthGuard] },
+    { path: 'user/:id', component: UserComponent, canActivate: [AuthGuard]  },
     { path: 'login', component: LoginComponent },
     { path: 'register', component: RegisterComponent },
  
