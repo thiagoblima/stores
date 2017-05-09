@@ -210,20 +210,17 @@ module.exports = (app) => {
                     age: req.body.age
 
                 }, (err, user) => {
-                    if (!user) {
-                        return res.status(401).send({ success: false, msg: 'Authentication failed. User not found.' });
-                    } else {
-                        res.status(200).send({ success: true, msg: 'User was successfully updated' });
-                    }
+                    user.save((err) => {
+                        if (!user) {
+                            return res.status(401).send({ success: false, msg: 'Authentication failed. User not found.' });
+                        } else {
+                            res.status(200).send({ success: true, msg: 'User was successfully updated' });
+                        }
+                    });
+
                 });
-
-        } else {
-
-            return res.status(401).send({ success: false, msg: 'No token provided.' });
-
-        }
+           }
     });
-
 
     // create a new user account (POST /api/signup)
     apiRoutes.post('/recycler', passport.authenticate('jwt', { session: false }), (req, res) => {
