@@ -156,7 +156,7 @@ module.exports = (app) => {
                     if (!user) {
                         return res.status(401).send({ success: false, msg: 'Authentication failed. User not found.' });
                     } else {
-                        res.status(200).send({ success: true, msg: 'User sucessfully found!' + user });
+                        res.status(200).json({ success: true, msg: 'User was successfully found', user: user });
                     }
                 });
 
