@@ -144,6 +144,7 @@ module.exports = (app) => {
         }
     });
 
+    // find user by id (only for authenticated users)
     apiRoutes.get('/user/:id', passport.authenticate('jwt', { session: false }), (req, res) => {
         const token = getToken(req.headers);
         if (token) {
