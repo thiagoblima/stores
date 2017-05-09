@@ -7,6 +7,7 @@ import { FooterComponent } from '../../commons/footer/footer.component';
 import { StoresComponent } from '../../stores/stores.component';
 import { User } from '../../models/index';
 import { UserService } from '../../services/auth/index';
+import 'rxjs/add/operator/switchMap';
 
 @Component({
   selector: 'app-user',
@@ -47,7 +48,7 @@ export class UserComponent implements OnInit {
     this.loadAllUsers();
     this.getUserInfo();
     this.route.params
-      .switchMap((params: Params) => this.userService.getById(+params['_id']))
+      .switchMap((params: Params) => this.userService.getById( + params['_id'] ))
       .subscribe(user => this.user = user);
   }
 
