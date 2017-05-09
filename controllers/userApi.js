@@ -150,8 +150,8 @@ module.exports = (app) => {
             let decoded = jwt.decode(token, config.secret);
 
             // find user by id and get it
-            User.findById(req.params.id, {},
-                 (err, user) => {
+            User.findById(req.params.id,
+                {}, (err, user) => {
                     if (!user) {
                         return res.status(401).send({ success: false, msg: 'Authentication failed. User not found.' });
                     } else {
