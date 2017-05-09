@@ -10,6 +10,7 @@ import { UserService } from '../../services/auth/index';
 import 'rxjs/add/operator/switchMap';
 
 @Component({
+  moduleId: module.id,
   selector: 'app-user',
   animations: [
     trigger(
@@ -38,6 +39,7 @@ export class UserComponent implements OnInit {
   users: User[] = [];
   user: User[] = [];
   message: string = '';
+  
 
   constructor(private userService: UserService, private route: ActivatedRoute, private location: Location) {
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
@@ -48,7 +50,7 @@ export class UserComponent implements OnInit {
     this.loadAllUsers();
     this.getUserInfo();
     this.route.params
-      .switchMap((params: Params) => this.userService.getById( + params['_id'] ))
+      .switchMap((params) => this.userService.getById( params.id ))
       .subscribe(user => this.user = user);
   }
 
