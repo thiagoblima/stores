@@ -31,10 +31,26 @@ import { UserService } from '../../services/auth/index';
   styleUrls: ['./user.component.scss']
 })
 export class UserComponent implements OnInit {
+  currentUser: User;
+  users: User[] = [];
+  message: string = '';
 
-  constructor() { }
+  constructor(private userService: UserService) {
+    this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+  }
 
   ngOnInit() {
+    this.loadAllUsers();
+    this.getUserInfo();
   }
+
+  private loadAllUsers() {
+    this.userService.getAll().subscribe(users => { this.users = users; });
+  }
+
+  private getUserInfo() {
+    this.userService.getUserInfo().subscribe(message => { this.message = message; })
+  }
+
 
 }
