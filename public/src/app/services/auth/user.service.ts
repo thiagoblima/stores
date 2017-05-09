@@ -15,7 +15,7 @@ export class UserService {
         return this.http.get('/api/memberinfo', this.jwt()).map((response: Response) => response.json());
     }
 
-    getById(_id: number) {
+    getById(_id: any) {
         return this.http.get('/api/user/' + _id, this.jwt()).map((response: Response) => response.json());
     }
 
