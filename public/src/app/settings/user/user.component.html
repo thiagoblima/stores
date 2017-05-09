@@ -1,11 +1,11 @@
 <app-nav></app-nav>
 <div *ngIf="user">
-  <h2>{{user.username}} details!</h2>
+  <h2>{{user.data.username}} details!</h2>
   <div>
-    <label>id: </label>{{user._id}}</div>
+    <label>id: </label>{{user.data._id}}</div>
   <div>
     <label>name: </label>
-    <input [(ngModel)]="user.username" placeholder="{{user.username}}" />
+    <input [(ngModel)]="user.data.username" placeholder="{{user.data.username}}" />
   </div>
   <button (click)="goBack()">Back</button>
 </div>
