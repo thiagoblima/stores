@@ -19,6 +19,7 @@ import { AuthGuard } from './services/guards/index';
 import { AlertService } from './services/auth/index';
 import { AuthenticationService, UserService } from './services/auth/index';
 import { SettingsComponent } from './settings/settings.component';
+import { UserComponent } from './settings/user/user.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { SettingsComponent } from './settings/settings.component';
     HomeComponent,
     LoginComponent,
     RegisterComponent,
-    SettingsComponent
+    SettingsComponent,
+    UserComponent
   ],
   imports: [
     NgbModule.forRoot(),
