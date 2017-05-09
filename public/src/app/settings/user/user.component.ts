@@ -37,7 +37,7 @@ import 'rxjs/add/operator/switchMap';
 export class UserComponent implements OnInit {
   currentUser: User;
   users: User[] = [];
-  user: User[] = [];
+  user;
   message: string = '';
   
 
