@@ -1,4 +1,5 @@
 import { Component, NgModule, OnInit, trigger, transition, style, animate, state } from '@angular/core';
+import { Router } from '@angular/router';
 import { NavComponent } from '../commons/nav/nav.component';
 import { HeaderComponent } from '../commons/header/header.component';
 import { FooterComponent } from '../commons/footer/footer.component';
@@ -35,9 +36,11 @@ export class SettingsComponent implements OnInit {
 
   currentUser: User;
   users: User[] = [];
+  user: User[] = [];
+  selectedUser: User;
   message: string = '';
 
-  constructor(private userService: UserService) {
+  constructor(private userService: UserService, private router: Router) {
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
   }
 
@@ -54,8 +57,8 @@ export class SettingsComponent implements OnInit {
     this.userService.getAll().subscribe(users => { this.users = users; });
   }
 
-  private getUserInfo(){
-        this.userService.getUserInfo().subscribe(message => { this.message = message; })
-    }
+  private getUserInfo() {
+    this.userService.getUserInfo().subscribe(message => { this.message = message; })
+  }
 
 }
