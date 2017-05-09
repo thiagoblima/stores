@@ -1,4 +1,6 @@
 import { Component, NgModule, OnInit, trigger, transition, style, animate, state } from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
+import { Location } from '@angular/common';
 import { NavComponent } from '../../commons/nav/nav.component';
 import { HeaderComponent } from '../../commons/header/header.component';
 import { FooterComponent } from '../../commons/footer/footer.component';
@@ -36,13 +38,17 @@ export class UserComponent implements OnInit {
   user: User[] = [];
   message: string = '';
 
-  constructor(private userService: UserService) {
+  constructor(private userService: UserService, private route: ActivatedRoute, private location: Location) {
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    
   }
 
   ngOnInit() {
     this.loadAllUsers();
     this.getUserInfo();
+    this.route.params
+      .switchMap((params: Params) => this.userService.getById(+params['_id']))
+      .subscribe(user => this.user = user);
   }
 
   private loadAllUsers() {
@@ -52,10 +58,5 @@ export class UserComponent implements OnInit {
   private getUserInfo() {
     this.userService.getUserInfo().subscribe(message => { this.message = message; })
   }
-
-  private getUserById(_id: number) {
-    this.userService.getById(_id).subscribe(() => { this.loadAllUsers() });
-  }
-
 
 }
