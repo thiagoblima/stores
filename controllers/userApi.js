@@ -144,6 +144,29 @@ module.exports = (app) => {
         }
     });
 
+    apiRoutes.get('/user/:id', passport.authenticate('jwt', { session: false }), (req, res) => {
+        const token = getToken(req.headers);
+        if (token) {
+            let decoded = jwt.decode(token, config.secret);
+
+            // find user by id and get it
+            User.findById(req.params.id, {},
+                 (err, user) => {
+                    if (!user) {
+                        return res.status(401).send({ success: false, msg: 'Authentication failed. User not found.' });
+                    } else {
+                        res.status(200).send({ success: true, msg: 'User sucessfully found!' + user });
+                    }
+                });
+
+        } else {
+
+            return res.status(403).send({ success: false, msg: 'No token provided.' });
+
+        }
+
+    });
+
 
     // Delete user by id (only for authenticated users)
     apiRoutes.delete('/user/:id', passport.authenticate('jwt', { session: false }), (req, res) => {
@@ -192,7 +215,7 @@ module.exports = (app) => {
                         res.status(200).send({ success: true, msg: 'User was successfully updated' });
                     }
                 });
-                
+
         } else {
 
             return res.status(401).send({ success: false, msg: 'No token provided.' });
