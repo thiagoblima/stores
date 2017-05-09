@@ -101,13 +101,13 @@ module.exports = (app) => {
                 if (err) throw err;
 
                 if (!user) {
-                    return res.status(403).send({ success: false, msg: 'Authentication failed. User not found.' });
+                    return res.status(401).send({ success: false, msg: 'Authentication failed. User not found.' });
                 } else {
                     res.json({ success: true, msg: 'Welcome in the member area ' + user.username + '!' });
                 }
             });
         } else {
-            return res.status(403).send({ success: false, msg: 'No token provided.' });
+            return res.status(401).send({ success: false, msg: 'No token provided.' });
         }
     });
 
@@ -162,7 +162,7 @@ module.exports = (app) => {
 
         } else {
 
-            return res.status(403).send({ success: false, msg: 'No token provided.' });
+            return res.status(401).send({ success: false, msg: 'No token provided.' });
 
         }
 
