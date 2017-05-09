@@ -52,5 +52,9 @@ export class UserComponent implements OnInit {
     this.userService.getUserInfo().subscribe(message => { this.message = message; })
   }
 
+  private getUserById() {
+    
+  }
+
 
 }

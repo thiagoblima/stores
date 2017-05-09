@@ -15,8 +15,8 @@ export class UserService {
         return this.http.get('/api/memberinfo', this.jwt()).map((response: Response) => response.json());
     }
 
-    getById(id: number) {
-        return this.http.get('/api/user/' + id, this.jwt()).map((response: Response) => response.json());
+    getById(_id: number) {
+        return this.http.get('/api/user/' + _id, this.jwt()).map((response: Response) => response.json());
     }
 
     create(user: User) {
