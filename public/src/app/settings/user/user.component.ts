@@ -55,7 +55,6 @@ export class UserComponent implements OnInit {
 
   private getUserById(_id: number) {
     this.userService.getById(_id).subscribe(() => { this.loadAllUsers() });
-
   }
 
 
