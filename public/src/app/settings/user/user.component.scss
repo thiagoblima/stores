@@ -13,13 +13,17 @@
 
 // styles goes here
 
+.user-hero {
+     padding:0 !important;
+     text-align: center !important;
+}
 
  section.user.col-md-6.col-md-offset-3 {
 
      @include set-background-color($standard-fusion !important);
 
      ul {
-         padding:0 !important;
+        
          li {
             
             h4 {
