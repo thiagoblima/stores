@@ -13,29 +13,16 @@
 
 // styles goes here
 
-section.user.container {
-
-    min-height: 750;
-
-section.row{
 
  section.user.col-md-6.col-md-offset-3 {
 
      @include set-background-color($standard-fusion !important);
 
      ul {
-
-         padding:0;
-
          li {
-            h3 {
-
-               @include set-color($standard-conga);
-
-            }
+            
             h4 {
-               @include set-color($standard-conga);
-               
+               @include set-color($dark-purle);
             }
          }
      }
@@ -88,6 +75,5 @@ section.row{
          }                  
      }
  }
-     }
-   }
-}
+
+ }
