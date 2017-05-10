@@ -20,7 +20,7 @@
 
      ul {
          li {
-            h3 { }
+            
             h4 {
                @include set-color($dark-purle);
             }
@@ -41,12 +41,13 @@
             }
 
         }
+
     section.form-group{
 
          button{
 
-            @include set-background-color($light-orange); 
-            @include button-settings-state($light-orange, 300ms ease-out);
+            @include set-background-color($light-orange !important); 
+            @include button-settings-state($light-orange !important, 300ms ease-out);
 
         }button:hover{
 
