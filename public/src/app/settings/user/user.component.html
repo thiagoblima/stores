@@ -2,16 +2,28 @@
 <section class="container stores" [@myAnimation]="show">
   <section class="row" *ngIf="user">
     <h2>{{user.data.username}} details!</h2>
-    <section class="col-sm-4" [@myAnimation]="show">
+    <section class="col-md-6 col-md-offset-3" [@myAnimation]="show">
       <ul>
-        <li *ngFor="let user of users.msg">
-          <h3>{{user.firstname}} {{user.lastname}}</h3>
-          <h4>{{user._id}}</h4>   
+        <li>
+          <h3>{{user.data.firstname}} {{user.data.lastname}}</h3>
+          <h4>{{user.data._id}}</h4>
         </li>
       </ul>
-      <label>name: </label>
-      <input [(ngModel)]="user.data.username" placeholder="{{user.data.username}}" />
-      <button (click)="goBack()">Back</button>
+      <form name="form" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
+        <label for="username">username: </label>
+        <input type="text" name="username"[(ngModel)]="user.data.username" placeholder="{{user.data.username}}" />
+        <label for="password"> password: </label>
+        <input type="password" name="password" [(ngModel)]="user.data.password" placeholder="insert a new password" />
+        <label for="email">email: </label>
+        <input type="email" name="email" [(ngModel)]="user.data.email" placeholder="{{user.data.email}}" />
+        <label for="firstname">first name: </label>
+        <input type="text" name="firstname" [(ngModel)]="user.data.firstname" placeholder="{{user.data.firstname}}" />
+        <label for="lastname"> last name: </label>
+        <input type="text" name="lastname" [(ngModel)]="user.data.lastname" placeholder="{{user.data.lastname}}" />
+        <label for="age">age: </label>
+        <input type="number" name="age" [(ngModel)]="user.data.age" placeholder="{{user.data.lastname}}" />
+        <button (click)="goBack()">Back</button>
+      </form>
     </section>
   </section>
 </section>
