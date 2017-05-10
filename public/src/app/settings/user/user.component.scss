@@ -24,6 +24,7 @@
             
             h4 {
                @include set-color($dark-purle);
+               padding-bottom: 1em;
             }
          }
      }
