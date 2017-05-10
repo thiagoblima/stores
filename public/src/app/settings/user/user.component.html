@@ -34,11 +34,11 @@
           <input type="text" name="lastname" class="form-control" [(ngModel)]="user.data.lastname" placeholder="{{user.data.lastname}}"
           />
         </section>
-        <section>
+        <section class="form-group">
           <label for="age">age: </label>
           <input type="number" name="age" class="form-control" [(ngModel)]="user.data.age" placeholder="{{user.data.lastname}}" />
-        </section><br>
-        <button class="btn btn-primary" [routerLink]="['/settings']">Back</button>
+          <button class="btn btn-primary" [routerLink]="['/settings']">Back</button>
+        </section><br>      
       </form>
     </section>
   </section>
