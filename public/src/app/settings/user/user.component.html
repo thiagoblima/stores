@@ -3,7 +3,7 @@
   <section class="row" *ngIf="user">
     <h2 class="user-hero">{{user.data.username}} details!</h2>
     <section class="user col-md-6 col-md-offset-3" [@myAnimation]="show">
-      <ul>
+      <ul class="user-details">
         <li>
           <h3>{{user.data.firstname}} {{user.data.lastname}}</h3>
           <h4>id: {{user.data._id}}</h4>
