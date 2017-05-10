@@ -6,7 +6,7 @@
       <ul>
         <li>
           <h3>{{user.data.firstname}} {{user.data.lastname}}</h3>
-          <h4>{{user.data._id}}</h4>
+          <h4>id: {{user.data._id}}</h4>
         </li>
       </ul>
       <form name="form" class="user" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
