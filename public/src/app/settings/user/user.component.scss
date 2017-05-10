@@ -18,6 +18,10 @@
      text-align: center !important;
 }
 
+.user-details {
+    padding: 0 !important;
+}
+
  section.user.col-md-6.col-md-offset-3 {
 
      @include set-background-color($standard-fusion !important);
