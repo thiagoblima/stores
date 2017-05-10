@@ -35,10 +35,10 @@ import 'rxjs/add/operator/switchMap';
   styleUrls: ['./user.component.scss']
 })
 export class UserComponent implements OnInit {
-  currentUser: User;
-  users: User[] = [];
-  user;
-  message: string = '';
+  private currentUser: User;
+  private users: User[] = [];
+  private user: User;
+  private message: string = '';
   
 
   constructor(private userService: UserService, private route: ActivatedRoute, private location: Location) {
