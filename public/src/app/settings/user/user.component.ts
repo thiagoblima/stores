@@ -54,6 +54,10 @@ export class UserComponent implements OnInit {
       .subscribe(user => this.user = user);
   }
 
+   private updateUser(user: User) {
+    this.userService.update(user._id).subscribe(() => { this.loadAllUsers() });
+  }
+
   private loadAllUsers() {
     this.userService.getAll().subscribe(users => { this.users = users; });
   }
