@@ -39,6 +39,7 @@ export class UserComponent implements OnInit {
   private users: User[] = [];
   private user: User;
   private message: string = '';
+  public model: any = {};
   
 
   constructor(private userService: UserService, private route: ActivatedRoute, private location: Location) {
