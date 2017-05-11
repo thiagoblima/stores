@@ -12,26 +12,26 @@
       <form name="form" class="user" (ngSubmit)="f.form.valid && updateUser()" #f="ngForm" novalidate>
         <section class="form-group">
           <label for="username">username: </label>
-          <input type="text" name="username" class="form-control" [(ngModel)]="user.data.username" placeholder="{{user.data.username}}"
+          <input type="text" name="username" class="form-control" [(ngModel)]="user.username" placeholder="{{user.data.username}}"
           />
         </section>
         <section class="form-group">
           <label for="email">email: </label>
-          <input type="email" name="email" class="form-control" [(ngModel)]="user.data.email" placeholder="{{user.data.email}}" />
+          <input type="email" name="email" class="form-control" [(ngModel)]="user.email" placeholder="{{user.data.email}}" />
         </section>
         <section class="form-group">
           <label for="firstname">first name: </label>
-          <input type="text" name="firstname" class="form-control" [(ngModel)]="user.data.firstname" placeholder="{{user.data.firstname}}"
+          <input type="text" name="firstname" class="form-control" [(ngModel)]="user.firstname" placeholder="{{user.data.firstname}}"
           />
         </section>
         <section class="form-group">
           <label for="lastname"> last name: </label>
-          <input type="text" name="lastname" class="form-control" [(ngModel)]="user.data.lastname" placeholder="{{user.data.lastname}}"
+          <input type="text" name="lastname" class="form-control" [(ngModel)]="user.lastname" placeholder="{{user.data.lastname}}"
           />
         </section>
         <section class="form-group">
           <label for="age">age: </label>
-          <input type="number" name="age" class="form-control" [(ngModel)]="user.data.age" placeholder="{{user.data.lastname}}" /><br>
+          <input type="number" name="age" class="form-control" [(ngModel)]="user.age" placeholder="{{user.data.age}}" /><br>
           <button [disabled]="loading" class="btn btn-primary">Save</button>
           <a [routerLink]="['/settings']"><span>Back</span></a>
         </section>  
