@@ -9,15 +9,10 @@
           <h4>id: {{user.data._id}}</h4>
         </li>
       </ul>
-      <form name="form" class="user" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
+      <form name="form" class="user" (ngSubmit)="f.form.valid && updateById()" #f="ngForm" novalidate>
         <section class="form-group">
           <label for="username">username: </label>
           <input type="text" name="username" class="form-control" [(ngModel)]="user.data.username" placeholder="{{user.data.username}}"
-          />
-        </section>
-        <section class="form-group">
-          <label for="password"> password: </label>
-          <input type="password" name="password" class="form-control" [(ngModel)]="user.data.password" placeholder="insert a new password"
           />
         </section>
         <section class="form-group">
