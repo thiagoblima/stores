@@ -9,7 +9,7 @@
           <h4>id: {{user.data._id}}</h4>
         </li>
       </ul>
-      <form name="form" class="user" (ngSubmit)="f.form.valid && updateById()" #f="ngForm" novalidate>
+      <form name="form" class="user" (ngSubmit)="f.form.valid && updateUser()" #f="ngForm" novalidate>
         <section class="form-group">
           <label for="username">username: </label>
           <input type="text" name="username" class="form-control" [(ngModel)]="user.data.username" placeholder="{{user.data.username}}"
@@ -32,7 +32,8 @@
         <section class="form-group">
           <label for="age">age: </label>
           <input type="number" name="age" class="form-control" [(ngModel)]="user.data.age" placeholder="{{user.data.lastname}}" /><br>
-          <button class="btn btn-primary" [routerLink]="['/settings']">Back</button>
+          <button [disabled]="loading" class="btn btn-primary">Save</button>
+          <a [routerLink]="['/settings']"><span>Back</span></a>
         </section>  
       </form>
     </section>
