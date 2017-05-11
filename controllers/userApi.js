@@ -203,7 +203,6 @@ module.exports = (app) => {
                 {
                     _id: req.params.id,
                     username: req.body.username,
-                    password: req.body.password,
                     email: req.body.email,
                     firstname: req.body.firstname,
                     lastname: req.body.lastname,
