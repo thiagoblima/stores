@@ -1,12 +1,12 @@
 import { Component, NgModule, OnInit, trigger, transition, style, animate, state } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { NavComponent } from '../../commons/nav/nav.component';
 import { HeaderComponent } from '../../commons/header/header.component';
 import { FooterComponent } from '../../commons/footer/footer.component';
 import { StoresComponent } from '../../stores/stores.component';
 import { User } from '../../models/index';
-import { UserService } from '../../services/auth/index';
+import { UserService, AlertService } from '../../services/auth/index';
 import 'rxjs/add/operator/switchMap';
 
 @Component({
@@ -39,10 +39,16 @@ export class UserComponent implements OnInit {
   private users: User[] = [];
   private user: User;
   private message: string = '';
+  private error: string = '';
   public model: any = {};
+  public loading: boolean = false;
   
 
-  constructor(private userService: UserService, private route: ActivatedRoute, private location: Location) {
+  constructor(private userService: UserService, 
+              private route: ActivatedRoute, 
+              private location: Location,
+              private router: Router,
+              private alertService: AlertService) {
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
     
   }
@@ -56,7 +62,18 @@ export class UserComponent implements OnInit {
   }
 
    private updateUser(user: User) {
-    this.userService.update(user._id).subscribe(() => { this.loadAllUsers() });
+    this.loading = true;
+    this.userService.update(user._id)
+      .subscribe(
+      data => {
+        this.alertService.success('Registration successful', true);
+        this.router.navigate(['/settings']);
+        this.loadAllUsers();
+      },
+      error => {
+        this.error = 'An error ocurred on updating the user.';
+        this.loading = false;
+      });
   }
 
   private loadAllUsers() {
