@@ -9,7 +9,7 @@
           <h3>{{user.firstname}} {{user.lastname}}</h3>
           <h4>{{user._id}}</h4>
           <a (click)="deleteUser(user._id)">Delete</a>
-          <a [routerLink]="['/user', user._id]">Edit</a>     
+          <a [routerLink]="['/api/user', user._id]">Edit</a>     
         </li>
       </ul>
     </section>
