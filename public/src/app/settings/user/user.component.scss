@@ -30,9 +30,11 @@
         
          li {
             
-            h4 {
+            h4:nth-last-of-type(1) {
                @include set-color($dark-purle);
                padding-bottom: 1em;
+            }& h4{
+                @include set-color($dark-purle);
             }
          }
      }
