@@ -42,38 +42,40 @@ export class UserComponent implements OnInit {
   private error: string = '';
   public model: any = {};
   public loading: boolean = false;
-  
 
-  constructor(private userService: UserService, 
-              private route: ActivatedRoute, 
-              private location: Location,
-              private router: Router,
-              private alertService: AlertService) {
+
+  constructor(private userService: UserService,
+    private route: ActivatedRoute,
+    private location: Location,
+    private router: Router,
+    private alertService: AlertService) {
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
-    
+
   }
 
   ngOnInit() {
     this.loadAllUsers();
     this.getUserInfo();
     this.route.params
-      .switchMap((params) => this.userService.getById( params.id ))
+      .switchMap((params) => this.userService.getById(params.id))
       .subscribe(user => this.user = user);
   }
 
-   private updateUser(user: User) {
+  private updateUser(user: User) {
     this.loading = true;
-    this.userService.update(user._id)
-      .subscribe(
-      data => {
-        this.alertService.success('Registration successful', true);
-        this.router.navigate(['/settings']);
-        this.loadAllUsers();
-      },
+    this.route.params
+      .switchMap((params) => this.userService.update(params._id));
+
+    this.userService.update(this.model).subscribe(data => {
+      this.alertService.success('Registration successful', true);
+      this.router.navigate(['/settings']);
+      this.loadAllUsers();
+    },
       error => {
-        this.error = 'An error ocurred on updating the user.';
+        this.error = 'Error on saving the user.';
         this.loading = false;
       });
+
   }
 
   private loadAllUsers() {
