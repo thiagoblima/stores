@@ -202,7 +202,6 @@ module.exports = (app) => {
             User.findByIdAndUpdate(req.params.id,
                 {
                     _id: req.params.id,
-                    username: req.body.username,
                     email: req.body.email,
                     firstname: req.body.firstname,
                     lastname: req.body.lastname,
