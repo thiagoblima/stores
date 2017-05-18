@@ -44,15 +44,22 @@ Authorization : `JWT key`
 
 GET `/api/user/:id`
 Authorization : `JWT key`
-Params: id
+
+* `id`
 
 DELETE `/api/user/:id`
 Authorization : `JWT key`
-Params: id
+
+* `id`
 
 PUT `/api/user/:id`
 Authorization : `JWT key`
-Params: id, email, firstname, lastname, age
+
+* `id`
+* `email`
+* `firstname`
+* `lastname`
+* `age`
 
 
 ## Stores API
