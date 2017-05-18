@@ -6,6 +6,11 @@ The app's structure is based on an **SPA** (Single Page Architecture).
 
 ## Back-end fexample of Node.JS, MongoDB, with JWT authentication
 
+## Software Development Team On This Project
+
+* Thiago Lima **Fullstack Developer / Dev Architect**
+* Bruno Mossolin **UX, UI, Art Director**
+
 #### First you gotta edit the mongoDB database string in /config/database.js
 
 POST `/api/signup`
