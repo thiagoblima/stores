@@ -247,7 +247,7 @@ module.exports = (app) => {
                             store_name: req.body.store_name,
                             store_image: req.body.store_image,
                             store_phone: req.body.store_phone,
-                            store_country: req.body.store_county,
+                            store_country: req.body.store_country,
                             store_address: req.body.store_address
 
                         });
