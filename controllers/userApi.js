@@ -271,8 +271,8 @@ module.exports = (app) => {
     });
 
 
-    // Get the list of all the users. (only for authenticated users.)
-    apiRoutes.get('/recycler', passport.authenticate('jwt', { session: false }), (req, res) => {
+    // Get the list of a specific user's stores. (only for authenticated users.)
+    apiRoutes.get('/stores', passport.authenticate('jwt', { session: false }), (req, res) => {
         const token = getToken(req.headers);
         if (token) {
             let decoded = jwt.decode(token, config.secret);
@@ -285,14 +285,14 @@ module.exports = (app) => {
                     return res.status(403).send({ success: false, msg: 'Authentication failed. Wrong user.' });
                 } else {
 
-                    // User authenticated, get the list of all the recyclers.
-                    Recycler.find((err, recycler) => {
+                    // User authenticated, get the list of all the stores.
+                    Stores.find((err, store) => {
                         if (err) throw err;
 
-                        if (!recycler) {
+                        if (!store) {
                             return res.status(403).send({ success: false, msg: 'Authentication failed. User not found.' });
                         } else {
-                            res.json({ success: true, msg: recycler });
+                            res.status(200).json({ success: true, msg: store });
                         }
                     });
 
