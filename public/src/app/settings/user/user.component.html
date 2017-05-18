@@ -11,13 +11,6 @@
         </li>
       </ul>
       <form name="form" class="user" (ngSubmit)="f.form.valid && updateUser()" #f="ngForm" novalidate>
-        <!--
-        <section class="form-group" [ngClass]="{ 'has-error': f.submitted && !username.valid }">
-          <label for="username">username: </label>
-          <input type="text" name="username" class="form-control" [(ngModel)]="model.username" #username="ngModel" placeholder="{{user.data.username}}" />
-          <div *ngIf="f.submitted && !username.valid" class="help-block">Username is required</div>
-        </section>
-        -->
         <section class="form-group" [ngClass]="{ 'has-error': f.submitted && !email.valid }">
           <label for="email">email: </label>
           <input type="email" name="email" class="form-control" [(ngModel)]="model.email" #email="ngModel" placeholder="{{user.data.email}}" />
