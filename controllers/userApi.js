@@ -212,7 +212,7 @@ module.exports = (app) => {
                     if (!user) {
                         return res.status(401).send({ success: false, msg: 'Authentication failed. User not found.' });
                     } else {
-                        res.status(200).send({ success: true, msg: 'User was successfully deleted' });
+                        res.status(200).send({ success: true, msg: 'User was successfully updated!' });
                     }
                 });
 
