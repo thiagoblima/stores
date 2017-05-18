@@ -3,16 +3,15 @@ const app = express();
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const passport = require('passport');
-const config = require('../config/database'); // get db config file
-const User = require('../models/user'); // get the mongoose model
-const Recycler = require('../models/recycler'); // get the mongoose model
-const otpDB = require('../models/otpdb'); // get the mongoose model
-const Schedule = require('../models/schedule'); // get the mongoose model
-const Pickup = require('../models/pickup'); // get the mongoose model
-const Donation_list = require('../models/donation_list'); // get the mongoose model
+const config = require('../config/database');
+const User = require('../models/user');
+const Stores = require('../models/stores'); 
+const otpDB = require('../models/otpdb'); 
+const Schedule = require('../models/schedule'); 
+const Pickup = require('../models/pickup'); 
+const Donation_list = require('../models/donation_list'); 
 const jwt = require('jwt-simple');
 
-// Use the passport package
 app.use(passport.initialize());
 
 require('../config/passport')(passport);
@@ -225,8 +224,8 @@ module.exports = (app) => {
 
 
 
-// create a new user account (POST /api/signup)
-apiRoutes.post('/recycler', passport.authenticate('jwt', { session: false }), (req, res) => {
+// create a new store (POST /api/stores)
+apiRoutes.post('/stores', passport.authenticate('jwt', { session: false }), (req, res) => {
 
     const token = getToken(req.headers);
     if (token) {
@@ -240,24 +239,24 @@ apiRoutes.post('/recycler', passport.authenticate('jwt', { session: false }), (r
                 return res.status(403).send({ success: false, msg: 'Authentication failed. Wrong user.' });
             } else {
 
-                if (!req.body.recycler_name || !req.body.recycler_phone) {
-                    res.json({ success: false, msg: 'Name or phone number missing.' });
+                if (!req.body.store_name || !req.body.store_phone) {
+                    res.status(401).json({ success: false, msg: 'Name or phone number missing.' });
                 } else {
-                    let newRecycler = new Recycler({
+                    let newStore = new Stores({
 
-                        recycler_name: req.body.recycler_name,
-                        recycler_image: req.body.recycler_image,
-                        recycler_phone: req.body.recycler_phone,
-                        recycler_dob: req.body.recycler_dob,
-                        recycler_address: req.body.recycler_address
+                        store_name: req.body.store_name,
+                        store_image: req.body.store_image,
+                        store_phone: req.body.store_phone,
+                        store_country: req.body.store_county,
+                        store_address: req.body.store_address
 
                     });
                     // save the Recycler
-                    newRecycler.save((err) => {
+                    newStore.save((err) => {
                         if (err) {
                             throw err;
                         }
-                        res.json({ success: true, msg: 'Successfully added the new Recycler.' });
+                        res.status(200).json({ success: true, msg: 'Successfully added the new Store ' + user.username });
                     });
 
                 }
@@ -266,7 +265,7 @@ apiRoutes.post('/recycler', passport.authenticate('jwt', { session: false }), (r
             }
         });
     } else {
-        return res.status(403).send({ success: false, msg: 'No token provided.' });
+        return res.status(401).send({ success: false, msg: 'No token provided.' });
     }
 
 });
