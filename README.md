@@ -35,18 +35,18 @@ POST `/api/authenticate`
 GET `/api/memberinfo`
 Authorization : `JWT key`
 
-## RECYCLER
+## STORES
 
-GET `/api/recycler`
+GET `/api/stores`
 Authorization : `JWT Key`
 
-POST `/api/recycler` 
+POST `/api/stores` 
 
-  * `recycler_name: { type: String, required: true, unique: true }`,
-  * `recycler_image: String`,
-  * `recycler_phone: Number`,
-  * `recycler_dob: String`,
-  * `recycler_address: String`
+  * `store_name: { type: String, required: true, unique: true }`,
+  * `store_image: String`,
+  * `store_phone: Number`,
+  * `store_country: String`,
+  * `store_address: String`
 
 -------------------------------------------------------
 
