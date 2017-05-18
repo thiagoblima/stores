@@ -42,6 +42,18 @@ Authorization : `JWT key`
 GET `/api/users`
 Authorization : `JWT key`
 
+GET `/api/user/:id`
+Authorization : `JWT key`
+Params: id
+
+DELETE `/api/user/:id`
+Authorization : `JWT key`
+Params: id
+
+PUT `/api/user/:id`
+Authorization : `JWT key`
+Params: id, email, firstname, lastname, age
+
 
 ## Stores API
 
