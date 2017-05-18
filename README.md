@@ -10,7 +10,7 @@ A huge thanks for all of those who have helped this project, the love for _OSS_ 
 * Thiago Lima | _Fullstack Developer / Dev Architect_
 * Bruno Mossolin | _UX, UI, Art Director_
 
-`Intrduction`:
+`Introduction`:
 
 MEANStack Angular 4 REST API Web Service boilerplate, The app's structure is based on an **SPA** (Single Page Architecture).
 
