@@ -12,7 +12,7 @@ A huge thanks for all of those who have helped this project, the love for _OSS_ 
 ### MEANStack Angular 4 REST API Web Service boilerplate
 The app's structure is based on an **SPA** (Single Page Architecture).
 
-## Back-end fexample of Node.JS, MongoDB, with JWT authentication
+## Back-end: Node.JS, MongoDB and Moongose with JWT authentication
 
 #### First you gotta edit the mongoDB database string in /config/database.js
 
