@@ -37,6 +37,8 @@ POST `/api/authenticate`
 GET `/api/memberinfo`
 Authorization : `JWT key`
 
+-------------------------------------------------------
+
 ## Users API
 
 GET `/api/users`
@@ -61,6 +63,7 @@ Authorization : `JWT key`
 * `lastname`
 * `age`
 
+-------------------------------------------------------
 
 ## Stores API
 
