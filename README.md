@@ -3,6 +3,8 @@ Angular CLI Template For Stores Management System - Angular4, MongoDB, ExpressJS
 
 ## Software Development Team On This Project
 
+A huge thanks for all of those who have helped this project, the love for _OSS_ is the fuel for working for the community, providing great projects with the most powerful tehnologies available.
+
 * Thiago Lima _Fullstack Developer / Dev Architect_
 * Bruno Mossolin _UX, UI, Art Director_
 
