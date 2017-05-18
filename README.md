@@ -1,15 +1,16 @@
 # Stores-case
 Angular CLI Template For Stores Management System - Angular4, MongoDB, ExpressJS, NodeJS
 
+## Software Development Team On This Project
+
+* Thiago Lima _Fullstack Developer / Dev Architect_
+* Bruno Mossolin _UX, UI, Art Director_
+
+
 ### MEANStack Angular 4 REST API Web Service boilerplate
 The app's structure is based on an **SPA** (Single Page Architecture).
 
 ## Back-end fexample of Node.JS, MongoDB, with JWT authentication
-
-## Software Development Team On This Project
-
-* Thiago Lima **Fullstack Developer / Dev Architect**
-* Bruno Mossolin **UX, UI, Art Director**
 
 #### First you gotta edit the mongoDB database string in /config/database.js
 
