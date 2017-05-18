@@ -1,5 +1,5 @@
 import { Component, NgModule, OnInit, trigger, transition, style, animate, state } from '@angular/core';
-import { ActivatedRoute, Params, Router } from '@angular/router';
+import { ActivatedRoute, Params, Router, NavigationExtras } from '@angular/router';
 import { Location } from '@angular/common';
 import { NavComponent } from '../../commons/nav/nav.component';
 import { HeaderComponent } from '../../commons/header/header.component';
@@ -59,16 +59,25 @@ export class UserComponent implements OnInit {
     this.route.params
       .switchMap((params) => this.userService.getById(params.id))
       .subscribe(user => this.user = user);
+
+    this.model._id = this.route.snapshot.params['id'];
+    this.model.email = this.route.snapshot.params['email'];
+    this.model.firstname = this.route.snapshot.params['firstname'];
+    this.model.lastname = this.route.snapshot.params['lastname'];
+    this.model.age = this.route.snapshot.params['age'];
+    
+
   }
 
   private updateUser(user: User) {
+
     this.loading = true;
-    this.route.params
-      .switchMap((params) => this.userService.update(params._id));
 
     this.userService.update(this.model).subscribe(data => {
+
       this.alertService.success('Registration successful', true);
       this.router.navigate(['/settings']);
+
       this.loadAllUsers();
     },
       error => {
@@ -83,7 +92,7 @@ export class UserComponent implements OnInit {
   }
 
   private getUserInfo() {
-    this.userService.getUserInfo().subscribe(message => { this.message = message; })
+    this.userService.getUserInfo().subscribe(message => { this.message = message; });
   }
 
 }
