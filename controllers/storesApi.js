@@ -16,7 +16,6 @@ app.use(passport.initialize());
 
 require('../config/passport')(passport);
 
-// bundle our routes
 
 module.exports = (app) => {
 
@@ -52,7 +51,7 @@ module.exports = (app) => {
                             store_address: req.body.store_address
 
                         });
-                        // save the Recycler
+                        // save the Store
                         newStore.save((err) => {
                             if (err) {
                                 throw err;
