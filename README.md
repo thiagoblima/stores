@@ -134,5 +134,4 @@ GET `/api/donation_list`
 Authorization: `JWT`
 
 
-
-end
+This project is licensed under the terms of the MIT license.
