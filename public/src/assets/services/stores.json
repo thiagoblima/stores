@@ -1,38 +1,38 @@
 [
     {
-        "id": "1",
-        "name": "Cars Store",
-        "state": "California",
-        "description": "Auto store always, find the best cars here"
+        "_id": "1",
+        "type": "Cars",
+        "description": "Find the best cars and conditions here",
+        "logo": "../../assets/cars"
     },
     {
-        "id": "2",
-        "name": "Shopping Clothes",
-        "state": "New York",
-        "description": "Shopping free clothes, the best wear is here"
+        "_id": "2",
+        "type": "Boats",
+        "description": "Have ever dreamed to own a boat?",
+        "logo": "../../assets/cars"
     },
     {
-        "id": "3",
-        "name": "Skate Shop",
-        "state": "Massachussets",
-        "description": "Skate shop, the best shapes, wheels and bearings"
+        "_id": "3",
+        "type": "Clothes",
+        "description": "Be fashion and get the best clothes",
+        "logo": "../../assets/clothes"
     },
     {
-        "id": "4",
-        "name": "India Clothes",
-        "state": "Mumbai",
-        "description": "Clothes store, the best dresses around you"
+        "_id": "4",
+        "type": "Houses",
+        "description": "CWant to rent or buy your own house?",
+        "logo": "../../assets/houses"
     },
     {
-        "id": "5",
-        "name": "Italy Vines",
-        "state": "Veneza",
-        "description": "Vine store, the best french and italian vines"
+        "_id": "5",
+        "type": "Food",
+        "description": "Eat with quality and delivery velocity",
+        "logo": "../../assets/food"
     },
     {
-        "id": "6",
-        "name": "British Vegan",
-        "state": "New Castle",
-        "description": "Vegan restaurant, come and know the best one"
+        "_id": "6",
+       "type": "Books",
+        "description": "Never forget to see the best sellers here",
+        "logo": "../../assets/books"
     }
 ]
