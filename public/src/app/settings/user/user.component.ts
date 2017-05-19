@@ -54,8 +54,10 @@ export class UserComponent implements OnInit {
   }
 
   ngOnInit() {
+
     this.loadAllUsers();
     this.getUserInfo();
+    
     this.route.params
       .switchMap((params) => this.userService.getById(params.id))
       .subscribe(user => this.user = user);
