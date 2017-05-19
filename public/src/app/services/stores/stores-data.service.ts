@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
-import { StoresData } from '../../models/storesType';
+import { StoresType } from '../../models/storesType';
 import 'rxjs/add/operator/toPromise';
 
 @Injectable()
-export class StoresDataService {
+export class StoresTypeService {
 
-  private stores: StoresData;
+  private stores: StoresType;
   private headers = new Headers({'Content-Type': 'application/json'});
   private api: string = '../../../assets/services/stores.json';
 
@@ -14,11 +14,11 @@ export class StoresDataService {
     this.stores;
   }
 
-  public getStores(): Promise <StoresData[]> {
+  public getStores(): Promise <StoresType[]> {
 
     return this.http.get(this.api)
       .toPromise()
-      .then(response => response.json() as StoresData[])
+      .then(response => response.json() as StoresType[])
 
   }
 
