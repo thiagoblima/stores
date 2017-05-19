@@ -4,7 +4,7 @@ import { Location } from '@angular/common';
 import { NavComponent } from '../../commons/nav/nav.component';
 import { HeaderComponent } from '../../commons/header/header.component';
 import { FooterComponent } from '../../commons/footer/footer.component';
-import { StoresComponent } from '../../stores/stores.component';
+import { WelcomeComponent } from '../../welcome/welcome.component';
 import { User } from '../../models/index';
 import { UserService, AlertService } from '../../services/auth/index';
 import 'rxjs/add/operator/switchMap';
@@ -57,7 +57,7 @@ export class UserComponent implements OnInit {
 
     this.loadAllUsers();
     this.getUserInfo();
-    
+
     this.route.params
       .switchMap((params) => this.userService.getById(params.id))
       .subscribe(user => this.user = user);
