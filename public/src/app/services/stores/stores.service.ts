@@ -7,7 +7,7 @@ import { StoresData } from '../../models/index';
 export class StoresService {
     constructor(private http: Http) { }
 
-    getAll() {
+    getStores() {
         return this.http.get('/api/stores', this.jwt()).map((response: Response) => response.json());
     }
 
