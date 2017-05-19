@@ -7,7 +7,7 @@
  * 
  */
 
-interface StoresDataSettings<T> {
+interface StoresTypeSettings<T> {
 
     _id: String;
     type: String;
@@ -16,7 +16,7 @@ interface StoresDataSettings<T> {
     
 }
 
-export class StoresData implements StoresDataSettings<String> {
+export class StoresType implements StoresTypeSettings<String> {
 
     public _id;
     public type;
