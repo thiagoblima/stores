@@ -20,13 +20,13 @@ require('../config/passport')(passport);
 
 module.exports = (app) => {
 
-    const apiRoutes = express.Router();
+    const userApiRoutes = express.Router();
 
     // connect the api routes under /api/*
-    app.use('/api', apiRoutes);
+    app.use('/api', userApiRoutes);
 
     // create a new user account (POST http://localhost:8080/api/signup)
-    apiRoutes.post('/signup', (req, res) => {
+    userApiRoutes.post('/signup', (req, res) => {
         if (!req.body.username || !req.body.password) {
             res.status(401).json({ success: false, msg: 'Please fill out the complete form.' });
         } else {
@@ -51,7 +51,7 @@ module.exports = (app) => {
 
 
     // route to authenticate a user (POST /api/authenticate)
-    apiRoutes.post('/authenticate', (req, res) => {
+    userApiRoutes.post('/authenticate', (req, res) => {
         User.findOne({
             username: req.body.username
         }, (err, user) => {
@@ -90,7 +90,7 @@ module.exports = (app) => {
     };
 
     // route to a restricted info (GET /api/memberinfo)
-    apiRoutes.get('/memberinfo', passport.authenticate('jwt', { session: false }), (req, res) => {
+    userApiRoutes.get('/memberinfo', passport.authenticate('jwt', { session: false }), (req, res) => {
         let token = getToken(req.headers);
         if (token) {
             let decoded = jwt.decode(token, config.secret);
@@ -111,7 +111,7 @@ module.exports = (app) => {
     });
 
     // Get the list of all the users. (only for authenticated users.)
-    apiRoutes.get('/users', passport.authenticate('jwt', { session: false }), (req, res) => {
+    userApiRoutes.get('/users', passport.authenticate('jwt', { session: false }), (req, res) => {
         const token = getToken(req.headers);
         if (token) {
             let decoded = jwt.decode(token, config.secret);
@@ -144,7 +144,7 @@ module.exports = (app) => {
     });
 
     // find user by id (only for authenticated users)
-    apiRoutes.get('/user/:id', passport.authenticate('jwt', { session: false }), (req, res) => {
+    userApiRoutes.get('/user/:id', passport.authenticate('jwt', { session: false }), (req, res) => {
         const token = getToken(req.headers);
         if (token) {
             let decoded = jwt.decode(token, config.secret);
@@ -169,7 +169,7 @@ module.exports = (app) => {
 
 
     // Delete user by id (only for authenticated users)
-    apiRoutes.delete('/user/:id', passport.authenticate('jwt', { session: false }), (req, res) => {
+    userApiRoutes.delete('/user/:id', passport.authenticate('jwt', { session: false }), (req, res) => {
         const token = getToken(req.headers);
         if (token) {
             let decoded = jwt.decode(token, config.secret);
@@ -192,7 +192,7 @@ module.exports = (app) => {
     });
 
     // update user by id (only for authenticated users)
-    apiRoutes.put('/user/:id', passport.authenticate('jwt', { session: false }), (req, res) => {
+    userApiRoutes.put('/user/:id', passport.authenticate('jwt', { session: false }), (req, res) => {
         const token = getToken(req.headers);
         if (token) {
             let decoded = jwt.decode(token, config.secret);
@@ -225,7 +225,7 @@ module.exports = (app) => {
 
 
     // route to authenticate a user (POST http://localhost:8080/api/authenticate)
-    apiRoutes.post('/sendotp', (req, res) => {
+    userApiRoutes.post('/sendotp', (req, res) => {
         Recycler.findOne({
             recycler_phone: req.body.phone
         }, (err, recycler) => {
@@ -295,7 +295,7 @@ module.exports = (app) => {
 
 
     // route to authenticate a user (POST http://localhost:8080/api/authenticate)
-    apiRoutes.post('/authenticateotp', (req, res) => {
+    userApiRoutes.post('/authenticateotp', (req, res) => {
         otpDB.findOne({
 
             otp: req.body.otp
@@ -323,7 +323,7 @@ module.exports = (app) => {
 
 
     // create a new user account (POST http://localhost:8080/api/signup)
-    apiRoutes.post('/schedule', passport.authenticate('jwt', { session: false }), (req, res) => {
+    userApiRoutes.post('/schedule', passport.authenticate('jwt', { session: false }), (req, res) => {
 
 
         const token = getToken(req.headers);
@@ -375,7 +375,7 @@ module.exports = (app) => {
     });
 
 
-    apiRoutes.get('/schedule', passport.authenticate('jwt', { session: false }), (req, res) => {
+    userApiRoutes.get('/schedule', passport.authenticate('jwt', { session: false }), (req, res) => {
 
 
         const token = getToken(req.headers);
@@ -417,7 +417,7 @@ module.exports = (app) => {
     // Pickup
 
     // create a new user account (POST http://localhost:8080/api/signup)
-    apiRoutes.post('/pickup', passport.authenticate('jwt', { session: false }), (req, res) => {
+    userApiRoutes.post('/pickup', passport.authenticate('jwt', { session: false }), (req, res) => {
 
 
         const token = getToken(req.headers);
@@ -465,7 +465,7 @@ module.exports = (app) => {
     });
 
 
-    apiRoutes.get('/pickup', passport.authenticate('jwt', { session: false }), (req, res) => {
+    userApiRoutes.get('/pickup', passport.authenticate('jwt', { session: false }), (req, res) => {
 
 
         const token = getToken(req.headers);
@@ -501,7 +501,7 @@ module.exports = (app) => {
     });
 
 
-    apiRoutes.post('/donation_list', passport.authenticate('jwt', { session: false }), (req, res) => {
+    userApiRoutes.post('/donation_list', passport.authenticate('jwt', { session: false }), (req, res) => {
 
 
         const token = getToken(req.headers);
@@ -553,7 +553,7 @@ module.exports = (app) => {
 
 
 
-    apiRoutes.get('/donation_list', passport.authenticate('jwt', { session: false }), (req, res) => {
+   userApiRoutes.get('/donation_list', passport.authenticate('jwt', { session: false }), (req, res) => {
 
 
         const token = getToken(req.headers);
