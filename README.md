@@ -72,6 +72,7 @@ GET `/api/stores`
 Authorization : `JWT Key`
 
 POST `/api/stores` 
+Authorization : `JWT Key`
 
   * `store_name: { type: String, required: true, unique: true }`,
   * `store_image: String`,
