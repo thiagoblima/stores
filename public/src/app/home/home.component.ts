@@ -3,7 +3,7 @@ import { NavComponent } from '../commons/nav/nav.component';
 import { HeaderComponent } from '../commons/header/header.component';
 import { FooterComponent } from '../commons/footer/footer.component';
 import { StoresComponent } from '../stores/stores.component';
-import { StoresDataService } from '../services/stores/stores-data.service';
+import { StoresTypeService } from '../services/stores/stores-data.service';
 import { User } from '../models/index';
 import { UserService } from '../services/auth/index';
 
@@ -13,7 +13,7 @@ import { UserService } from '../services/auth/index';
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
-  providers:[ StoresDataService ]
+  providers:[ StoresTypeService ]
 })
 
 export class HomeComponent implements OnInit {
