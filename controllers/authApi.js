@@ -108,7 +108,7 @@ module.exports = (app) => {
                 if (!user) {
                     return res.status(401).send({ success: false, msg: 'Authentication failed. User not found.' });
                 } else {
-                    res.json({ success: true, msg: 'Welcome in the member area ' + user.username + '!' });
+                    res.json({ success: true, welcome: 'Welcome in the member area ' + user.username + '!' });
                 }
             });
         } else {
