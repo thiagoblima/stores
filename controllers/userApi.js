@@ -16,7 +16,6 @@ app.use(passport.initialize());
 
 require('../config/passport')(passport);
 
-// bundle our routes
 
 module.exports = (app) => {
 
@@ -24,6 +23,26 @@ module.exports = (app) => {
 
     // connect the api routes under /api/*
     app.use('/api', userApiRoutes);
+    
+    /**
+     * @function: getToken()
+     * @param: headers
+     * @prop: authorization
+     * @description: getting headers for JWT token
+     */
+    
+    getToken = (headers) => {
+        if (headers && headers.authorization) {
+            let parted = headers.authorization.split(' ');
+            if (parted.length === 2) {
+                return parted[1];
+            } else {
+                return null;
+            }
+        } else {
+            return null;
+        }
+    };
 
     // create a new user account (POST http://localhost:8080/api/signup)
     userApiRoutes.post('/signup', (req, res) => {
@@ -75,19 +94,6 @@ module.exports = (app) => {
         });
     });
 
-    // getToken for autorization into the platform
-    getToken = (headers) => {
-        if (headers && headers.authorization) {
-            let parted = headers.authorization.split(' ');
-            if (parted.length === 2) {
-                return parted[1];
-            } else {
-                return null;
-            }
-        } else {
-            return null;
-        }
-    };
 
     // route to a restricted info (GET /api/memberinfo)
     userApiRoutes.get('/memberinfo', passport.authenticate('jwt', { session: false }), (req, res) => {
