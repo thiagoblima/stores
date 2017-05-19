@@ -68,9 +68,6 @@ Authorization : `JWT key`
 
 ## Stores API
 
-GET `/api/stores`
-Authorization : `JWT Key`
-
 POST `/api/stores` 
 Authorization : `JWT Key`
 
@@ -79,6 +76,10 @@ Authorization : `JWT Key`
   * `store_phone: Number`,
   * `store_country: String`,
   * `store_address: String`
+
+
+GET `/api/stores`
+Authorization : `JWT Key`
 
 -------------------------------------------------------
 
