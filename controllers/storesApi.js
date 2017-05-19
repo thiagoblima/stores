@@ -23,6 +23,29 @@ module.exports = (app) => {
 
     // connect the api routes under /api/*
     app.use('/api', storesApiRoutes);
+
+
+    /**
+     * @function: getToken()
+     * @param: headers
+     * @prop: authorization
+     * @description: getting headers for JWT token
+     */
+
+
+    getToken = (headers) => {
+        if (headers && headers.authorization) {
+            let parted = headers.authorization.split(' ');
+            if (parted.length === 2) {
+                return parted[1];
+            } else {
+                return null;
+            }
+        } else {
+            return null;
+        }
+    };
+
     
     // create a new store (POST /api/stores)
     storesApiRoutes.post('/stores', passport.authenticate('jwt', { session: false }), (req, res) => {
@@ -104,4 +127,5 @@ module.exports = (app) => {
     });
 
 
+   
 };
