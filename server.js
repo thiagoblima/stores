@@ -1,5 +1,5 @@
 const config = require('./config/database'); 
-const apiRoutes = require('./controllers/userApi');
+const userApiRoutes = require('./controllers/userApi');
 const storesApiRoutes = require('./controllers/storesApi');
 const express = require('express');
 const app = express();
@@ -26,7 +26,7 @@ console.log('App running at: http://localhost:' + port);
 
 mongoose.connect(config.database);
 
-apiRoutes(app);
+userApiRoutes(app);
 storesApiRoutes(app);
 
 module.exports = app;
