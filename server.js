@@ -1,5 +1,6 @@
 const config = require('./config/database'); 
-const apiRoutes = require('./controllers/userApi')
+const apiRoutes = require('./controllers/userApi');
+const storesApiRoutes = require('./controllers/storesApi');
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
@@ -32,8 +33,10 @@ console.log('App running at: http://localhost:' + port);
 // connect to database
 mongoose.connect(config.database);
 
-// pass users' Api 
+// pass users' API
 apiRoutes(app);
+// pass stores' API
+storesApiRoutes(app);
 
 // exporting the app 
 module.exports = app;
