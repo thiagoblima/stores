@@ -10,7 +10,7 @@ import { AppComponent } from './app.component';
 import { NavComponent } from './commons/nav/nav.component';
 import { HeaderComponent } from './commons/header/header.component';
 import { FooterComponent } from './commons/footer/footer.component';
-import { StoresComponent } from './stores/stores.component';
+import { WelcomeComponent } from './welcome/welcome.component';
 import { HomeComponent } from './home/index';
 import { LoginComponent } from './login/index';
 import { RegisterComponent } from './register/register.component';
@@ -29,7 +29,7 @@ import { UserComponent } from './settings/user/user.component';
     NavComponent,
     HeaderComponent,
     FooterComponent,
-    StoresComponent,
+    WelcomeComponent,
     HomeComponent,
     LoginComponent,
     RegisterComponent,
