@@ -13,22 +13,22 @@
       <form name="form" class="user" (ngSubmit)="f.form.valid && updateUser()" #f="ngForm" novalidate>
         <section class="form-group" [ngClass]="{ 'has-error': f.submitted && !email.valid }">
           <label for="email">email: </label>
-          <input type="email" name="email" class="form-control" [(ngModel)]="model.email" #email="ngModel" placeholder="{{user.data.email}}" />
+          <input type="email" name="email" class="form-control" [(ngModel)]="model.email" #email="ngModel" placeholder="{{user.data.email}}" required/>
           <div *ngIf="f.submitted && !email.valid" class="help-block">Email is required</div>
         </section>
         <section class="form-group" [ngClass]="{ 'has-error': f.submitted && !firstname.valid }">
           <label for="firstname">first name: </label>
-          <input type="text" name="firstname" class="form-control" [(ngModel)]="model.firstname" #firstname="ngModel" placeholder="{{user.data.firstname}}" />
+          <input type="text" name="firstname" class="form-control" [(ngModel)]="model.firstname" #firstname="ngModel" placeholder="{{user.data.firstname}}" required/>
           <div *ngIf="f.submitted && !firstname.valid" class="help-block">Firstname is required</div>
         </section>
         <section class="form-group" [ngClass]="{ 'has-error': f.submitted && !lastname.valid }">
           <label for="lastname"> last name: </label>
-          <input type="text" name="lastname" class="form-control" [(ngModel)]="model.lastname" #lastname="ngModel" placeholder="{{user.data.lastname}}"/>
+          <input type="text" name="lastname" class="form-control" [(ngModel)]="model.lastname" #lastname="ngModel" placeholder="{{user.data.lastname}}" required/>
           <div *ngIf="f.submitted && !lastname.valid" class="help-block">Lastname is required</div>
         </section>
         <section class="form-group" [ngClass]="{ 'has-error': f.submitted && !age.valid }">
           <label for="age">age: </label>
-          <input type="number" name="age" class="form-control" [(ngModel)]="model.age" #age="ngModel" placeholder="{{user.data.age}}" /><br>
+          <input type="number" name="age" class="form-control" [(ngModel)]="model.age" #age="ngModel" placeholder="{{user.data.age}}" required/>
           <div *ngIf="f.submitted && !age.valid" class="help-block">Age is required</div>
         </section>
         <section class="form-group">
