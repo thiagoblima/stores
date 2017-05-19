@@ -22,6 +22,7 @@ MEANStack Angular 4 REST API Web Service boilerplate, The app's structure is bas
 
 #### First you gotta edit the mongoDB database string in /config/database.js
 
+-------------------------------------------------------
 ## Authentication API
 
 POST `/api/signup`
