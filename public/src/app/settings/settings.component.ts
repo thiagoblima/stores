@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { NavComponent } from '../commons/nav/nav.component';
 import { HeaderComponent } from '../commons/header/header.component';
 import { FooterComponent } from '../commons/footer/footer.component';
-import { StoresComponent } from '../stores/stores.component';
+import { WelcomeComponent } from '../welcome/welcome.component';
 import { User } from '../models/index';
 import { UserService } from '../services/auth/index';
 
