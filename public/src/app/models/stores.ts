@@ -9,7 +9,7 @@
 
 interface StoresDataSettings<T> {
 
-    id: String;
+    _id: String;
     name: String;
     state: String;
     description: String;
@@ -18,7 +18,7 @@ interface StoresDataSettings<T> {
 
 export class StoresData implements StoresDataSettings<String> {
 
-    public id;
+    public _id;
     public name;
     public state;
     public description;
