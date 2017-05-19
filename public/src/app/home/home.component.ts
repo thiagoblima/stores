@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NavComponent } from '../commons/nav/nav.component';
 import { HeaderComponent } from '../commons/header/header.component';
 import { FooterComponent } from '../commons/footer/footer.component';
-import { StoresComponent } from '../stores/stores.component';
+import { WelcomeComponent } from '../welcome/welcome.component';
 import { StoresTypeService } from '../services/stores/stores-data.service';
 import { User } from '../models/index';
 import { UserService } from '../services/auth/index';
