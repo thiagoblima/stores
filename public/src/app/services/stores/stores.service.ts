@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers, RequestOptions, Response } from '@angular/http';
-
 import { StoresType } from '../../models/index';
 
 @Injectable()
@@ -16,7 +15,7 @@ export class StoresService {
     }
 
     update(store: StoresType) {
-        return this.http.put('/api/user/' + store._id, store, this.jwt()).map((response: Response) => response.json());
+        return this.http.put('/api/store/' + store._id, store, this.jwt()).map((response: Response) => response.json());
     }
 
     delete(_id: number) {
