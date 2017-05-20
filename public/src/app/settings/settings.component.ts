@@ -1,9 +1,5 @@
 import { Component, NgModule, OnInit, trigger, transition, style, animate, state } from '@angular/core';
 import { Router } from '@angular/router';
-import { NavComponent } from '../commons/nav/nav.component';
-import { HeaderComponent } from '../commons/header/header.component';
-import { FooterComponent } from '../commons/footer/footer.component';
-import { WelcomeComponent } from '../welcome/welcome.component';
 import { User } from '../models/index';
 import { UserService } from '../services/auth/index';
 
@@ -36,8 +32,6 @@ export class SettingsComponent implements OnInit {
 
   currentUser: User;
   users: User[] = [];
-  user: User[] = [];
-  selectedUser: User;
   message: string = '';
 
   constructor(private userService: UserService, private router: Router) {
