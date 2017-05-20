@@ -64,7 +64,7 @@ export class NavComponent implements OnInit {
     { menu: nav.home, alt: 'Home', url: '/' },
     { menu: nav.aboutUs, alt: 'Who We Are', url: 'link-2' },
     { menu: nav.showCase, alt: 'Show Case', url: 'link-3' },
-    { menu: nav.stores, alt: 'Stores', url: 'link-4' },
+    { menu: nav.stores, alt: 'Stores', url: '/stores' },
     { menu: nav.contact, alt: 'Contact', url: 'link-5' }
   ]
 
