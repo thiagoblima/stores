@@ -21,6 +21,7 @@ import { StoresService } from './services/stores/stores.service';
 import { AuthenticationService, UserService, } from './services/auth/index';
 import { SettingsComponent } from './settings/settings.component';
 import { UserComponent } from './settings/user/user.component';
+import { StoresComponent } from './stores/stores.component';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { UserComponent } from './settings/user/user.component';
     LoginComponent,
     RegisterComponent,
     SettingsComponent,
-    UserComponent
+    UserComponent,
+    StoresComponent
   ],
   imports: [
     NgbModule.forRoot(),
