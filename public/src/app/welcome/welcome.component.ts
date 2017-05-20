@@ -1,6 +1,6 @@
 import { Component, NgModule, OnInit, trigger, transition, style, animate, state } from '@angular/core';
 import { StoresTypeService } from '../services/stores/stores-data.service';
-import { StoresService } from '../services/stores/stores.service';
+import { StoresService } from '../services/stores/index';
 import { Http } from '@angular/http';
 import { UserService } from '../services/auth/index';
 import { User } from '../models/index';
