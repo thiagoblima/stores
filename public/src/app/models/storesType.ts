@@ -3,7 +3,7 @@
  * 
  * @description: Generic class which's used to 
  * define its typings. It's being imported in 
- * { StoresDataService }
+ * { StoresType }
  * 
  */
 
