@@ -115,7 +115,7 @@ module.exports = (app) => {
                         if (!store) {
                             return res.status(403).send({ success: false, msg: 'Authentication failed. User not found.' });
                         } else {
-                            res.status(200).json({ success: true, stores: store });
+                            res.status(200).json({ success: true, data: store });
                         }
                     });
 
