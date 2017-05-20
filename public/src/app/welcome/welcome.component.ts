@@ -34,17 +34,16 @@ import { User } from '../models/index';
 
 
 export class WelcomeComponent {
+  
   public currentUser: User;
   public message: string = '';
-  private stores;
+  private storesType: any = [];
   private data;
-
-
 
   constructor(private storesTypeService: StoresTypeService, private storesService: StoresService,
     private userService: UserService) {
 
-    this.stores = storesTypeService.getStores();
+    this.storesType = storesTypeService.getStores();
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
 
   }
