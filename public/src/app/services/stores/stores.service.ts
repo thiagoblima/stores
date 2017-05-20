@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers, RequestOptions, Response } from '@angular/http';
-import { StoresType } from '../../models/index';
+import { Stores } from '../../models/index';
 
 @Injectable()
 export class StoresService {
@@ -14,7 +14,7 @@ export class StoresService {
         return this.http.get('/api/store/' + _id, this.jwt()).map((response: Response) => response.json());
     }
 
-    update(store: StoresType) {
+    update(store: Stores) {
         return this.http.put('/api/store/' + store._id, store, this.jwt()).map((response: Response) => response.json());
     }
 
