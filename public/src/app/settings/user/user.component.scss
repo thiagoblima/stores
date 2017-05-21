@@ -14,8 +14,11 @@
 // styles goes here
 
 .user-hero {
-     padding: 1em 0 1em 0  !important;
-     text-align: center !important;
+     padding: 1em 0 1em 0 !important;
+     font-size: 2em !important;
+     text-align: left !important;
+     float: none !important;
+     @include set-color($dark-purle !important);
 }
 
 .user-details {
