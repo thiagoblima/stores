@@ -19,7 +19,7 @@ require('../config/passport')(passport);
 
 module.exports = (app) => {
 
-   const storesApiRoutes = express.Router();
+    const storesApiRoutes = express.Router();
 
     // connect the api routes under /api/*
     app.use('/api', storesApiRoutes);
@@ -46,7 +46,7 @@ module.exports = (app) => {
         }
     };
 
-    
+
     // create a new store (POST /api/stores)
     storesApiRoutes.post('/stores', passport.authenticate('jwt', { session: false }), (req, res) => {
 
@@ -126,6 +126,28 @@ module.exports = (app) => {
         }
     });
 
+    // find store by id (only for authenticated users)
+    storesApiRoutes.get('/store/:id', passport.authenticate('jwt', { session: false }), (req, res) => {
+        const token = getToken(req.headers);
+        if (token) {
+            let decoded = jwt.decode(token, config.secret);
 
-   
+            // find store by id and get it
+            Stores.findById(req.params.id,
+                {}, (err, store) => {
+                    if (!store) {
+                        return res.status(401).send({ success: false, msg: 'Authentication failed. Store not found.' });
+                    } else {
+                        res.status(200).json({ success: true, msg: 'Store Successfully Found', data: store });
+                    }
+                });
+
+        } else {
+
+            return res.status(401).send({ success: false, msg: 'No token provided.' });
+
+        }
+
+    });
+
 };
