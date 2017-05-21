@@ -51,6 +51,7 @@ module.exports = (app) => {
     storesApiRoutes.post('/stores', passport.authenticate('jwt', { session: false }), (req, res) => {
 
         const token = getToken(req.headers);
+        
         if (token) {
             let decoded = jwt.decode(token, config.secret);
             User.findOne({
@@ -71,6 +72,8 @@ module.exports = (app) => {
                             store_image: req.body.store_image,
                             store_phone: req.body.store_phone,
                             store_country: req.body.store_country,
+                            store_city: req.body.store_city,
+                            store_type: req.body.store_type,
                             store_address: req.body.store_address
 
                         });
