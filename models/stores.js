@@ -8,6 +8,8 @@ let storesSchema = new Schema({
   store_image: String,
   store_phone: Number,
   store_country: String,
+  store_city: String,
+  store_type: String,
   store_address: String,
   created_at: Date,
   updated_at: Date
@@ -16,7 +18,7 @@ let storesSchema = new Schema({
 
 
 
-storesSchema.pre('save', (next) => {
+storesSchema.pre('save', function(next) {
 
   let currentDate = new Date();
   
