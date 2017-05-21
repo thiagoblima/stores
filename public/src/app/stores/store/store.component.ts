@@ -60,6 +60,7 @@ export class StoreComponent implements OnInit {
   }
 
   ngOnInit() {
+    
     this.loadAllUsers();
     this.getUserInfo();
 
@@ -67,12 +68,33 @@ export class StoreComponent implements OnInit {
       .switchMap((params) => this.storesService.getById(params.id))
       .subscribe(store => this.store = store);
 
-    /*this.model._id = this.route.snapshot.params['id'];
-     this.model.email = this.route.snapshot.params['email'];
-     this.model.firstname = this.route.snapshot.params['firstname'];
-     this.model.lastname = this.route.snapshot.params['lastname'];
-     this.model.age = this.route.snapshot.params['age'];
-     */
+     this.model._id = this.route.snapshot.params['id'];
+     this.model.store_image = this.route.snapshot.params['store_image'];
+     this.model.store_phone = this.route.snapshot.params['store_phone'];
+     this.model.store_country = this.route.snapshot.params['store_country'];
+     this.model.store_city = this.route.snapshot.params['store_city'];
+     this.model.store_type = this.route.snapshot.params['store_type'];
+     this.model.store_address = this.route.snapshot.params['store_address'];
+
+     
+
+  }
+
+  private updateStore(store: Stores) {
+
+    this.loading = true;
+
+    this.storesService.update(this.model).subscribe(data => {
+
+      this.alertService.success('Registration successful', true);
+      this.router.navigate(['/stores']);
+
+      this.loadAllUsers();
+    },
+      error => {
+        this.error = 'Error on updating the store.';
+        this.loading = false;
+      });
 
   }
 
