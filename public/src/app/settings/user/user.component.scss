@@ -62,25 +62,25 @@
 
          button{
 
-            @include set-background-color($light-orange !important); 
-            @include button-settings-state($light-orange !important, 300ms ease-out);
+            @include set-background-color($standard-conga !important); 
+            @include button-settings-state($standard-conga !important, 300ms ease-out);
 
         }button:hover{
 
-            @include set-background-color($standard-conga !important);
-            @include button-settings-state($standard-conga !important, 300ms ease-out);
+            @include set-background-color($light-orange !important);
+            @include button-settings-state($light-orange !important, 300ms ease-out);
 
         }
         a{
             text-decoration: none;
             span{
-                @include set-color($light-orange);
+                @include set-color($standard-conga);
                 @include span-text-state(1em, pointer, 300ms ease-out, none);
 
             }span:hover{
 
                 @include set-background-color(transparent !important);
-                @include set-color($standard-conga);
+                @include set-color($light-orange);
                 @include span-text-state(1em, pointer, 300ms ease-out, underline);
                               
             }             
