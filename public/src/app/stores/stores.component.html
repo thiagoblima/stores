@@ -8,7 +8,7 @@
         <li *ngFor="let store of stores.data">
           <h3>{{store.store_name}}</h3>
           <h4>{{store.store_phone}}</h4>
-          <h4>{{store.store_country}}</h4>
+          <h4>{{store.store_country}} | {{store.store_city}}</h4>
           <h4>{{store.store_address}}</h4>
           <a (click)="deleteStore(store._id)">Delete</a>
           <a routerLinkActive="active" [routerLink]="['/api/store', store._id]">Edit</a>
