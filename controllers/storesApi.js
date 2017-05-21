@@ -51,7 +51,7 @@ module.exports = (app) => {
     storesApiRoutes.post('/stores', passport.authenticate('jwt', { session: false }), (req, res) => {
 
         const token = getToken(req.headers);
-        
+
         if (token) {
             let decoded = jwt.decode(token, config.secret);
             User.findOne({
@@ -142,6 +142,62 @@ module.exports = (app) => {
                         return res.status(401).send({ success: false, msg: 'Authentication failed. Store not found.' });
                     } else {
                         res.status(200).json({ success: true, msg: 'Store Successfully Found', data: store });
+                    }
+                });
+
+        } else {
+
+            return res.status(401).send({ success: false, msg: 'No token provided.' });
+
+        }
+
+    });
+
+    // Delete store by id (only for authenticated users)
+    storesApiRoutes.delete('/store/:id', passport.authenticate('jwt', { session: false }), (req, res) => {
+        const token = getToken(req.headers);
+        if (token) {
+            let decoded = jwt.decode(token, config.secret);
+
+            // find store by id and remove it
+            Stores.findByIdAndRemove(req.params.id,
+                { _id: req.params.id }, (err, store) => {
+                    if (!store) {
+                        return res.status(401).send({ success: false, msg: 'Authentication failed. Store not found.' });
+                    } else {
+                        res.status(200).send({ success: true, msg: 'Store was successfully deleted' });
+                    }
+                });
+
+        } else {
+
+            return res.status(401).send({ success: false, msg: 'No token provided.' });
+
+        }
+    });
+
+    // update store by id (only for authenticated users)
+    storesApiRoutes.put('/store/:id', passport.authenticate('jwt', { session: false }), (req, res) => {
+        const token = getToken(req.headers);
+        if (token) {
+            let decoded = jwt.decode(token, config.secret);
+
+            // find store by id and update it
+            Stores.update(req.params.id,
+                {
+                    _id: req.params.id,
+                    store_image: req.body.store_image,
+                    store_phone: req.body.store_phone,
+                    store_country: req.body.store_country,
+                    store_city: req.body.store_city,
+                    store_type: req.body.store_type,
+                    store_address: req.body.store_address
+
+                }, (err, store) => {
+                    if (!store) {
+                        return res.status(401).send({ success: false, msg: 'Authentication failed. Store not found.' });
+                    } else {
+                        res.status(200).send({ success: true, msg: 'Store was successfully updated!' });
                     }
                 });
 
