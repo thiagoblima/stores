@@ -15,9 +15,6 @@ let storesSchema = new Schema({
   updated_at: Date
 });
 
-
-
-
 storesSchema.pre('save', function(next) {
 
   let currentDate = new Date();
