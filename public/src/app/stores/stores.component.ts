@@ -41,6 +41,10 @@ export class StoresComponent implements OnInit {
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
   }
 
+  deleteStore(_id: number) {
+    this.storesService.delete(_id).subscribe(() => { this.getStores() });
+  }
+
   private getStores() {
     this.storesService.getStores().subscribe(stores => { this.stores = stores; });
   }
