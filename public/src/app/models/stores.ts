@@ -7,7 +7,7 @@
  * 
  */
 
-interface StoresSettings <T, Z> {
+interface StoresSettings <T, Z, Y> {
 
     _id: String;
     store_name: String;
@@ -17,10 +17,11 @@ interface StoresSettings <T, Z> {
     store_city: String,
     store_type: String,
     store_address: String;
+    updated_at: Date
     
 }
 
-export class Stores implements StoresSettings <String, Number> {
+export class Store implements StoresSettings <String, Number, Date> {
 
     public _id;
     public store_name;
@@ -30,5 +31,6 @@ export class Stores implements StoresSettings <String, Number> {
     public store_city;
     public store_type;
     public store_address;
+    public updated_at;
 
 }
