@@ -1,7 +1,7 @@
 import { Component, NgModule, OnInit, trigger, transition, style, animate, state } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from '../models/index';
-import { Stores } from '../models/index';
+import { Store } from '../models/index';
 import { UserService } from '../services/auth/index';
 import { StoresService } from '../services/stores/index';
 
@@ -34,7 +34,7 @@ import { StoresService } from '../services/stores/index';
 export class StoresComponent implements OnInit {
 
   private currentUser: User;
-  private stores: Stores[] = [];
+  private stores: Store[] = [];
   private message: string = '';
 
   constructor(private router: Router, private storesService: StoresService, private userService: UserService) {
