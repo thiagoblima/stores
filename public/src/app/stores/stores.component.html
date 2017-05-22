@@ -3,7 +3,7 @@
   <section class="row">
     <h2 [@myAnimation]="show">Loaded Stores</h2>
     <h5>{{message.welcome}}</h5>
-    <section class="col-sm-4" [@myAnimation]="show">
+    <section class="col-sm-6" [@myAnimation]="show">
       <ul>
         <li *ngFor="let store of stores.data">
           <h3>{{store.store_name}}</h3>
@@ -14,6 +14,10 @@
           <a routerLinkActive="active" [routerLink]="['/api/store', store._id]">Edit</a>
         </li>
       </ul>
+    </section>
+    <section class="col-sm-6">
+       <h2>Lorem Spumer Dorfen</h2>
+       <h3>Mas Vasten Das Dornen</h3>
     </section>
   </section>
 </section>
