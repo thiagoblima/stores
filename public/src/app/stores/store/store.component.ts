@@ -6,7 +6,7 @@ import { HeaderComponent } from '../../commons/header/header.component';
 import { FooterComponent } from '../../commons/footer/footer.component';
 import { WelcomeComponent } from '../../welcome/welcome.component';
 import { User } from '../../models/index';
-import { Stores } from '../../models/index';
+import { Store } from '../../models/index';
 import { StoresService } from '../../services/stores/index';
 import { UserService, AlertService } from '../../services/auth/index';
 import 'rxjs/add/operator/switchMap';
@@ -41,8 +41,8 @@ export class StoreComponent implements OnInit {
   private currentUser: User;
   private users: User[] = [];
   private user: User;
-  private stores: Stores[] = [];
-  private store: Stores;
+  private stores: Store[] = [];
+  private store: Store;
   private model: any = {};
   private error: string = '';
   private message: string = '';
@@ -60,7 +60,7 @@ export class StoreComponent implements OnInit {
   }
 
   ngOnInit() {
-    
+
     this.loadAllUsers();
     this.getUserInfo();
 
@@ -68,19 +68,18 @@ export class StoreComponent implements OnInit {
       .switchMap((params) => this.storesService.getById(params.id))
       .subscribe(store => this.store = store);
 
-     this.model._id = this.route.snapshot.params['id'];
-     this.model.store_image = this.route.snapshot.params['store_image'];
-     this.model.store_phone = this.route.snapshot.params['store_phone'];
-     this.model.store_country = this.route.snapshot.params['store_country'];
-     this.model.store_city = this.route.snapshot.params['store_city'];
-     this.model.store_type = this.route.snapshot.params['store_type'];
-     this.model.store_address = this.route.snapshot.params['store_address'];
-
-     
+    this.model._id = this.route.snapshot.params['id'];
+    this.model.store_image = this.route.snapshot.params['store_image'];
+    this.model.store_phone = this.route.snapshot.params['store_phone'];
+    this.model.store_country = this.route.snapshot.params['store_country'];
+    this.model.store_city = this.route.snapshot.params['store_city'];
+    this.model.store_type = this.route.snapshot.params['store_type'];
+    this.model.store_address = this.route.snapshot.params['store_address'];
+    this.model.updated_at = new Date();
 
   }
 
-  private updateStore(store: Stores) {
+  private updateStore(store: Store) {
 
     this.loading = true;
 
