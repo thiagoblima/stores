@@ -13,7 +13,7 @@
 
 section.welcome {
     @include set-background-color($standard-fusion);
-    min-height:850px;
+    min-height:950px;
     
     h2 {     
         @include set-color($dark-purle);
