@@ -191,7 +191,8 @@ module.exports = (app) => {
                     store_country: req.body.store_country,
                     store_city: req.body.store_city,
                     store_type: req.body.store_type,
-                    store_address: req.body.store_address
+                    store_address: req.body.store_address,
+                    updated_at: req.body.updated_at
 
                 }, (err, store) => {
                     if (!store) {
