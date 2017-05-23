@@ -1,0 +1,64 @@
+/**
+ *@name: stores.component
+ *@description: Sass file for store app component settings.
+ */
+
+/** @description: store app component */
+
+
+// imports
+
+@import '../../themes/sass/partials/colors';
+@import '../../themes/sass/modules/functions';
+
+.col-sm-6{
+
+form.store{
+
+     @include set-background-color($standard-fusion !important);
+
+    clear:both;
+
+         section{
+
+            label{
+                @include set-color($standard-fusion);
+                font-weight: 300;
+            }
+
+        }
+
+    section.form-group{
+
+        label{
+            @include set-color($dark-purle !important);
+        }
+
+         button{
+
+            @include set-background-color($standard-conga !important); 
+            @include button-settings-state($standard-conga !important, 300ms ease-out);
+
+        }button:hover{
+
+            @include set-background-color($light-orange !important);
+            @include button-settings-state($light-orange !important, 300ms ease-out);
+
+        }
+        a{
+            text-decoration: none;
+            span{
+                @include set-color($standard-conga);
+                @include span-text-state(1em, pointer, 300ms ease-out, none);
+
+            }span:hover{
+
+                @include set-background-color(transparent !important);
+                @include set-color($light-orange);
+                @include span-text-state(1em, pointer, 300ms ease-out, underline);
+                              
+            }             
+         }                  
+     }
+  }
+}
