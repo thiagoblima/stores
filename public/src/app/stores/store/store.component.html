@@ -11,7 +11,7 @@
           <h4>Store Address: {{store.data.store_address}} </h4>
         </li>
       </ul>
-      <form name="form" class="user" (ngSubmit)="f.form.valid && updateStore()" #f="ngForm" novalidate>
+      <form name="form" class="store" (ngSubmit)="f.form.valid && updateStore()" #f="ngForm" novalidate>
         <section class="form-group" [ngClass]="{ 'has-error': f.submitted && !store_image.valid }">
           <label for="store_image">store image: </label>
           <input type="text" name="store_image" class="form-control" [(ngModel)]="model.store_image" #store_image="ngModel" placeholder="{{store.data.store_image}}"
