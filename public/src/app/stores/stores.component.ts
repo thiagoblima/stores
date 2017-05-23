@@ -60,7 +60,7 @@ export class StoresComponent implements OnInit {
         this.loading = false;
       },
       error => {
-        this.error = 'Username already exists.';
+        this.error = 'Error on creating a new store.';
         this.loading = false;
       });
   }
