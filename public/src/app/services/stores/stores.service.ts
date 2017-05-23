@@ -6,6 +6,10 @@ import { Store } from '../../models/index';
 export class StoresService {
     constructor(private http: Http) { }
 
+    createStore(store: Store) {
+        return this.http.post('/api/stores', store, this.jwt()).map((response: Response) => response.json());
+    }
+
     getStores() {
         return this.http.get('/api/stores', this.jwt()).map((response: Response) => response.json());
     }
