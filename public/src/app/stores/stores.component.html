@@ -16,8 +16,50 @@
       </ul>
     </section>
     <section class="col-sm-6">
-       <h2>Lorem Spumer Dorfen</h2>
-       <h3>Mas Vasten Das Dornen</h3>
+      <form name="form" (ngSubmit)="f.form.valid && createStore()" #f="ngForm" novalidate>
+        <section class="form-group" [ngClass]="{ 'has-error': f.submitted && !store_name.valid }">
+          <label for="store_name">Store name</label>
+          <input type="text" class="form-control" name="store_name" [(ngModel)]="model.store_name" #store_name="ngModel" required />
+          <div *ngIf="f.submitted && !store_name.valid" class="help-block">Store Name is required</div>
+        </section>
+        <section class="form-group" [ngClass]="{ 'has-error': f.submitted && !store_image.valid }">
+          <label for="store_image">Store Image</label>
+          <input type="text" class="form-control" name="store_image" [(ngModel)]="model.store_image" #store_image="ngModel" required />
+          <div *ngIf="f.submitted && !store_image.valid" class="help-block">Store Image is required</div>
+        </section>
+        <section class="form-group" [ngClass]="{ 'has-error': f.submitted && !store_phone.valid }">
+          <label for="store_phone">Store Phone</label>
+          <input type="number" class="form-control" name="store_phone" [(ngModel)]="model.store_phone" #store_phone="ngModel" required />
+          <div *ngIf="f.submitted && !store_phone.valid" class="help-block">Store Phone is required</div>
+        </section>
+        <section class="form-group" [ngClass]="{ 'has-error': f.submitted && !store_country.valid }">
+          <label for="store_country">Store Country</label>
+          <input type="text" class="form-control" name="store_country" [(ngModel)]="model.store_country" #store_country="ngModel" required />
+          <div *ngIf="f.submitted && !store_country.valid" class="help-block">Store Country is required</div>
+        </section>
+        <section class="form-group" [ngClass]="{ 'has-error': f.submitted && !store_city.valid }">
+          <label for="store_city">Store City</label>
+          <input type="text" class="form-control" name="store_city" [(ngModel)]="model.store_city" #store_city="ngModel" required />
+          <div *ngIf="f.submitted && !store_city.valid" class="help-block">Store City is required</div>
+        </section>
+        <section class="form-group" [ngClass]="{ 'has-error': f.submitted && !store_type.valid }">
+          <label for="store_type">Store Type</label>
+          <input type="text" class="form-control" name="store_type" [(ngModel)]="model.store_type" #store_type="ngModel" required />
+          <div *ngIf="f.submitted && !store_type.valid" class="help-block">Store Type is required</div>
+        </section>
+         <section class="form-group" [ngClass]="{ 'has-error': f.submitted && !store_address.valid }">
+          <label for="store_address">Store Address</label>
+          <input type="text" class="form-control" name="store_address" [(ngModel)]="model.store_address" #store_address="ngModel" required />
+          <div *ngIf="f.submitted && !store_address.valid" class="help-block">Store Address is required</div>
+        </section>
+        <section class="form-group">
+          <button [disabled]="loading" class="btn btn-primary">Register</button>
+          <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="
+          />
+          <a [routerLink]="['/']" class="btn btn-link"><span>Cancel</span></a>
+        </section>
+        <span *ngIf="error" class="alert alert-danger">{{error}}</span>
+      </form>
     </section>
   </section>
 </section>
