@@ -2,7 +2,7 @@ import { Component, NgModule, OnInit, trigger, transition, style, animate, state
 import { Router } from '@angular/router';
 import { User } from '../models/index';
 import { Store } from '../models/index';
-import { UserService } from '../services/auth/index';
+import { UserService, AlertService } from '../services/auth/index';
 import { StoresService } from '../services/stores/index';
 
 @Component({
@@ -36,9 +36,33 @@ export class StoresComponent implements OnInit {
   private currentUser: User;
   private stores: Store[] = [];
   private message: string = '';
+  public model: any = {};
+  public loading: boolean = false;
+  public error: string = '';
 
-  constructor(private router: Router, private storesService: StoresService, private userService: UserService) {
+
+  constructor(
+    private router: Router,
+    private storesService: StoresService,
+    private userService: UserService,
+    private alertService: AlertService) {
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+  }
+
+  createStore() {
+    this.loading = true;
+    this.storesService.createStore(this.model)
+      .subscribe(
+      data => {
+        this.alertService.success('Creation successful', true);
+        this.router.navigate(['/stores']);
+        this.getStores();
+        this.loading = false;
+      },
+      error => {
+        this.error = 'Username already exists.';
+        this.loading = false;
+      });
   }
 
   deleteStore(_id: number) {
