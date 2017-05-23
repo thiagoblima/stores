@@ -16,7 +16,7 @@
       </ul>
     </section>
     <section class="col-sm-6">
-      <form name="form" (ngSubmit)="f.form.valid && createStore()" #f="ngForm" novalidate>
+      <form name="form" class="store" (ngSubmit)="f.form.valid && createStore()" #f="ngForm" novalidate>
         <section class="form-group" [ngClass]="{ 'has-error': f.submitted && !store_name.valid }">
           <label for="store_name">Store name</label>
           <input type="text" class="form-control" name="store_name" [(ngModel)]="model.store_name" #store_name="ngModel" required />
