@@ -12,3 +12,21 @@
 @import '../themes/sass/modules/functions';
 @import 'store/store.component';
 
+.col-sm-6 {
+    float:right;
+    margin-top: 2em;
+}
+
+.store .col-sm-6 {
+    float:left;
+}
+
+form.store{
+    margin-left: 15px;
+}
+
+.store h4 {
+    @include set-color($dark-purle);
+    font-weight: 200;
+    margin-left: 15px;
+}
