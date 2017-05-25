@@ -11,6 +11,21 @@
 @import '../../themes/sass/partials/colors';
 @import '../../themes/sass/modules/functions';
 
+html {
+     body {
+          section.col-md-6.col-md-offset-3 {
+               form { 
+                   section { 
+                       label {
+                           @include set-color($dark-purle !important);
+                       }
+                   }
+               }
+
+          }
+     }
+}        
+
 .col-sm-6{
 
 form.store{
@@ -22,7 +37,7 @@ form.store{
          section{
 
             label{
-                @include set-color($standard-fusion);
+                @include set-color($dark-purle);
                 font-weight: 300;
             }
 
