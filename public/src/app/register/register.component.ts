@@ -46,7 +46,7 @@ export class RegisterComponent implements OnInit {
       });
   }
 
-  private registerSetUp: registerAlias = {
+  public registerSetUp: registerAlias = {
         logo: registerSetUp.getLogo,
         alt: registerSetUp.getAlt,
         title: registerSetUp.getTitle,
