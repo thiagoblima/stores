@@ -110,14 +110,14 @@ export class HeaderComponent implements OnInit {
   
   
   private headerMessage: string = 'Get Header Object';
-  private show: boolean = false; 
+  public show: boolean = false; 
   
 
   private animate(state): any {
     return this.show = false, alert(this.show);
   }
 
-  private header: headerAlias = {
+  public header: headerAlias = {
     logo: header.getLogo,
     alt: header.getAlt,
     title: header.getTitle,
