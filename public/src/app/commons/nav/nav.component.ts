@@ -59,8 +59,9 @@ const nav: NavConfig = {
 export class NavComponent implements OnInit {
 
   private message: string = 'Get Nav Object';
+  public show: boolean = false;
 
-  private links: navAlias = [
+  public links: navAlias = [
     { menu: nav.home, alt: 'Home', url: '/' },
     { menu: nav.aboutUs, alt: 'Who We Are', url: 'link-2' },
     { menu: nav.showCase, alt: 'Show Case', url: 'link-3' },
