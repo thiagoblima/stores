@@ -36,12 +36,14 @@ import 'rxjs/add/operator/switchMap';
 })
 export class UserComponent implements OnInit {
   private currentUser: User;
-  private users: User[] = [];
-  private model: any = {};
-  private user: User;
   private error: string = '';
-  private message: string = '';
+  private model: any = {};
   private loading: boolean = false;
+  public users: User[] = [];
+  public user: User;
+  public message: string = '';
+  public show: boolean =false;
+  
 
 
   constructor(private userService: UserService,
