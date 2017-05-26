@@ -34,11 +34,12 @@ import { StoresService } from '../services/stores/index';
 export class StoresComponent implements OnInit {
 
   private currentUser: User;
-  private stores: Store[] = [];
-  private message: string = '';
+  public stores: Store[] = [];
+  public message: string = '';
   public model: any = {};
   public loading: boolean = false;
   public error: string = '';
+  public show: boolean = false;
 
 
   constructor(
