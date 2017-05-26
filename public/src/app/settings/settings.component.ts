@@ -28,11 +28,14 @@ import { UserService } from '../services/auth/index';
   templateUrl: './settings.component.html',
   styleUrls: ['./settings.component.scss']
 })
+
 export class SettingsComponent implements OnInit {
 
-  currentUser: User;
-  users: User[] = [];
-  message: string = '';
+  private currentUser: User;
+  public users: User[] = [];
+  public show: boolean = false;
+  public message: string = '';
+
 
   constructor(private userService: UserService, private router: Router) {
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
