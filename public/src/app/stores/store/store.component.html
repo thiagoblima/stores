@@ -2,49 +2,49 @@
 <section class="container welcome" [@myAnimation]="show">
   <section class="row" *ngIf="store">
     <section class="user col-md-6 col-md-offset-3" [@myAnimation]="show">
-      <h2 class="user-hero">{{store.data.store_name}} store data</h2>
+      <h2 class="user-hero">{{store.store_name}} store data</h2>
       <ul class="user-details">
         <li>
-          <h3>Store Region: {{store.data.store_country}} | {{store.data.store_city}}</h3>
-          <h4>Store Type: {{store.data.store_type}}</h4>
-          <h4>Id: {{store.data._id}}</h4>
-          <h4>Store Address: {{store.data.store_address}} </h4>
+          <h3>Store Region: {{store.store_country}} | {{store.store_city}}</h3>
+          <h4>Store Type: {{store.store_type}}</h4>
+          <h4>Id: {{store._id}}</h4>
+          <h4>Store Address: {{store.store_address}} </h4>
         </li>
       </ul>
       <form name="form" class="store" (ngSubmit)="f.form.valid && updateStore()" #f="ngForm" novalidate>
         <section class="form-group" [ngClass]="{ 'has-error': f.submitted && !store_image.valid }">
           <label for="store_image">store image: </label>
-          <input type="text" name="store_image" class="form-control" [(ngModel)]="model.store_image" #store_image="ngModel" placeholder="{{store.data.store_image}}"
+          <input type="text" name="store_image" class="form-control" [(ngModel)]="model.store_image" #store_image="ngModel" placeholder="{{store.store_image}}"
             required/>
           <div *ngIf="f.submitted && !store_image.valid" class="help-block">Image is required</div>
         </section>
         <section class="form-group" [ngClass]="{ 'has-error': f.submitted && !store_phone.valid }">
           <label for="store_phone">store phone: </label>
-          <input type="number" name="store_phone" class="form-control" [(ngModel)]="model.store_phone" #store_phone="ngModel" placeholder="{{store.data.store_phone}}"
+          <input type="number" name="store_phone" class="form-control" [(ngModel)]="model.store_phone" #store_phone="ngModel" placeholder="{{store.store_phone}}"
             required/>
           <div *ngIf="f.submitted && !store_phone.valid" class="help-block">Phone is required</div>
         </section>
         <section class="form-group" [ngClass]="{ 'has-error': f.submitted && !store_country.valid }">
           <label for="store_country"> store country: </label>
-          <input type="text" name="store_country" class="form-control" [(ngModel)]="model.store_country" #store_country="ngModel" placeholder="{{store.data.store_country}}"
+          <input type="text" name="store_country" class="form-control" [(ngModel)]="model.store_country" #store_country="ngModel" placeholder="{{store.store_country}}"
             required/>
           <div *ngIf="f.submitted && !store_country.valid" class="help-block">Country is required</div>
         </section>
         <section class="form-group" [ngClass]="{ 'has-error': f.submitted && !store_city.valid }">
           <label for="store_city">store city: </label>
-          <input type="text" name="store_city" class="form-control" [(ngModel)]="model.store_city" #store_city="ngModel" placeholder="{{store.data.store_city}}"
+          <input type="text" name="store_city" class="form-control" [(ngModel)]="model.store_city" #store_city="ngModel" placeholder="{{store.store_city}}"
             required/>
           <div *ngIf="f.submitted && !store_city.valid" class="help-block">City is required</div>
         </section>
         <section class="form-group" [ngClass]="{ 'has-error': f.submitted && !store_type.valid }">
           <label for="store_type">store type: </label>
-          <input type="text" name="store_type" class="form-control" [(ngModel)]="model.store_type" #store_type="ngModel" placeholder="{{store.data.store_type}}"
+          <input type="text" name="store_type" class="form-control" [(ngModel)]="model.store_type" #store_type="ngModel" placeholder="{{store.store_type}}"
             required/>
           <div *ngIf="f.submitted && !store_type.valid" class="help-block">Type is required</div>
         </section>
         <section class="form-group" [ngClass]="{ 'has-error': f.submitted && !store_address.valid }">
           <label for="store_address">store address: </label>
-          <input type="text" name="store_address" class="form-control" [(ngModel)]="model.store_address" #store_address="ngModel" placeholder="{{store.data.store_address}}"
+          <input type="text" name="store_address" class="form-control" [(ngModel)]="model.store_address" #store_address="ngModel" placeholder="{{store.store_address}}"
             required/>
           <div *ngIf="f.submitted && !store_address.valid" class="help-block">Address is required</div>
         </section>
