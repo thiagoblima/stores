@@ -38,6 +38,7 @@ import 'rxjs/add/operator/switchMap';
 })
 export class StoreComponent implements OnInit {
   private currentUser: User;
+  private loading: boolean = false;
   private model: any = {};
   public users: User[] = [];
   public stores: Store[] = [];
@@ -47,7 +48,6 @@ export class StoreComponent implements OnInit {
   public show: boolean = false;
   public error: string = '';
   public message: string = '';
-  private loading: boolean = false;
 
 
   constructor(private userService: UserService,
