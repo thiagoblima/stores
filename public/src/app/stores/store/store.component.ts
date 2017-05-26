@@ -37,15 +37,16 @@ import 'rxjs/add/operator/switchMap';
   styleUrls: ['./store.component.scss']
 })
 export class StoreComponent implements OnInit {
-  private data;
   private currentUser: User;
-  private users: User[] = [];
-  private user: User;
-  private stores: Store[] = [];
-  private store: Store;
   private model: any = {};
-  private error: string = '';
-  private message: string = '';
+  public users: User[] = [];
+  public stores: Store[] = [];
+  public user: User;
+  public store: Store;
+  public data;
+  public show: boolean = false;
+  public error: string = '';
+  public message: string = '';
   private loading: boolean = false;
 
 
