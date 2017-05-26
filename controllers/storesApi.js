@@ -112,13 +112,13 @@ module.exports = (app) => {
                 } else {
 
                     // User authenticated, get the list of all the stores.
-                    Stores.find((err, store) => {
+                    Stores.find((err, stores) => {
                         if (err) throw err;
 
-                        if (!store) {
+                        if (!stores) {
                             return res.status(403).send({ success: false, msg: 'Authentication failed. User not found.' });
                         } else {
-                            res.status(200).json({ success: true, data: store });
+                            res.status(200).json( stores );
                         }
                     });
 
@@ -141,7 +141,7 @@ module.exports = (app) => {
                     if (!store) {
                         return res.status(401).send({ success: false, msg: 'Authentication failed. Store not found.' });
                     } else {
-                        res.status(200).json({ success: true, msg: 'Store Successfully Found', data: store });
+                        res.status(200).json( store );
                     }
                 });
 
