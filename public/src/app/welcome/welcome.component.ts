@@ -36,9 +36,12 @@ import { User } from '../models/index';
 export class WelcomeComponent {
   
   public currentUser: User;
+  public welcome;
   public message: string = '';
-  private storesType: any = [];
+  public storesType: any = [];
+  public show: boolean = false;
   private data;
+
 
   constructor(private storesTypeService: StoresTypeService, private storesService: StoresService,
     private userService: UserService) {
