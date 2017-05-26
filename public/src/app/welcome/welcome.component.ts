@@ -36,7 +36,6 @@ import { User } from '../models/index';
 export class WelcomeComponent {
   
   public currentUser: User;
-  public welcome;
   public message: string = '';
   public storesType: any = [];
   public show: boolean = false;
