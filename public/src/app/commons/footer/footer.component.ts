@@ -139,8 +139,9 @@ export class FooterComponent implements OnInit {
 
   private telephone: any = footer.contact();
   private message: string = 'Get Footer Object';
+  public show: boolean = false;
 
-  private footer: footerAlias = {
+  public footer: footerAlias = {
     logo: footer.getLogo,
     rights: footer.getRights,
     contact: footer.telephone
