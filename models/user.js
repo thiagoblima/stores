@@ -37,7 +37,12 @@ let UserSchema = new Schema({
     file: {
         type: String,
         required: true
-    }
+    }, 
+    path: {
+        type: String,
+        required: true,
+        trim: true
+    },
 });
 
 UserSchema.pre('save', function (next) {
