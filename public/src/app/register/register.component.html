@@ -1,4 +1,4 @@
-<section>
+<section class="register">
   <section class="col-md-6 col-md-offset-3">
     <header class="register">
       <h1><span class="{{registerSetUp.logo}}"></span></h1>
@@ -34,6 +34,10 @@
         <label for="age">Age</label>
         <input type="number" class="form-control" name="age" [(ngModel)]="model.age" #age="ngModel" required />
         <div *ngIf="f.submitted && !age.valid" class="help-block">Age is required</div>
+      </section>
+      <section class="form-group" [ngClass]="{ 'has-error': f.submitted && !file.valid }">
+        <label for="file">Upload File</label>
+        <input type="file" class="form-control" name="file" (change)="fileChange($event)" [(ngModel)]="model.file" #file="ngModel"/>
       </section>
       <section class="form-group">
         <button [disabled]="loading" class="btn btn-primary">Register</button>
