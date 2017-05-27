@@ -6,6 +6,7 @@
     "bcrypt": "*",
     "body-parser": "*",
     "express": "*",
+    "express-fileupload": "*",
     "jwt-simple": "*",
     "mongoose": "*",
     "morgan": "*",
