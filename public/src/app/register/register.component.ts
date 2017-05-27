@@ -2,17 +2,19 @@ import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { AlertService, UserService } from '../services/auth/index';
 import { Header } from '../commons/header/header.component';
+import { Http, Headers, RequestOptions, Response } from '@angular/http';
+import { Observable } from 'rxjs';
 
 type registerAlias = { logo: string, alt: string, title: string, subtitle: string, date: Date };
 export class Register extends Header {
 
-    constructor(logo: string, alt: string, title: string, subtitle: string, date: Date) {
-        super(logo, alt, title, subtitle, date);
-    }
+  constructor(logo: string, alt: string, title: string, subtitle: string, date: Date) {
+    super(logo, alt, title, subtitle, date);
+  }
 
 }
 
-let registerSetUp = new Header('glyphicon glyphicon-user','Register','Register','Fill up the form to get access', new Date());
+let registerSetUp = new Header('glyphicon glyphicon-user', 'Register', 'Register', 'Fill up the form to get access', new Date());
 
 
 @Component({
@@ -26,11 +28,13 @@ export class RegisterComponent implements OnInit {
   public model: any = {};
   public loading: boolean = false;
   public error: string = '';
+  private apiEndPoint: string = 'api/upload';
 
   constructor(
     private router: Router,
     private userService: UserService,
-    private alertService: AlertService) { }
+    private alertService: AlertService,
+    private http: Http) { }
 
   register() {
     this.loading = true;
@@ -46,16 +50,44 @@ export class RegisterComponent implements OnInit {
       });
   }
 
-  public registerSetUp: registerAlias = {
-        logo: registerSetUp.getLogo,
-        alt: registerSetUp.getAlt,
-        title: registerSetUp.getTitle,
-        subtitle: registerSetUp.getSubtitle,
-        date: registerSetUp.getDate
+  fileChange(event) {
+
+    let fileList: FileList = event.target.files;
+
+    if (fileList.length > 0) {
+
+      let file: File = fileList[0];
+
+      let formData: FormData = new FormData();
+
+      formData.append('file', file, file.name);
+
+      let headers = new Headers();
+
+      let options = new RequestOptions({ headers: headers });
+
+      this.model.file = file.name;
+
+      this.http.post(`${this.apiEndPoint}`, formData, options)
+        .map(res => res.json())
+        .catch(error => Observable.throw(error))
+        .subscribe(
+        data => console.log('success'),
+        error => console.log(error)
+        )       
     }
+  }
+
+  public registerSetUp: registerAlias = {
+    logo: registerSetUp.getLogo,
+    alt: registerSetUp.getAlt,
+    title: registerSetUp.getTitle,
+    subtitle: registerSetUp.getSubtitle,
+    date: registerSetUp.getDate
+  }
 
 
-  ngOnInit() { 
+  ngOnInit() {
   }
 
 }
