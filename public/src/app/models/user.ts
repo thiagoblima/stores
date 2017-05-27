@@ -16,6 +16,7 @@ interface UserData <T, Z> {
     firstname: string;
     lastname: string;
     age: number;
+    file: string;
     
 }
 
@@ -27,4 +28,5 @@ export class User implements UserData <String, Number> {
     public firstname;
     public lastname;
     public age;
+    public file;
 }
