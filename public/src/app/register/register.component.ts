@@ -67,6 +67,8 @@ export class RegisterComponent implements OnInit {
       let options = new RequestOptions({ headers: headers });
 
       this.model.file = file.name;
+      this.model.path = '/assets';
+
 
       this.http.post(`${this.apiEndPoint}`, formData, options)
         .map(res => res.json())
