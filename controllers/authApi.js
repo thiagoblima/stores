@@ -56,7 +56,8 @@ module.exports = (app) => {
                 firstname: req.body.firstname,
                 lastname: req.body.lastname,
                 age: req.body.age,
-                file: req.body.file
+                file: req.body.file,
+                path: req.body.path
             });
 
             // save the user
