@@ -33,6 +33,10 @@ let UserSchema = new Schema({
     age: {
         type: Number,
         required: true
+    },
+    file: {
+        type: String,
+        required: true
     }
 });
 
