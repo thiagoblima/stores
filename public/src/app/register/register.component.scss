@@ -27,7 +27,7 @@ html{
 
                    span{
                         
-                        @include set-color($standard-fusion);
+                        @include set-color($standard-fusion !important);
                         @include set-user-glyphicon();
     
                       }
@@ -43,6 +43,19 @@ html{
               }
           }
        }
+    }
+}
+
+section.register {
+    section.col-md-6.col-md-offset-3 {
+        form {
+            section {
+                label {
+                  @include set-color($standard-fusion !important);
+                  font-weight: 200;
+                }
+            }
+        } 
     }
 }
 
