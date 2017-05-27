@@ -46,11 +46,11 @@ html{
 
                 clear:both;
 
-                section{
+                section.login{
 
                     label{
-                        @include set-color($standard-fusion);
-                        font-weight: 300;
+                        @include set-color($standard-fusion !important);
+                        font-weight: 200;
                        }
 
                     }
