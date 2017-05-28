@@ -55,7 +55,7 @@ module.exports = (app) => {
 
         let file = req.files.file;
 
-        file.mv('./assets/user/' + req.files.file.name, (err) => {
+        file.mv('./public/src/assets/images/user/' + req.files.file.name, (err) => {
             if (err)
                 return res.status(500).send(err);
 
