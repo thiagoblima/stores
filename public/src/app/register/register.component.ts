@@ -76,7 +76,7 @@ export class RegisterComponent implements OnInit {
         .subscribe(
         data => console.log('success'),
         error => console.log(error)
-        )       
+        )
     }
   }
 
