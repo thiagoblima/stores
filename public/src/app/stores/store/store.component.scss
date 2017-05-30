@@ -18,6 +18,7 @@ html {
                    section { 
                        label {
                            @include set-color($dark-purle !important);
+                           font-weight: 200;
                        }
                    }
                }
@@ -38,7 +39,6 @@ form.store{
 
             label{
                 @include set-color($dark-purle);
-                font-weight: 300;
             }
 
         }
@@ -48,6 +48,7 @@ form.store{
 
         label{
             @include set-color($dark-purle !important);
+            font-weight: 200;
         }
 
          button{
@@ -83,6 +84,7 @@ section.form-group.store{
 
         label{
             @include set-color($dark-purle !important);
+            font-weight: 300 !important;
         }
 
          button{
