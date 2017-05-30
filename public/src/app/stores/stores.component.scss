@@ -33,3 +33,14 @@ section.stores form .form-group label{
     font-weight: 200;
     margin-left: 15px;
 }
+
+h4.defualt {
+    @include set-color($dark-purle !important);
+    font-weight: 200;
+    margin-left: 0px !important;
+}
+
+.store ul {
+    padding-left: 15px !important;
+}
+
