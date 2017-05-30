@@ -32,6 +32,9 @@
      ul {
         
          li {
+             img {
+               max-height: 11.9em;
+            }
             
             h4:nth-last-of-type(1) {
                @include set-color($dark-purle);
