@@ -50,13 +50,14 @@
         <span *ngIf="error" class="alert alert-danger">{{error}}</span>
       </form>
     </section>
-    <section class="col-sm-6" [@myAnimation]="show">
+    <section class="stores store col-sm-6" [@myAnimation]="show">
+      <h4>Stores Loaded</h4>
       <ul>
         <li *ngFor="let store of stores">
           <h3>{{store.store_name}}</h3>
-          <h4>{{store.store_phone}}</h4>
-          <h4>{{store.store_country}} | {{store.store_city}}</h4>
-          <h4>{{store.store_address}}</h4>
+          <h4 class="defualt">{{store.store_phone}}</h4>
+          <h4 class="defualt">{{store.store_country}} | {{store.store_city}}</h4>
+          <h4 class="defualt">{{store.store_address}}</h4>
           <a (click)="deleteStore(store._id)">Delete</a>
           <a routerLinkActive="active" [routerLink]="['/api/store', store._id]">Edit</a>
         </li>
