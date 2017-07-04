@@ -64,6 +64,7 @@ export class RegisterComponent implements OnInit {
 
       let headers = new Headers();
 
+      headers.append('Accept', 'application/json');
       let options = new RequestOptions({ headers: headers });
 
       this.model.file = file.name;
