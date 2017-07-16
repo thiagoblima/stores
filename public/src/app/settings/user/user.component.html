@@ -5,14 +5,19 @@
       <h2 class="user-hero">{{user.username}} user data</h2>
       <ul class="user-details">
         <li>
-          <img src="{{user.path + user.file}}" alt="{{user.username}}" class=""/>
+          <img src="{{user.path + user.file}}" alt="{{user.username}}" class="" />
           <h3>{{user.firstname}} {{user.lastname}}</h3>
           <h4>id: {{user._id}}</h4>
           <h4>username: {{user.username}} </h4>
         </li>
       </ul>
-      <form name="form" class="user" (ngSubmit)="f.form.valid && updateUser()" #f="ngForm" novalidate>
+      <form name="form" class="user" (ngSubmit)="f.form.valid && updateUser() && fileChange($event)" #f="ngForm" novalidate>
         <section class="form-group" [ngClass]="{ 'has-error': f.submitted && !email.valid }">
+          <section class="form-group" [ngClass]="{ 'has-error': f.submitted && !file.valid }">
+            <label for="file">Upload File</label>
+            <input type="file" class="form-control" (change)="fileChange($event)" name="file" [(ngModel)]="model.file" #file="ngModel"
+            />
+          </section>
           <label for="email">email: </label>
           <input type="email" name="email" class="form-control" [(ngModel)]="model.email" #email="ngModel" placeholder="{{user.email}}"
             required/>
@@ -32,8 +37,7 @@
         </section>
         <section class="form-group" [ngClass]="{ 'has-error': f.submitted && !age.valid }">
           <label for="age">age: </label>
-          <input type="number" name="age" class="form-control" [(ngModel)]="model.age" #age="ngModel" placeholder="{{user.age}}"
-            required/>
+          <input type="number" name="age" class="form-control" [(ngModel)]="model.age" #age="ngModel" placeholder="{{user.age}}" required/>
           <div *ngIf="f.submitted && !age.valid" class="help-block">Age is required</div>
         </section>
         <section class="form-group">
