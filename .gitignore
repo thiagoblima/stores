@@ -4,3 +4,6 @@ node_modules
 
 # User Assets Images Being Ignored
 public/src/assets/images/user/
+
+# Store Assets Images Being Ignored
+public/src/assets/images/store/
