@@ -48,7 +48,7 @@ module.exports = (app) => {
     };
 
 
-    utilApiRoutes.post('/upload', (req, res) => {
+    utilApiRoutes.post('/upload/user/asset', (req, res) => {
 
         if (!req.files)
             return res.status(400).send('No files were uploaded.');
