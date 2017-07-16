@@ -1,5 +1,7 @@
 import { Component, NgModule, OnInit, trigger, transition, style, animate, state } from '@angular/core';
 import { ActivatedRoute, Params, Router, NavigationExtras } from '@angular/router';
+import { Http, Headers, RequestOptions, Response } from '@angular/http';
+import { Observable } from 'rxjs';
 import { Location } from '@angular/common';
 import { NavComponent } from '../../commons/nav/nav.component';
 import { HeaderComponent } from '../../commons/header/header.component';
@@ -43,6 +45,7 @@ export class UserComponent implements OnInit {
   public user: User;
   public message: string = '';
   public show: boolean =false;
+  private apiEndPoint: string = 'api/upload';
   
 
 
@@ -50,7 +53,8 @@ export class UserComponent implements OnInit {
     private route: ActivatedRoute,
     private location: Location,
     private router: Router,
-    private alertService: AlertService) {
+    private alertService: AlertService,
+    private http: Http) {
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
 
   }
@@ -89,6 +93,37 @@ export class UserComponent implements OnInit {
         this.loading = false;
       });
 
+  }
+
+  fileChange(event) {
+
+    let fileList: FileList = event.target.files;
+
+    if (fileList.length > 0) {
+
+      let file: File = fileList[0];
+
+      let formData: FormData = new FormData();
+
+      formData.append('file', file, file.name);
+
+      let headers = new Headers();
+
+      headers.append('Accept', 'application/json');
+      let options = new RequestOptions({ headers: headers });
+
+      this.model.file = file.name;
+      this.model.path = '../../assets/images/user/';
+
+
+      this.http.post(`${this.apiEndPoint}`, formData, options)
+        .map(res => res.json())
+        .catch(error => Observable.throw(error))
+        .subscribe(
+        data => console.log('success'),
+        error => console.log(error)
+        )
+    }
   }
 
   private loadAllUsers() {
