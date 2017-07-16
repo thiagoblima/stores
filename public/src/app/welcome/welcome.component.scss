@@ -60,6 +60,7 @@ section.welcome {
                     @include set-cursor(pointer);
                     @include animate-stores(translateX(15px) skewY(-3deg), 200ms ease-out);
                     padding-left: 1em;
+                    box-shadow: 2px 2px $dark-purle;
                     
                 }
            }       
