@@ -45,7 +45,7 @@ export class UserComponent implements OnInit {
   public user: User;
   public message: string = '';
   public show: boolean =false;
-  private apiEndPoint: string = 'api/upload';
+  private apiEndPoint: string = 'api/upload/user/asset';
   
 
 
