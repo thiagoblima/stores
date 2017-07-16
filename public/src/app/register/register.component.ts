@@ -28,7 +28,7 @@ export class RegisterComponent implements OnInit {
   public model: any = {};
   public loading: boolean = false;
   public error: string = '';
-  private apiEndPoint: string = 'api/upload';
+  private apiEndPoint: string = 'api/upload/user/asset';
 
   constructor(
     private router: Router,
