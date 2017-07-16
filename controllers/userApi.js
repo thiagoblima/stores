@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
+const fileUpload = require('express-fileupload');
 const mongoose = require('mongoose');
 const passport = require('passport');
 const config = require('../config/database');
@@ -23,14 +24,14 @@ module.exports = (app) => {
 
     // connect the api routes under /api/*
     app.use('/api', userApiRoutes);
-    
+
     /**
      * @function: getToken()
      * @param: headers
      * @prop: authorization
      * @description: getting headers for JWT token
      */
-    
+
     getToken = (headers) => {
         if (headers && headers.authorization) {
             let parted = headers.authorization.split(' ');
@@ -42,6 +43,34 @@ module.exports = (app) => {
         } else {
             return null;
         }
+    };
+
+    /**
+     * @function: updloader()
+     * @param: { re, res }
+     * @prop: name, length, data, encoding, mimetype, mv
+     * @description: Uploads files using string buffer on change event
+     */
+
+
+    let uploader = () => {
+        
+        userApiRoutes.post('/upload', (req, res) => {
+
+                if (!req.files)
+                    return res.status(400).send('No files were uploaded.');
+
+                let file = req.files.file;
+
+                file.mv('./public/dist/assets/images/user/' + req.files.file.name, (err) => {
+                    if (err)
+                        return res.status(500).send(err);
+
+                    res.send('File uploaded!');
+                    console.log(req.files.file);
+                });
+
+            });
     };
 
     // Get the list of all the users. (only for authenticated users.)
@@ -66,7 +95,7 @@ module.exports = (app) => {
                         if (!user) {
                             return res.status(401).send({ success: false, msg: 'Authentication failed. User not found.' });
                         } else {
-                            res.status(200).json( user );
+                            res.status(200).json(user);
                         }
                     });
 
@@ -89,7 +118,7 @@ module.exports = (app) => {
                     if (!user) {
                         return res.status(401).send({ success: false, msg: 'Authentication failed. User not found.' });
                     } else {
-                        res.status(200).json( user );
+                        res.status(200).json(user);
                     }
                 });
 
@@ -125,16 +154,20 @@ module.exports = (app) => {
         }
     });
 
+
     // update user by id (only for authenticated users)
     userApiRoutes.put('/user/:id', passport.authenticate('jwt', { session: false }), (req, res) => {
         const token = getToken(req.headers);
         if (token) {
             let decoded = jwt.decode(token, config.secret);
 
+            uploader();
+
             // find user by id and update it
             User.findByIdAndUpdate(req.params.id,
                 {
                     _id: req.params.id,
+                    file: req.body.file,
                     email: req.body.email,
                     firstname: req.body.firstname,
                     lastname: req.body.lastname,
@@ -487,7 +520,7 @@ module.exports = (app) => {
 
 
 
-   userApiRoutes.get('/donation_list', passport.authenticate('jwt', { session: false }), (req, res) => {
+    userApiRoutes.get('/donation_list', passport.authenticate('jwt', { session: false }), (req, res) => {
 
 
         const token = getToken(req.headers);
