@@ -1,1 +1,6 @@
+
+# Node Dependencies Being Ignored
 node_modules
+
+# User Assets Images Being Ignored
+public/src/assets/images/user/
