@@ -11,7 +11,7 @@
           <h4>username: {{user.username}} </h4>
         </li>
       </ul>
-      <form name="form" class="user" (ngSubmit)="f.form.valid && updateUser() && fileChange($event)" #f="ngForm" novalidate>
+      <form name="form" class="user" (ngSubmit)="f.form.valid && updateUser()" #f="ngForm" novalidate>
         <section class="form-group" [ngClass]="{ 'has-error': f.submitted && !file.valid }">
           <label for="file">Upload File</label>
           <input type="file" class="form-control" (change)="fileChange($event)" name="file" [(ngModel)]="model.file" #file="ngModel"
