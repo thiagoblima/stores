@@ -1,4 +1,6 @@
 import { Component, NgModule, OnInit, trigger, transition, style, animate, state } from '@angular/core';
+import { Http, Headers, RequestOptions, Response } from '@angular/http';
+import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { User } from '../models/index';
 import { Store } from '../models/index';
@@ -40,13 +42,15 @@ export class StoresComponent implements OnInit {
   public loading: boolean = false;
   public error: string = '';
   public show: boolean = false;
+  private apiEndPoint: string = 'api/upload/store/asset';
 
 
   constructor(
     private router: Router,
     private storesService: StoresService,
     private userService: UserService,
-    private alertService: AlertService) {
+    private alertService: AlertService,
+    private http: Http) {
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
   }
 
@@ -76,6 +80,37 @@ export class StoresComponent implements OnInit {
 
   private getUserInfo() {
     this.userService.getUserInfo().subscribe(message => { this.message = message; })
+  }
+
+  fileChange(event) {
+
+    let fileList: FileList = event.target.files;
+
+    if (fileList.length > 0) {
+
+      let file: File = fileList[0];
+
+      let formData: FormData = new FormData();
+
+      formData.append('file', file, file.name);
+
+      let headers = new Headers();
+
+      headers.append('Accept', 'application/json');
+      let options = new RequestOptions({ headers: headers });
+
+      this.model.store_file = file.name;
+      this.model.path = '../../assets/images/store/';
+
+
+      this.http.post(`${this.apiEndPoint}`, formData, options)
+        .map(res => res.json())
+        .catch(error => Observable.throw(error))
+        .subscribe(
+        data => console.log('success'),
+        error => console.log(error)
+        )
+    }
   }
 
   ngOnInit() {
