@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 let storesSchema = new Schema({
   store_code: String,
   store_name: { type: String, required: true, unique: true },
-  store_image: String,
+  store_file: String,
   store_phone: Number,
   store_country: String,
   store_city: String,
