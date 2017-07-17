@@ -70,6 +70,7 @@ export class UserComponent implements OnInit {
 
     this.model._id = this.route.snapshot.params['id'];
     this.model.email = this.route.snapshot.params['email'];
+    this.model.file = this.route.snapshot.params['file'];
     this.model.firstname = this.route.snapshot.params['firstname'];
     this.model.lastname = this.route.snapshot.params['lastname'];
     this.model.age = this.route.snapshot.params['age'];
