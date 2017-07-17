@@ -6,15 +6,15 @@
     <section class="stores store col-sm-6">
       <h4>Create a new Store</h4>
       <form name="form" class="stores" (ngSubmit)="f.form.valid && createStore()" #f="ngForm" novalidate>
+        <section class="form-group" [ngClass]="{ 'has-error': f.submitted && !store_file.valid }">
+          <label for="store_file">Upload File</label>
+          <input type="file" class="form-control" (change)="fileChange($event)" name="store_file" [(ngModel)]="model.store_file" #store_file="ngModel"
+          />
+        </section>
         <section class="form-group" [ngClass]="{ 'has-error': f.submitted && !store_name.valid }">
-          <label for="store_name">Store name</label>
+          <label for="store_name">Store Name</label>
           <input type="text" class="form-control" name="store_name" [(ngModel)]="model.store_name" #store_name="ngModel" required />
           <div *ngIf="f.submitted && !store_name.valid" class="help-block">Store Name is required</div>
-        </section>
-        <section class="form-group" [ngClass]="{ 'has-error': f.submitted && !store_image.valid }">
-          <label for="store_image">Store Image</label>
-          <input type="text" class="form-control" name="store_image" [(ngModel)]="model.store_image" #store_image="ngModel" required />
-          <div *ngIf="f.submitted && !store_image.valid" class="help-block">Store Image is required</div>
         </section>
         <section class="form-group" [ngClass]="{ 'has-error': f.submitted && !store_phone.valid }">
           <label for="store_phone">Store Phone</label>
