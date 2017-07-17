@@ -12,12 +12,12 @@
         </li>
       </ul>
       <form name="form" class="user" (ngSubmit)="f.form.valid && updateUser() && fileChange($event)" #f="ngForm" novalidate>
+        <section class="form-group" [ngClass]="{ 'has-error': f.submitted && !file.valid }">
+          <label for="file">Upload File</label>
+          <input type="file" class="form-control" (change)="fileChange($event)" name="file" [(ngModel)]="model.file" #file="ngModel"
+          />
+        </section>
         <section class="form-group" [ngClass]="{ 'has-error': f.submitted && !email.valid }">
-          <section class="form-group" [ngClass]="{ 'has-error': f.submitted && !file.valid }">
-            <label for="file">Upload File</label>
-            <input type="file" class="form-control" (change)="fileChange($event)" name="file" [(ngModel)]="model.file" #file="ngModel"
-            />
-          </section>
           <label for="email">email: </label>
           <input type="email" name="email" class="form-control" [(ngModel)]="model.email" #email="ngModel" placeholder="{{user.email}}"
             required/>
