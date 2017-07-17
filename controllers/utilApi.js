@@ -65,5 +65,22 @@ module.exports = (app) => {
 
     });
 
+    utilApiRoutes.post('/upload/store/asset', (req, res) => {
+
+        if (!req.files)
+            return res.status(400).send('No files were uploaded.');
+
+        let file = req.files.file;
+
+        file.mv('./public/dist/assets/images/store/' + req.files.file.name, (err) => {
+            if (err)
+                return res.status(500).send(err);
+
+            res.send('File uploaded!');
+            console.log(req.files.file);
+        });
+
+    });
+
 
 };
