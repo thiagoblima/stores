@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const fileUpload = require('express-fileupload');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const passport = require('passport');
@@ -46,6 +47,34 @@ module.exports = (app) => {
         }
     };
 
+     /**
+     * @function: updloader()
+     * @param: { re, res }
+     * @prop: name, length, data, encoding, mimetype, mv
+     * @description: Uploads files using string buffer on change event
+     */
+
+
+    let uploader = () => {
+        
+        storesApiRoutes.post('/upload', (req, res) => {
+
+                if (!req.files)
+                    return res.status(400).send('No files were uploaded.');
+
+                let file = req.files.file;
+
+                file.mv('./public/dist/assets/images/user/' + req.files.file.name, (err) => {
+                    if (err)
+                        return res.status(500).send(err);
+
+                    res.send('File uploaded!');
+                    console.log(req.files.file);
+                });
+
+            });
+    };
+
 
     // create a new store (POST /api/stores)
     storesApiRoutes.post('/stores', passport.authenticate('jwt', { session: false }), (req, res) => {
@@ -69,7 +98,7 @@ module.exports = (app) => {
                         let newStore = new Stores({
 
                             store_name: req.body.store_name,
-                            store_image: req.body.store_image,
+                            store_file: req.body.store_file,
                             store_phone: req.body.store_phone,
                             store_country: req.body.store_country,
                             store_city: req.body.store_city,
