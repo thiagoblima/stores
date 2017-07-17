@@ -12,11 +12,10 @@
         </li>
       </ul>
       <form name="form" class="store" (ngSubmit)="f.form.valid && updateStore()" #f="ngForm" novalidate>
-        <section class="form-group" [ngClass]="{ 'has-error': f.submitted && !store_image.valid }">
-          <label for="store_image">store image: </label>
-          <input type="text" name="store_image" class="form-control" [(ngModel)]="model.store_image" #store_image="ngModel" placeholder="{{store.store_image}}"
-            required/>
-          <div *ngIf="f.submitted && !store_image.valid" class="help-block">Image is required</div>
+        <section class="form-group" [ngClass]="{ 'has-error': f.submitted && !file.valid }">
+          <label for="file">Upload File</label>
+          <input type="file" class="form-control" (change)="fileChange($event)" name="file" [(ngModel)]="model.file" #file="ngModel"
+          />
         </section>
         <section class="form-group" [ngClass]="{ 'has-error': f.submitted && !store_phone.valid }">
           <label for="store_phone">store phone: </label>
