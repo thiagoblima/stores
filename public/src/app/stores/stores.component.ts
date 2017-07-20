@@ -100,7 +100,7 @@ export class StoresComponent implements OnInit {
       let options = new RequestOptions({ headers: headers });
 
       this.model.store_file = file.name;
-      this.model.path = '../../assets/images/store/';
+      this.model.store_path = '../../assets/images/store/';
 
 
       this.http.post(`${this.apiEndPoint}`, formData, options)
