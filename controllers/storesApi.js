@@ -99,6 +99,7 @@ module.exports = (app) => {
 
                             store_name: req.body.store_name,
                             store_file: req.body.store_file,
+                            store_path: req.body.store_path,
                             store_phone: req.body.store_phone,
                             store_country: req.body.store_country,
                             store_city: req.body.store_city,
