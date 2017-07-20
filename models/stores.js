@@ -6,6 +6,11 @@ let storesSchema = new Schema({
   store_code: String,
   store_name: { type: String, required: true, unique: true },
   store_file: String,
+  store_path: {
+        type: String,
+        required: true,
+        trim: true
+  },
   store_phone: Number,
   store_country: String,
   store_city: String,
