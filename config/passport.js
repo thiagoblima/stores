@@ -9,7 +9,7 @@ module.exports = (passport) => {
 
     let opts = {};
 
-    opts.jwtFromRequest = ExtractJwt.fromAuthHeader();
+    opts.jwtFromRequest = ExtractJwt.fromAuthHeaderAsBearerToken();
 
     opts.secretOrKey = config.secret;
 
