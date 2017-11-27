@@ -39,3 +39,4 @@ storesSchema.pre('save', function(next) {
 let Stores = mongoose.model('Stores', storesSchema);
 
 module.exports = Stores;
+ 
