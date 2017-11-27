@@ -1,3 +1,9 @@
+/**
+ * @author: Thiago Lima
+ * @description: Main Server Node Application.
+ * @module: App { server }
+ */
+
 const config = require('./config/database'); 
 const utilApiRoutes = require('./controllers/utilApi');
 const authApiRoutes = require('./controllers/authApi');
@@ -23,8 +29,6 @@ app.get('/', (req, res) => {
     res.send('The API is at http://localhost:' + port + '/api');
 });
 
-
-
 app.use(morgan('dev'));
 
 app.listen(port);
@@ -32,6 +36,10 @@ console.log('App running at: http://localhost:' + port);
 
 mongoose.connect(config.database);
 
+/**
+ * @function: utilApiRoutes, authApiRoutes, userApiRoutes, storesApiRoutes
+ * @param: { app }
+ */
 
 utilApiRoutes(app);
 authApiRoutes(app);
