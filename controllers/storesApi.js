@@ -1,3 +1,11 @@
+/**
+ * @author: Thiago Lima <thiagolimasp@live.com>
+ * @description: Here goes the REST API responsible for 
+ * saving, editing and deleting an existing store. User
+ * has to be authenticated to call these methods.
+ * @module: App { server }
+ */
+
 const express = require('express');
 const app = express();
 const fileUpload = require('express-fileupload');
@@ -241,3 +249,4 @@ module.exports = (app) => {
     });
 
 };
+ 
