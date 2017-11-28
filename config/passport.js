@@ -1,3 +1,11 @@
+/**
+ * @author: Thiago Lima <thiagolimasp@live.com>
+ * @description: The passport-jwt strategy file.
+ * @see: user model and database file are imported here.
+ * @module: App { server }
+ */
+
+
 const JwtStrategy = require('passport-jwt').Strategy;
 const ExtractJwt = require('passport-jwt').ExtractJwt;
 
