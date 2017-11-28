@@ -1,3 +1,11 @@
+/**
+ * @author: Thiago Lima <thiagolimasp@live.com>
+ * @description: Here goes the REST API responsible for 
+ * uploading files, properly used for saving photos or pdf files.
+ * @module: App { server }
+ */
+
+
 const express = require('express');
 const app = express();
 const fileUpload = require('express-fileupload');
