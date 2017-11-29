@@ -1,6 +1,6 @@
 {
   "name": "node-rest-auth",
-  "main": "server.js",
+  "main": "app.js",
   "version": "1.0.0",
   "dependencies": {
     "bcrypt": "*",
