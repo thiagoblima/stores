@@ -34,7 +34,7 @@ app.use(morgan('dev'));
 app.listen(port);
 console.log('App running at: http://localhost:' + port);
 
-mongoose.connect(config.database);
+mongoose.connect(config.database, {useMongoClient: true});
 
 /**
  * @function: utilApiRoutes, authApiRoutes, userApiRoutes, storesApiRoutes
