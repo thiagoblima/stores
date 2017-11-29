@@ -1,3 +1,9 @@
+/**
+ * @author: Thiago Lima
+ * @description: store's model object.
+ * @module: App { server }
+ */
+
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
