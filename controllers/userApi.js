@@ -1,9 +1,9 @@
 /**
- * @author: Thiago Lima <thiagolimasp@live.com>
+ * @author     : Thiago Lima <thiagolimasp@live.com>
+ * @module     : App { server }
  * @description: Here goes the REST API responsible for 
  * saving, editing and deleting an existing an user. User
  * has to be authenticated to call these methods.
- * @module: App { server }
  */
 
 const express = require('express');
@@ -53,33 +53,6 @@ module.exports = (app) => {
         }
     };
 
-    /**
-     * @function: updloader()
-     * @param: { re, res }
-     * @prop: name, length, data, encoding, mimetype, mv
-     * @description: Uploads files using string buffer on change event
-     */
-
-
-    let uploader = () => {
-        
-        userApiRoutes.post('/upload', (req, res) => {
-
-                if (!req.files)
-                    return res.status(400).send('No files were uploaded.');
-
-                let file = req.files.file;
-
-                file.mv('./public/dist/assets/images/user/' + req.files.file.name, (err) => {
-                    if (err)
-                        return res.status(500).send(err);
-
-                    res.send('File uploaded!');
-                    console.log(req.files.file);
-                });
-
-            });
-    };
 
     // Get the list of all the users. (only for authenticated users.)
     userApiRoutes.get('/users', passport.authenticate('jwt', { session: false }), (req, res) => {
@@ -169,7 +142,6 @@ module.exports = (app) => {
         if (token) {
             let decoded = jwt.decode(token, config.secret);
 
-            uploader();
 
             // find user by id and update it
             User.findByIdAndUpdate(req.params.id,
