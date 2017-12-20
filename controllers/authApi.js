@@ -1,9 +1,10 @@
 /**
- * @author: Thiago Lima <thiagolimasp@live.com>
+ * @author     : Thiago Lima <thiagolimasp@live.com>
+ * @module     : App { server }
  * @description: Authentication API goes here for creating,
  * editing and hitting the auth API endpoint, here we're using 
  * JWT passport strategy to provide a JWT token for registered users.
- * @module: App { server }
+
  */
 
 const express = require('express');
