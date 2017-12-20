@@ -1,8 +1,12 @@
-// grab the things we need
+/**
+ * @author     : <thiagolimasp@live.com> Thiago Lima
+ * @module     : App { server }
+ * @description: donation's model object.
+ */
+
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-// create a schema
 let DonationSchema = new Schema({
 
   organization_name: String,
@@ -16,13 +20,10 @@ let DonationSchema = new Schema({
 });
 
 
-
-// on every save, add the date
 DonationSchema.pre('save', (next) => {
   // get the current date
   let currentDate = new Date();
-  
-  // change the updated_at field to current date
+
   this.updated_at = currentDate;
 
   // if created_at doesn't exist, add to that field
