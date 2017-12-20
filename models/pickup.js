@@ -1,8 +1,12 @@
-// grab the things we need
+/**
+ * @author     : <thiagolimasp@live.com> Thiago Lima
+ * @module     : App { server }
+ * @description: pickup's model object.
+ */
+
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-// create a schema
 let PickupSchema = new Schema({
 
   schedule_id: Number,
@@ -14,15 +18,14 @@ let PickupSchema = new Schema({
 });
 
 
-// on every save, add the date
 PickupSchema.pre('save', (next) => {
-  // get the current date
+
   let currentDate = new Date();
   
-  // change the updated_at field to current date
+
   this.updated_at = currentDate;
 
-  // if created_at doesn't exist, add to that field
+
   if (!this.created_at)
     this.created_at = currentDate;
 
@@ -30,9 +33,6 @@ PickupSchema.pre('save', (next) => {
 });
 
 
-// the schema is useless so far
-// we need to create a model using it
 let Pickup = mongoose.model('Pickup', PickupSchema);
 
-// make this available to our users in our Node applications
 module.exports = Pickup;
