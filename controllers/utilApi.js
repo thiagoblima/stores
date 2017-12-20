@@ -1,8 +1,8 @@
 /**
- * @author: Thiago Lima <thiagolimasp@live.com>
+ * @author     : Thiago Lima <thiagolimasp@live.com>
+ * @module     : App { server }
  * @description: Here goes the REST API responsible for 
  * uploading files, properly used for saving photos or pdf files.
- * @module: App { server }
  */
 
 
@@ -80,7 +80,7 @@ module.exports = (app) => {
 
         let file = req.files.file;
 
-        file.mv('./public/src/assets/images/store/' + req.files.file.name, (err) => {
+        file.mv('./public/dist/assets/images/store/' + req.files.file.name, (err) => {
             if (err)
                 return res.status(500).send(err);
 
