@@ -1,9 +1,9 @@
 /**
- * @author: Thiago Lima <thiagolimasp@live.com>
+ * @author     : Thiago Lima <thiagolimasp@live.com>
+ * @module     : App { server }
  * @description: Here goes the REST API responsible for 
  * saving, editing and deleting an existing store. User
  * has to be authenticated to call these methods.
- * @module: App { server }
  */
 
 const express = require('express');
@@ -53,34 +53,6 @@ module.exports = (app) => {
         } else {
             return null;
         }
-    };
-
-     /**
-     * @function: updloader()
-     * @param: { re, res }
-     * @prop: name, length, data, encoding, mimetype, mv
-     * @description: Uploads files using string buffer on change event
-     */
-
-
-    let uploader = () => {
-        
-        storesApiRoutes.post('/upload', (req, res) => {
-
-                if (!req.files)
-                    return res.status(400).send('No files were uploaded.');
-
-                let file = req.files.file;
-
-                file.mv('./public/dist/assets/images/user/' + req.files.file.name, (err) => {
-                    if (err)
-                        return res.status(500).send(err);
-
-                    res.send('File uploaded!');
-                    console.log(req.files.file);
-                });
-
-            });
     };
 
 
@@ -221,10 +193,10 @@ module.exports = (app) => {
             let decoded = jwt.decode(token, config.secret);
 
             // find store by id and update it
-            Stores.update(req.params.id,
+            Stores.findByIdAndUpdate(req.params.id,
                 {
                     _id: req.params.id,
-                    store_image: req.body.store_image,
+                    store_file: req.body.store_file,
                     store_phone: req.body.store_phone,
                     store_country: req.body.store_country,
                     store_city: req.body.store_city,
