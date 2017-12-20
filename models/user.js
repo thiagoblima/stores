@@ -1,7 +1,7 @@
 /**
- * @author: Thiago Lima
+ * @author     : <thiagolimasp@live.com> Thiago Lima
+ * @module     : App { server }
  * @description: user's model object.
- * @module: App { server }
  */
 
 const mongoose = require('mongoose');
