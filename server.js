@@ -1,7 +1,7 @@
 /**
- * @author: Thiago Lima
+ * @author     : <thiagolimasp@live.com> Thiago Lima
+ * @module     : App { server }
  * @description: Main Server Node Application.
- * @module: App { server }
  */
 
 const config = require('./config/database'); 
@@ -15,7 +15,6 @@ const app = express();
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
-const passport = require('passport');
 const port = process.env.PORT || 3000;
 
 

@@ -1,5 +1,7 @@
 import { Component, NgModule, OnInit, trigger, transition, style, animate, state } from '@angular/core';
 import { ActivatedRoute, Params, Router, NavigationExtras } from '@angular/router';
+import { Http, Headers, RequestOptions, Response } from '@angular/http';
+import { Observable } from 'rxjs';
 import { Location } from '@angular/common';
 import { NavComponent } from '../../commons/nav/nav.component';
 import { HeaderComponent } from '../../commons/header/header.component';
@@ -40,6 +42,7 @@ export class StoreComponent implements OnInit {
   private currentUser: User;
   private loading: boolean = false;
   private model: any = {};
+  private apiEndPoint: string = 'api/upload/store/asset';
   public users: User[] = [];
   public stores: Store[] = [];
   public user: User;
@@ -48,13 +51,14 @@ export class StoreComponent implements OnInit {
   public show: boolean = false;
   public error: string = '';
   public message: string = '';
-
+  
 
   constructor(private userService: UserService,
     private storesService: StoresService,
     private route: ActivatedRoute,
     private location: Location,
     private router: Router,
+    private http: Http,
     private alertService: AlertService) {
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
 
@@ -96,6 +100,37 @@ export class StoreComponent implements OnInit {
         this.loading = false;
       });
 
+  }
+
+  fileChange(event) {
+
+    let fileList: FileList = event.target.files;
+
+    if (fileList.length > 0) {
+
+      let file: File = fileList[0];
+
+      let formData: FormData = new FormData();
+
+      formData.append('file', file, file.name);
+
+      let headers = new Headers();
+
+      headers.append('Accept', 'application/json');
+      let options = new RequestOptions({ headers: headers });
+
+      this.model.store_file = file.name;
+      this.model.store_path = '../../assets/images/store/';
+
+
+      this.http.post(`${this.apiEndPoint}`, formData, options)
+        .map(res => res.json())
+        .catch(error => Observable.throw(error))
+        .subscribe(
+        data => console.log('success'),
+        error => console.log(error)
+        )
+    }
   }
 
   private loadAllUsers() {
