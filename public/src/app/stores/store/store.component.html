@@ -15,7 +15,7 @@
       <form name="form" class="store" (ngSubmit)="f.form.valid && updateStore()" #f="ngForm" novalidate>
         <section class="form-group" [ngClass]="{ 'has-error': f.submitted && !file.valid }">
           <label for="file">Upload File</label>
-          <input type="file" class="form-control" (change)="fileChange($event)" name="file" [(ngModel)]="model.file" #file="ngModel"
+          <input type="file" class="form-control" (change)="fileChange($event)" name="store_file" [(ngModel)]="model.store_file" #file="ngModel"
           />
         </section>
         <section class="form-group" [ngClass]="{ 'has-error': f.submitted && !store_phone.valid }">
