@@ -1,4 +1,13 @@
-import { Component, NgModule, OnInit, trigger, transition, style, animate, state } from '@angular/core';
+import {
+  Component,
+  NgModule,
+  OnInit,
+  trigger,
+  transition,
+  style,
+  animate,
+  state
+} from '@angular/core';
 import { Http, Headers, RequestOptions, Response } from '@angular/http';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
@@ -11,30 +20,20 @@ import { StoresService } from '../services/stores/index';
   moduleId: module.id,
   selector: 'app-stores',
   animations: [
-    trigger(
-      'myAnimation',
-      [
-        transition(
-          ':enter', [
-            style({ backgroundColor: 'transparent', color: '#F4F2F4', opacity: 1 }),
-            animate('800ms')
-          ]
-        ),
-        transition(
-          ':leave', [
-            style({ opacity: 0 }),
-            animate('800ms')
-          ]
-        )
-      ]
-    )
+    trigger('myAnimation', [
+      transition(':enter', [
+        style({ backgroundColor: 'transparent', color: '#F4F2F4', opacity: 1 }),
+        animate('800ms')
+      ]),
+      transition(':leave', [style({ opacity: 0 }), animate('800ms')])
+    ])
   ],
   templateUrl: './stores.component.html',
   styleUrls: ['./stores.component.scss']
 })
 
 export class StoresComponent implements OnInit {
-
+  // tslint:disable:no-inferrable-types
   private currentUser: User;
   public stores: Store[] = [];
   public message: string = '';
@@ -44,20 +43,19 @@ export class StoresComponent implements OnInit {
   public show: boolean = false;
   private apiEndPoint: string = 'api/upload/store/asset';
 
-
   constructor(
     private router: Router,
     private storesService: StoresService,
     private userService: UserService,
     private alertService: AlertService,
-    private http: Http) {
+    private http: Http
+  ) {
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
   }
 
   createStore() {
     this.loading = true;
-    this.storesService.createStore(this.model)
-      .subscribe(
+    this.storesService.createStore(this.model).subscribe(
       data => {
         this.alertService.success('Creation successful', true);
         this.router.navigate(['/stores']);
@@ -67,27 +65,32 @@ export class StoresComponent implements OnInit {
       error => {
         this.error = 'Error on creating a new store.';
         this.loading = false;
-      });
+      }
+    );
   }
 
   deleteStore(_id: number) {
-    this.storesService.delete(_id).subscribe(() => { this.getStores() });
+    this.storesService.delete(_id).subscribe(() => {
+      this.getStores();
+    });
   }
 
   private getStores() {
-    this.storesService.getStores().subscribe(stores => { this.stores = stores; });
+    this.storesService.getStores().subscribe(stores => {
+      this.stores = stores;
+    });
   }
 
   private getUserInfo() {
-    this.userService.getUserInfo().subscribe(message => { this.message = message; })
+    this.userService.getUserInfo().subscribe(message => {
+      this.message = message;
+    });
   }
 
   fileChange(event) {
-
     let fileList: FileList = event.target.files;
 
     if (fileList.length > 0) {
-
       let file: File = fileList[0];
 
       let formData: FormData = new FormData();
@@ -102,23 +105,16 @@ export class StoresComponent implements OnInit {
       this.model.store_file = file.name;
       this.model.store_path = '../../assets/images/store/';
 
-
-      this.http.post(`${this.apiEndPoint}`, formData, options)
+      this.http
+        .post(`${this.apiEndPoint}`, formData, options)
         .map(res => res.json())
         .catch(error => Observable.throw(error))
-        .subscribe(
-        data => console.log('success'),
-        error => console.log(error)
-        )
+        .subscribe(data => console.log('success'), error => console.log(error));
     }
   }
 
   ngOnInit() {
-
     this.getStores();
     this.getUserInfo();
-
   }
-
-
 }
