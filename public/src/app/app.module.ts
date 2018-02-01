@@ -23,6 +23,7 @@ import { SettingsComponent } from './settings/settings.component';
 import { UserComponent } from './settings/user/user.component';
 import { StoresComponent } from './stores/stores.component';
 import { StoreComponent } from './stores/store/store.component';
+import { AboutComponent } from './about/about.component';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { StoreComponent } from './stores/store/store.component';
     SettingsComponent,
     UserComponent,
     StoresComponent,
-    StoreComponent
+    StoreComponent,
+    AboutComponent
   ],
   imports: [
     NgbModule.forRoot(),
