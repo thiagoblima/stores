@@ -1,5 +1,19 @@
-import { Component, NgModule, OnInit, trigger, transition, style, animate, state } from '@angular/core';
-import { ActivatedRoute, Params, Router, NavigationExtras } from '@angular/router';
+import {
+  Component,
+  NgModule,
+  OnInit,
+  trigger,
+  transition,
+  style,
+  animate,
+  state
+} from '@angular/core';
+import {
+  ActivatedRoute,
+  Params,
+  Router,
+  NavigationExtras
+} from '@angular/router';
 import { Http, Headers, RequestOptions, Response } from '@angular/http';
 import { Observable } from 'rxjs';
 import { Location } from '@angular/common';
@@ -17,28 +31,19 @@ import 'rxjs/add/operator/switchMap';
   moduleId: module.id,
   selector: 'app-store',
   animations: [
-    trigger(
-      'myAnimation',
-      [
-        transition(
-          ':enter', [
-            style({ backgroundColor: 'transparent', color: '#F4F2F4', opacity: 1 }),
-            animate('800ms')
-          ]
-        ),
-        transition(
-          ':leave', [
-            style({ opacity: 0 }),
-            animate('800ms')
-          ]
-        )
-      ]
-    )
+    trigger('myAnimation', [
+      transition(':enter', [
+        style({ backgroundColor: 'transparent', color: '#F4F2F4', opacity: 1 }),
+        animate('800ms')
+      ]),
+      transition(':leave', [style({ opacity: 0 }), animate('800ms')])
+    ])
   ],
   templateUrl: './store.component.html',
   styleUrls: ['./store.component.scss']
 })
 export class StoreComponent implements OnInit {
+  // tslint:disable:no-inferrable-types
   private currentUser: User;
   private loading: boolean = false;
   private model: any = {};
@@ -51,27 +56,26 @@ export class StoreComponent implements OnInit {
   public show: boolean = false;
   public error: string = '';
   public message: string = '';
-  
 
-  constructor(private userService: UserService,
+  constructor(
+    private userService: UserService,
     private storesService: StoresService,
     private route: ActivatedRoute,
     private location: Location,
     private router: Router,
     private http: Http,
-    private alertService: AlertService) {
+    private alertService: AlertService
+  ) {
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
-
   }
 
   ngOnInit() {
-
     this.loadAllUsers();
     this.getUserInfo();
 
     this.route.params
-      .switchMap((params) => this.storesService.getById(params.id))
-      .subscribe(store => this.store = store);
+      .switchMap(params => this.storesService.getById(params.id))
+      .subscribe(store => (this.store = store));
 
     this.model._id = this.route.snapshot.params['id'];
     this.model.store_image = this.route.snapshot.params['store_image'];
@@ -81,33 +85,29 @@ export class StoreComponent implements OnInit {
     this.model.store_type = this.route.snapshot.params['store_type'];
     this.model.store_address = this.route.snapshot.params['store_address'];
     this.model.updated_at = new Date();
-
   }
 
   private updateStore(store: Store) {
-
     this.loading = true;
 
-    this.storesService.update(this.model).subscribe(data => {
+    this.storesService.update(this.model).subscribe(
+      data => {
+        this.alertService.success('Registration successful', true);
+        this.router.navigate(['/stores']);
 
-      this.alertService.success('Registration successful', true);
-      this.router.navigate(['/stores']);
-
-      this.loadAllUsers();
-    },
+        this.loadAllUsers();
+      },
       error => {
         this.error = 'Error on updating the store.';
         this.loading = false;
-      });
-
+      }
+    );
   }
 
   fileChange(event) {
-
     let fileList: FileList = event.target.files;
 
     if (fileList.length > 0) {
-
       let file: File = fileList[0];
 
       let formData: FormData = new FormData();
@@ -122,27 +122,29 @@ export class StoreComponent implements OnInit {
       this.model.store_file = file.name;
       this.model.store_path = '../../assets/images/store/';
 
-
-      this.http.post(`${this.apiEndPoint}`, formData, options)
+      this.http
+        .post(`${this.apiEndPoint}`, formData, options)
         .map(res => res.json())
         .catch(error => Observable.throw(error))
-        .subscribe(
-        data => console.log('success'),
-        error => console.log(error)
-        )
+        .subscribe(data => console.log('success'), error => console.log(error));
     }
   }
 
   private loadAllUsers() {
-    this.userService.getAll().subscribe(users => { this.users = users; });
+    this.userService.getAll().subscribe(users => {
+      this.users = users;
+    });
   }
 
   private getUserInfo() {
-    this.userService.getUserInfo().subscribe(message => { this.message = message; });
+    this.userService.getUserInfo().subscribe(message => {
+      this.message = message;
+    });
   }
 
   private getStores() {
-    this.storesService.getStores().subscribe(data => { this.data = data; });
+    this.storesService.getStores().subscribe(data => {
+      this.data = data;
+    });
   }
-
 }
