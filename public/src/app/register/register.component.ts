@@ -24,7 +24,7 @@ let registerSetUp = new Header('glyphicon glyphicon-user', 'Register', 'Register
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
-
+  // tslint:disable:no-inferrable-types
   public model: any = {};
   public loading: boolean = false;
   public error: string = '';
@@ -77,17 +77,18 @@ export class RegisterComponent implements OnInit {
         .subscribe(
         data => console.log('success'),
         error => console.log(error)
-        )
+        );
     }
   }
 
+  // tslint:disable:member-ordering
   public registerSetUp: registerAlias = {
     logo: registerSetUp.getLogo,
     alt: registerSetUp.getAlt,
     title: registerSetUp.getTitle,
     subtitle: registerSetUp.getSubtitle,
     date: registerSetUp.getDate
-  }
+  };
 
 
   ngOnInit() {
