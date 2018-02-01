@@ -29,6 +29,7 @@ loginSetUp.setSubtitle = 'The Ultimate Management For Your Business';
 })
 
 export class LoginComponent implements OnInit {
+    // tslint:disable:no-inferrable-types
     public model: any = {};
     public loading: boolean = false;
     public returnUrl: string;
@@ -42,7 +43,7 @@ export class LoginComponent implements OnInit {
         private alertService: AlertService) { }
 
     ngOnInit() {
-        
+
         // reset login status
         this.authenticationService.logout();
 
@@ -63,12 +64,13 @@ export class LoginComponent implements OnInit {
                 });
     }
 
+    // tslint:disable:member-ordering
     private loginSetUp: loginAlias = {
         logo: loginSetUp.getLogo,
         alt: loginSetUp.getAlt,
         title: loginSetUp.getTitle,
         subtitle: loginSetUp.getSubtitle,
         date: loginSetUp.getDate
-    }
+    };
 }
 
