@@ -2,6 +2,9 @@
   "name": "node-rest-auth",
   "main": "app.js",
   "version": "1.0.0",
+  "scripts": {
+    "build": "node app"
+  },
   "dependencies": {
     "bcrypt": "*",
     "body-parser": "*",
