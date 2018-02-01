@@ -107,23 +107,22 @@ header.setDate = new Date();
 })
 
 export class HeaderComponent implements OnInit {
-  
-  
+  // tslint:disable:no-inferrable-types
   private headerMessage: string = 'Get Header Object';
-  public show: boolean = false; 
-  
+  public show: boolean = false;
 
   private animate(state): any {
     return this.show = false, alert(this.show);
   }
 
+  // tslint:disable-next-line:member-ordering
   public header: headerAlias = {
     logo: header.getLogo,
     alt: header.getAlt,
     title: header.getTitle,
     subtitle: header.getSubtitle,
     date: header.getDate
-  }
+  };
 
   public getHeaderObject(): any {
     return this.header, console.log(`${this.headerMessage}`, this.header);
