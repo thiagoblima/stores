@@ -68,7 +68,7 @@ export class Footer implements FooterConfig {
   }
 
   public set setRights(rights) {
-    this.rights = rights
+    this.rights = rights;
   }
 
   public get getMessage(): string {
@@ -136,7 +136,7 @@ console.log('Rendering: ', { obj: footer.contact() });
   styleUrls: ['./footer.component.scss']
 })
 export class FooterComponent implements OnInit {
-
+  // tslint:disable:no-inferrable-types
   private telephone: any = footer.contact();
   private message: string = 'Get Footer Object';
   public show: boolean = false;
