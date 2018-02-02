@@ -16,7 +16,7 @@ MEANStack Angular 4 REST API Web Service boilerplate, The app's structure is bas
 
 `Live example`:
 
-![alt text]('https://gitlab.com/thiagoblima/stores-project/blob/master/public/src/assets/documentation/stores2.gif')
+![alt text](https://gitlab.com/thiagoblima/stores-project/blob/master/public/src/assets/documentation/stores2.gif)
 
 ## Back-end: Node.JS, MongoDB and Moongose with JWT authentication
 
