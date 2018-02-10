@@ -13,6 +13,7 @@
     "jwt-simple": "*",
     "mongoose": "*",
     "morgan": "*",
+    "nodemailer": "^4.4.2",
     "passport": "*",
     "passport-jwt": "*",
     "urlencode": "*"
