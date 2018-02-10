@@ -15,10 +15,6 @@ const passport = require('passport');
 const config = require('../config/database');
 const User = require('../models/user');
 const Stores = require('../models/stores');
-const otpDB = require('../models/otpdb');
-const Schedule = require('../models/schedule');
-const Pickup = require('../models/pickup');
-const Donation_list = require('../models/donation_list');
 const jwt = require('jwt-simple');
 
 app.use(passport.initialize());
