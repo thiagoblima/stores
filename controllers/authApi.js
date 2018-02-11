@@ -17,7 +17,6 @@ const Stores = require("../models/stores");
 const jwt = require("jwt-simple");
 const app = express();
 
-
 app.use(passport.initialize());
 
 require("../config/passport")(passport);
@@ -66,82 +65,76 @@ module.exports = app => {
         path: req.body.path
       });
 
-      // save the user
-      newUser.save(err => {
-        if (err) {
-          return res
-            .status(401)
+      const promise = newUser.save();
+      promise
+        .then(user => {
+          res
+            .status(200)
+            .json({ success: true, msg: "Successful created new user.", user });
+
+          // send email to be confirmed by the new user
+          const transporter = nodemailer.createTransport({
+            //service: 'gmail' is totally possible too
+            host: "smtp.ethereal.email",
+            port: 587,
+            auth: {
+              user: "pqezz4q627sr4akk@ethereal.email",
+              pass: "AxhqV2yKqQqy7NEKN8"
+            }
+          });
+
+          let mailOptions = {
+            to: req.body.email,
+            subject: "Stores Email Confirmation ✔",
+            text: "Welcome, dear" + req.body.firstname,
+            html:
+              "<p><b>Hello</b> " +
+              req.body.firstname +
+              ",</p>" +
+              "<p>We just want to confirm that you've just registered your Stores account with the email: " +
+              req.body.email +
+              "</p>."
+          };
+
+          transporter.sendMail(mailOptions, (error, info) => {
+            if (error) {
+              return console.log(error);
+            }
+            console.log("Message sent: %s", info.messageId);
+            console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
+          });
+        })
+        .catch(err => {
+          res
+            .status(409)
             .json({ success: false, msg: "Username already exists." });
-        }
-        res
-          .status(200)
-          .json({ success: true, msg: "Successful created new user." });
-      });
-
-      // send email to be confirmed by the new user
-
-      const transporter = nodemailer.createTransport({
-      //service: 'gmail' is totally possible too
-        host: "smtp.ethereal.email",
-        port: 587,
-        auth: {
-          user: "pqezz4q627sr4akk@ethereal.email",
-          pass: "AxhqV2yKqQqy7NEKN8"
-        }
-      });
-  
-      let mailOptions = {
-        to: req.body.email,
-        subject: "Stores Email Confirmation ✔",
-        text: "Welcome, dear" + req.body.firstname,
-        html:
-          "<p><b>Hello</b> " + req.body.firstname + ",</p>" +
-          "<p>We just want to confirm that you've just registered your Stores account with the email: " +
-          req.body.email + "</p>."
-      };
-  
-      transporter.sendMail(mailOptions, (error, info) => {
-        if (error) {
-          return console.log(error);
-        }
-        console.log("Message sent: %s", info.messageId);
-        console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
-      });
+        });
     }
   });
 
   // route to authenticate a user (POST /api/authenticate)
   authApiRoutes.post("/authenticate", (req, res) => {
-    User.findOne(
-      {
-        username: req.body.username
-      },
-      (err, user) => {
-        if (err) throw err;
-
-        if (!user) {
-          res.status(401).json({
-            success: false,
-            msg: "Authentication failed. User not found."
-          });
-        } else {
-          // check if password matches
-          user.comparePassword(req.body.password, (err, isMatch) => {
-            if (isMatch && !err) {
-              // if user is found and password is right create a token
-              var token = jwt.encode(user, config.secret);
-              // return the information including token as JSON
-              res.status(200).json({ success: true, token: "JWT " + token });
-            } else {
-              res.status(401).send({
-                success: false,
-                msg: "Authentication failed. Wrong password."
-              });
-            }
-          });
-        }
-      }
-    );
+    const promise = User.findOne({ username: req.body.username });
+    promise
+      .then(user => {
+        user.comparePassword(req.body.password, (err, isMatch) => {
+          if (isMatch && !err) {
+            let token = jwt.encode(user, config.secret);
+            res.status(200).json({ success: true, token: "JWT " + token });
+          } else {
+            res.status(401).send({
+              success: false,
+              msg: "Authentication failed. Wrong password."
+            });
+          }
+        });
+      })
+      .catch(err => {
+        res.status(401).json({
+          success: false,
+          msg: "Authentication failed. User not found."
+        });
+      });
   });
 
   // route to a restricted info (GET /api/memberinfo)
@@ -152,29 +145,21 @@ module.exports = app => {
       let token = getToken(req.headers);
       if (token) {
         let decoded = jwt.decode(token, config.secret);
-        User.findOne(
-          {
-            username: decoded.username
-          },
-          (err, user) => {
-            if (err) throw err;
-
-            if (!user) {
-              return res.status(401).send({
-                success: false,
-                msg: "Authentication failed. User not found."
-              });
-            } else {
-              res
-                .status(200)
-                .json("Welcome in the member area " + user.username + "!");
-            }
-          }
-        );
+        const promise = User.findOne({ username: decoded.username });
+        promise
+          .then(user => {
+            res
+              .status(200)
+              .json("Welcome in the member area " + user.username + "!");
+          })
+          .catch(err => {
+            res.status(401).send({
+              success: false,
+              msg: "Authentication failed. User not found."
+            });
+          });
       } else {
-        return res
-          .status(401)
-          .send({ success: false, msg: "No token provided." });
+        res.status(401).send({ success: false, msg: "No token provided." });
       }
     }
   );
