@@ -49,6 +49,10 @@ let UserSchema = new Schema({
         required: true,
         trim: true
     },
+    isActive: {
+        type: Boolean,
+        default: false
+    }
 });
 
 UserSchema.pre('save', function (next) {
