@@ -34,7 +34,7 @@ module.exports = app => {
    * @description: getting headers for JWT token
    */
 
-  getToken = headers => {
+  const getToken = headers => {
     if (headers && headers.authorization) {
       let parted = headers.authorization.split(" ");
       if (parted.length === 2) {
@@ -226,13 +226,15 @@ module.exports = app => {
           .then(store => {
             res.status(200).send({
               success: true,
-              msg: "Store was successfully updated!", store
+              msg: "Store was successfully updated!",
+              store
             });
           })
           .catch(err => {
             res.status(401).send({
               success: false,
-              msg: "Authentication failed. Store not found.", err
+              msg: "Authentication failed. Store not found.",
+              err
             });
           });
       } else {
