@@ -24,6 +24,7 @@ require("../config/passport")(passport);
 
 module.exports = app => {
   const authApiRoutes = express.Router();
+  const authGuard = passport.authenticate("jwt", { session: false });
 
   // connect the api routes under /api/*
   app.use("/api", authApiRoutes);
@@ -31,11 +32,7 @@ module.exports = app => {
   // api routes
   authApiRoutes.post("/signup", signUp);
   authApiRoutes.post("/authenticate", userAuth);
-  authApiRoutes.get(
-    "/memberinfo",
-    passport.authenticate("jwt", { session: false }),
-    memberInfo
-  );
+  authApiRoutes.get("/memberinfo", authGuard, memberInfo);
 
   // create a new user account (POST http://localhost:3000/api/signup)
   function signUp(req, res) {
