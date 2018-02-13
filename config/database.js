@@ -6,7 +6,6 @@
  */
 
 module.exports = {
-  'secret': 'recycleapisecret',
-  'database': 'mongodb://localhost/stores'
+  secret: "recycleapisecret",
+  database: "mongodb://localhost/stores"
 };
- 
