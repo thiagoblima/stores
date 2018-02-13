@@ -5,10 +5,10 @@
  */
 
 const config = require("./config/database");
-const utilApiRoutes = require("./controllers/utilApi");
-const authApiRoutes = require("./controllers/authApi");
-const userApiRoutes = require("./controllers/userApi");
-const storesApiRoutes = require("./controllers/storesApi");
+const utilApiRoutes = require("./routes/utilApi");
+const authApiRoutes = require("./routes/authApi");
+const userApiRoutes = require("./routes/userApi");
+const storesApiRoutes = require("./routes/storesApi");
 const express = require("express");
 const fileUpload = require("express-fileupload");
 const bodyParser = require("body-parser");
