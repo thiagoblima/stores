@@ -30,74 +30,9 @@ module.exports = app => {
   app.use("/api", authApiRoutes);
 
   // api routes
-  authApiRoutes.post("/signup", signUp);
   authApiRoutes.post("/authenticate", userAuth);
   authApiRoutes.get("/memberinfo", authGuard, memberInfo);
 
-  // create a new user account (POST http://localhost:3000/api/signup)
-  function signUp(req, res) {
-    if (!req.body.username || !req.body.password) {
-      res
-        .status(401)
-        .json({ success: false, msg: "Please fill out the complete form." });
-    } else {
-      let newUser = new User({
-        username: req.body.username,
-        password: req.body.password,
-        email: req.body.email,
-        firstname: req.body.firstname,
-        lastname: req.body.lastname,
-        age: req.body.age,
-        file: req.body.file,
-        path: req.body.path
-      });
-
-      const promise = newUser.save();
-      promise
-        .then(user => {
-          res
-            .status(200)
-            .json({ success: true, msg: "Successful created new user.", user });
-
-          // send email to be confirmed by the new user
-          const transporter = nodemailer.createTransport({
-            //service: 'gmail' is totally possible too
-            host: "smtp.ethereal.email",
-            port: 587,
-            auth: {
-              user: "pqezz4q627sr4akk@ethereal.email",
-              pass: "AxhqV2yKqQqy7NEKN8"
-            }
-          });
-
-          let mailOptions = {
-            to: req.body.email,
-            subject: "Stores Email Confirmation ✔",
-            text: "Welcome, dear" + req.body.firstname,
-            html:
-              "<p><b>Hello</b> " +
-              req.body.firstname +
-              ",</p>" +
-              "<p>We just want to confirm that you've just registered your Stores account with the email: " +
-              req.body.email +
-              "</p>."
-          };
-
-          transporter.sendMail(mailOptions, (error, info) => {
-            if (error) {
-              return console.log(error);
-            }
-            console.log("Message sent: %s", info.messageId);
-            console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
-          });
-        })
-        .catch(err => {
-          res
-            .status(409)
-            .json({ success: false, msg: "Username already exists." });
-        });
-    }
-  }
 
   // route to authenticate a user (POST /api/authenticate)
   function userAuth(req, res) {
