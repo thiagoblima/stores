@@ -8,6 +8,7 @@
 
 const express = require("express");
 const bodyParser = require("body-parser");
+const nodemailer = require("nodemailer");
 const mongoose = require("mongoose");
 const passport = require("passport");
 const config = require("../config/database");
@@ -33,13 +34,79 @@ module.exports = app => {
   app.use("/api", userApiRoutes);
 
   // api routes
+  userApiRoutes.post("/signup", signUp);
   userApiRoutes.get("/users", authGuard, getAllUsers);
   userApiRoutes.get("/user/:id", authGuard, getUserById);
   userApiRoutes.delete("/user/:id", authGuard, deleteUserById);
   userApiRoutes.put("/user/:id", authGuard, updateUserById);
 
+  // create a new user account 
+  function signUp(req, res) {
+    if (!req.body.username || !req.body.password) {
+      res
+        .status(401)
+        .json({ success: false, msg: "Please fill out the complete form." });
+    } else {
+      let newUser = new User({
+        username: req.body.username,
+        password: req.body.password,
+        email: req.body.email,
+        firstname: req.body.firstname,
+        lastname: req.body.lastname,
+        age: req.body.age,
+        file: req.body.file,
+        path: req.body.path
+      });
+
+      const promise = newUser.save();
+      promise
+        .then(user => {
+          res
+            .status(200)
+            .json({ success: true, msg: "Successful created new user.", user: user });
+
+          // send email to be confirmed by the new user
+          const transporter = nodemailer.createTransport({
+            //service: 'gmail' is totally possible too
+            host: "smtp.ethereal.email",
+            port: 587,
+            auth: {
+              user: "pqezz4q627sr4akk@ethereal.email",
+              pass: "AxhqV2yKqQqy7NEKN8"
+            }
+          });
+
+          let mailOptions = {
+            to: req.body.email,
+            subject: "Stores Email Confirmation ✔",
+            text: "Welcome, dear" + req.body.firstname,
+            html:
+              "<p><b>Hello</b> " +
+              req.body.firstname +
+              ",</p>" +
+              "<p>We just want to confirm that you've just registered your Stores account with the email: " +
+              req.body.email +
+              "</p>."
+          };
+
+          transporter.sendMail(mailOptions, (error, info) => {
+            if (error) {
+              return console.log(error);
+            }
+            console.log("Message sent: %s", info.messageId);
+            console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
+          });
+        })
+        .catch(err => {
+          res
+            .status(409)
+            .json({ success: false, msg: "Username already exists.", err: err });
+        });
+    }
+  }
+
   // Get the list of all the users. (only for authenticated users.)
-  function getAllUsers(req, res) {
+  function getAllUsers(req, res) { 
     const token = getToken(req.headers);
     if (token) {
       let decoded = jwt.decode(token, config.secret);
