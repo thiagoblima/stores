@@ -27,156 +27,147 @@ require("../config/passport")(passport);
 
 module.exports = app => {
   const userApiRoutes = express.Router();
+  const authGuard = passport.authenticate("jwt", { session: false });
 
   // connect the api routes under /api/*
   app.use("/api", userApiRoutes);
 
+  // api routes
+  userApiRoutes.get("/users", authGuard, getAllUsers);
+  userApiRoutes.get("/user/:id", authGuard, getUserById);
+  userApiRoutes.delete("/user/:id", authGuard, deleteUserById);
+  userApiRoutes.put("/user/:id", authGuard, updateUserById);
+
   // Get the list of all the users. (only for authenticated users.)
-  userApiRoutes.get(
-    "/users",
-    passport.authenticate("jwt", {
-      session: false
-    }),
-    (req, res) => {
-      const token = getToken(req.headers);
-      if (token) {
-        let decoded = jwt.decode(token, config.secret);
-        const promise = User.findOne({
-          username: decoded.username
-        });
-        promise
-          .then(() => {
-            // note that `User.find(user)` will bring only the decoded.username
-            // instead of all the users
-            const promise_get_users = User.find({});
-            promise_get_users
-              .then(users => res.status(200).json(users))
-              .catch(err => {
-                res.status(401).send({
-                  success: false,
-                  msg: "Authentication failed. User not found.",
-                  err: err
-                });
+  function getAllUsers(req, res) {
+    const token = getToken(req.headers);
+    if (token) {
+      let decoded = jwt.decode(token, config.secret);
+      const promise = User.findOne({
+        username: decoded.username
+      });
+      promise
+        .then(() => {
+          // note that `User.find(user)` will bring only the decoded.username
+          // instead of all the users
+          const promise_get_users = User.find({});
+          promise_get_users
+            .then(users => res.status(200).json(users))
+            .catch(err => {
+              res.status(401).send({
+                success: false,
+                msg: "Authentication failed. User not found.",
+                err: err
               });
-          })
-          .catch(err => {
-            res.status(401).send({
-              success: false,
-              msg: "Authentication failed. Wrong user.",
-              err: err
             });
-          });
-      } else {
-        res.status(401)
-          .send({
+        })
+        .catch(err => {
+          res.status(401).send({
             success: false,
-            msg: "No token provided."
+            msg: "Authentication failed. Wrong user.",
+            err: err
           });
-      }
+        });
+    } else {
+      res.status(401).send({
+        success: false,
+        msg: "No token provided."
+      });
     }
-  );
+  }
 
   // find user by id (only for authenticated users)
-  userApiRoutes.get(
-    "/user/:id",
-    passport.authenticate("jwt", {
-      session: false
-    }), (req, res) => {
-      const token = getToken(req.headers);
-      if (token) {
-        let decoded = jwt.decode(token, config.secret);
-        const promise = User.findById(req.params.id, {});
-        promise.then(user => res.status(200).json(user))
-          .catch(err => res.status(401).send({
-            success: false,
-            msg: "Authentication failed. User not found.",
-            err: err
-          }));
-      } else {
-        res.status(401)
-          .send({
-            success: false,
-            msg: "No token provided."
-          });
-      }
-    }
-  );
-
-  // Delete user by id (only for authenticated users)
-  userApiRoutes.delete(
-    "/user/:id",
-    passport.authenticate("jwt", {
-      session: false
-    }),
-    (req, res) => {
-      const token = getToken(req.headers);
-      if (token) {
-        let decoded = jwt.decode(token, config.secret);
-        const promise = User.findByIdAndRemove(req.params.id, {
-          _id: req.params.id
-        });
-        promise.then(() => res.status(200)
-            .send({
-              success: true,
-              msg: "User was successfully deleted"
-            })
-          )
-          .catch(err => res.status(401).send({
-            success: false,
-            msg: "Authentication failed. User not found."
-          }));
-      } else {
-        res.status(401)
-          .send({
-            success: false,
-            msg: "No token provided."
-          });
-      }
-    }
-  );
-
-  // update user by id (only for authenticated users)
-  userApiRoutes.put(
-    "/user/:id",
-    passport.authenticate("jwt", {
-      session: false
-    }),
-    (req, res) => {
-      const token = getToken(req.headers);
-      if (token) {
-        let decoded = jwt.decode(token, config.secret);
-        const promise = User.findByIdAndUpdate(req.params.id, {
-          _id: req.params.id,
-          file: req.body.file,
-          email: req.body.email,
-          firstname: req.body.firstname,
-          lastname: req.body.lastname,
-          age: req.body.age
-        });
-        promise.then(user => res.status(200)
-          .send({
-            success: true,
-            msg: "User was successfully updated!",
-            user: user
-          })
-        ).catch(err => res.status(401).send({
+  function getUserById(req, res) {
+    const token = getToken(req.headers);
+    if (token) {
+      let decoded = jwt.decode(token, config.secret);
+      const promise = User.findById(req.params.id, {});
+      promise.then(user => res.status(200).json(user)).catch(err =>
+        res.status(401).send({
           success: false,
           msg: "Authentication failed. User not found.",
           err: err
-        }))
-      } else {
-        res.status(401)
-          .send({
-            success: false,
-            msg: "No token provided."
-          });
-      }
+        })
+      );
+    } else {
+      res.status(401).send({
+        success: false,
+        msg: "No token provided."
+      });
     }
-  );
+  }
+
+  // Delete user by id (only for authenticated users)
+  function deleteUserById(req, res) {
+    const token = getToken(req.headers);
+    if (token) {
+      let decoded = jwt.decode(token, config.secret);
+      const promise = User.findByIdAndRemove(req.params.id, {
+        _id: req.params.id
+      });
+      promise
+        .then(user =>
+          res.status(200).send({
+            success: true,
+            msg: "User was successfully deleted",
+            deleted_user: user
+          })
+        )
+        .catch(err =>
+          res.status(401).send({
+            success: false,
+            msg: "Authentication failed. User not found.",
+            err: err
+          })
+        );
+    } else {
+      res.status(401).send({
+        success: false,
+        msg: "No token provided."
+      });
+    }
+  }
+
+  // update user by id (only for authenticated users)
+  function updateUserById(req, res) {
+    const token = getToken(req.headers);
+    if (token) {
+      let decoded = jwt.decode(token, config.secret);
+      const promise = User.findByIdAndUpdate(req.params.id, {
+        _id: req.params.id,
+        file: req.body.file,
+        email: req.body.email,
+        firstname: req.body.firstname,
+        lastname: req.body.lastname,
+        age: req.body.age
+      });
+      promise
+        .then(user =>
+          res.status(200).send({
+            success: true,
+            msg: "User was successfully updated!",
+            updated_user: user
+          })
+        )
+        .catch(err =>
+          res.status(401).send({
+            success: false,
+            msg: "Authentication failed. User not found.",
+            err: err
+          })
+        );
+    } else {
+      res.status(401).send({
+        success: false,
+        msg: "No token provided."
+      });
+    }
+  }
 
   // route to authenticate a user (POST http://localhost:8080/api/authenticate)
   userApiRoutes.post("/sendotp", (req, res) => {
-    Recycler.findOne({
+    Recycler.findOne(
+      {
         recycler_phone: req.body.phone
       },
       (err, recycler) => {
@@ -185,7 +176,8 @@ module.exports = app => {
         if (!recycler) {
           res.send({
             success: false,
-            msg: "Authentication failed. Recycler not found, please contact Shankrit"
+            msg:
+              "Authentication failed. Recycler not found, please contact Shankrit"
           });
         } else {
           // we found the user in the database. please send OTP, and save it in our database too.
@@ -247,7 +239,8 @@ module.exports = app => {
             }
             res.json({
               success: true,
-              msg: "Successfully Saved and sent (Number " +
+              msg:
+                "Successfully Saved and sent (Number " +
                 req.body.phone +
                 ") the OTP. Its " +
                 OTP_num
@@ -260,7 +253,8 @@ module.exports = app => {
 
   // route to authenticate a user (POST http://localhost:8080/api/authenticate)
   userApiRoutes.post("/authenticateotp", (req, res) => {
-    otpDB.findOne({
+    otpDB.findOne(
+      {
         otp: req.body.otp
         //otp_number: req.body.numbers
       },
@@ -299,7 +293,8 @@ module.exports = app => {
       const token = getToken(req.headers);
       if (token) {
         let decoded = jwt.decode(token, config.secret);
-        Recycler.findOne({
+        Recycler.findOne(
+          {
             recycler_phone: decoded.otp_number
           },
           (err, recycler) => {
@@ -341,12 +336,10 @@ module.exports = app => {
           }
         );
       } else {
-        return res
-          .status(403)
-          .send({
-            success: false,
-            msg: "No token provided."
-          });
+        return res.status(403).send({
+          success: false,
+          msg: "No token provided."
+        });
       }
     }
   );
@@ -360,7 +353,8 @@ module.exports = app => {
       const token = getToken(req.headers);
       if (token) {
         let decoded = jwt.decode(token, config.secret);
-        Recycler.findOne({
+        Recycler.findOne(
+          {
             recycler_phone: decoded.otp_number
           },
           (err, recycler) => {
@@ -378,12 +372,10 @@ module.exports = app => {
                 if (err) throw err;
 
                 if (!schedule) {
-                  return res
-                    .status(403)
-                    .send({
-                      success: false,
-                      msg: "No Schedules Found."
-                    });
+                  return res.status(403).send({
+                    success: false,
+                    msg: "No Schedules Found."
+                  });
                 } else {
                   res.json({
                     success: true,
@@ -395,12 +387,10 @@ module.exports = app => {
           }
         );
       } else {
-        return res
-          .status(403)
-          .send({
-            success: false,
-            msg: "No token provided."
-          });
+        return res.status(403).send({
+          success: false,
+          msg: "No token provided."
+        });
       }
     }
   );
@@ -418,7 +408,8 @@ module.exports = app => {
       const token = getToken(req.headers);
       if (token) {
         let decoded = jwt.decode(token, config.secret);
-        Recycler.findOne({
+        Recycler.findOne(
+          {
             recycler_phone: decoded.otp_number
           },
           (err, recycler) => {
@@ -456,12 +447,10 @@ module.exports = app => {
           }
         );
       } else {
-        return res
-          .status(403)
-          .send({
-            success: false,
-            msg: "No token provided."
-          });
+        return res.status(403).send({
+          success: false,
+          msg: "No token provided."
+        });
       }
     }
   );
@@ -475,7 +464,8 @@ module.exports = app => {
       const token = getToken(req.headers);
       if (token) {
         let decoded = jwt.decode(token, config.secret);
-        Recycler.findOne({
+        Recycler.findOne(
+          {
             recycler_phone: decoded.otp_number
           },
           (err, recycler) => {
@@ -493,12 +483,10 @@ module.exports = app => {
                 if (err) throw err;
 
                 if (!pickup) {
-                  return res
-                    .status(403)
-                    .send({
-                      success: false,
-                      msg: "No Schedules Found."
-                    });
+                  return res.status(403).send({
+                    success: false,
+                    msg: "No Schedules Found."
+                  });
                 } else {
                   res.json({
                     success: true,
@@ -510,12 +498,10 @@ module.exports = app => {
           }
         );
       } else {
-        return res
-          .status(403)
-          .send({
-            success: false,
-            msg: "No token provided."
-          });
+        return res.status(403).send({
+          success: false,
+          msg: "No token provided."
+        });
       }
     }
   );
@@ -529,7 +515,8 @@ module.exports = app => {
       const token = getToken(req.headers);
       if (token) {
         let decoded = jwt.decode(token, config.secret);
-        Recycler.findOne({
+        Recycler.findOne(
+          {
             recycler_phone: decoded.otp_number
           },
           (err, recycler) => {
@@ -570,12 +557,10 @@ module.exports = app => {
           }
         );
       } else {
-        return res
-          .status(403)
-          .send({
-            success: false,
-            msg: "No token provided."
-          });
+        return res.status(403).send({
+          success: false,
+          msg: "No token provided."
+        });
       }
     }
   );
@@ -589,7 +574,8 @@ module.exports = app => {
       const token = getToken(req.headers);
       if (token) {
         let decoded = jwt.decode(token, config.secret);
-        Recycler.findOne({
+        Recycler.findOne(
+          {
             recycler_phone: decoded.otp_number
           },
           (err, recycler) => {
@@ -607,12 +593,10 @@ module.exports = app => {
                 if (err) throw err;
 
                 if (!donation_list) {
-                  return res
-                    .status(403)
-                    .send({
-                      success: false,
-                      msg: "No Schedules Found."
-                    });
+                  return res.status(403).send({
+                    success: false,
+                    msg: "No Schedules Found."
+                  });
                 } else {
                   res.json({
                     success: true,
@@ -624,12 +608,10 @@ module.exports = app => {
           }
         );
       } else {
-        return res
-          .status(403)
-          .send({
-            success: false,
-            msg: "No token provided."
-          });
+        return res.status(403).send({
+          success: false,
+          msg: "No token provided."
+        });
       }
     }
   );
