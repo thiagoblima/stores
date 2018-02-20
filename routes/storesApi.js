@@ -166,7 +166,7 @@ module.exports = app => {
             .send({
               success: true,
               msg: "Store was successfully deleted",
-              store: store
+              deleted_store: store
             });
         })
         .catch(err => {
@@ -203,7 +203,7 @@ module.exports = app => {
           res.status(200).send({
             success: true,
             msg: "Store was successfully updated!",
-            store: store
+            updated_store: store
           });
         })
         .catch(err => {
