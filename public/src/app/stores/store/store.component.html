@@ -12,7 +12,7 @@
         </li>
       </ul>
       <form name="form" class="store" (ngSubmit)="f.form.valid && updateStore()" #f="ngForm" novalidate>
-        <section class="form-group" [ngClass]="{ 'has-error': f.submitted && !file.valid }">
+        <section class="form-group" [ngClass]="{ 'has-error': f.submitted && !store_file.valid }">
           <label for="store_file">Change Picture Clicking Here</label>
           <input type="file" class="form-control" (change)="fileChange($event)" name="store_file" [(ngModel)]="model.store_file" #store_file="ngModel"
           />
