@@ -50,7 +50,6 @@ export class UserComponent implements OnInit {
   public user: User;
   public message: string = '';
   public show: boolean = false;
-  private apiEndPoint: string = 'api/upload/user/asset';
 
   constructor(
     private userService: UserService,
@@ -114,11 +113,14 @@ export class UserComponent implements OnInit {
       this.model.file = file.name;
       this.model.path = '../../assets/images/user/';
 
-      this.http
-        .post(`${this.apiEndPoint}`, formData, options)
-        .map(res => res.json())
-        .catch(error => Observable.throw(error))
-        .subscribe(data => console.log('success'), error => console.log(error));
+      this.userService.fileChange(formData, options).subscribe(
+        data => {
+          console.log('success on saving new photo', data);
+        },
+        error => {
+          console.log('an error ocurred while saving a new photo', error);
+        }
+      );
     }
   }
 
