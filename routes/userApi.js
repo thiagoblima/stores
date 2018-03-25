@@ -18,7 +18,7 @@ const otpDB = require("../models/otpdb");
 const Schedule = require("../models/schedule");
 const Pickup = require("../models/pickup");
 const Donation_list = require("../models/donation_list");
-const getToken = require("./utilApi");
+const getToken = require("../config/token");
 const jwt = require("jwt-simple");
 const app = express();
 
