@@ -14,7 +14,7 @@ const passport = require("passport");
 const config = require("../config/database");
 const User = require("../models/user");
 const Stores = require("../models/stores");
-const getToken = require("./utilApi");
+const getToken = require("../config/token");
 const jwt = require("jwt-simple");
 const app = express();
 
