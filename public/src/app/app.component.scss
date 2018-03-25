@@ -11,3 +11,7 @@
 @import 'welcome/welcome.component';
 @import 'settings/settings.component';
 @import 'stores/stores.component';
+
+input[type=file] {
+    @include set-upload-file();
+}
