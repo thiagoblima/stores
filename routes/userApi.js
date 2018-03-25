@@ -206,6 +206,7 @@ module.exports = app => {
         email: req.body.email,
         firstname: req.body.firstname,
         lastname: req.body.lastname,
+        path: req.body.path,
         age: req.body.age
       });
       promise
