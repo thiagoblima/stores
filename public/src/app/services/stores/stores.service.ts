@@ -20,7 +20,7 @@ export class StoresService {
 
   getById(_id: any) {
     return this.http
-      .get("/api/store/" + _id, this.jwt())
+      .get('/api/store/' + _id, this.jwt())
       .map((response: Response) => response.json());
   }
 
@@ -36,6 +36,12 @@ export class StoresService {
       .map((response: Response) => response.json());
   }
 
+  fileChange(formData) {
+    return this.http
+      .post('api/upload/store/asset', formData, this.jwtFormData())
+      .map((response: Response) => response.json());
+  }
+
   // private helper methods
 
   private jwt() {
@@ -43,6 +49,15 @@ export class StoresService {
     let currentUser = JSON.parse(localStorage.getItem('currentUser'));
     if (currentUser && currentUser.token) {
       let headers = new Headers({ Authorization: currentUser.token });
+      return new RequestOptions({ headers: headers });
+    }
+  }
+
+  private jwtFormData() {
+    let currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    if (currentUser && currentUser.token) {
+      let headers = new Headers({ Authorization: currentUser.token });
+      headers.append('Accept', 'application/json');
       return new RequestOptions({ headers: headers });
     }
   }
