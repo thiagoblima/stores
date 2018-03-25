@@ -27,8 +27,12 @@ module.exports = app => {
   // connect the api routes under /api/*
   app.use("/api", utilApiRoutes);
 
+  // api routes
+  utilApiRoutes.post("/upload/user/asset", uploadUser);
+  utilApiRoutes.post("/upload/store/asset", uploadStore);
+
   // user asset uploder
-  utilApiRoutes.post("/upload/user/asset", (req, res) => {
+  function uploadUser(req, res) {
     if (!req.files) return res.status(400).send("No files were uploaded.");
 
     let file = req.files.file;
@@ -39,10 +43,10 @@ module.exports = app => {
       res.send("File uploaded!");
       console.log(req.files.file);
     });
-  });
+  };
 
   // store asset uploader
-  utilApiRoutes.post("/upload/store/asset", (req, res) => {
+  function uploadStore(req, res) {
     if (!req.files) return res.status(400).send("No files were uploaded.");
 
     let file = req.files.file;
@@ -53,5 +57,5 @@ module.exports = app => {
       res.send("File uploaded!");
       console.log(req.files.file);
     });
-  });
+  };
 };
