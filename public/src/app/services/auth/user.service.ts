@@ -42,6 +42,12 @@ export class UserService {
       .map((response: Response) => response.json());
   }
 
+  fileChange(formData, options) {
+    return this.http
+      .post('api/upload/user/asset', formData, options)
+      .map((response: Response) => response.json());
+  }
+
   // private helper methods
 
   private jwt() {
