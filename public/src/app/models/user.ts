@@ -14,6 +14,7 @@ interface UserData<T, Z> {
   lastname: string;
   age: number;
   file: string;
+  token: string;
 }
 
 export class User implements UserData<String, Number> {
@@ -25,4 +26,5 @@ export class User implements UserData<String, Number> {
   public lastname;
   public age;
   public file;
+  public token;
 }
