@@ -3,7 +3,7 @@
   <section class="row">
     <h2 [@myAnimation]="show">Loaded Users</h2>
     <h5>{{message}}</h5>
-    <section class="col-sm-4" [@myAnimation]="show">
+    <section class="col-sm-4 user-scroll" [@myAnimation]="show">
       <ul>
         <li *ngFor="let user of users">
           <h3>{{user.firstname}} {{user.lastname}}</h3>
