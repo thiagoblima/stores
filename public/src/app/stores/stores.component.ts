@@ -31,7 +31,6 @@ import { StoresService } from '../services/stores/index';
   templateUrl: './stores.component.html',
   styleUrls: ['./stores.component.scss']
 })
-
 export class StoresComponent implements OnInit {
   // tslint:disable:no-inferrable-types
   private currentUser: User;
@@ -41,7 +40,6 @@ export class StoresComponent implements OnInit {
   public loading: boolean = false;
   public error: string = '';
   public show: boolean = false;
-  private apiEndPoint: string = 'api/upload/store/asset';
 
   constructor(
     private router: Router,
@@ -98,19 +96,17 @@ export class StoresComponent implements OnInit {
 
       formData.append('file', file, file.name);
 
-      let headers = new Headers();
-
-      headers.append('Accept', 'application/json');
-      let options = new RequestOptions({ headers: headers });
-
       this.model.store_file = file.name;
       this.model.store_path = '../../assets/images/store/';
 
-      this.http
-        .post(`${this.apiEndPoint}`, formData, options)
-        .map(res => res.json())
-        .catch(error => Observable.throw(error))
-        .subscribe(data => console.log('success'), error => console.log(error));
+      this.storesService.fileChange(formData).subscribe(
+        data => {
+          console.log('success on saving new photo', data);
+        },
+        error => {
+          console.log('an error ocurred while saving a new photo', error);
+        }
+      );
     }
   }
 
