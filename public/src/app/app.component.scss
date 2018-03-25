@@ -15,3 +15,7 @@
 input[type=file] {
     @include set-upload-file();
 }
+
+label {
+   font-weight: 600 !important;
+}
