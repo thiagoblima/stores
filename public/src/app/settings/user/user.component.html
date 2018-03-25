@@ -5,7 +5,6 @@
       <h2 class="user-hero">{{user.username}} user data</h2>
       <ul class="user-details">
         <li>
-          <img src="{{user.path + user.file}}" alt="{{user.username}}" class="" />
           <h3>{{user.firstname}} {{user.lastname}}</h3>
           <h4>id: {{user._id}}</h4>
           <h4>username: {{user.username}} </h4>
@@ -13,9 +12,10 @@
       </ul>
       <form name="form" class="user" (ngSubmit)="f.form.valid && updateUser()" #f="ngForm" novalidate>
         <section class="form-group" [ngClass]="{ 'has-error': f.submitted && !file.valid }">
-          <label for="file">Upload File</label>
+          <label for="file">Change Picture Clicking Here</label>
           <input type="file" class="form-control" (change)="fileChange($event)" name="file" [(ngModel)]="model.file" #file="ngModel"
           />
+          <img src="{{user.path + user.file}}" alt="{{user.username}}" class="" />
         </section>
         <section class="form-group" [ngClass]="{ 'has-error': f.submitted && !email.valid }">
           <label for="email">email: </label>
