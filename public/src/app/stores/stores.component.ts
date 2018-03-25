@@ -61,6 +61,7 @@ export class StoresComponent implements OnInit {
         this.router.navigate(['/stores']);
         this.getStores();
         this.loading = false;
+        this.model = {};
       },
       error => {
         this.error = 'Error on creating a new store.';
