@@ -114,7 +114,7 @@ export class StoreComponent implements OnInit {
       formData.append('file', file, file.name);
 
       this.model.store_file = file.name;
-      this.model.store_path = '../../assets/images/store/';
+      this.model.store_path = './assets/images/store/';
 
       this.storesService.fileChange(formData).subscribe(
         data => {
