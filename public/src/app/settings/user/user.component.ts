@@ -106,8 +106,6 @@ export class UserComponent implements OnInit {
       formData.append('file', file, file.name);
 
       let headers = new Headers();
-
-      headers.append('Accept', 'application/json');
       let options = new RequestOptions({ headers: headers });
 
       this.model.file = file.name;
