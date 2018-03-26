@@ -51,11 +51,9 @@ export class RegisterComponent implements OnInit {
   }
 
   fileChange(event) {
-
     let fileList: FileList = event.target.files;
 
     if (fileList.length > 0) {
-
       let file: File = fileList[0];
 
       let formData: FormData = new FormData();
@@ -63,21 +61,19 @@ export class RegisterComponent implements OnInit {
       formData.append('file', file, file.name);
 
       let headers = new Headers();
-
-      headers.append('Accept', 'application/json');
       let options = new RequestOptions({ headers: headers });
 
       this.model.file = file.name;
       this.model.path = '../assets/images/user/';
 
-
-      this.http.post(`${this.apiEndPoint}`, formData, options)
-        .map(res => res.json())
-        .catch(error => Observable.throw(error))
-        .subscribe(
-        data => console.log('success'),
-        error => console.log(error)
-        );
+      this.userService.fileChange(formData, options).subscribe(
+        data => {
+          console.log('success on saving new photo', data);
+        },
+        error => {
+          console.log('an error ocurred while saving a new photo', error);
+        }
+      );
     }
   }
 
