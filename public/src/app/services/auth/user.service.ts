@@ -45,7 +45,7 @@ export class UserService {
   fileChange(formData, options) {
     return this.http
       .post('api/upload/user/asset', formData, options)
-      .map((response: Response) => response.json());
+      .map((response: Response) => response.text());
   }
 
   // private helper methods
