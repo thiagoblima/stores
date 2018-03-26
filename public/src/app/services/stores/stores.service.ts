@@ -39,7 +39,7 @@ export class StoresService {
   fileChange(formData) {
     return this.http
       .post('api/upload/store/asset', formData, this.jwtFormData())
-      .map((response: Response) => response.json());
+      .map((response: Response) => response.text());
   }
 
   // private helper methods
@@ -57,7 +57,6 @@ export class StoresService {
     let currentUser = JSON.parse(localStorage.getItem('currentUser'));
     if (currentUser && currentUser.token) {
       let headers = new Headers({ Authorization: currentUser.token });
-      headers.append('Accept', 'application/json');
       return new RequestOptions({ headers: headers });
     }
   }
