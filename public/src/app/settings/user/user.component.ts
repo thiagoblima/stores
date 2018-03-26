@@ -109,7 +109,7 @@ export class UserComponent implements OnInit {
       let options = new RequestOptions({ headers: headers });
 
       this.model.file = file.name;
-      this.model.path = '../../assets/images/user/';
+      this.model.path = './assets/images/user/';
 
       this.userService.fileChange(formData, options).subscribe(
         data => {
