@@ -1,19 +1,7 @@
-import {
-  Component,
-  NgModule,
-  OnInit,
-  trigger,
-  transition,
-  style,
-  animate,
-  state
-} from '@angular/core';
-import {
-  ActivatedRoute,
-  Params,
-  Router,
-  NavigationExtras
-} from '@angular/router';
+import { Component, NgModule, OnInit } from '@angular/core';
+import { trigger, transition, style, animate, state } from '@angular/core';
+import { ActivatedRoute, Params, Router } from '@angular/router';
+import { NavigationExtras } from '@angular/router';
 import { Http, Headers, RequestOptions, Response } from '@angular/http';
 import { Observable } from 'rxjs';
 import { Location } from '@angular/common';
@@ -62,30 +50,32 @@ export class UserComponent implements OnInit {
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
   }
 
-  ngOnInit() {
-    this.loadAllUsers();
-    this.getUserInfo();
-
-    this.route.params
+  private getUsersById(): {} {
+    return this.route.params
       .switchMap(params => this.userService.getById(params.id))
       .subscribe(user => (this.user = user));
-
-    this.model._id = this.route.snapshot.params['id'];
-    this.model.email = this.route.snapshot.params['email'];
-    this.model.file = this.route.snapshot.params['file'];
-    this.model.firstname = this.route.snapshot.params['firstname'];
-    this.model.lastname = this.route.snapshot.params['lastname'];
-    this.model.age = this.route.snapshot.params['age'];
   }
 
-  private updateUser(user: User) {
+  private loadAllUsers(): {} {
+    return this.userService.getAll().subscribe(users => {
+      this.users = users;
+    });
+  }
+
+  private getUserInfo(): {} {
+    return this.userService.getUserInfo().subscribe(message => {
+      this.message = message;
+    });
+  }
+
+  private updateUser(user: User): void {
     this.loading = true;
+    this.fileChangeChecker();
 
     this.userService.update(this.model).subscribe(
       data => {
         this.alertService.success('Registration successful', true);
         this.router.navigate(['/settings']);
-
         this.loadAllUsers();
       },
       error => {
@@ -95,7 +85,7 @@ export class UserComponent implements OnInit {
     );
   }
 
-  fileChange(event) {
+  fileChange(event): void {
     let fileList: FileList = event.target.files;
 
     if (fileList.length > 0) {
@@ -122,15 +112,28 @@ export class UserComponent implements OnInit {
     }
   }
 
-  private loadAllUsers() {
-    this.userService.getAll().subscribe(users => {
-      this.users = users;
-    });
+  private fileChangeChecker(): void {
+    if (!this.model.file) {
+      this.getUsersById();
+      this.model.file = this.user.file;
+      this.model.path = './assets/images/user/';
+    }
   }
 
-  private getUserInfo() {
-    this.userService.getUserInfo().subscribe(message => {
-      this.message = message;
-    });
+  private getRouteParams(): void {
+    this.model._id = this.route.snapshot.params['id'];
+    this.model.email = this.route.snapshot.params['email'];
+    this.model.file = this.route.snapshot.params['file'];
+    this.model.path = this.route.snapshot.params['path'];
+    this.model.firstname = this.route.snapshot.params['firstname'];
+    this.model.lastname = this.route.snapshot.params['lastname'];
+    this.model.age = this.route.snapshot.params['age'];
+  }
+
+  ngOnInit(): void {
+    this.loadAllUsers();
+    this.getUserInfo();
+    this.getUsersById();
+    this.getRouteParams();
   }
 }
