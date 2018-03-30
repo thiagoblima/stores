@@ -41,8 +41,7 @@ let UserSchema = new Schema({
         required: true
     },
     file: {
-        type: String,
-        required: true
+        type: String
     }, 
     path: {
         type: String,
