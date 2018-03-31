@@ -5,7 +5,7 @@
     <h5>{{message}}</h5>
     <section class="stores store col-sm-6">
       <h4>Create a new Store</h4>
-      <form name="form" class="stores" (ngSubmit)="f.form.valid && createStore()" #f="ngForm" novalidate>
+      <form name="form" class="stores" (ngSubmit)="f.form.valid && createStore(store)" #f="ngForm" novalidate>
         <section class="form-group" [ngClass]="{ 'has-error': f.submitted && !store_file.valid }">
           <label for="store_file">Change Picture Clicking Here</label>
           <input type="file" class="form-control" (change)="fileChange($event)" name="store_file" [(ngModel)]="model.store_file" #store_file="ngModel"
