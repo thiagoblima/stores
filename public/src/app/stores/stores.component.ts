@@ -45,7 +45,7 @@ export class StoresComponent implements OnInit {
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
   }
 
- private createStore(store: Store): void {
+ public createStore(store: Store): void {
     this.loading = true;
     this.storesService.createStore(this.model).subscribe(
       data => {
