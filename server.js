@@ -33,7 +33,7 @@ app.listen(port);
 console.log("App running at: http://localhost:" + port);
 
 mongoose.Promise = global.Promise;
-const promise = mongoose.connect(config.database, { useMongoClient: true });
+const promise = mongoose.connect(config.database);
 promise.then(connect => connect).catch(err => err);
 
 /**
