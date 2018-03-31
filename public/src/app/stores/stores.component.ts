@@ -29,6 +29,7 @@ export class StoresComponent implements OnInit {
   // tslint:disable:no-inferrable-types
   private currentUser: User;
   public stores: Store[] = [];
+  public store: Store;
   public message: string = '';
   public model: any = {};
   public loading: boolean = false;
@@ -47,6 +48,8 @@ export class StoresComponent implements OnInit {
 
  public createStore(store: Store): void {
     this.loading = true;
+    this.fileChangeChecker();
+
     this.storesService.createStore(this.model).subscribe(
       data => {
         this.alertService.success('Creation successful', true);
@@ -101,6 +104,13 @@ export class StoresComponent implements OnInit {
           console.log('an error ocurred while saving a new photo', error);
         }
       );
+    }
+  }
+
+  private fileChangeChecker(): void {
+    if (!this.model.store_file) {
+      this.model.store_file = 'default.png';
+      this.model.store_path = './assets/images/store/';
     }
   }
 
