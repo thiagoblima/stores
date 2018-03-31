@@ -35,6 +35,7 @@ h4.defualt {
 
 .store ul {
   padding-left: 15px !important;
-  overflow: scroll;
+  overflow-y: visible;
+  overflow-x: hidden;
   height: 80vh;
 }
