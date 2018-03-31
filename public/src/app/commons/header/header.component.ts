@@ -106,7 +106,7 @@ export class HeaderComponent implements OnInit {
   private headerMessage: string = 'Get Header Object';
   public show: boolean = false;
 
-  private animate(state): any {
+  private animate(): any {
     return (this.show = false), alert(this.show);
   }
 
@@ -120,6 +120,7 @@ export class HeaderComponent implements OnInit {
   };
 
   public getHeaderObject(): any {
+    // tslint:disable-next-line:no-unused-expression
     return this.header, console.log(`${this.headerMessage}`, this.header);
   }
 
