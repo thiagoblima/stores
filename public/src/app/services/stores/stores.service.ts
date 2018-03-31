@@ -52,12 +52,4 @@ export class StoresService {
       return new RequestOptions({ headers: headers });
     }
   }
-
-  private jwtFormData() {
-    let currentUser = JSON.parse(localStorage.getItem('currentUser'));
-    if (currentUser && currentUser.token) {
-      let headers = new Headers({ Authorization: currentUser.token });
-      return new RequestOptions({ headers: headers });
-    }
-  }
 }
