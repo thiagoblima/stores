@@ -97,13 +97,10 @@ export class UserComponent implements OnInit {
 
       formData.append('file', file, file.name);
 
-      let headers = new Headers();
-      let options = new RequestOptions({ headers: headers });
-
       this.model.file = file.name;
       this.model.path = './assets/images/user/';
 
-      this.userService.fileChange(formData, options).subscribe(
+      this.userService.fileChange(formData).subscribe(
         data => {
           console.log('success on saving new photo', data);
         },
