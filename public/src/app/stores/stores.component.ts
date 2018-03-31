@@ -45,7 +45,7 @@ export class StoresComponent implements OnInit {
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
   }
 
-  createStore() {
+ private createStore(store: Store): void {
     this.loading = true;
     this.storesService.createStore(this.model).subscribe(
       data => {
@@ -62,25 +62,25 @@ export class StoresComponent implements OnInit {
     );
   }
 
-  deleteStore(_id: number) {
-    this.storesService.delete(_id).subscribe(() => {
+  deleteStore(_id: number): {} {
+    return this.storesService.delete(_id).subscribe(() => {
       this.loadAllStores();
     });
   }
 
-  private loadAllStores() {
-    this.storesService.getStores().subscribe(stores => {
+  private loadAllStores(): {} {
+    return this.storesService.getStores().subscribe(stores => {
       this.stores = stores;
     });
   }
 
-  private getUserInfo() {
-    this.userService.getUserInfo().subscribe(message => {
+  private getUserInfo(): {} {
+    return this.userService.getUserInfo().subscribe(message => {
       this.message = message;
     });
   }
 
-  fileChange(event) {
+  fileChange(event): void {
     let fileList: FileList = event.target.files;
 
     if (fileList.length > 0) {
