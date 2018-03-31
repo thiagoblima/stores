@@ -1,15 +1,5 @@
-import {
-  Component,
-  NgModule,
-  OnInit,
-  trigger,
-  transition,
-  style,
-  animate,
-  state
-} from '@angular/core';
-
-type navAlias = [{ menu: string; alt: string; url: string }];
+import { Component, NgModule, OnInit }  from '@angular/core';
+import { trigger, transition, style, animate, state } from '@angular/core';
 
 /**
  * @name: NavConfig
@@ -55,9 +45,9 @@ const nav: NavConfig = {
 export class NavComponent implements OnInit {
   // tslint:disable:no-inferrable-types
   private message: string = 'Get Nav Object';
-  public show: boolean = false;
+  public show: boolean = false
 
-  public links: navAlias = [
+  public links = [
     { menu: nav.home, alt: 'Home', url: '/' },
     { menu: nav.aboutUs, alt: 'Who We Are', url: '/about' },
     { menu: nav.showCase, alt: 'Show Case', url: 'link-3' },
@@ -66,6 +56,7 @@ export class NavComponent implements OnInit {
   ];
 
   public getNavObject(): any {
+    // tslint:disable-next-line:no-unused-expression
     return this.links, console.log(`${this.message}`, this.links);
   }
 
