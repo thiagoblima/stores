@@ -1,19 +1,7 @@
-import {
-  Component,
-  NgModule,
-  OnInit,
-  trigger,
-  transition,
-  style,
-  animate,
-  state
-} from '@angular/core';
-import {
-  ActivatedRoute,
-  Params,
-  Router,
-  NavigationExtras
-} from '@angular/router';
+import { Component, NgModule, OnInit } from '@angular/core';
+import { trigger, transition, style, animate, state } from '@angular/core';
+import { ActivatedRoute, Params, Router } from '@angular/router';
+import { NavigationExtras } from '@angular/router';
 import { Http, Headers, RequestOptions, Response } from '@angular/http';
 import { Observable } from 'rxjs';
 import { Location } from '@angular/common';
@@ -51,7 +39,7 @@ export class StoreComponent implements OnInit {
   public stores: Store[] = [];
   public user: User;
   public store: Store;
-  public data;
+  public data: Object = {} ? Object : null;
   public show: boolean = false;
   public error: string = '';
   public message: string = '';
@@ -68,33 +56,22 @@ export class StoreComponent implements OnInit {
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
   }
 
-  ngOnInit() {
-    this.loadAllUsers();
-    this.getUserInfo();
-
-    this.route.params
+  private getStoreById(): {} {
+    return this.route.params
       .switchMap(params => this.storesService.getById(params.id))
       .subscribe(store => (this.store = store));
-
-    this.model._id = this.route.snapshot.params['id'];
-    this.model.store_image = this.route.snapshot.params['store_image'];
-    this.model.store_phone = this.route.snapshot.params['store_phone'];
-    this.model.store_country = this.route.snapshot.params['store_country'];
-    this.model.store_city = this.route.snapshot.params['store_city'];
-    this.model.store_type = this.route.snapshot.params['store_type'];
-    this.model.store_address = this.route.snapshot.params['store_address'];
-    this.model.updated_at = new Date();
   }
 
-  private updateStore(store: Store) {
+  private updateStore(store: Store): void {
     this.loading = true;
+
+    this.fileChangeChecker();
 
     this.storesService.update(this.model).subscribe(
       data => {
         this.alertService.success('Registration successful', true);
         this.router.navigate(['/stores']);
-
-        this.loadAllUsers();
+        this.loadAllStores();
       },
       error => {
         this.error = 'Error on updating the store.';
@@ -103,7 +80,7 @@ export class StoreComponent implements OnInit {
     );
   }
 
-  fileChange(event) {
+  fileChange(event): void {
     let fileList: FileList = event.target.files;
 
     if (fileList.length > 0) {
@@ -127,21 +104,50 @@ export class StoreComponent implements OnInit {
     }
   }
 
-  private loadAllUsers() {
-    this.userService.getAll().subscribe(users => {
+  private fileChangeChecker(): void {
+    if (!this.model.store_file) {
+      this.getStoreById();
+      this.model.store_file = this.store.store_file;
+      this.model.store_path = './assets/images/store/';
+    }
+  }
+
+  private loadAllUsers(): {} {
+    return this.userService.getAll().subscribe(users => {
       this.users = users;
     });
   }
 
-  private getUserInfo() {
-    this.userService.getUserInfo().subscribe(message => {
+  private getUserInfo(): {} {
+    return this.userService.getUserInfo().subscribe(message => {
       this.message = message;
     });
   }
 
-  private getStores() {
-    this.storesService.getStores().subscribe(data => {
+  private loadAllStores(): {} {
+    return this.storesService.getStores().subscribe(data => {
       this.data = data;
     });
+  }
+
+  private queryRouteParameters(): void {
+    this.model._id = this.route.snapshot.params['id'];
+    this.model.store_image = this.route.snapshot.params['store_image'];
+    this.model.store_file = this.route.snapshot.params['store_file'];
+    this.model.store_path = this.route.snapshot.params['store_path'];
+    this.model.store_phone = this.route.snapshot.params['store_phone'];
+    this.model.store_country = this.route.snapshot.params['store_country'];
+    this.model.store_city = this.route.snapshot.params['store_city'];
+    this.model.store_type = this.route.snapshot.params['store_type'];
+    this.model.store_address = this.route.snapshot.params['store_address'];
+    this.model.updated_at = new Date();
+
+  }
+
+  ngOnInit() {
+    this.loadAllStores();
+    this.getUserInfo();
+    this.getStoreById();
+    this.queryRouteParameters();
   }
 }
