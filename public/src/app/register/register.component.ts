@@ -38,7 +38,7 @@ export class RegisterComponent implements OnInit {
 
   register() {
     this.loading = true;
-    this.userService.create(this.model)
+    this.userService.createUser(this.model)
       .subscribe(
       data => {
         this.alertService.success('Registration successful', true);
@@ -66,7 +66,7 @@ export class RegisterComponent implements OnInit {
       this.model.file = file.name;
       this.model.path = './assets/images/user/';
 
-      this.userService.fileChange(formData, options).subscribe(
+      this.userService.fileChange(formData).subscribe(
         data => {
           console.log('success on saving new photo', data);
         },
