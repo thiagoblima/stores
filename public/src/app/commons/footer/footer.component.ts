@@ -1,9 +1,10 @@
-import { Component, NgModule, OnInit, trigger, transition, style, animate, state } from '@angular/core';
+import { Component, NgModule, OnInit } from '@angular/core';
+import { trigger, transition, style, animate, state } from '@angular/core';
 import { NavComponent } from '../nav/nav.component';
 
 type footerAlias = { logo: string | {}, rights: string | {}, contact: string | {} } ;
 
-/** 
+/**
   * @name: FooterConfig
   * @description: Footer config to be implemented in Footer 
   **/
@@ -40,7 +41,7 @@ interface FooterConfig {
 
 export class Footer implements FooterConfig {
 
-  /** 
+  /**
     * @name: Footer
     * @description: Object instances written here 
     **/
@@ -148,6 +149,7 @@ export class FooterComponent implements OnInit {
   }
 
   public getFooterObject(): any {
+    // tslint:disable-next-line:no-unused-expression
     return this.footer, console.log(`${this.message}`, this.footer);
   }
 
