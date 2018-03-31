@@ -28,7 +28,9 @@ import 'rxjs/add/operator/switchMap';
   templateUrl: './user.component.html',
   styleUrls: ['./user.component.scss']
 })
+
 export class UserComponent implements OnInit {
+
   // tslint:disable:no-inferrable-types
   private currentUser: User;
   private error: string = '';
@@ -50,7 +52,7 @@ export class UserComponent implements OnInit {
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
   }
 
-  private getUsersById(): {} {
+  private getUserById(): {} {
     return this.route.params
       .switchMap(params => this.userService.getById(params.id))
       .subscribe(user => (this.user = user));
@@ -85,7 +87,7 @@ export class UserComponent implements OnInit {
     );
   }
 
-  fileChange(event): void {
+  private fileChange(event): void {
     let fileList: FileList = event.target.files;
 
     if (fileList.length > 0) {
@@ -114,13 +116,13 @@ export class UserComponent implements OnInit {
 
   private fileChangeChecker(): void {
     if (!this.model.file) {
-      this.getUsersById();
+      this.getUserById();
       this.model.file = this.user.file;
       this.model.path = './assets/images/user/';
     }
   }
 
-  private getRouteParams(): void {
+  private queryRouteParameters(): void {
     this.model._id = this.route.snapshot.params['id'];
     this.model.email = this.route.snapshot.params['email'];
     this.model.file = this.route.snapshot.params['file'];
@@ -133,7 +135,7 @@ export class UserComponent implements OnInit {
   ngOnInit(): void {
     this.loadAllUsers();
     this.getUserInfo();
-    this.getUsersById();
-    this.getRouteParams();
+    this.getUserById();
+    this.queryRouteParameters();
   }
 }
