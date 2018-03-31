@@ -1,13 +1,5 @@
-import {
-  Component,
-  NgModule,
-  OnInit,
-  trigger,
-  transition,
-  style,
-  animate,
-  state
-} from '@angular/core';
+import { Component, NgModule, OnInit } from '@angular/core';
+import { trigger, transition, style, animate, state } from '@angular/core';
 import { Http, Headers, RequestOptions, Response } from '@angular/http';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
@@ -31,7 +23,9 @@ import { StoresService } from '../services/stores/index';
   templateUrl: './stores.component.html',
   styleUrls: ['./stores.component.scss']
 })
+
 export class StoresComponent implements OnInit {
+
   // tslint:disable:no-inferrable-types
   private currentUser: User;
   public stores: Store[] = [];
@@ -57,7 +51,7 @@ export class StoresComponent implements OnInit {
       data => {
         this.alertService.success('Creation successful', true);
         this.router.navigate(['/stores']);
-        this.getStores();
+        this.loadAllStores();
         this.loading = false;
         this.model = {};
       },
@@ -70,11 +64,11 @@ export class StoresComponent implements OnInit {
 
   deleteStore(_id: number) {
     this.storesService.delete(_id).subscribe(() => {
-      this.getStores();
+      this.loadAllStores();
     });
   }
 
-  private getStores() {
+  private loadAllStores() {
     this.storesService.getStores().subscribe(stores => {
       this.stores = stores;
     });
@@ -111,7 +105,7 @@ export class StoresComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getStores();
+    this.loadAllStores();
     this.getUserInfo();
   }
 }
