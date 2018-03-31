@@ -38,7 +38,7 @@ export class StoresService {
 
   fileChange(formData) {
     return this.http
-      .post('api/upload/store/asset', formData, this.jwtFormData())
+      .post('api/upload/store/asset', formData, this.jwt())
       .map((response: Response) => response.text());
   }
 
