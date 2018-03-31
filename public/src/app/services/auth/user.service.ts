@@ -24,7 +24,7 @@ export class UserService {
       .map((response: Response) => response.json());
   }
 
-  create(user: User) {
+  createUser(user: User) {
     return this.http
       .post('/api/signup', user, this.jwt())
       .map((response: Response) => response.json());
@@ -42,9 +42,9 @@ export class UserService {
       .map((response: Response) => response.json());
   }
 
-  fileChange(formData, options) {
+  fileChange(formData) {
     return this.http
-      .post('api/upload/user/asset', formData, options)
+      .post('api/upload/user/asset', formData)
       .map((response: Response) => response.text());
   }
 
