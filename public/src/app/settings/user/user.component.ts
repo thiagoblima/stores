@@ -72,6 +72,7 @@ export class UserComponent implements OnInit {
 
   private updateUser(user: User): void {
     this.loading = true;
+
     this.fileChangeChecker();
 
     this.userService.update(this.model).subscribe(
