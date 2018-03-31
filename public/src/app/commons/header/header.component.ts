@@ -1,15 +1,21 @@
-import { Component, NgModule, OnInit, trigger, transition, style, animate, state } from '@angular/core';
+import { Component, NgModule, OnInit } from '@angular/core';
+import { trigger, transition, style, animate, state } from '@angular/core';
 import { UserService } from '../../services/auth/index';
 import { User } from '../../models/index';
 
-type headerAlias = { logo: string, alt: string, title: string, subtitle: string, date: Date };
+type headerAlias = {
+  logo: string;
+  alt: string;
+  title: string;
+  subtitle: string;
+  date: Date;
+};
 
 export class Header {
-
-  /** 
-    * @name: Header
-    * @description: Object instances written here 
-    **/
+  /**
+   * @name: Header
+   * @description: Object instances written here
+   **/
 
   private logo: string;
   private alt: string;
@@ -64,14 +70,13 @@ export class Header {
   public set setDate(date) {
     this.date = date;
   }
-
 }
 
 /**
-  * @name: header 
-  * @param: logo, title, subtitle, date 
-  * @description: Creating a new element from Header Class 
-  **/
+ * @name: header
+ * @param: logo, title, subtitle, date
+ * @description: Creating a new element from Header Class
+ **/
 
 const header = new Header('logo', 'alt', 'title', 'subtitle', new Date());
 
@@ -84,35 +89,25 @@ header.setDate = new Date();
 @Component({
   selector: 'app-header',
   animations: [
-    trigger(
-      'myAnimation',
-      [
-        transition(
-          ':enter', [
-            style({ backgroundColor:'transparent', color: '#FD9D40', opacity: 1 }),
-            animate('800ms')
-          ]
-        ),
-        transition(
-          ':leave', [
-            style({opacity: 0 }),
-            animate('800ms')
-          ]
-        )
-      ]
-    )
+    trigger('myAnimation', [
+      transition(':enter', [
+        style({ backgroundColor: 'transparent', color: '#FD9D40', opacity: 1 }),
+        animate('800ms')
+      ]),
+      transition(':leave', [style({ opacity: 0 }), animate('800ms')])
+    ])
   ],
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-
 export class HeaderComponent implements OnInit {
+
   // tslint:disable:no-inferrable-types
   private headerMessage: string = 'Get Header Object';
   public show: boolean = false;
 
   private animate(state): any {
-    return this.show = false, alert(this.show);
+    return (this.show = false), alert(this.show);
   }
 
   // tslint:disable-next-line:member-ordering
@@ -128,9 +123,7 @@ export class HeaderComponent implements OnInit {
     return this.header, console.log(`${this.headerMessage}`, this.header);
   }
 
-
   ngOnInit() {
     this.getHeaderObject();
   }
-
 }
