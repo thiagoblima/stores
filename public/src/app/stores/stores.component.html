@@ -1,8 +1,9 @@
 <app-nav></app-nav>
 <section class="container welcome">
   <section class="row">
-    <h2 [@myAnimation]="show">Loaded Stores</h2>
-    <h5>{{message}}</h5>
+    <h2 [@myAnimation]="getShow()">{{ storeHeader.title }}
+    </h2>
+    <h5>{{ getMessage }}</h5>
     <section class="stores store col-sm-6">
       <h4>Create a new Store</h4>
       <form name="form" class="stores" (ngSubmit)="f.form.valid && createStore(store)" #f="ngForm" novalidate>
@@ -50,10 +51,11 @@
         <span *ngIf="error" class="alert alert-danger">{{error}}</span>
       </form>
     </section>
-    <section class="stores store col-sm-6" [@myAnimation]="show">
+    <section class="stores store col-sm-6" [@myAnimation]="getShow()">
       <h4>Stores Loaded</h4>
       <ul>
         <li *ngFor="let store of stores">
+          <img src="{{store.store_path + store.store_file}}" alt="{{store.store_name}}" class="" />
           <h3>{{store.store_name}}</h3>
           <h4 class="defualt">{{store.store_phone}}</h4>
           <h4 class="defualt">{{store.store_country}} | {{store.store_city}}</h4>
