@@ -8,6 +8,30 @@ import { Store } from '../models/index';
 import { UserService, AlertService } from '../services/auth/index';
 import { StoresService } from '../services/stores/index';
 
+interface StoreConfig <T, X, Y, Z> {
+  stores: Store[];
+  store: Store;
+  model: Object;
+  loading: boolean;
+  error: string;
+  storeHeader: { title: string };
+  getCurrentUser(): User;
+  getShow(): boolean;
+  getMessage(): string;
+}
+
+interface ErrorConfig<T, X, Y> {
+  success: boolean;
+  msg: string;
+  err: {
+    name: string,
+    message: string,
+    ok: number,
+    errmsg: string,
+    code: number,
+    codeName: string
+  }
+}
 @Component({
   moduleId: module.id,
   selector: 'app-stores',
@@ -24,17 +48,17 @@ import { StoresService } from '../services/stores/index';
   styleUrls: ['./stores.component.scss']
 })
 
-export class StoresComponent implements OnInit {
+export class StoresComponent implements StoreConfig<User, Store[], boolean, string>, OnInit {
 
-  // tslint:disable:no-inferrable-types
-  private currentUser: User;
-  public stores: Store[] = [];
-  public store: Store;
-  public message: string = '';
+  private currentUser;
+  private show;
+  private message;
+  public stores;
+  public store;
   public model: any = {};
-  public loading: boolean = false;
-  public error: string = '';
-  public show: boolean = false;
+  public storeHeader = { title: 'Store Manager' };
+  public loading;
+  public error;
 
   constructor(
     private router: Router,
@@ -43,7 +67,7 @@ export class StoresComponent implements OnInit {
     private alertService: AlertService,
     private http: Http
   ) {
-    this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    this.getCurrentUser = JSON.parse(localStorage.getItem('currentUser'));
   }
 
  public createStore(store: Store): void {
@@ -58,9 +82,11 @@ export class StoresComponent implements OnInit {
         this.loading = false;
         this.model = {};
       },
-      error => {
-        this.error = 'Error on creating a new store.';
+      err => {
+        let serverError: ErrorConfig<boolean, string, { string, number }> = JSON.parse(err._body);
+        this.error = 'An error occured: ' + `${serverError.msg}`
         this.loading = false;
+        console.warn('Update user debug: ', serverError);
       }
     );
   }
@@ -79,7 +105,7 @@ export class StoresComponent implements OnInit {
 
   private getUserInfo(): {} {
     return this.userService.getUserInfo().subscribe(message => {
-      this.message = message;
+      this.getMessage = message;
     });
   }
 
@@ -112,6 +138,18 @@ export class StoresComponent implements OnInit {
       this.model.store_file = 'default.png';
       this.model.store_path = './assets/images/store/';
     }
+  }
+
+  public getCurrentUser(): User {
+    return this.currentUser;
+  }
+
+  public getShow() {
+    return this.show;
+  }
+
+  public getMessage() {
+    return this.message;
   }
 
   ngOnInit() {
