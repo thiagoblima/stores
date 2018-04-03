@@ -220,7 +220,7 @@ module.exports = app => {
         .catch(err =>
           res.status(401).send({
             success: false,
-            msg: "Authentication failed. User not found.",
+            msg: "An error occured while updating.",
             err: err
           })
         );
