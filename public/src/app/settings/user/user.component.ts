@@ -13,6 +13,28 @@ import { User } from '../../models/index';
 import { UserService, AlertService } from '../../services/auth/index';
 import 'rxjs/add/operator/switchMap';
 
+interface UserConfig<T, X, Y, Z> {
+  users: Array<{}>;
+  model: Object;
+  error: string;
+  loading: string;
+  getCurrentUser(): Object;
+  getMessage(): string;
+  getShow(): boolean;
+}
+
+interface ErrorConfig<T, X, Y> {
+  success: boolean;
+  msg: string;
+  err: {
+    name: string,
+    message: string,
+    ok: number,
+    errmsg: string,
+    code: number,
+    codeName: string
+  }
+}
 @Component({
   moduleId: module.id,
   selector: 'app-user',
@@ -29,17 +51,17 @@ import 'rxjs/add/operator/switchMap';
   styleUrls: ['./user.component.scss']
 })
 
-export class UserComponent implements OnInit {
+export class UserComponent implements UserConfig<User, User[], string, boolean>, OnInit {
 
-  // tslint:disable:no-inferrable-types
-  private currentUser: User;
-  private error: string = '';
-  private model: any = {};
-  private loading: boolean = false;
-  public users: User[] = [];
-  public user: User;
-  public message: string = '';
-  public show: boolean = false;
+  private currentUser;
+  private message;
+  private show;
+  public model: any = {};
+  public loading;
+  public users;
+  public user;
+  public error;
+
 
   constructor(
     private userService: UserService,
@@ -49,7 +71,7 @@ export class UserComponent implements OnInit {
     private alertService: AlertService,
     private http: Http
   ) {
-    this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    this.getCurrentUser = JSON.parse(localStorage.getItem('currentUser'));
   }
 
   private getUserById(): {} {
@@ -66,7 +88,7 @@ export class UserComponent implements OnInit {
 
   private getUserInfo(): {} {
     return this.userService.getUserInfo().subscribe(message => {
-      this.message = message;
+      this.getMessage = message;
     });
   }
 
@@ -81,9 +103,11 @@ export class UserComponent implements OnInit {
         this.router.navigate(['/settings']);
         this.loadAllUsers();
       },
-      error => {
-        this.error = 'Error on saving the user.';
+      err => {
+        let serverError: ErrorConfig<boolean, string, { string, number }> = JSON.parse(err._body);
+        this.error = 'An error occured: ' + `${serverError.err.name}`
         this.loading = false;
+        console.warn('Update user debug: ', serverError);
       }
     );
   }
@@ -128,6 +152,18 @@ export class UserComponent implements OnInit {
     this.model.firstname = this.route.snapshot.params['firstname'];
     this.model.lastname = this.route.snapshot.params['lastname'];
     this.model.age = this.route.snapshot.params['age'];
+  }
+
+  public getCurrentUser(): User {
+    return this.currentUser;
+  }
+
+  public getMessage() {
+    return this.message;
+  }
+
+  public getShow() {
+    return this.show;
   }
 
   ngOnInit(): void {
