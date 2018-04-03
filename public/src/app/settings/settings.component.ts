@@ -1,17 +1,15 @@
-import {
-  Component,
-  NgModule,
-  OnInit,
-  trigger,
-  transition,
-  style,
-  animate,
-  state
-} from '@angular/core';
+import { Component, NgModule, OnInit } from '@angular/core';
+import { trigger, transition, style, animate, state } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from '../models/index';
 import { UserService } from '../services/auth/index';
 
+interface UserConfig<T, X, Y, Z> {
+  users: Array<{}>;
+  getCurrentUser(): Object;
+  getMessage(): string;
+  getShow(): boolean;
+}
 @Component({
   moduleId: module.id,
   selector: 'app-settings',
@@ -27,15 +25,46 @@ import { UserService } from '../services/auth/index';
   templateUrl: './settings.component.html',
   styleUrls: ['./settings.component.scss']
 })
-export class SettingsComponent implements OnInit {
-  // tslint:disable:no-inferrable-types
-  private currentUser: User;
-  public users: User[] = [];
-  public show: boolean = false;
-  public message: string = '';
+
+export class SettingsComponent implements UserConfig<User, User[], string, boolean>, OnInit {
+
+  private currentUser;
+  private message;
+  private show;
+  public users;
 
   constructor(private userService: UserService, private router: Router) {
-    this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    this.getCurrentUser = JSON.parse(localStorage.getItem('currentUser'));
+  }
+
+  deleteUser(_id: number): {} {
+    return this.userService.delete(_id).subscribe(() => {
+      this.loadAllUsers();
+    });
+  }
+
+  private loadAllUsers(): {} {
+    return this.userService.getAll().subscribe(users => {
+      this.users = users;
+    });
+  }
+
+  private getUserInfo(): {} {
+    return this.userService.getUserInfo().subscribe(message => {
+      this.getMessage = message;
+    });
+  }
+
+  public getCurrentUser(): User {
+    return this.currentUser;
+  }
+
+  public getShow(): boolean {
+    return this.show;
+  }
+
+  public getMessage(): string {
+    return this.message;
   }
 
   ngOnInit() {
@@ -43,21 +72,4 @@ export class SettingsComponent implements OnInit {
     this.getUserInfo();
   }
 
-  deleteUser(_id: number) {
-    this.userService.delete(_id).subscribe(() => {
-      this.loadAllUsers();
-    });
-  }
-
-  private loadAllUsers() {
-    this.userService.getAll().subscribe(users => {
-      this.users = users;
-    });
-  }
-
-  private getUserInfo() {
-    this.userService.getUserInfo().subscribe(message => {
-      this.message = message;
-    });
-  }
 }
