@@ -15,6 +15,17 @@ import { StoresService } from '../../services/stores/index';
 import { UserService, AlertService } from '../../services/auth/index';
 import 'rxjs/add/operator/switchMap';
 
+interface StoreConfig<T, X, Y, Z> {
+  stores: Store[];
+  store: Store;
+  model: Object;
+  loading: boolean;
+  data: Object
+  error: string;
+  getCurrentUser(): User;
+  getMessage(): string;
+  getShow(): boolean;
+}
 @Component({
   moduleId: module.id,
   selector: 'app-store',
@@ -30,19 +41,17 @@ import 'rxjs/add/operator/switchMap';
   templateUrl: './store.component.html',
   styleUrls: ['./store.component.scss']
 })
-export class StoreComponent implements OnInit {
-  // tslint:disable:no-inferrable-types
-  private currentUser: User;
-  private loading: boolean = false;
-  private model: any = {};
-  public users: User[] = [];
-  public stores: Store[] = [];
-  public user: User;
-  public store: Store;
-  public data: Object = {} ? Object : null;
-  public show: boolean = false;
-  public error: string = '';
-  public message: string = '';
+export class StoreComponent implements StoreConfig<User, Store[], boolean, string>, OnInit {
+
+  private currentUser;
+  private message;
+  private show;
+  public loading;
+  public model: any = {};
+  public stores;
+  public store;
+  public data;
+  public error;
 
   constructor(
     private userService: UserService,
@@ -53,7 +62,19 @@ export class StoreComponent implements OnInit {
     private http: Http,
     private alertService: AlertService
   ) {
-    this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    this.getCurrentUser = JSON.parse(localStorage.getItem('currentUser'));
+  }
+
+  public getCurrentUser(): User {
+    return this.currentUser;
+  }
+
+  public getMessage() {
+    return this.message;
+  }
+
+  public getShow() {
+    return this.show;
   }
 
   private getStoreById(): {} {
@@ -112,15 +133,9 @@ export class StoreComponent implements OnInit {
     }
   }
 
-  private loadAllUsers(): {} {
-    return this.userService.getAll().subscribe(users => {
-      this.users = users;
-    });
-  }
-
   private getUserInfo(): {} {
     return this.userService.getUserInfo().subscribe(message => {
-      this.message = message;
+      this.getMessage = message;
     });
   }
 
@@ -141,7 +156,6 @@ export class StoreComponent implements OnInit {
     this.model.store_type = this.route.snapshot.params['store_type'];
     this.model.store_address = this.route.snapshot.params['store_address'];
     this.model.updated_at = new Date();
-
   }
 
   ngOnInit() {
