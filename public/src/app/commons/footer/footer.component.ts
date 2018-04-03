@@ -4,48 +4,26 @@ import { NavComponent } from '../nav/nav.component';
 
 type footerAlias = { logo: string | {}, rights: string | {}, contact: string | {} } ;
 
-/**
-  * @name: FooterConfig
-  * @description: Footer config to be implemented in Footer 
-  **/
-
 interface FooterConfig {
-
-  /**
-   * @description: Instances of objects
-   */
-
   logo: string;
   rights: string;
   message: string;
   telephone: number;
-
-  /**
-   * @description: Setters of instances of objects
-   */
-
   setLogo: string;
   setRights: string;
   setMessage: string;
   setTelephone: number;
-
-  /**
-   * @description: Getters of instances of objects
-   */
-
   getLogo: string;
   getRights: string;
   contact(): void;
-
 }
 
 export class Footer implements FooterConfig {
 
-  /**
+   /**
     * @name: Footer
-    * @description: Object instances written here 
+    * @description: Object instances written here
     **/
-
 
   constructor(public logo, public rights, public message, public telephone) {
 
@@ -94,13 +72,11 @@ export class Footer implements FooterConfig {
 
 }
 
-
-/**
-* @name: footer
-* @param: logo, rights, message, telefone
-* @description: Creating a new element from Footer Class 
-**/
-
+ /**
+  * @name: footer
+  * @param: logo, rights, message, telefone
+  * @description: Creating a new element from Footer Class
+  **/
 
 const footer: FooterConfig = new Footer('logo', 'rights', 'message', 1);
 
@@ -110,8 +86,6 @@ footer.setMessage = 'Contact us through the number: ';
 footer.setTelephone = 551143065555;
 console.log('Rendering: ', { obj: footer.contact() });
 
-
-
 @Component({
   selector: 'app-footer',
   animations: [
@@ -120,7 +94,7 @@ console.log('Rendering: ', { obj: footer.contact() });
       [
         transition(
           ':enter', [
-            style({ backgroundColor:'transparent', color: '#FD9D40', opacity: 1 }),
+            style({ backgroundColor: 'transparent', color: '#FD9D40', opacity: 1 }),
             animate('800ms')
           ]
         ),
@@ -136,6 +110,7 @@ console.log('Rendering: ', { obj: footer.contact() });
   templateUrl: './footer.component.html',
   styleUrls: ['./footer.component.scss']
 })
+
 export class FooterComponent implements OnInit {
   // tslint:disable:no-inferrable-types
   private telephone: any = footer.contact();
