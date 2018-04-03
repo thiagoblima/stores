@@ -1,9 +1,9 @@
 <app-nav></app-nav>
-<section class="container welcome" [@myAnimation]="show">
+<section class="container welcome" [@myAnimation]="getShow()">
   <section class="row">
-    <h2 [@myAnimation]="show">Loaded Users</h2>
-    <h5>{{message}}</h5>
-    <section class="col-sm-4 user-scroll" [@myAnimation]="show">
+    <h2 [@myAnimation]="getShow()">Loaded Users</h2>
+    <h5>{{ getMessage }}</h5>
+    <section class="col-sm-4 user-scroll" [@myAnimation]="getShow()">
       <ul>
         <li *ngFor="let user of users">
           <h3>{{user.firstname}} {{user.lastname}}</h3>
