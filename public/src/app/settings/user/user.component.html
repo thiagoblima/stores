@@ -1,10 +1,10 @@
 <app-nav></app-nav>
-<section class="container welcome" [@myAnimation]="show">
+<section class="container welcome">
   <section class="row" *ngIf="user">
-    <section class="user col-md-6 col-md-offset-3" [@myAnimation]="show">
-      <h2 class="user-hero">{{user.username}} user data</h2>
+    <section class="user col-md-6 col-md-offset-3">
+      <h2 class="user-hero" [@myAnimation]="getShow()">{{user.username}}</h2>
       <ul class="user-details">
-        <li>
+        <li [@myAnimation]="getShow()">
           <h3>{{user.firstname}} {{user.lastname}}</h3>
           <h4>id: {{user._id}}</h4>
           <h4>username: {{user.username}} </h4>
