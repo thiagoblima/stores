@@ -38,4 +38,12 @@ h4.defualt {
   overflow-y: visible;
   overflow-x: hidden;
   height: 80vh;
+  box-shadow: 2px 2px 4px;
+}
+
+.store ul li img {
+    float: left;
+    height: 120px;
+    width: 180px;
+    padding: 2em;
 }
