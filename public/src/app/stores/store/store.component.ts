@@ -26,6 +26,18 @@ interface StoreConfig<T, X, Y, Z> {
   getMessage(): string;
   getShow(): boolean;
 }
+interface ErrorConfig<T, X, Y> {
+  success: boolean;
+  msg: string;
+  err: {
+    name: string,
+    message: string,
+    ok: number,
+    errmsg: string,
+    code: number,
+    codeName: string
+  }
+}
 @Component({
   moduleId: module.id,
   selector: 'app-store',
@@ -41,6 +53,7 @@ interface StoreConfig<T, X, Y, Z> {
   templateUrl: './store.component.html',
   styleUrls: ['./store.component.scss']
 })
+
 export class StoreComponent implements StoreConfig<User, Store[], boolean, string>, OnInit {
 
   private currentUser;
@@ -65,18 +78,6 @@ export class StoreComponent implements StoreConfig<User, Store[], boolean, strin
     this.getCurrentUser = JSON.parse(localStorage.getItem('currentUser'));
   }
 
-  public getCurrentUser(): User {
-    return this.currentUser;
-  }
-
-  public getMessage() {
-    return this.message;
-  }
-
-  public getShow() {
-    return this.show;
-  }
-
   private getStoreById(): {} {
     return this.route.params
       .switchMap(params => this.storesService.getById(params.id))
@@ -94,9 +95,11 @@ export class StoreComponent implements StoreConfig<User, Store[], boolean, strin
         this.router.navigate(['/stores']);
         this.loadAllStores();
       },
-      error => {
-        this.error = 'Error on updating the store.';
+      err => {
+        let serverError: ErrorConfig<boolean, string, { string, number }> = JSON.parse(err._body);
+        this.error = 'An error occured: ' + `${serverError.msg}`
         this.loading = false;
+        console.warn('Update user debug: ', serverError);
       }
     );
   }
@@ -118,9 +121,12 @@ export class StoreComponent implements StoreConfig<User, Store[], boolean, strin
         data => {
           console.log('success on saving new photo', data);
         },
-        error => {
-          console.log('an error ocurred while saving a new photo', error);
-        }
+         err => {
+        let serverError: ErrorConfig<boolean, string, { string, number }> = JSON.parse(err._body);
+        this.error = 'An error occured: ' + `${serverError.msg}`
+        this.loading = false;
+        console.warn('Update user debug: ', serverError);
+      }
       );
     }
   }
@@ -156,6 +162,18 @@ export class StoreComponent implements StoreConfig<User, Store[], boolean, strin
     this.model.store_type = this.route.snapshot.params['store_type'];
     this.model.store_address = this.route.snapshot.params['store_address'];
     this.model.updated_at = new Date();
+  }
+
+  public getCurrentUser(): User {
+    return this.currentUser;
+  }
+
+  public getMessage() {
+    return this.message;
+  }
+
+  public getShow() {
+    return this.show;
   }
 
   ngOnInit() {
