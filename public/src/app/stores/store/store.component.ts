@@ -95,7 +95,7 @@ export class StoreComponent implements StoreConfig<User, Store[], boolean, strin
         this.router.navigate(['/stores']);
         this.loadAllStores();
       },
-      err => {
+       err => {
         let serverError: ErrorConfig<boolean, string, { string, number }> = JSON.parse(err._body);
         this.error = 'An error occured: ' + `${serverError.msg}`
         this.loading = false;
@@ -121,12 +121,9 @@ export class StoreComponent implements StoreConfig<User, Store[], boolean, strin
         data => {
           console.log('success on saving new photo', data);
         },
-         err => {
-        let serverError: ErrorConfig<boolean, string, { string, number }> = JSON.parse(err._body);
-        this.error = 'An error occured: ' + `${serverError.msg}`
-        this.loading = false;
-        console.warn('Update user debug: ', serverError);
-      }
+        error => {
+          console.log('an error ocurred while saving a new photo', error);
+        }
       );
     }
   }
@@ -151,6 +148,18 @@ export class StoreComponent implements StoreConfig<User, Store[], boolean, strin
     });
   }
 
+  public getCurrentUser(): User {
+    return this.currentUser;
+  }
+
+  public getMessage() {
+    return this.message;
+  }
+
+  public getShow() {
+    return this.show;
+  }
+
   private queryRouteParameters(): void {
     this.model._id = this.route.snapshot.params['id'];
     this.model.store_image = this.route.snapshot.params['store_image'];
@@ -162,18 +171,6 @@ export class StoreComponent implements StoreConfig<User, Store[], boolean, strin
     this.model.store_type = this.route.snapshot.params['store_type'];
     this.model.store_address = this.route.snapshot.params['store_address'];
     this.model.updated_at = new Date();
-  }
-
-  public getCurrentUser(): User {
-    return this.currentUser;
-  }
-
-  public getMessage() {
-    return this.message;
-  }
-
-  public getShow() {
-    return this.show;
   }
 
   ngOnInit() {
