@@ -26,6 +26,7 @@ interface StoreConfig<T, X, Y, Z> {
   getMessage(): string;
   getShow(): boolean;
 }
+
 interface ErrorConfig<T, X, Y> {
   success: boolean;
   msg: string;
