@@ -141,9 +141,10 @@
 
 // store functions
 
-@mixin set-upload-file($display: block, $min-width: 100%, $margin-top: -25px, $opacity: 0, $opacity: 0){
+@mixin set-upload-file($display: block, $min-width: 100%, $margin-top: -25px, $opacity: 0, $opacity: 0, $cursor: pointer){
     display: $display;
     min-width: $min-width;
     margin-top: $margin-top;
     opacity: $opacity;
+    cursor: $cursor;
 }
