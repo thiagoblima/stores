@@ -3,19 +3,12 @@
   <section class="row" *ngIf="user">
     <section class="user col-md-6 col-md-offset-3">
       <h2 class="user-hero" [@myAnimation]="getShow()">{{user.username}}</h2>
-      <ul class="user-details">
-        <li [@myAnimation]="getShow()">
-          <h3>{{user.firstname}} {{user.lastname}}</h3>
-          <h4>id: {{user._id}}</h4>
-          <h4>username: {{user.username}} </h4>
-        </li>
-      </ul>
       <form name="form" class="user" (ngSubmit)="f.form.valid && updateUser()" #f="ngForm" novalidate>
+        <img src="{{user.path + user.file}}" alt="{{user.username}}" class="" />
         <section class="form-group" [ngClass]="{ 'has-error': f.submitted && !file.valid }">
-          <label for="file">Change Picture Clicking Here</label>
+          <label for="file">Upload new photo</label>
           <input type="file" class="form-control" (change)="fileChange($event)" name="file" [(ngModel)]="model.file" #file="ngModel"
-          />
-          <img src="{{user.path + user.file}}" alt="{{user.username}}" class="" />
+          /> 
         </section>
         <section class="form-group" [ngClass]="{ 'has-error': f.submitted && !email.valid }">
           <label for="email">email: </label>
