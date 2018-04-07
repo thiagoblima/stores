@@ -38,7 +38,7 @@
           <div *ngIf="f.submitted && !store_address.valid" class="help-block">Store Address is required</div>
         </section>
         <section class="form-group" [ngClass]="{ 'has-error': f.submitted && !store_file.valid }">
-          <label for="store_file">Change Picture Clicking Here</label>
+          <label for="store_file">Upload new photo</label>
           <input type="file" class="form-control" (change)="fileChange($event)" name="store_file" [(ngModel)]="model.store_file" #store_file="ngModel"
           />
         </section>
