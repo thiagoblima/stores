@@ -3,20 +3,12 @@
   <section class="row" *ngIf="store">
     <section class="user col-md-6 col-md-offset-3" [@myAnimation]="getShow()">
       <h2 class="user-hero">{{store.store_name}}</h2>
-      <ul class="user-details">
-        <li>
-          <h3>Store Region: {{store.store_country}} | {{store.store_city}}</h3>
-          <h4>Store Type: {{store.store_type}}</h4>
-          <h4>Id: {{store._id}}</h4>
-          <h4>Store Address: {{store.store_address}} </h4>
-        </li>
-      </ul>
       <form name="form" class="store" (ngSubmit)="f.form.valid && updateStore()" #f="ngForm" novalidate>
+        <img src="{{store.store_path + store.store_file}}" alt="{{store.store_name}}" class="" />
         <section class="form-group" [ngClass]="{ 'has-error': f.submitted && !store_file.valid }">
-          <label for="store_file">Change Picture Clicking Here</label>
+          <label for="store_file">Upload new photo</label>
           <input type="file" class="form-control" (change)="fileChange($event)" name="store_file" [(ngModel)]="model.store_file" #store_file="ngModel"
           />
-          <img src="{{store.store_path + store.store_file}}" alt="{{store.store_name}}" class="" />
         </section>
         <section class="form-group" [ngClass]="{ 'has-error': f.submitted && !store_phone.valid }">
           <label for="store_phone">store phone: </label>
