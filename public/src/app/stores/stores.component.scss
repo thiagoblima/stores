@@ -13,12 +13,8 @@
   float: left;
 }
 
-form.stores {
-  margin-left: 15px;
-}
-
-section.stores form .form-group label {
-  font-weight: 200;
+section.stores > button {
+   color: #ffffff !important;
 }
 
 .store h4 {
@@ -42,8 +38,8 @@ h4.defualt {
 }
 
 .store ul li img {
-    float: left;
-    height: 120px;
-    width: 180px;
-    padding: 2em;
+  float: left;
+  height: 120px;
+  width: 180px;
+  padding: 2em;
 }
