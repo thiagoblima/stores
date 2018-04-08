@@ -10,6 +10,34 @@
 @import 'settings/settings.component';
 @import 'stores/stores.component';
 
+/* Scroll settings start */
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+ 
+/* Track */
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+    -webkit-border-radius: 0px;
+    border-radius: 0px;
+    background-color:$standard-fusion;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 0px;
+    border-radius: 0px;
+    background: $standard-conga; 
+    box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+}
+
+::-webkit-scrollbar-thumb:window-inactive {
+	background: $standard-conga; 
+}
+
+// input file settings
+
 input[type=file] {
     @include set-upload-file();
 }
