@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { routing } from './app.routing';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatFormFieldModule, MatButtonModule, MatInputModule, MatIconModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { NavComponent } from './commons/nav/nav.component';
@@ -44,6 +45,10 @@ import { AboutComponent } from './about/about.component';
     BrowserAnimationsModule,
     BrowserModule,
     FormsModule,
+    MatFormFieldModule,
+    MatButtonModule,
+    MatInputModule,
+    MatIconModule,
     HttpModule,
     routing
   ],
