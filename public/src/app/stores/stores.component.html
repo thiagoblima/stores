@@ -6,38 +6,38 @@
     <h5>{{ getMessage }}</h5>
     <section class="stores store col-sm-6">
       <h4>Create a new Store</h4>
-      <form name="form" class="stores" (ngSubmit)="f.form.valid && createStore(store)" #f="ngForm" novalidate>
-        <mat-form-field class="form-field" [ngClass]="{ 'has-error': f.submitted && !store_name.valid }">
+      <form name="form" class="material stores" (ngSubmit)="f.form.valid && createStore(store)" #f="ngForm" novalidate>
+        <mat-form-field class="material-form-field" [ngClass]="{ 'has-error': f.submitted && !store_name.valid }">
           <mat-icon>store</mat-icon>
           <input matInput type="text" placeholder="store name" name="store_name" [(ngModel)]="model.store_name" #store_name="ngModel"
             required />
           <span *ngIf="f.submitted && !store_name.valid" class="help-block">Store Name is required</span>
         </mat-form-field>
-        <mat-form-field class="form-field" [ngClass]="{ 'has-error': f.submitted && !store_phone.valid }">
+        <mat-form-field class="material-form-field" [ngClass]="{ 'has-error': f.submitted && !store_phone.valid }">
            <mat-icon>phone</mat-icon>
           <input matInput type="number" placeholder="store phone number" name="store_phone" [(ngModel)]="model.store_phone" #store_phone="ngModel"
             required />
           <span *ngIf="f.submitted && !store_phone.valid" class="help-block">Store Phone is required</span>
         </mat-form-field>
-        <mat-form-field class="form-field" [ngClass]="{ 'has-error': f.submitted && !store_country.valid }">
+        <mat-form-field class="material-form-field" [ngClass]="{ 'has-error': f.submitted && !store_country.valid }">
           <mat-icon>home</mat-icon>
           <input matInput type="text" placeholder="store country" name="store_country" [(ngModel)]="model.store_country" #store_country="ngModel"
             required />
           <span *ngIf="f.submitted && !store_country.valid" class="help-block">Store Country is required</span>
         </mat-form-field>
-        <mat-form-field class="form-field" [ngClass]="{ 'has-error': f.submitted && !store_city.valid }">
+        <mat-form-field class="material-form-field" [ngClass]="{ 'has-error': f.submitted && !store_city.valid }">
           <mat-icon>location_city</mat-icon>
           <input matInput type="text" placeholder="store city" name="store_city" [(ngModel)]="model.store_city" #store_city="ngModel"
             required />
           <span *ngIf="f.submitted && !store_city.valid" class="help-block">Store City is required</span>
         </mat-form-field>
-        <mat-form-field class="form-field" [ngClass]="{ 'has-error': f.submitted && !store_type.valid }">
+        <mat-form-field class="material-form-field" [ngClass]="{ 'has-error': f.submitted && !store_type.valid }">
           <mat-icon>store</mat-icon>
           <input matInput type="text" placeholder="store type" name="store_type" [(ngModel)]="model.store_type" #store_type="ngModel"
             required />
           <span *ngIf="f.submitted && !store_type.valid" class="help-block">Store Type is required</span>
         </mat-form-field>
-        <mat-form-field class="form-field" [ngClass]="{ 'has-error': f.submitted && !store_address.valid }">
+        <mat-form-field class="material-form-field" [ngClass]="{ 'has-error': f.submitted && !store_address.valid }">
           <mat-icon>map</mat-icon>
           <input matInput type="text" placeholder="store address" name="store_address" [(ngModel)]="model.store_address" #store_address="ngModel"
             required />
