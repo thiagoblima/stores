@@ -1,9 +1,7 @@
 /**
- *@name: app.component
- *@description: Sass file for main app component settings.
+ * @name: app.component
+ * @description: Sass file for main app component settings.
  */
-
-/** @description: main app component */
 
 @import 'home/home.component';
 @import 'login/login.component';
@@ -14,8 +12,4 @@
 
 input[type=file] {
     @include set-upload-file();
-}
-
-label {
-   font-weight: 600 !important;
 }
