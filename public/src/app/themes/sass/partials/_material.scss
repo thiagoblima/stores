@@ -3,10 +3,25 @@
  * @description: all Google/Angular material settings goes here.
  */
 
+ // icon custom code
+
  .mat-icon {
     position: absolute;
     right: 0;
     top: -2px;
     color: rgb(117, 117, 117);
+  }
+
+  // form custom code
+
+  form.material {
+    margin-left: 15px;
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .material-form-field {
+    width: 100%;
   }
   
