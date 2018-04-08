@@ -1,6 +1,7 @@
 /**
- *@name: styles
- *@description: Imports the main app to be compiled.
+ * @name: styles
+ * @description: Imports the main app to be compiled.
  */
 
 @import 'app/app.component';
+@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
