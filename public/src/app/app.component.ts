@@ -1,7 +1,6 @@
 import { Component, Directive } from '@angular/core';
 import { HomeComponent } from './Home/index';
 
-
 @Component({
   moduleId: module.id,
   selector: 'app-root',
@@ -9,6 +8,4 @@ import { HomeComponent } from './Home/index';
   styleUrls: ['./app.component.scss']
 })
 
-export class AppComponent {
-   
-}
+export class AppComponent {}
