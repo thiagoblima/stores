@@ -34,11 +34,12 @@ import { User } from '../models/index';
 
 
 export class WelcomeComponent {
-  
+
+  // tslint:disable-next-line:no-inferrable-types
   public currentUser: User;
-  public message: string = '';
+  public message = '';
   public storesType: any = [];
-  public show: boolean = false;
+  public show = false;
   private data;
 
 
@@ -58,6 +59,7 @@ export class WelcomeComponent {
     this.storesService.getStores().subscribe(data => { this.data = data; });
   }
 
+  // tslint:disable-next-line:use-life-cycle-interface
   ngOnInit() {
     this.getUserInfo();
     this.getStores();
