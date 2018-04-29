@@ -3,35 +3,10 @@ import { trigger, transition, style, animate, state } from '@angular/core';
 import { Http, Headers, RequestOptions, Response } from '@angular/http';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
-import { User } from '../models/index';
-import { Store } from '../models/index';
+import { User, Store, StoresConfig, ErrorConfig } from '../models/index';
 import { UserService, AlertService } from '../services/auth/index';
 import { StoresService } from '../services/stores/index';
 
-interface StoreConfig <T, X, Y, Z> {
-  stores: Store[];
-  store: Store;
-  model: Object;
-  loading: boolean;
-  error: string;
-  storeHeader: { title: string };
-  getCurrentUser(): User;
-  getShow(): boolean;
-  getMessage(): string;
-}
-
-interface ErrorConfig<T, X, Y> {
-  success: boolean;
-  msg: string;
-  err: {
-    name: string,
-    message: string,
-    ok: number,
-    errmsg: string,
-    code: number,
-    codeName: string
-  }
-}
 @Component({
   moduleId: module.id,
   selector: 'app-stores',
@@ -48,7 +23,7 @@ interface ErrorConfig<T, X, Y> {
   styleUrls: ['./stores.component.scss']
 })
 
-export class StoresComponent implements StoreConfig<User, Store[], boolean, string>, OnInit {
+export class StoresComponent implements StoresConfig<User, Store[], boolean, string>, OnInit {
 
   private currentUser;
   private show;
@@ -109,7 +84,7 @@ export class StoresComponent implements StoreConfig<User, Store[], boolean, stri
     });
   }
 
-  fileChange(event): void {
+ public fileChange(event): void {
     let fileList: FileList = event.target.files;
 
     if (fileList.length > 0) {
