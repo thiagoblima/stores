@@ -9,36 +9,11 @@ import { NavComponent } from '../../commons/nav/nav.component';
 import { HeaderComponent } from '../../commons/header/header.component';
 import { FooterComponent } from '../../commons/footer/footer.component';
 import { WelcomeComponent } from '../../welcome/welcome.component';
-import { User } from '../../models/index';
-import { Store } from '../../models/index';
+import { User, Store, StoresConfig, ErrorConfig } from '../../models/index';
 import { StoresService } from '../../services/stores/index';
 import { UserService, AlertService } from '../../services/auth/index';
 import 'rxjs/add/operator/switchMap';
 
-interface StoreConfig<T, X, Y, Z> {
-  stores: Store[];
-  store: Store;
-  model: Object;
-  loading: boolean;
-  data: Object
-  error: string;
-  getCurrentUser(): User;
-  getMessage(): string;
-  getShow(): boolean;
-}
-
-interface ErrorConfig<T, X, Y> {
-  success: boolean;
-  msg: string;
-  err: {
-    name: string,
-    message: string,
-    ok: number,
-    errmsg: string,
-    code: number,
-    codeName: string
-  }
-}
 @Component({
   moduleId: module.id,
   selector: 'app-store',
@@ -55,13 +30,14 @@ interface ErrorConfig<T, X, Y> {
   styleUrls: ['./store.component.scss']
 })
 
-export class StoreComponent implements StoreConfig<User, Store[], boolean, string>, OnInit {
+export class StoreComponent implements StoresConfig<User, Store[], boolean, string>, OnInit {
 
   private currentUser;
   private message;
   private show;
   public loading;
   public model: any = {};
+  public storeHeader = { title: 'Store Manager' };
   public stores;
   public store;
   public data;
@@ -105,7 +81,7 @@ export class StoreComponent implements StoreConfig<User, Store[], boolean, strin
     );
   }
 
-  fileChange(event): void {
+  public fileChange(event): void {
     let fileList: FileList = event.target.files;
 
     if (fileList.length > 0) {
