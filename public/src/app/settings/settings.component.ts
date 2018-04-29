@@ -1,15 +1,9 @@
 import { Component, NgModule, OnInit } from '@angular/core';
 import { trigger, transition, style, animate, state } from '@angular/core';
 import { Router } from '@angular/router';
-import { User } from '../models/index';
+import { User, UserConfig } from '../models/index';
 import { UserService } from '../services/auth/index';
 
-interface UserConfig<T, X, Y, Z> {
-  users: Array<{}>;
-  getCurrentUser(): Object;
-  getMessage(): string;
-  getShow(): boolean;
-}
 @Component({
   moduleId: module.id,
   selector: 'app-settings',
