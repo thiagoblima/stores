@@ -4,52 +4,53 @@
     <section class="user col-md-6 col-md-offset-3" [@myAnimation]="getShow()">
       <h2 class="user-hero">{{store.store_name}}</h2>
       <form name="form" class="store" (ngSubmit)="f.form.valid && updateStore()" #f="ngForm" novalidate>
-        <img src="{{store.store_path + store.store_file}}" alt="{{store.store_name}}" class="" />
-        <section class="form-group" [ngClass]="{ 'has-error': f.submitted && !store_file.valid }">
-          <label for="store_file">Upload new photo</label>
-          <input type="file" class="form-control" (change)="fileChange($event)" name="store_file" [(ngModel)]="model.store_file" #store_file="ngModel"
-          />
+        <mat-form-field class="material-form-field" [ngClass]="{ 'has-error': f.submitted && !store_name.valid }">
+          <mat-icon>store</mat-icon>
+          <input matInput type="text" placeholder="store name" name="store_name" [(ngModel)]="model.store_name" #store_name="ngModel"
+            required />
+          <span *ngIf="f.submitted && !store_name.valid" class="help-block">Store Name is required</span>
+        </mat-form-field>
+        <mat-form-field class="material-form-field" [ngClass]="{ 'has-error': f.submitted && !store_phone.valid }">
+          <mat-icon>phone</mat-icon>
+          <input matInput type="number" placeholder="store phone number" name="store_phone" [(ngModel)]="model.store_phone" #store_phone="ngModel"
+            required />
+          <span *ngIf="f.submitted && !store_phone.valid" class="help-block">Store Phone is required</span>
+        </mat-form-field>
+        <mat-form-field class="material-form-field" [ngClass]="{ 'has-error': f.submitted && !store_country.valid }">
+          <mat-icon>home</mat-icon>
+          <input matInput type="text" placeholder="store country" name="store_country" [(ngModel)]="model.store_country" #store_country="ngModel"
+            required />
+          <span *ngIf="f.submitted && !store_country.valid" class="help-block">Store Country is required</span>
+        </mat-form-field>
+        <mat-form-field class="material-form-field" [ngClass]="{ 'has-error': f.submitted && !store_city.valid }">
+          <mat-icon>location_city</mat-icon>
+          <input matInput type="text" placeholder="store city" name="store_city" [(ngModel)]="model.store_city" #store_city="ngModel"
+            required />
+          <span *ngIf="f.submitted && !store_city.valid" class="help-block">Store City is required</span>
+        </mat-form-field>
+        <mat-form-field class="material-form-field" [ngClass]="{ 'has-error': f.submitted && !store_type.valid }">
+          <mat-icon>store</mat-icon>
+          <input matInput type="text" placeholder="store type" name="store_type" [(ngModel)]="model.store_type" #store_type="ngModel"
+            required />
+          <span *ngIf="f.submitted && !store_type.valid" class="help-block">Store Type is required</span>
+        </mat-form-field>
+        <mat-form-field class="material-form-field" [ngClass]="{ 'has-error': f.submitted && !store_address.valid }">
+          <mat-icon>map</mat-icon>
+          <input matInput type="text" placeholder="store address" name="store_address" [(ngModel)]="model.store_address" #store_address="ngModel"
+            required />
+          <span *ngIf="f.submitted && !store_address.valid" class="help-block">Store Address is required</span>
+        </mat-form-field>
+        <section class="material-form-field" [ngClass]="{ 'has-error': f.submitted && !store_file.valid }">
+          <span>Upload Photo</span> 
+          <mat-icon class="uploader">backup</mat-icon>
+          <input type="file" class="form-control" (change)="fileChange($event)" name="store_file" [(ngModel)]="model.store_file"
+            #store_file="ngModel" />
         </section>
-        <section class="form-group" [ngClass]="{ 'has-error': f.submitted && !store_phone.valid }">
-          <label for="store_phone">store phone: </label>
-          <input type="number" name="store_phone" class="form-control" [(ngModel)]="model.store_phone" #store_phone="ngModel" placeholder="{{store.store_phone}}"
-            required/>
-          <div *ngIf="f.submitted && !store_phone.valid" class="help-block">Phone is required</div>
-        </section>
-        <section class="form-group" [ngClass]="{ 'has-error': f.submitted && !store_country.valid }">
-          <label for="store_country"> store country: </label>
-          <input type="text" name="store_country" class="form-control" [(ngModel)]="model.store_country" #store_country="ngModel" placeholder="{{store.store_country}}"
-            required/>
-          <div *ngIf="f.submitted && !store_country.valid" class="help-block">Country is required</div>
-        </section>
-        <section class="form-group" [ngClass]="{ 'has-error': f.submitted && !store_city.valid }">
-          <label for="store_city">store city: </label>
-          <input type="text" name="store_city" class="form-control" [(ngModel)]="model.store_city" #store_city="ngModel" placeholder="{{store.store_city}}"
-            required/>
-          <div *ngIf="f.submitted && !store_city.valid" class="help-block">City is required</div>
-        </section>
-        <section class="form-group" [ngClass]="{ 'has-error': f.submitted && !store_type.valid }">
-          <label for="store_type">store type: </label>
-          <input type="text" name="store_type" class="form-control" [(ngModel)]="model.store_type" #store_type="ngModel" placeholder="{{store.store_type}}"
-            required/>
-          <div *ngIf="f.submitted && !store_type.valid" class="help-block">Type is required</div>
-        </section>
-        <section class="form-group" [ngClass]="{ 'has-error': f.submitted && !store_address.valid }">
-          <label for="store_address">store address: </label>
-          <input type="text" name="store_address" class="form-control" [(ngModel)]="model.store_address" #store_address="ngModel" placeholder="{{store.store_address}}"
-            required/>
-          <div *ngIf="f.submitted && !store_address.valid" class="help-block">Address is required</div>
-        </section>
-        <section class="form-group store">
-          <button type="submit" [disabled]="loading" class="btn btn-primary">Save</button>
+        <section class="form-group stores">
+          <button mat-raised-button [disabled]="loading">Register</button>
           <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="
           />
-          <a [routerLink]="['/stores']" class="btn btn-link"><span>Cancel</span></a>
-        </section>
-        <section class="form-group updated_at" [ngClass]="{ 'has-error': f.submitted && !updated_at.valid }">
-          <label for="updated_at">updated_at: </label>
-          <input type="text" name="updated_at" class="form-control" [(ngModel)]="model.updated_at" #updated_at="ngModel" readonly/>
-          <div *ngIf="f.submitted && !updated_at.valid" class="help-block">Updated at is required</div>
+          <button [routerLink]="['/stores']" mat-raised-button color="warn">Cancel</button>
         </section>
         <span *ngIf="error" class="alert alert-danger">{{error}}</span>
       </form>
